@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7505FDC61C5BADA50067F5CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7505FDC51C5BADA50067F5CB /* AppDelegate.swift */; };
+		7505FDC81C5BADA50067F5CB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7505FDC71C5BADA50067F5CB /* MasterViewController.swift */; };
+		7505FDCA1C5BADA50067F5CB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7505FDC91C5BADA50067F5CB /* DetailViewController.swift */; };
+		7505FDCD1C5BADA50067F5CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7505FDCB1C5BADA50067F5CB /* Main.storyboard */; };
+		7505FDCF1C5BADA50067F5CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7505FDCE1C5BADA50067F5CB /* Assets.xcassets */; };
+		7505FDD21C5BADA50067F5CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7505FDD01C5BADA50067F5CB /* LaunchScreen.storyboard */; };
+		7505FDDD1C5BADA50067F5CB /* ChurchFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7505FDDC1C5BADA50067F5CB /* ChurchFinderTests.swift */; };
+		7505FDE81C5BADA50067F5CB /* ChurchFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7505FDE71C5BADA50067F5CB /* ChurchFinderUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7505FDD91C5BADA50067F5CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7505FDBA1C5BADA50067F5CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7505FDC11C5BADA50067F5CB;
+			remoteInfo = ChurchFinder;
+		};
+		7505FDE41C5BADA50067F5CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7505FDBA1C5BADA50067F5CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7505FDC11C5BADA50067F5CB;
+			remoteInfo = ChurchFinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7505FDC21C5BADA50067F5CB /* ChurchFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChurchFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7505FDC51C5BADA50067F5CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7505FDC71C5BADA50067F5CB /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		7505FDC91C5BADA50067F5CB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7505FDCC1C5BADA50067F5CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7505FDCE1C5BADA50067F5CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7505FDD11C5BADA50067F5CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7505FDD31C5BADA50067F5CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7505FDD81C5BADA50067F5CB /* ChurchFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChurchFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7505FDDC1C5BADA50067F5CB /* ChurchFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchFinderTests.swift; sourceTree = "<group>"; };
+		7505FDDE1C5BADA50067F5CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7505FDE31C5BADA50067F5CB /* ChurchFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChurchFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7505FDE71C5BADA50067F5CB /* ChurchFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchFinderUITests.swift; sourceTree = "<group>"; };
+		7505FDE91C5BADA50067F5CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7505FDBF1C5BADA50067F5CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7505FDD51C5BADA50067F5CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7505FDE01C5BADA50067F5CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7505FDB91C5BADA50067F5CB = {
+			isa = PBXGroup;
+			children = (
+				7505FDC41C5BADA50067F5CB /* ChurchFinder */,
+				7505FDDB1C5BADA50067F5CB /* ChurchFinderTests */,
+				7505FDE61C5BADA50067F5CB /* ChurchFinderUITests */,
+				7505FDC31C5BADA50067F5CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7505FDC31C5BADA50067F5CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7505FDC21C5BADA50067F5CB /* ChurchFinder.app */,
+				7505FDD81C5BADA50067F5CB /* ChurchFinderTests.xctest */,
+				7505FDE31C5BADA50067F5CB /* ChurchFinderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7505FDC41C5BADA50067F5CB /* ChurchFinder */ = {
+			isa = PBXGroup;
+			children = (
+				7505FDC51C5BADA50067F5CB /* AppDelegate.swift */,
+				7505FDC71C5BADA50067F5CB /* MasterViewController.swift */,
+				7505FDC91C5BADA50067F5CB /* DetailViewController.swift */,
+				7505FDCB1C5BADA50067F5CB /* Main.storyboard */,
+				7505FDCE1C5BADA50067F5CB /* Assets.xcassets */,
+				7505FDD01C5BADA50067F5CB /* LaunchScreen.storyboard */,
+				7505FDD31C5BADA50067F5CB /* Info.plist */,
+			);
+			path = ChurchFinder;
+			sourceTree = "<group>";
+		};
+		7505FDDB1C5BADA50067F5CB /* ChurchFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				7505FDDC1C5BADA50067F5CB /* ChurchFinderTests.swift */,
+				7505FDDE1C5BADA50067F5CB /* Info.plist */,
+			);
+			path = ChurchFinderTests;
+			sourceTree = "<group>";
+		};
+		7505FDE61C5BADA50067F5CB /* ChurchFinderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7505FDE71C5BADA50067F5CB /* ChurchFinderUITests.swift */,
+				7505FDE91C5BADA50067F5CB /* Info.plist */,
+			);
+			path = ChurchFinderUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7505FDC11C5BADA50067F5CB /* ChurchFinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7505FDEC1C5BADA50067F5CB /* Build configuration list for PBXNativeTarget "ChurchFinder" */;
+			buildPhases = (
+				7505FDBE1C5BADA50067F5CB /* Sources */,
+				7505FDBF1C5BADA50067F5CB /* Frameworks */,
+				7505FDC01C5BADA50067F5CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChurchFinder;
+			productName = ChurchFinder;
+			productReference = 7505FDC21C5BADA50067F5CB /* ChurchFinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7505FDD71C5BADA50067F5CB /* ChurchFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7505FDEF1C5BADA50067F5CB /* Build configuration list for PBXNativeTarget "ChurchFinderTests" */;
+			buildPhases = (
+				7505FDD41C5BADA50067F5CB /* Sources */,
+				7505FDD51C5BADA50067F5CB /* Frameworks */,
+				7505FDD61C5BADA50067F5CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7505FDDA1C5BADA50067F5CB /* PBXTargetDependency */,
+			);
+			name = ChurchFinderTests;
+			productName = ChurchFinderTests;
+			productReference = 7505FDD81C5BADA50067F5CB /* ChurchFinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7505FDE21C5BADA50067F5CB /* ChurchFinderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7505FDF21C5BADA50067F5CB /* Build configuration list for PBXNativeTarget "ChurchFinderUITests" */;
+			buildPhases = (
+				7505FDDF1C5BADA50067F5CB /* Sources */,
+				7505FDE01C5BADA50067F5CB /* Frameworks */,
+				7505FDE11C5BADA50067F5CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7505FDE51C5BADA50067F5CB /* PBXTargetDependency */,
+			);
+			name = ChurchFinderUITests;
+			productName = ChurchFinderUITests;
+			productReference = 7505FDE31C5BADA50067F5CB /* ChurchFinderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7505FDBA1C5BADA50067F5CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = SeriousLlama;
+				TargetAttributes = {
+					7505FDC11C5BADA50067F5CB = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					7505FDD71C5BADA50067F5CB = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 7505FDC11C5BADA50067F5CB;
+					};
+					7505FDE21C5BADA50067F5CB = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 7505FDC11C5BADA50067F5CB;
+					};
+				};
+			};
+			buildConfigurationList = 7505FDBD1C5BADA50067F5CB /* Build configuration list for PBXProject "ChurchFinder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7505FDB91C5BADA50067F5CB;
+			productRefGroup = 7505FDC31C5BADA50067F5CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7505FDC11C5BADA50067F5CB /* ChurchFinder */,
+				7505FDD71C5BADA50067F5CB /* ChurchFinderTests */,
+				7505FDE21C5BADA50067F5CB /* ChurchFinderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7505FDC01C5BADA50067F5CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7505FDD21C5BADA50067F5CB /* LaunchScreen.storyboard in Resources */,
+				7505FDCF1C5BADA50067F5CB /* Assets.xcassets in Resources */,
+				7505FDCD1C5BADA50067F5CB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7505FDD61C5BADA50067F5CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7505FDE11C5BADA50067F5CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7505FDBE1C5BADA50067F5CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7505FDCA1C5BADA50067F5CB /* DetailViewController.swift in Sources */,
+				7505FDC81C5BADA50067F5CB /* MasterViewController.swift in Sources */,
+				7505FDC61C5BADA50067F5CB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7505FDD41C5BADA50067F5CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7505FDDD1C5BADA50067F5CB /* ChurchFinderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7505FDDF1C5BADA50067F5CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7505FDE81C5BADA50067F5CB /* ChurchFinderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7505FDDA1C5BADA50067F5CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7505FDC11C5BADA50067F5CB /* ChurchFinder */;
+			targetProxy = 7505FDD91C5BADA50067F5CB /* PBXContainerItemProxy */;
+		};
+		7505FDE51C5BADA50067F5CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7505FDC11C5BADA50067F5CB /* ChurchFinder */;
+			targetProxy = 7505FDE41C5BADA50067F5CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7505FDCB1C5BADA50067F5CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7505FDCC1C5BADA50067F5CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7505FDD01C5BADA50067F5CB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7505FDD11C5BADA50067F5CB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7505FDEA1C5BADA50067F5CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7505FDEB1C5BADA50067F5CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7505FDED1C5BADA50067F5CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ChurchFinder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gcc.ChurchFinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7505FDEE1C5BADA50067F5CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ChurchFinder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gcc.ChurchFinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7505FDF01C5BADA50067F5CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ChurchFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gcc.ChurchFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChurchFinder.app/ChurchFinder";
+			};
+			name = Debug;
+		};
+		7505FDF11C5BADA50067F5CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ChurchFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gcc.ChurchFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChurchFinder.app/ChurchFinder";
+			};
+			name = Release;
+		};
+		7505FDF31C5BADA50067F5CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ChurchFinderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gcc.ChurchFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ChurchFinder;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		7505FDF41C5BADA50067F5CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ChurchFinderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.gcc.ChurchFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ChurchFinder;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7505FDBD1C5BADA50067F5CB /* Build configuration list for PBXProject "ChurchFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7505FDEA1C5BADA50067F5CB /* Debug */,
+				7505FDEB1C5BADA50067F5CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7505FDEC1C5BADA50067F5CB /* Build configuration list for PBXNativeTarget "ChurchFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7505FDED1C5BADA50067F5CB /* Debug */,
+				7505FDEE1C5BADA50067F5CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7505FDEF1C5BADA50067F5CB /* Build configuration list for PBXNativeTarget "ChurchFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7505FDF01C5BADA50067F5CB /* Debug */,
+				7505FDF11C5BADA50067F5CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7505FDF21C5BADA50067F5CB /* Build configuration list for PBXNativeTarget "ChurchFinderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7505FDF31C5BADA50067F5CB /* Debug */,
+				7505FDF41C5BADA50067F5CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7505FDBA1C5BADA50067F5CB /* Project object */;
+}
