@@ -15,6 +15,7 @@
 		7505FDD21C5BADA50067F5CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7505FDD01C5BADA50067F5CB /* LaunchScreen.storyboard */; };
 		7505FDDD1C5BADA50067F5CB /* ChurchFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7505FDDC1C5BADA50067F5CB /* ChurchFinderTests.swift */; };
 		7505FDE81C5BADA50067F5CB /* ChurchFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7505FDE71C5BADA50067F5CB /* ChurchFinderUITests.swift */; };
+		7505FDF61C5BB0400067F5CB /* firstFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7505FDF51C5BB0400067F5CB /* firstFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		7505FDE31C5BADA50067F5CB /* ChurchFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChurchFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7505FDE71C5BADA50067F5CB /* ChurchFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchFinderUITests.swift; sourceTree = "<group>"; };
 		7505FDE91C5BADA50067F5CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7505FDF51C5BB0400067F5CB /* firstFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		7505FDB91C5BADA50067F5CB = {
 			isa = PBXGroup;
 			children = (
+				7505FDF51C5BB0400067F5CB /* firstFile.swift */,
 				7505FDC41C5BADA50067F5CB /* ChurchFinder */,
 				7505FDDB1C5BADA50067F5CB /* ChurchFinderTests */,
 				7505FDE61C5BADA50067F5CB /* ChurchFinderUITests */,
@@ -261,6 +264,7 @@
 			files = (
 				7505FDCA1C5BADA50067F5CB /* DetailViewController.swift in Sources */,
 				7505FDC81C5BADA50067F5CB /* MasterViewController.swift in Sources */,
+				7505FDF61C5BB0400067F5CB /* firstFile.swift in Sources */,
 				7505FDC61C5BADA50067F5CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
