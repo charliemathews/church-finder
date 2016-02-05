@@ -2,12 +2,12 @@
 //  ChurchFinderTests.swift
 //  ChurchFinderTests
 //
-//  Created by Sam Gill on 1/29/16.
-//  Copyright © 2016 SeriousLlama. All rights reserved.
+//  Created by Michael Curtis on 2/2/16.
+//  Copyright (c) 2016 Michael Curtis. All rights reserved.
 //
 
+import UIKit
 import XCTest
-@testable import ChurchFinder
 
 class ChurchFinderTests: XCTestCase {
     
@@ -23,12 +23,12 @@ class ChurchFinderTests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssert(true, "Pass")
     }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measureBlock() {
             // Put the code you want to measure the time of here.
         }
     }
