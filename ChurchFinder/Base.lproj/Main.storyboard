@@ -102,25 +102,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </mapView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qov-QV-Jnd">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qov-QV-Jnd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="OGc-cT-KPd">
+                                    <navigationItem id="OGc-cT-KPd">
                                         <barButtonItem key="leftBarButtonItem" title="Filters" id="pKW-ls-tbz"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="LpR-rN-PkC"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="LpR-rN-PkC">
+                                            <connections>
+                                                <action selector="showSearchBar:" destination="hel-lN-dXH" id="LRU-Ln-zDa"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="PGR-tO-Ahl" secondAttribute="centerX" id="1O3-6b-Q4y"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="r2K-bf-J6W" secondAttribute="top" id="LNj-iH-hXs"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="trailing" secondItem="r2K-bf-J6W" secondAttribute="trailing" id="RfM-jM-xFt"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="r2K-bf-J6W" secondAttribute="leading" id="VEp-ON-niG"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="PGR-tO-Ahl" secondAttribute="top" id="eQy-fJ-lfS"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="PGR-tO-Ahl" secondAttribute="leading" id="uxv-ND-zbk"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="View Map" image="medMap" id="ioO-Uu-V2c"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="mapView" destination="r2K-bf-J6W" id="z1c-aY-IwM"/>
+                        <outlet property="filBut" destination="pKW-ls-tbz" id="ozL-Eg-Rej"/>
+                        <outlet property="mapview" destination="r2K-bf-J6W" id="jAB-Gb-b6x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcv-G8-Ghi" userLabel="First Responder" sceneMemberID="firstResponder"/>

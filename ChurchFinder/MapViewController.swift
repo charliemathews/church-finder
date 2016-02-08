@@ -22,7 +22,6 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     @IBOutlet weak var filBut: UIBarButtonItem!
     //@IBOutlet weak var mapSearch: UISearchBar!
     @IBOutlet weak var mapview: MKMapView!
-    @IBOutlet weak var segCon: UISegmentedControl!
     
     @IBAction func showSearchBar(sender: AnyObject) {
         searchController = UISearchController(searchResultsController: nil)
