@@ -102,7 +102,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </mapView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qov-QV-Jnd">
@@ -122,6 +122,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="PGR-tO-Ahl" secondAttribute="centerX" id="1O3-6b-Q4y"/>
+                            <constraint firstItem="r2K-bf-J6W" firstAttribute="bottom" secondItem="VOE-kN-b44" secondAttribute="top" id="KdW-zS-zEH"/>
                             <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="r2K-bf-J6W" secondAttribute="top" id="LNj-iH-hXs"/>
                             <constraint firstItem="qov-QV-Jnd" firstAttribute="trailing" secondItem="r2K-bf-J6W" secondAttribute="trailing" id="RfM-jM-xFt"/>
                             <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="r2K-bf-J6W" secondAttribute="leading" id="VEp-ON-niG"/>
