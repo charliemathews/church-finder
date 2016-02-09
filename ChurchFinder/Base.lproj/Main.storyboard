@@ -109,7 +109,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem id="OGc-cT-KPd">
-                                        <barButtonItem key="leftBarButtonItem" title="Filters" id="pKW-ls-tbz"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Filters" id="pKW-ls-tbz">
+                                            <connections>
+                                                <segue destination="ooq-OH-znN" kind="presentation" id="S5G-qs-gHd"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="LpR-rN-PkC">
                                             <connections>
                                                 <action selector="showSearchBar:" destination="hel-lN-dXH" id="LRU-Ln-zDa"/>
@@ -139,7 +143,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcv-G8-Ghi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757" y="-343"/>
+            <point key="canvasLocation" x="750" y="-343"/>
+        </scene>
+        <!--Filter View Controller-->
+        <scene sceneID="Txd-3a-d7Q">
+            <objects>
+                <viewController id="ooq-OH-znN" customClass="FilterViewController" customModule="ChurchFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6m6-do-IxX"/>
+                        <viewControllerLayoutGuide type="bottom" id="M3h-3A-cY8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nFa-48-Jil">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Efc-c8-cYD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="509"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="J4v-Ga-Z03" customClass="FilterViewCell" customModule="ChurchFinder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J4v-Ga-Z03" id="1gY-0y-eQV">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iKu-dI-TMG">
+                                                    <rect key="frame" x="305" y="-4" width="228" height="51"/>
+                                                </pickerView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJz-B0-aAM">
+                                                    <rect key="frame" x="116" y="6" width="79" height="32"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="filterCategoryLabel" destination="IJz-B0-aAM" id="Lbd-st-ZeO"/>
+                                            <outlet property="filterCategoryPicker" destination="iKu-dI-TMG" id="8Dc-iC-doy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5z-cY-4Yw">
+                                <rect key="frame" x="282" y="535" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="triggerDone:" destination="ooq-OH-znN" eventType="touchUpInside" id="CO4-HY-9g9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M3h-3A-cY8" firstAttribute="top" secondItem="k5z-cY-4Yw" secondAttribute="bottom" constant="159" id="UMS-0s-3UN"/>
+                            <constraint firstItem="k5z-cY-4Yw" firstAttribute="centerX" secondItem="nFa-48-Jil" secondAttribute="centerX" id="opc-MS-OQP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Efc-c8-cYD" id="eIQ-1z-94f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dKC-bb-vr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1458" y="-343"/>
         </scene>
     </scenes>
     <resources>

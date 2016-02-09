@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDelegate, UISearchBarDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDelegate, UISearchBarDelegate, filterResultsDelegate{
     
     var searchController:UISearchController!
     var annotation: MKAnnotation!
@@ -18,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     var error:NSError!
     var pointAnnotation:MKPointAnnotation!
     var pinAnnotationView:MKPinAnnotationView!
+    var parCheck: Int!
     
     @IBOutlet weak var filBut: UIBarButtonItem!
     //@IBOutlet weak var mapSearch: UISearchBar!
@@ -35,7 +36,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        parCheck = 10
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
@@ -97,9 +98,16 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
             self.mapview.centerCoordinate = self.pointAnnotation.coordinate
             self.mapview.addAnnotation(self.pinAnnotationView.annotation!)
             self.mapview.setRegion(MKCoordinateRegion(center: localSearchResponse!.boundingRegion.center, span: MKCoordinateSpan(latitudeDelta:1,longitudeDelta: 1)),animated:true)
-            
-            
+
         }
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let child = segue.destinationViewController as! FilterViewController
+        child.delegate = self
+    }
+    func done(child: FilterViewController){
+        parCheck = child.check
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
