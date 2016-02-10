@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChurchFinder/FilterViewCell.swift"
-            timestampString = "476678490.767176"
+            timestampString = "476764425.272082"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "initialize(_:pL:)"
             landmarkType = "5">
          </BreakpointContent>

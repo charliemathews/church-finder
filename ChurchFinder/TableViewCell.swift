@@ -11,6 +11,23 @@ import UIKit
 class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var img: UIImageView!
+    
+    @IBOutlet weak var denomLabel: UILabel!
+    
+    @IBOutlet weak var worshipLabel: UILabel!
+    
+    @IBOutlet weak var distanceLabel: UILabel!
+    
+    @IBOutlet weak var addressLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var goButton: UIButton!
+    
+    
+    @IBAction func segueDetailedView(sender: AnyObject) {
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

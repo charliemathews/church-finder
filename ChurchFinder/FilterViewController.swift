@@ -23,6 +23,7 @@ class FilterViewController: UIViewController {
         //cell = FilterViewCell()
         //cell.initialize("test", pL: tempStrArray)
         // Do any additional setup after loading the view.
+        
     }
     func returnCheck()-> Int{
         return check

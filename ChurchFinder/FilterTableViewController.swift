@@ -16,13 +16,13 @@ protocol filterResultsDelegate{
 class FilterTableViewController: UITableViewController {
 
     let labels = ["Denomination", "Worship Style", "Size", "Times"]
-    let denoms = ["Evangelical", "Lutheran", "Catholic", "Presbyterian"]
+    let denoms = ["Evangelical", "Lutheran", "Catholic", "Protestant", "Boatright"]
     var delegate: filterResultsDelegate!
     var check: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -53,8 +53,10 @@ class FilterTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> FilterViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tblCell", forIndexPath: indexPath) as! FilterViewCell
         cell.textLabel?.text = labels[indexPath.row]
+       
         if(indexPath.row == 0){
             cell.pickerLabels = denoms
+            
         }
         // Configure the cell...
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterViewCell: UITableViewCell {
+class FilterViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var filterCategoryLabel: UILabel!
     @IBOutlet weak var filterCategoryPicker: UIPickerView!
@@ -18,6 +18,8 @@ class FilterViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        filterCategoryPicker.delegate = self
+        filterCategoryPicker.dataSource = self
     }
     func initialize(lT: String, pL: [String]){
         labelText = lT
@@ -29,6 +31,7 @@ class FilterViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -37,7 +40,7 @@ class FilterViewCell: UITableViewCell {
         return pickerLabels.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerLabels[row]
     }
     
