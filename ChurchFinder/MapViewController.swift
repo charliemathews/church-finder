@@ -102,10 +102,10 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         }
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let child = segue.destinationViewController as! FilterViewController
+        let child = segue.destinationViewController as! FilterTableViewController
         child.delegate = self
     }
-    func done(child: FilterViewController){
+    func done(child: FilterTableViewController){
         parCheck = child.check
         dismissViewControllerAnimated(true, completion: nil)
     }

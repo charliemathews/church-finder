@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChurchFinder/MapViewController.swift"
+            timestampString = "476671817.389925"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "done(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChurchFinder/FilterViewController.swift"
+            timestampString = "476753145.664969"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "FilterViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChurchFinder/FilterViewCell.swift"
+            timestampString = "476678490.767176"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "initialize(_:pL:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChurchFinder/FilterTableViewController.swift"
+            timestampString = "476760550.336974"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "FilterTableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChurchFinder.FilterTableViewController.delegate.setter : Swift.ImplicitlyUnwrappedOptional&lt;ChurchFinder.filterResultsDelegate&gt;"
+                  moduleName = "ChurchFinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Sarah/church-finder/ChurchFinder/FilterTableViewController.swift"
+                  timestampString = "476753146.800944"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChurchFinder.FilterTableViewController.delegate.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;ChurchFinder.filterResultsDelegate&gt;"
+                  moduleName = "ChurchFinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Sarah/church-finder/ChurchFinder/FilterTableViewController.swift"
+                  timestampString = "476753146.802063"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChurchFinder.FilterTableViewController.init (ChurchFinder.FilterTableViewController.Type)(style : __C.UITableViewStyle) -&gt; ChurchFinder.FilterTableViewController"
+                  moduleName = "ChurchFinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Sarah/church-finder/ChurchFinder/FilterTableViewController.swift"
+                  timestampString = "476753146.802938"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChurchFinder.FilterTableViewController.init (ChurchFinder.FilterTableViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; ChurchFinder.FilterTableViewController"
+                  moduleName = "ChurchFinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Sarah/church-finder/ChurchFinder/FilterTableViewController.swift"
+                  timestampString = "476753146.803541"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChurchFinder.FilterTableViewController.init (ChurchFinder.FilterTableViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;ChurchFinder.FilterTableViewController&gt;"
+                  moduleName = "ChurchFinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Sarah/church-finder/ChurchFinder/FilterTableViewController.swift"
+                  timestampString = "476753146.804388"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

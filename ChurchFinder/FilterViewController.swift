@@ -8,23 +8,20 @@
 
 import UIKit
 
-protocol filterResultsDelegate{
-    func done(child: FilterViewController)
-}
 
-class FilterViewController: UITableViewController {
+class FilterViewController: UIViewController {
     
     
     var delegate: filterResultsDelegate!
     var check: Int!
     
-    var cells = [FilterViewCell]()
+    //var cells = [FilterViewCell]()
     let tempStrArray = ["str1", "str2"]
     var cell: FilterViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
-        cell = FilterViewCell()
-        cell.initialize("test", pL: tempStrArray)
+        //cell = FilterViewCell()
+        //cell.initialize("test", pL: tempStrArray)
         // Do any additional setup after loading the view.
     }
     func returnCheck()-> Int{
@@ -36,7 +33,7 @@ class FilterViewController: UITableViewController {
     }
     
     @IBAction func triggerDone(sender: AnyObject) {
-        delegate.done(self)
+        
     }
 
     /*
