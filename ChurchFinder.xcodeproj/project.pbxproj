@@ -32,6 +32,7 @@
 		37FE8D401C6E211B00482663 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D3F1C6E211B00482663 /* SystemConfiguration.framework */; };
 		37FE8D421C6E213400482663 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D411C6E213400482663 /* libz.tbd */; };
 		37FE8D441C6E213E00482663 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D431C6E213E00482663 /* libsqlite3.tbd */; };
+		37FE8D4C1C6E281D00482663 /* ParseBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FE8D4B1C6E281D00482663 /* ParseBackend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		37FE8D3F1C6E211B00482663 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		37FE8D411C6E213400482663 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		37FE8D431C6E213E00482663 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		37FE8D4B1C6E281D00482663 /* ParseBackend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseBackend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		037F2EF11C61000000E971DB /* ChurchFinder */ = {
 			isa = PBXGroup;
 			children = (
+				37FE8D4B1C6E281D00482663 /* ParseBackend.swift */,
 				03CC23371C64739E00F13C19 /* MapViewController.swift */,
 				037F2EF41C61000000E971DB /* AppDelegate.swift */,
 				037F2EF81C61000000E971DB /* SecondViewController.swift */,
@@ -298,6 +301,7 @@
 				037F2EF91C61000000E971DB /* SecondViewController.swift in Sources */,
 				037F2EF51C61000000E971DB /* AppDelegate.swift in Sources */,
 				03CC23381C64739E00F13C19 /* MapViewController.swift in Sources */,
+				37FE8D4C1C6E281D00482663 /* ParseBackend.swift in Sources */,
 				037F2F171C6106A600E971DB /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
