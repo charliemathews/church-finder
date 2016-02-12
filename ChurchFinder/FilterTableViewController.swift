@@ -15,8 +15,12 @@ protocol filterResultsDelegate{
 
 class FilterTableViewController: UITableViewController {
 
+    @IBOutlet weak var tabbar: UITabBar!
     let labels = ["Denomination", "Worship Style", "Size", "Times"]
     let denoms = ["Evangelical", "Lutheran", "Catholic", "Protestant", "Boatright"]
+    let worshipStyles = ["Contemporary", "Traditional", "80's Disco"]
+    let sizes = ["0-100", "100-200", "200-300", "300+"]
+    let times = ["10:00-11:00","11:00-12:00", "Anytime before kickoff"]
     var delegate: filterResultsDelegate!
     var check: Int!
     
@@ -53,13 +57,27 @@ class FilterTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> FilterViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tblCell", forIndexPath: indexPath) as! FilterViewCell
         cell.textLabel?.text = labels[indexPath.row]
-       
+        switch (indexPath.row){
+            case 0:
+                cell.pickerLabels = denoms
+                break
+            case 1:
+                cell.pickerLabels = worshipStyles
+                break
+            case 2:
+                cell.pickerLabels = sizes
+                break
+            case 3:
+                cell.pickerLabels = times
+                break
+            default: break
+        }
         if(indexPath.row == 0){
-            cell.pickerLabels = denoms
+            
             
         }
+        cell.setSelected(true, animated: true)
         // Configure the cell...
-
         return cell
     }
     

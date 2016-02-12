@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
-    @IBOutlet weak var img: UIImageView!
+
     
     @IBOutlet weak var denomLabel: UILabel!
     
@@ -22,21 +22,22 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     
-    @IBOutlet weak var goButton: UIButton!
-    
-    
-    @IBAction func segueDetailedView(sender: AnyObject) {
-    }
+    @IBOutlet weak var websiteLinkLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func makeSegue(sender: AnyObject) {
+       
+      
+    }
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
+
 
 }

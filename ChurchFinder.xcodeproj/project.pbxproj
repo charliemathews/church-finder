@@ -16,6 +16,7 @@
 		037F2F171C6106A600E971DB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F161C6106A600E971DB /* TableViewController.swift */; };
 		037F2F191C61087400E971DB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F181C61087400E971DB /* TableViewCell.swift */; };
 		03CC23381C64739E00F13C19 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CC23371C64739E00F13C19 /* MapViewController.swift */; };
+		266C8D561C6CF56A00A4A681 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266C8D551C6CF56A00A4A681 /* DetailedViewController.swift */; };
 		26ECF9321C696A2600EA172F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECF9311C696A2600EA172F /* FilterViewController.swift */; };
 		26ECF9341C69785D00EA172F /* FilterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECF9331C69785D00EA172F /* FilterViewCell.swift */; };
 		26ECF9721C6AA50400EA172F /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECF9711C6AA50400EA172F /* FilterTableViewController.swift */; };
@@ -45,6 +46,7 @@
 		037F2F161C6106A600E971DB /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		037F2F181C61087400E971DB /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		03CC23371C64739E00F13C19 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		266C8D551C6CF56A00A4A681 /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		26ECF9311C696A2600EA172F /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		26ECF9331C69785D00EA172F /* FilterViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewCell.swift; sourceTree = "<group>"; };
 		26ECF9711C6AA50400EA172F /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		037F2EF11C61000000E971DB /* ChurchFinder */ = {
 			isa = PBXGroup;
 			children = (
+				266C8D551C6CF56A00A4A681 /* DetailedViewController.swift */,
 				03CC23371C64739E00F13C19 /* MapViewController.swift */,
 				037F2EF41C61000000E971DB /* AppDelegate.swift */,
 				037F2EF81C61000000E971DB /* SecondViewController.swift */,
@@ -237,6 +240,7 @@
 				037F2F191C61087400E971DB /* TableViewCell.swift in Sources */,
 				037F2EF91C61000000E971DB /* SecondViewController.swift in Sources */,
 				037F2EF51C61000000E971DB /* AppDelegate.swift in Sources */,
+				266C8D561C6CF56A00A4A681 /* DetailedViewController.swift in Sources */,
 				03CC23381C64739E00F13C19 /* MapViewController.swift in Sources */,
 				037F2F171C6106A600E971DB /* TableViewController.swift in Sources */,
 				26ECF9721C6AA50400EA172F /* FilterTableViewController.swift in Sources */,

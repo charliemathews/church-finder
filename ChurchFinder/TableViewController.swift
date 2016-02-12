@@ -8,11 +8,15 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
-
-
+class TableViewController: UITableViewController, detailedViewDelegate {
 
    
+
+    let churches = ["Covenant OPC", "East Main", "Church of the Flying Spaghetti Monster"]
+    let worshipStyles = ["Contemporary", "Traditional", "80's Discotech"]
+    var distance: Int!
+    let streets = ["123 Holy Street", "321 Grace Street", "1337 hax street"]
+    let times = ["10:00 - 11:00", "11:00 - 12:00", "We end before kickoff"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,24 +37,35 @@ class TableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return churches.count
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      //  var secondVC:ViewController = ViewController()
+      //  secondVC = segue.destinationViewController as SecondViewController
+      //  secondVC.delegate = self
+        let dest = segue.destinationViewController as! DetailedViewController
+        dest.delegate = self
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("listViewCell", forIndexPath: indexPath) as! TableViewCell
+        cell.denomLabel.text = churches[indexPath.row]
+        cell.worshipLabel.text = worshipStyles[indexPath.row]
+        cell.distanceLabel.text = "\(indexPath.row)0 Miles"
+        cell.addressLabel.text = streets[indexPath.row]
+        cell.timeLabel.text = times[indexPath.row]
         // Configure the cell...
-
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
