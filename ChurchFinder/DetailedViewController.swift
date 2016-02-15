@@ -58,7 +58,7 @@ class DetailedViewController: UIViewController {
     @IBOutlet weak var websiteLinkLabel: UILabel!
     
     
-    var church = ChurchInfo(name: "Chapel", denom: "Presbyterian", time: "9:30", worship: "Contemporary", description: "This is the description section about the church", address: "100 Campus Dr.", image: UIImage(named: "churches.jpg")!, url: "www.SeriousLlama.com")
+    var church: ChurchInfo = ChurchInfo(name: "Chapel", denom: "Presbyterian", time: "9:30", worship: "Contemporary", description: "This is the description section about the church", address: "100 Campus Dr.", image: UIImage(named: "churches.jpg")!, url: "https://www.SeriousLlama.com")
     
     
     override func viewDidLoad() {
@@ -80,8 +80,6 @@ class DetailedViewController: UIViewController {
     }
     
     @IBAction func toggleBookMark() {
-        
-        
         if bookmarked {
             bookMarkIcon.setImage(UIImage(named: "star-xxl.png"), forState: .Normal)
         }

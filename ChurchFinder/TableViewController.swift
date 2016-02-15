@@ -10,7 +10,9 @@ import UIKit
 
 class TableViewController: UITableViewController, detailedViewDelegate {
 
-   
+    func done(child: DetailedViewController) {
+        
+    }
 
     let churches = ["Covenant OPC", "East Main", "Church of the Flying Spaghetti Monster"]
     let worshipStyles = ["Contemporary", "Traditional", "80's Discotech"]
@@ -50,8 +52,11 @@ class TableViewController: UITableViewController, detailedViewDelegate {
       //  var secondVC:ViewController = ViewController()
       //  secondVC = segue.destinationViewController as SecondViewController
       //  secondVC.delegate = self
-        let dest = segue.destinationViewController as! DetailedViewController
-        dest.delegate = self
+        if (segue.identifier == "detailedSeg" ) {
+            let dest = segue.destinationViewController as! DetailedViewController
+            dest.delegate = self
+        }
+        
     }
 
     

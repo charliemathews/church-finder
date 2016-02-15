@@ -20,6 +20,17 @@
 		26ECF9321C696A2600EA172F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECF9311C696A2600EA172F /* FilterViewController.swift */; };
 		26ECF9341C69785D00EA172F /* FilterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECF9331C69785D00EA172F /* FilterViewCell.swift */; };
 		26ECF9721C6AA50400EA172F /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECF9711C6AA50400EA172F /* FilterTableViewController.swift */; };
+		756A127A1C717CE300BA4C84 /* addressImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 756A126F1C717CE300BA4C84 /* addressImage.png */; };
+		756A127B1C717CE300BA4C84 /* anywall_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 756A12701C717CE300BA4C84 /* anywall_logo.png */; };
+		756A127C1C717CE300BA4C84 /* churches.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 756A12711C717CE300BA4C84 /* churches.jpg */; };
+		756A127D1C717CE300BA4C84 /* clocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 756A12721C717CE300BA4C84 /* clocks.png */; };
+		756A127E1C717CE300BA4C84 /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 756A12731C717CE300BA4C84 /* compass.png */; };
+		756A127F1C717CE300BA4C84 /* infoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 756A12741C717CE300BA4C84 /* infoImage.png */; };
+		756A12801C717CE300BA4C84 /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = 756A12751C717CE300BA4C84 /* music.png */; };
+		756A12811C717CE300BA4C84 /* shareImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 756A12761C717CE300BA4C84 /* shareImage.png */; };
+		756A12821C717CE300BA4C84 /* star-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 756A12771C717CE300BA4C84 /* star-512.png */; };
+		756A12831C717CE300BA4C84 /* star-xxl.png in Resources */ = {isa = PBXBuildFile; fileRef = 756A12781C717CE300BA4C84 /* star-xxl.png */; };
+		756A12841C717CE300BA4C84 /* websiteImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 756A12791C717CE300BA4C84 /* websiteImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +61,17 @@
 		26ECF9311C696A2600EA172F /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		26ECF9331C69785D00EA172F /* FilterViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewCell.swift; sourceTree = "<group>"; };
 		26ECF9711C6AA50400EA172F /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
+		756A126F1C717CE300BA4C84 /* addressImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addressImage.png; sourceTree = "<group>"; };
+		756A12701C717CE300BA4C84 /* anywall_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anywall_logo.png; sourceTree = "<group>"; };
+		756A12711C717CE300BA4C84 /* churches.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = churches.jpg; sourceTree = "<group>"; };
+		756A12721C717CE300BA4C84 /* clocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clocks.png; sourceTree = "<group>"; };
+		756A12731C717CE300BA4C84 /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
+		756A12741C717CE300BA4C84 /* infoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoImage.png; sourceTree = "<group>"; };
+		756A12751C717CE300BA4C84 /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
+		756A12761C717CE300BA4C84 /* shareImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareImage.png; sourceTree = "<group>"; };
+		756A12771C717CE300BA4C84 /* star-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-512.png"; sourceTree = "<group>"; };
+		756A12781C717CE300BA4C84 /* star-xxl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-xxl.png"; sourceTree = "<group>"; };
+		756A12791C717CE300BA4C84 /* websiteImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = websiteImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				266C8D551C6CF56A00A4A681 /* DetailedViewController.swift */,
+				756A126E1C717CC900BA4C84 /* Pictures */,
 				03CC23371C64739E00F13C19 /* MapViewController.swift */,
 				037F2EF41C61000000E971DB /* AppDelegate.swift */,
 				037F2EF81C61000000E971DB /* SecondViewController.swift */,
@@ -131,6 +154,24 @@
 				037F2F0B1C61000000E971DB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		756A126E1C717CC900BA4C84 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				756A126F1C717CE300BA4C84 /* addressImage.png */,
+				756A12701C717CE300BA4C84 /* anywall_logo.png */,
+				756A12711C717CE300BA4C84 /* churches.jpg */,
+				756A12721C717CE300BA4C84 /* clocks.png */,
+				756A12731C717CE300BA4C84 /* compass.png */,
+				756A12741C717CE300BA4C84 /* infoImage.png */,
+				756A12751C717CE300BA4C84 /* music.png */,
+				756A12761C717CE300BA4C84 /* shareImage.png */,
+				756A12771C717CE300BA4C84 /* star-512.png */,
+				756A12781C717CE300BA4C84 /* star-xxl.png */,
+				756A12791C717CE300BA4C84 /* websiteImage.png */,
+			);
+			name = Pictures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,8 +256,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				756A127C1C717CE300BA4C84 /* churches.jpg in Resources */,
+				756A127A1C717CE300BA4C84 /* addressImage.png in Resources */,
 				037F2EFC1C61000000E971DB /* Main.storyboard in Resources */,
+				756A12841C717CE300BA4C84 /* websiteImage.png in Resources */,
+				756A127F1C717CE300BA4C84 /* infoImage.png in Resources */,
 				037F2F011C61000000E971DB /* LaunchScreen.xib in Resources */,
+				756A12801C717CE300BA4C84 /* music.png in Resources */,
+				756A12821C717CE300BA4C84 /* star-512.png in Resources */,
+				756A127E1C717CE300BA4C84 /* compass.png in Resources */,
+				756A12811C717CE300BA4C84 /* shareImage.png in Resources */,
+				756A127D1C717CE300BA4C84 /* clocks.png in Resources */,
+				756A127B1C717CE300BA4C84 /* anywall_logo.png in Resources */,
+				756A12831C717CE300BA4C84 /* star-xxl.png in Resources */,
 				037F2EFE1C61000000E971DB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
