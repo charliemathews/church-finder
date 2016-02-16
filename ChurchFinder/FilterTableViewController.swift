@@ -15,7 +15,6 @@ protocol filterResultsDelegate{
 
 class FilterTableViewController: UITableViewController {
 
-    @IBOutlet weak var tabbar: UITabBar!
     let labels = ["Denomination", "Worship Style", "Size", "Times"]
     let denoms = ["Evangelical", "Lutheran", "Catholic", "Protestant", "Boatright"]
     let worshipStyles = ["Contemporary", "Traditional", "80's Disco"]
@@ -23,7 +22,9 @@ class FilterTableViewController: UITableViewController {
     let times = ["10:00-11:00","11:00-12:00", "Anytime before kickoff"]
     var delegate: filterResultsDelegate!
     var check: Int!
-    
+    @IBAction func done(sender: AnyObject) {
+        delegate.done(self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +35,7 @@ class FilterTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    //delegate.done(self)
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -72,10 +73,7 @@ class FilterTableViewController: UITableViewController {
                 break
             default: break
         }
-        if(indexPath.row == 0){
-            
-            
-        }
+        cell.contentView.bringSubviewToFront(cell.filterCategoryPicker)
         cell.setSelected(true, animated: true)
         // Configure the cell...
         return cell

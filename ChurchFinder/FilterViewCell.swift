@@ -11,6 +11,7 @@ import UIKit
 class FilterViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var filterCategoryLabel: UILabel!
+    @IBOutlet var view: UIView!
     @IBOutlet weak var filterCategoryPicker: UIPickerView!
     var labelText: String!
     var pickerLabels = [String]()
@@ -20,6 +21,7 @@ class FilterViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDeleg
         // Initialization code
         filterCategoryPicker.delegate = self
         filterCategoryPicker.dataSource = self
+        self.view.bringSubviewToFront(view)
     }
     func initialize(lT: String, pL: [String]){
         labelText = lT
