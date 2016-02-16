@@ -1,16 +1,15 @@
 //
-//  TableViewCell.swift
+//  ChurchListCell.swift
 //  ChurchFinder
-//
-//  Created by Michael Curtis on 2/2/16.
-//  Copyright (c) 2016 Michael Curtis. All rights reserved.
 //
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class ChurchListCell: UITableViewCell {
 
-    @IBOutlet weak var img: UIImageView!
+    @IBOutlet var ChurchName : UILabel!
+    @IBOutlet weak var ChurchImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
