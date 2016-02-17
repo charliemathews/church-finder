@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Search-->
@@ -21,20 +22,81 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLI-Wp-2q0">
-                                            <rect key="frame" x="0.0" y="-4" width="166" height="128"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ChurchName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaZ-cZ-QnG">
-                                            <rect key="frame" x="174" y="14" width="346" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ChurchName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaZ-cZ-QnG">
+                                            <rect key="frame" x="8" y="8" width="456" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="HXB-0e-g4O"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Denomination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3k-Md-58w">
+                                            <rect key="frame" x="8" y="32" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="yRF-MI-WVQ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Church Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpI-2n-2xJ">
+                                            <rect key="frame" x="8" y="56" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="y0o-m7-aQf"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Service Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnV-Nd-J8O">
+                                            <rect key="frame" x="8" y="85" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="aqK-Vp-SWI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qc-zf-nq2">
+                                            <rect key="frame" x="478" y="9" width="114" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="ScM-i8-OJu"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uaZ-cZ-QnG" firstAttribute="trailing" secondItem="ds2-GS-BrE" secondAttribute="trailingMargin" id="0rw-5J-3T1"/>
+                                        <constraint firstItem="uaZ-cZ-QnG" firstAttribute="trailing" secondItem="ds2-GS-BrE" secondAttribute="trailingMargin" id="8l6-la-58L"/>
+                                        <constraint firstItem="1Qc-zf-nq2" firstAttribute="leading" secondItem="uaZ-cZ-QnG" secondAttribute="trailing" id="Au3-pv-4Lq"/>
+                                        <constraint firstItem="E3k-Md-58w" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leadingMargin" id="FG6-bY-S1G"/>
+                                        <constraint firstItem="WnV-Nd-J8O" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leadingMargin" id="FVR-6D-V3t"/>
+                                        <constraint firstItem="1Qc-zf-nq2" firstAttribute="trailing" secondItem="ds2-GS-BrE" secondAttribute="trailingMargin" id="PQm-Lz-2cM"/>
+                                        <constraint firstItem="ZpI-2n-2xJ" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leadingMargin" id="RLx-7K-aoI"/>
+                                        <constraint firstItem="E3k-Md-58w" firstAttribute="top" secondItem="uaZ-cZ-QnG" secondAttribute="bottom" id="XdU-EM-61D"/>
+                                        <constraint firstItem="WnV-Nd-J8O" firstAttribute="top" secondItem="ZpI-2n-2xJ" secondAttribute="bottom" id="Xk4-h7-MEa"/>
+                                        <constraint firstItem="ZpI-2n-2xJ" firstAttribute="top" secondItem="E3k-Md-58w" secondAttribute="bottom" id="c76-wf-dNr"/>
+                                        <constraint firstItem="uaZ-cZ-QnG" firstAttribute="top" secondItem="ds2-GS-BrE" secondAttribute="topMargin" id="hvg-ae-rHW"/>
+                                        <constraint firstItem="uaZ-cZ-QnG" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leadingMargin" id="q10-lH-DuK"/>
+                                        <constraint firstItem="1Qc-zf-nq2" firstAttribute="top" secondItem="ds2-GS-BrE" secondAttribute="topMargin" id="wfZ-Jq-CMQ"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="0rw-5J-3T1"/>
+                                            <exclude reference="8l6-la-58L"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="ChurchImage" destination="cLI-Wp-2q0" id="lDP-oy-yUh"/>
                                     <outlet property="ChurchName" destination="uaZ-cZ-QnG" id="g1B-E9-uB9"/>
+                                    <outlet property="churchName" destination="uaZ-cZ-QnG" id="w1G-IQ-MxW"/>
+                                    <outlet property="churchType" destination="ZpI-2n-2xJ" id="LP3-97-bkb"/>
+                                    <outlet property="denomination" destination="E3k-Md-58w" id="77Y-q2-hnw"/>
+                                    <outlet property="distance" destination="1Qc-zf-nq2" id="E5v-VM-vc0"/>
+                                    <outlet property="serviceTime" destination="WnV-Nd-J8O" id="Ren-Op-Bls"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -7,8 +7,11 @@ import UIKit
 
 class ChurchListCell: UITableViewCell {
 
-    @IBOutlet var ChurchName : UILabel!
-    @IBOutlet weak var ChurchImage: UIImageView!
+    @IBOutlet weak var churchName : UILabel!
+    @IBOutlet weak var denomination: UILabel!
+    @IBOutlet weak var churchType: UILabel!
+    @IBOutlet weak var serviceTime: UILabel!
+    @IBOutlet weak var distance: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

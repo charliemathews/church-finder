@@ -3,7 +3,7 @@
 //  ChurchFinder
 //
 //  Created by Daniel Mitchell on 2/12/16.
-//  Copyright © 2016 Michael Curtis. All rights reserved.
+//  Copyright © 2016 Daniel Mitchell. All rights reserved.
 //
 
 import Parse

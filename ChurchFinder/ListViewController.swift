@@ -49,7 +49,11 @@ class ListViewController: UITableViewController {
     
     func setTitleForCell(cell:ChurchListCell, indexPath:NSIndexPath) {
         let church = churchList[indexPath.row] as Church
-        cell.ChurchName.text = church.name ?? "[No Title]"
+        cell.churchName.text = church.name ?? "[No Title]"
+        cell.denomination.text = church.denom ?? "[No Denomination]"
+        cell.churchType.text = church.style ?? "[No Type]"
+        cell.serviceTime.text = church.times ?? "[No Times]"
+        cell.distance.text = "Needs work"
     }
 
     /*
