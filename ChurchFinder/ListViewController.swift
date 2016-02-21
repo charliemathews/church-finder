@@ -4,6 +4,7 @@
 
 import UIKit
 
+
 class ListViewController: UITableViewController {
     
     let churchCellIdentifier = "ChurchListCell"
@@ -55,7 +56,29 @@ class ListViewController: UITableViewController {
         cell.serviceTime.text = church.times ?? "[No Times]"
         cell.distance.text = "Needs work"
     }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == "detailedChurchSegue") {
+            
+            let table : [UITableViewCell] = tableView.visibleCells
+            
+            var index : Int = 0
+            for (var i = 0; i < table.count; i++) {
+                if ( table[i].selected) {
+                    index = i
+                    break
+                }
 
+            }
+            
+            let dest = segue.destinationViewController as! DetailedViewController
+    
+            dest.church = churchList[index]
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
