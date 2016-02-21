@@ -45,6 +45,8 @@ class ListViewController: UITableViewController {
 
         setTitleForCell(cell, indexPath: indexPath)
         
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
         return cell
     }
     
