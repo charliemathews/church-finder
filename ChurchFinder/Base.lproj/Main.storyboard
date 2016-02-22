@@ -273,7 +273,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="backArrow.png"/>
                                 <connections>
-                                    <segue destination="vEF-9B-AbD" kind="show" id="YxG-1f-hme"/>
+                                    <segue destination="M63-yd-9VS" kind="unwind" unwindAction="cancel:" id="vhf-39-N0u"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -354,6 +354,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ctv-BS-RPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="M63-yd-9VS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1499" y="386"/>
         </scene>
@@ -463,7 +464,4 @@
         <image name="star-xxl.png" width="256" height="256"/>
         <image name="websiteImage.png" width="128" height="128"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="YxG-1f-hme"/>
-    </inferredMetricsTieBreakers>
 </document>

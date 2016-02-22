@@ -5,7 +5,7 @@
 import UIKit
 
 
-class ListViewController: UITableViewController {
+class ListViewController: UITableViewController, detailedViewDelegate{
     
     let churchCellIdentifier = "ChurchListCell"
     
@@ -81,6 +81,13 @@ class ListViewController: UITableViewController {
         }
     }
     
+    func done(vc: DetailedViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func cancel(segue :UIStoryboardSegue) {
+        NSLog("Got rid of him.")
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

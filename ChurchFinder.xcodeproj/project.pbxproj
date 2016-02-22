@@ -43,9 +43,9 @@
 		75D436F31C79183700F62108 /* star-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 75D436E81C79183700F62108 /* star-512.png */; };
 		75D436F41C79183700F62108 /* star-xxl.png in Resources */ = {isa = PBXBuildFile; fileRef = 75D436E91C79183700F62108 /* star-xxl.png */; };
 		75D436F51C79183700F62108 /* websiteImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 75D436EA1C79183700F62108 /* websiteImage.png */; };
-		75D436F71C7987C900F62108 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D436F61C7987C900F62108 /* Parse.framework */; };
-		75D436F91C7987DB00F62108 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D436F81C7987DB00F62108 /* Bolts.framework */; };
 		75D436FB1C7A61B800F62108 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 75D436FA1C7A61B800F62108 /* backArrow.png */; };
+		75D436FD1C7AADBD00F62108 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D436FC1C7AADBD00F62108 /* Parse.framework */; };
+		75D436FF1C7AADCB00F62108 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D436FE1C7AADCB00F62108 /* Bolts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,9 +99,9 @@
 		75D436E81C79183700F62108 /* star-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-512.png"; sourceTree = "<group>"; };
 		75D436E91C79183700F62108 /* star-xxl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-xxl.png"; sourceTree = "<group>"; };
 		75D436EA1C79183700F62108 /* websiteImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = websiteImage.png; sourceTree = "<group>"; };
-		75D436F61C7987C900F62108 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		75D436F81C7987DB00F62108 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		75D436FA1C7A61B800F62108 /* backArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow.png; sourceTree = "<group>"; };
+		75D436FC1C7AADBD00F62108 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		75D436FE1C7AADCB00F62108 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +113,7 @@
 				37FE8D421C6E213400482663 /* libz.tbd in Frameworks */,
 				37F20F441C72BA25003EA762 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				37FE8D401C6E211B00482663 /* SystemConfiguration.framework in Frameworks */,
-				75D436F71C7987C900F62108 /* Parse.framework in Frameworks */,
+				75D436FD1C7AADBD00F62108 /* Parse.framework in Frameworks */,
 				37F20F451C72BA25003EA762 /* ParseTwitterUtils.framework in Frameworks */,
 				37FE8D3E1C6E210F00482663 /* StoreKit.framework in Frameworks */,
 				37F20F461C72BA25003EA762 /* ParseUI.framework in Frameworks */,
@@ -124,7 +124,7 @@
 				37FE8D341C6E20E400482663 /* CFNetwork.framework in Frameworks */,
 				37FE8D321C6E20D500482663 /* AudioToolbox.framework in Frameworks */,
 				37F20F431C72BA25003EA762 /* ParseFacebookUtils.framework in Frameworks */,
-				75D436F91C7987DB00F62108 /* Bolts.framework in Frameworks */,
+				75D436FF1C7AADCB00F62108 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,8 +204,8 @@
 		37FE8D241C6E1F4600482663 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				75D436F81C7987DB00F62108 /* Bolts.framework */,
-				75D436F61C7987C900F62108 /* Parse.framework */,
+				75D436FE1C7AADCB00F62108 /* Bolts.framework */,
+				75D436FC1C7AADBD00F62108 /* Parse.framework */,
 				37F20F3D1C72BA25003EA762 /* ParseFacebookUtils.framework */,
 				37F20F3E1C72BA25003EA762 /* ParseFacebookUtilsV4.framework */,
 				37F20F3F1C72BA25003EA762 /* ParseTwitterUtils.framework */,
