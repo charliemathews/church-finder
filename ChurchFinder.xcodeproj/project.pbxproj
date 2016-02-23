@@ -18,6 +18,7 @@
 		037F2F0D1C61000000E971DB /* ChurchFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F0C1C61000000E971DB /* ChurchFinderTests.swift */; };
 		037F2F171C6106A600E971DB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F161C6106A600E971DB /* ListViewController.swift */; };
 		037F2F191C61087400E971DB /* ChurchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F181C61087400E971DB /* ChurchListCell.swift */; };
+		371EB5EF1C7CC0CF0092A1B9 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371EB5EE1C7CC0CF0092A1B9 /* Global.swift */; };
 		373719C01C7C1EEF001A21B0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D436FE1C7AADCB00F62108 /* Bolts.framework */; };
 		373719C11C7C1EEF001A21B0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D436FC1C7AADBD00F62108 /* Parse.framework */; };
 		373719C21C7C1EEF001A21B0 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F20F3D1C72BA25003EA762 /* ParseFacebookUtils.framework */; };
@@ -92,6 +93,7 @@
 		037F2F0C1C61000000E971DB /* ChurchFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchFinderTests.swift; sourceTree = "<group>"; };
 		037F2F161C6106A600E971DB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		037F2F181C61087400E971DB /* ChurchListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchListCell.swift; sourceTree = "<group>"; };
+		371EB5EE1C7CC0CF0092A1B9 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		37F20F3D1C72BA25003EA762 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		37F20F3E1C72BA25003EA762 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		37F20F3F1C72BA25003EA762 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
@@ -196,13 +198,14 @@
 		037F2EF11C61000000E971DB /* ChurchFinder */ = {
 			isa = PBXGroup;
 			children = (
+				371EB5EE1C7CC0CF0092A1B9 /* Global.swift */,
+				37FE8D4B1C6E281D00482663 /* ParseBackend.swift */,
 				034E16051C7CAC1F004AD878 /* FilterViewCell.swift */,
 				034E15FD1C7C9F9D004AD878 /* FilterTableViewController.swift */,
 				034E15FF1C7C9F9D004AD878 /* MapViewController.swift */,
 				034E16001C7C9F9D004AD878 /* SecondViewController.swift */,
 				034E15FB1C7C9ED0004AD878 /* AppDelegate.swift */,
 				75D436DD1C79108800F62108 /* DetailedViewController.swift */,
-				37FE8D4B1C6E281D00482663 /* ParseBackend.swift */,
 				037F2EFA1C61000000E971DB /* Main.storyboard */,
 				037F2F161C6106A600E971DB /* ListViewController.swift */,
 				037F2F181C61087400E971DB /* ChurchListCell.swift */,
@@ -403,6 +406,7 @@
 				37FE8D4C1C6E281D00482663 /* ParseBackend.swift in Sources */,
 				034E15FC1C7C9ED0004AD878 /* AppDelegate.swift in Sources */,
 				037F2F171C6106A600E971DB /* ListViewController.swift in Sources */,
+				371EB5EF1C7CC0CF0092A1B9 /* Global.swift in Sources */,
 				034E16031C7C9F9D004AD878 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

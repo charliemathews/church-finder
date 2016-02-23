@@ -3,33 +3,49 @@
 //  ChurchFinder
 
 import UIKit
+import MapKit
+import Parse
 
-
-class ListViewController: UITableViewController, detailedViewDelegate{
+class ListViewController: UITableViewController, CLLocationManagerDelegate, detailedViewDelegate{
     
     let churchCellIdentifier = "ChurchListCell"
     
+    @IBOutlet var table: UITableView!
+    
+    var location : PFGeoPoint = PFGeoPoint()
 
-    var churchList : [Church] = []
-
-    var distance: Int!
-    let streets = ["123 Holy Street", "321 Grace Street", "1337 hax street"]
-    let times = ["10:00 - 11:00", "11:00 - 12:00", "We end before kickoff"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Start Location Services
+        Globals.sharedInstance.locationManager.delegate = self
+        Globals.sharedInstance.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        Globals.sharedInstance.locationManager.requestWhenInUseAuthorization()
+        Globals.sharedInstance.locationManager.startUpdatingLocation()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        churchList = GrabChurchList(0, n: 5)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Location services
+    
+    func locationManager(manager:CLLocationManager,didUpdateLocations locations: [CLLocation]){
+        location = PFGeoPoint(location: locations.last)
+        manager.stopUpdatingLocation()
+        Globals.sharedInstance.churchList = GrabChurchList(location, start: 0, n: 5)
+        table.reloadData()
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError){
+        print("Errors: " + error.localizedDescription)
     }
 
     // MARK: - Table view data source
@@ -41,22 +57,18 @@ class ListViewController: UITableViewController, detailedViewDelegate{
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return churchList.count
+        return Globals.sharedInstance.churchList.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ChurchListCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ChurchListCell", forIndexPath: indexPath) as! ChurchListCell
-//        cell.denomLabel.text = churches[indexPath.row]
-//        cell.worshipLabel.text = worshipStyles[indexPath.row]
-//        cell.distanceLabel.text = "\(indexPath.row)0 Miles"
-//        cell.addressLabel.text = streets[indexPath.row]
-//        cell.timeLabel.text = times[indexPath.row]
         // Configure the cell...
+        setTitleForCell(cell, indexPath: indexPath)
         return cell
     }
     
     func setTitleForCell(cell:ChurchListCell, indexPath:NSIndexPath) {
-        let church = churchList[indexPath.row] as Church
+        let church = Globals.sharedInstance.churchList[indexPath.row] as Church
         cell.churchName.text = church.name ?? "[No Title]"
         cell.denomination.text = church.denom ?? "[No Denomination]"
         cell.churchType.text = church.style ?? "[No Type]"
@@ -82,7 +94,7 @@ class ListViewController: UITableViewController, detailedViewDelegate{
             
             let dest = segue.destinationViewController as! DetailedViewController
     
-            dest.church = churchList[index]
+            dest.church = Globals.sharedInstance.churchList[index]
         }
     }
     

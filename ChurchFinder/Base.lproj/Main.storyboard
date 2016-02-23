@@ -108,6 +108,9 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="IIF-Mk-Zaa" userLabel="viewMap"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="Table" destination="pEo-lN-CWE" id="vyQ-S0-DHE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhf-mM-2JU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

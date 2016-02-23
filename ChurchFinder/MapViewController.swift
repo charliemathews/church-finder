@@ -39,15 +39,13 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         
     }
     
-    let locationManager = CLLocationManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         parCheck = 10
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
+        Globals.sharedInstance.locationManager.delegate = self
+        Globals.sharedInstance.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        Globals.sharedInstance.locationManager.requestWhenInUseAuthorization()
+        Globals.sharedInstance.locationManager.startUpdatingLocation()
         self.mapview.showsUserLocation = true
         
         
@@ -66,7 +64,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
         let region = MKCoordinateRegion(center:center, span: MKCoordinateSpan(latitudeDelta:1,longitudeDelta: 1))
         self.mapview.setRegion(region, animated: true)
-        self.locationManager.stopUpdatingLocation()
+        manager.stopUpdatingLocation()
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError){

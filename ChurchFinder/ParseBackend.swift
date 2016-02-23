@@ -30,7 +30,7 @@ func GrabChurchList(let geoPoint : PFGeoPoint, let start : Int, let n : Int) -> 
     let query = PFQuery(className:"Church")
     query.skip = start
     query.limit = n
-    query.whereKey("loc", nearGeoPoint:geoPoint, withinMiles:10.0)
+    query.whereKey("loc", nearGeoPoint:geoPoint, withinMiles:100.0)
     var churchArray : [PFObject] = []
     //idk maaan
     do {
