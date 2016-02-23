@@ -24,19 +24,6 @@ class Church {
         self.id = id
         self.name = name
     }
-    
-    func printInfo() {
-        print("id: " + id)
-        print("name: " + name)
-        if let v = denom {print("denomination: " + v)}
-        if let v = size {print("size: " + String(v))}
-        if let v = style {print("type: " + v)}
-        if let v = location {print("location: " + String(v))}
-        if let v = times {print("time: " + v)}
-        if let v = address {print("address: " + v)}
-        if let v = descr {print("description: " + v)}
-        if let v = url {print("website: " + v)}
-    }
 }
 
 func GrabChurchList(let geoPoint : PFGeoPoint, let start : Int, let n : Int) -> [Church] {
@@ -112,18 +99,4 @@ func GrabChurchList(let start : Int, let n : Int) -> [Church] {
     
     print("Done")
     return churchList
-}
-
-func printCurrentChurches() {
-    PFGeoPoint.geoPointForCurrentLocationInBackground {
-        (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
-        if error == nil {
-            let churches = GrabChurchList(geoPoint!, start: 0, n: 10)
-            for c in churches {
-                c.printInfo()
-            }
-        } else {
-            print("Error: \(error!) \(error!.userInfo)")
-        }
-    }
 }

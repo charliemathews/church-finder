@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+@testable import ChurchFinder
 
 class ChurchFinderTests: XCTestCase {
     
@@ -21,16 +22,22 @@ class ChurchFinderTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testChurchConstructorObject() {
+        let id = "A"
+        let name = "Test"
+        let c = Church(id: id, name: name)
+        
+        XCTAssert(c.id == id, "Pass id")
+        XCTAssert(c.name == name, "Pass name")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
+    func testGrabChurchList() {
+        let s = 0
+        let n = 10
+        
+        let list = GrabChurchList(s, n: n)
+        
+        XCTAssert(list.count <= 10, "Pass list size")
     }
     
 }
