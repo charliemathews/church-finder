@@ -10,35 +10,13 @@ import UIKit
 import MapKit
 
 
-struct ChurchInfo {
-    
-    init(name: String, denom: String, time: String, worship: String, description: String, address: String, image: UIImage, url: String) {
-        self.name = name
-        self.denom = denom
-        self.time = time
-        self.worship = worship
-        self.description = description
-        self.address = address
-        self.image = image
-        self.url = url
-    }
-    
-    var name : String
-    var denom : String
-    var time : String
-    var worship : String
-    var description : String
-    var address : String
-    var image : UIImage
-    var url : String
-}
-
 protocol detailedViewDelegate{
     func done(child:DetailedViewController)
 }
 
 class DetailedViewController: UIViewController {
-  
+    
+    var church : Church = Church(id: "", name: "")
     
     var bookmarked: Bool = false
     var delegate:detailedViewDelegate!
@@ -57,20 +35,16 @@ class DetailedViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var websiteLinkLabel: UILabel!
     
-    
-    var church: ChurchInfo = ChurchInfo(name: "Chapel", denom: "Presbyterian", time: "9:30", worship: "Contemporary", description: "This is the description section about the church", address: "100 Campus Dr.", image: UIImage(named: "churches.jpg")!, url: "https://www.SeriousLlama.com")
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         churchViewImage.image = UIImage(named: "churches.jpg")
         distanceLabel.text = "5 mi"
         namesLabel.text = church.name
         denominationLabel.text = church.denom
-        worshipStyleLabel.text = church.worship
-        timeLabel.text = church.time
+        worshipStyleLabel.text = church.style
+        timeLabel.text = church.times
         addressLabel.text = church.address
-        descriptionLabel.text = church.description
+        descriptionLabel.text = church.descr
         
         
     }
@@ -80,6 +54,8 @@ class DetailedViewController: UIViewController {
     }
     
     @IBAction func toggleBookMark() {
+        
+        
         if bookmarked {
             bookMarkIcon.setImage(UIImage(named: "star-xxl.png"), forState: .Normal)
         }
@@ -91,7 +67,7 @@ class DetailedViewController: UIViewController {
     }
     
     func openChurchWebsite() {
-        let url = NSURL(string: church.url)!
+        let url = NSURL(string: church.url!)!
         UIApplication.sharedApplication().openURL(url)
     }
     @IBAction func done(sender: AnyObject) {
