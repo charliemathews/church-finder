@@ -346,6 +346,7 @@
                     <connections>
                         <outlet property="addressLabel" destination="axH-4u-5De" id="O49-3f-U13"/>
                         <outlet property="bookMarkIcon" destination="yv7-pI-fNy" id="qWs-9x-6dU"/>
+                        <outlet property="churchMap" destination="SpQ-bZ-ssk" id="YuO-Nf-EUB"/>
                         <outlet property="churchViewImage" destination="Jp4-o1-4p5" id="wfH-Pw-XrZ"/>
                         <outlet property="denominationLabel" destination="mee-Bp-wAU" id="eav-2x-WM2"/>
                         <outlet property="descriptionLabel" destination="D38-5Z-gpj" id="XJc-fe-LG4"/>

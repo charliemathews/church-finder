@@ -36,6 +36,15 @@ class DetailedViewController: UIViewController {
     @IBOutlet weak var websiteLinkLabel: UILabel!
     @IBOutlet weak var websiteIcon: UIImageView!
     
+    //map stuff
+    let regionRadius: CLLocationDistance = 1000
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+            regionRadius * 2.0, regionRadius * 2.0)
+        churchMap.setRegion(coordinateRegion, animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         churchViewImage.image = UIImage(named: "churches.jpg")
@@ -47,12 +56,19 @@ class DetailedViewController: UIViewController {
         addressLabel.text = church.address
         descriptionLabel.text = church.descr
         
+        //Website setup
         let tap = UITapGestureRecognizer(target: self, action: Selector("openChurchWebsite"))
         websiteLinkLabel.addGestureRecognizer(tap)
         websiteLinkLabel.userInteractionEnabled = true
         
         websiteIcon.userInteractionEnabled = true
         websiteIcon.addGestureRecognizer(tap)
+        
+        
+        
+        //map stuff
+        let initialLocation = CLLocation(latitude: (church.location?.latitude)!, longitude: (church.location?.longitude)!)
+        centerMapOnLocation(initialLocation)
     }
 
     override func didReceiveMemoryWarning() {
