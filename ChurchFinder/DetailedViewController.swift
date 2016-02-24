@@ -34,6 +34,7 @@ class DetailedViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var websiteLinkLabel: UILabel!
+    @IBOutlet weak var websiteIcon: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,12 @@ class DetailedViewController: UIViewController {
         addressLabel.text = church.address
         descriptionLabel.text = church.descr
         
+        let tap = UITapGestureRecognizer(target: self, action: Selector("openChurchWebsite"))
+        websiteLinkLabel.addGestureRecognizer(tap)
+        websiteLinkLabel.userInteractionEnabled = true
         
+        websiteIcon.userInteractionEnabled = true
+        websiteIcon.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,8 +60,6 @@ class DetailedViewController: UIViewController {
     }
     
     @IBAction func toggleBookMark() {
-        
-        
         if bookmarked {
             bookMarkIcon.setImage(UIImage(named: "star-xxl.png"), forState: .Normal)
         }
@@ -67,8 +71,20 @@ class DetailedViewController: UIViewController {
     }
     
     func openChurchWebsite() {
-        let url = NSURL(string: church.url!)!
-        UIApplication.sharedApplication().openURL(url)
+        if let url = NSURL(string: church.url!) {
+            
+            if UIApplication.sharedApplication().canOpenURL(url) == false {
+                let alertController = UIAlertController(title: "Error", message: "This website doesn't exist", preferredStyle: .Alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                presentViewController(alertController, animated: true, completion: nil)
+            }
+            
+            
+            UIApplication.sharedApplication().openURL(url)
+        }
     }
     @IBAction func done(sender: AnyObject) {
         delegate.done(self)

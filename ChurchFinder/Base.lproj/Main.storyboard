@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -172,7 +172,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D38-5Z-gpj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description placeholder" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D38-5Z-gpj">
                                 <rect key="frame" x="79" y="370" width="310" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="310" id="UnD-ys-tep"/>
@@ -352,6 +352,7 @@
                         <outlet property="distanceLabel" destination="zQO-KQ-IAK" id="MsT-r7-J3w"/>
                         <outlet property="namesLabel" destination="c66-AJ-dnK" id="lxr-PS-C6O"/>
                         <outlet property="timeLabel" destination="hMb-xB-u8g" id="r4d-f4-W29"/>
+                        <outlet property="websiteIcon" destination="s8a-Xf-Ss5" id="0De-J4-884"/>
                         <outlet property="websiteLinkLabel" destination="prx-fp-wnH" id="ZMK-5l-gdK"/>
                         <outlet property="worshipStyleLabel" destination="7Qs-Qs-AjV" id="uBv-4v-Qgb"/>
                     </connections>

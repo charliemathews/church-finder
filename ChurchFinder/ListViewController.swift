@@ -13,7 +13,8 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     @IBOutlet var table: UITableView!
     
     var location : PFGeoPoint = PFGeoPoint()
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +24,10 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         Globals.sharedInstance.locationManager.requestWhenInUseAuthorization()
         Globals.sharedInstance.locationManager.startUpdatingLocation()
         
+        if Globals.sharedInstance.churchList.count == 0 {
+            Globals.sharedInstance.churchList = GrabChurchList(0, n: 5)
+        }
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,7 +45,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     func locationManager(manager:CLLocationManager,didUpdateLocations locations: [CLLocation]){
         location = PFGeoPoint(location: locations.last)
         manager.stopUpdatingLocation()
-        Globals.sharedInstance.churchList = GrabChurchList(location, start: 0, n: 5)
+        //Globals.sharedInstance.churchList = GrabChurchList(location, start: 0, n: 5)
         table.reloadData()
     }
     
