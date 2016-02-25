@@ -1,10 +1,16 @@
-//
-//  ViewController.swift
-//  DetailedView
-//
-//  Created by Sam Gill on 2/4/16.
-//  Copyright © 2016 SeriousLlama. All rights reserved.
-//
+/*
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
+
+Author: Sam Gill
+Created:
+Modified: 24/02/16
+
+Changelog
+...
+
+Sources
+...
+*/
 
 import UIKit
 import MapKit
@@ -16,7 +22,7 @@ protocol detailedViewDelegate{
 
 class DetailedViewController: UIViewController {
     
-    var church : Church = Church(id: "", name: "")
+    var church : ChurchOld = ChurchOld(id: "", name: "")
     
     var bookmarked: Bool = false
     var delegate:detailedViewDelegate!
@@ -34,6 +40,16 @@ class DetailedViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var websiteLinkLabel: UILabel!
+    @IBOutlet weak var websiteIcon: UIImageView!
+    
+    //map stuff
+    let regionRadius: CLLocationDistance = 1000
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+            regionRadius * 2.0, regionRadius * 2.0)
+        churchMap.setRegion(coordinateRegion, animated: true)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +62,19 @@ class DetailedViewController: UIViewController {
         addressLabel.text = church.address
         descriptionLabel.text = church.descr
         
+        //Website setup
+        let tap = UITapGestureRecognizer(target: self, action: Selector("openChurchWebsite"))
+        websiteLinkLabel.addGestureRecognizer(tap)
+        websiteLinkLabel.userInteractionEnabled = true
         
+        websiteIcon.userInteractionEnabled = true
+        websiteIcon.addGestureRecognizer(tap)
+        
+        
+        
+        //map stuff
+        let initialLocation = CLLocation(latitude: (church.location?.latitude)!, longitude: (church.location?.longitude)!)
+        centerMapOnLocation(initialLocation)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,8 +82,6 @@ class DetailedViewController: UIViewController {
     }
     
     @IBAction func toggleBookMark() {
-        
-        
         if bookmarked {
             bookMarkIcon.setImage(UIImage(named: "star-xxl.png"), forState: .Normal)
         }
@@ -67,8 +93,20 @@ class DetailedViewController: UIViewController {
     }
     
     func openChurchWebsite() {
-        let url = NSURL(string: church.url!)!
-        UIApplication.sharedApplication().openURL(url)
+        if let url = NSURL(string: church.url!) {
+            
+            if UIApplication.sharedApplication().canOpenURL(url) == false {
+                let alertController = UIAlertController(title: "Error", message: "This website doesn't exist", preferredStyle: .Alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                presentViewController(alertController, animated: true, completion: nil)
+            }
+            
+            
+            UIApplication.sharedApplication().openURL(url)
+        }
     }
     @IBAction func done(sender: AnyObject) {
         delegate.done(self)

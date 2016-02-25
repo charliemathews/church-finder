@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10089" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10072.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="22" width="600" height="121"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JdF-7h-oiZ" id="ds2-GS-BrE">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="120.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ChurchName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaZ-cZ-QnG">
@@ -172,7 +172,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D38-5Z-gpj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description placeholder" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D38-5Z-gpj">
                                 <rect key="frame" x="79" y="370" width="310" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="310" id="UnD-ys-tep"/>
@@ -346,12 +346,14 @@
                     <connections>
                         <outlet property="addressLabel" destination="axH-4u-5De" id="O49-3f-U13"/>
                         <outlet property="bookMarkIcon" destination="yv7-pI-fNy" id="qWs-9x-6dU"/>
+                        <outlet property="churchMap" destination="SpQ-bZ-ssk" id="YuO-Nf-EUB"/>
                         <outlet property="churchViewImage" destination="Jp4-o1-4p5" id="wfH-Pw-XrZ"/>
                         <outlet property="denominationLabel" destination="mee-Bp-wAU" id="eav-2x-WM2"/>
                         <outlet property="descriptionLabel" destination="D38-5Z-gpj" id="XJc-fe-LG4"/>
                         <outlet property="distanceLabel" destination="zQO-KQ-IAK" id="MsT-r7-J3w"/>
                         <outlet property="namesLabel" destination="c66-AJ-dnK" id="lxr-PS-C6O"/>
                         <outlet property="timeLabel" destination="hMb-xB-u8g" id="r4d-f4-W29"/>
+                        <outlet property="websiteIcon" destination="s8a-Xf-Ss5" id="0De-J4-884"/>
                         <outlet property="websiteLinkLabel" destination="prx-fp-wnH" id="ZMK-5l-gdK"/>
                         <outlet property="worshipStyleLabel" destination="7Qs-Qs-AjV" id="uBv-4v-Qgb"/>
                     </connections>

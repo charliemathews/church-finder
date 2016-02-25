@@ -1,10 +1,16 @@
-//
-//  FilterViewCell.swift
-//  ChurchFinder
-//
-//  Created by Sarah Burgess on 2/8/16.
-//  Copyright © 2016 Michael Curtis. All rights reserved.
-//
+/*
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
+
+Author: Michael Curtis
+Created:
+Modified: 24/02/16
+
+Changelog
+...
+
+Sources
+...
+*/
 
 import UIKit
 

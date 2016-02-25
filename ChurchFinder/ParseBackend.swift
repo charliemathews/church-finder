@@ -8,7 +8,7 @@
 
 import Parse
 
-class Church {
+class ChurchOld {
     var id : String
     var name : String
     var denom : String?
@@ -26,7 +26,7 @@ class Church {
     }
 }
 
-func GrabChurchList(let geoPoint : PFGeoPoint, let start : Int, let n : Int) -> [Church] {
+func GrabChurchList(let geoPoint : PFGeoPoint, let start : Int, let n : Int) -> [ChurchOld] {
     let query = PFQuery(className:"Church")
     query.skip = start
     query.limit = n
@@ -39,14 +39,14 @@ func GrabChurchList(let geoPoint : PFGeoPoint, let start : Int, let n : Int) -> 
         print("Bad Shit")
     }
     
-    var churchList : [Church] = []
+    var churchList : [ChurchOld] = []
     
     for church in churchArray {
         let id = church.objectId
         let name = church["name"] as! String
         
         if let id = id {
-            let c = Church(id: id, name: name)
+            let c = ChurchOld(id: id, name: name)
             c.denom = church["denomination"] as? String
             c.size = church["size"] as? Int
             c.style = church["style"] as? String
@@ -64,7 +64,7 @@ func GrabChurchList(let geoPoint : PFGeoPoint, let start : Int, let n : Int) -> 
     return churchList
 }
 
-func GrabChurchList(let start : Int, let n : Int) -> [Church] {
+func GrabChurchList(let start : Int, let n : Int) -> [ChurchOld] {
     let query = PFQuery(className:"Church")
     query.skip = start
     query.limit = n
@@ -76,14 +76,14 @@ func GrabChurchList(let start : Int, let n : Int) -> [Church] {
         print("Bad Shit")
     }
     
-    var churchList : [Church] = []
+    var churchList : [ChurchOld] = []
     
     for church in churchArray {
         let id = church.objectId
         let name = church["name"] as! String
         
         if let id = id {
-            let c = Church(id: id, name: name)
+            let c = ChurchOld(id: id, name: name)
             c.denom = church["denomination"] as? String
             c.size = church["size"] as? Int
             c.style = church["style"] as? String
