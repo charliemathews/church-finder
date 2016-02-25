@@ -16,7 +16,7 @@ protocol detailedViewDelegate{
 
 class DetailedViewController: UIViewController {
     
-    var church : Church = Church(id: "", name: "")
+    var church : ChurchOld = ChurchOld(id: "", name: "")
     
     var bookmarked: Bool = false
     var delegate:detailedViewDelegate!

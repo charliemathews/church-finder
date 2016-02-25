@@ -8,7 +8,7 @@
 import MapKit
 
 class Globals {
-    var churchList : [Church] = []
+    var churchList : [ChurchOld] = []
     let locationManager = CLLocationManager()
     
     static let sharedInstance = Globals()

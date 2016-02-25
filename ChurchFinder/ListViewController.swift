@@ -76,7 +76,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     }
     
     func setTitleForCell(cell:ChurchListCell, indexPath:NSIndexPath) {
-        let church = Globals.sharedInstance.churchList[indexPath.row] as Church
+        let church = Globals.sharedInstance.churchList[indexPath.row] as ChurchOld
         cell.churchName.text = church.name ?? "[No Title]"
         cell.denomination.text = church.denom ?? "[No Denomination]"
         cell.churchType.text = church.style ?? "[No Type]"
