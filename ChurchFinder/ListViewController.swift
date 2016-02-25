@@ -76,6 +76,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         cell.distance.text = "Needs work"
     }
     
+    //MARK: Segue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         

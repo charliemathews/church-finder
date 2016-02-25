@@ -181,6 +181,7 @@
 			children = (
 				037F2EF11C61000000E971DB /* ChurchFinder */,
 				037F2F091C61000000E971DB /* ChurchFinderTests */,
+				371EB62C1C7CD7BB0092A1B9 /* ChurchFinderUITests */,
 				037F2EF01C61000000E971DB /* Products */,
 				37FE8D241C6E1F4600482663 /* Framework */,
 			);
@@ -240,6 +241,13 @@
 				037F2F0B1C61000000E971DB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		371EB62C1C7CD7BB0092A1B9 /* ChurchFinderUITests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ChurchFinderUITests;
 			sourceTree = "<group>";
 		};
 		37FE8D241C6E1F4600482663 /* Framework */ = {
