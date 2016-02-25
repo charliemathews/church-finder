@@ -1,7 +1,16 @@
-//
-//  ChurchListCell.swift
-//  ChurchFinder
-//
+/*
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
+
+Author: Dan Mitchell
+Created:
+Modified: 24/02/16
+
+Changelog
+...
+
+Sources
+...
+*/
 
 import UIKit
 

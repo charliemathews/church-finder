@@ -15,6 +15,8 @@ Integration:        {mm/dd/yy} by {last name}
 Sources:
 http://krakendev.io/blog/the-right-way-to-write-a-singleton
 https://parse.com/questions/retrieving-unique-values
+
+This class is a singleton designed to persist behind the scenes between all views. It can be used to pull metadata for the filters and request new church results. Search parameters are stored with each query so that subsequent queries can automatically pull the next set of results without needing to pas the parameters again or specify a query start and limit. Pagination is automatic.
 */
 
 import Foundation
@@ -75,6 +77,7 @@ final class Data {
     
     TODO: take array of strings for times rathern than CSV
     TODO: find a way to show churches of a similar size once the closest results have been exhausted
+    TODO: automatic pagination
     TODO: if params is empty, pull next set. see below.
     */
     func pullResults(let s : Int = 0, let n : Int = 10, let params : [String:AnyObject] = [:]) {

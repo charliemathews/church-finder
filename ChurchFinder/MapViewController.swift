@@ -1,16 +1,15 @@
 /*
-    Copyright 2016 Serious Llama and Grove City College. All rights reserved.
-    
-    Author: Sarah Burgess
-    Created: Great question.
-    Modified: Recently.
-    
-    Changelog
-        * Magnificent file header was authored by codereview2k16 #squad
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
 
-    Tested & Passed
-        Unit:               {mm/dd/yy} by {last name}
-        Integration:        {mm/dd/yy} by {last name}
+Author: Sarah Burgess
+Created:
+Modified: 24/02/16
+
+Changelog
+...
+
+Sources
+...
 */
 
 import UIKit

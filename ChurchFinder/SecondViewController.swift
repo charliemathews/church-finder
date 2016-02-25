@@ -1,10 +1,16 @@
-//
-//  SecondViewController.swift
-//  ChurchFinder
-//
-//  Created by Michael Curtis on 2/2/16.
-//  Copyright (c) 2016 Michael Curtis. All rights reserved.
-//
+/*
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
+
+Author: Michael Curtis
+Created:
+Modified: 24/02/16
+
+Changelog
+...
+
+Sources
+...
+*/
 
 import UIKit
 

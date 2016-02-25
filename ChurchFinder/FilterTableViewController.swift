@@ -1,10 +1,16 @@
-//
-//  FilterTableViewController.swift
-//  ChurchFinder
-//
-//  Created by Sarah Burgess on 2/9/16.
-//  Copyright © 2016 Michael Curtis. All rights reserved.
-//
+/*
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
+
+Author: Sarah Burgess
+Created:
+Modified: 24/02/16
+
+Changelog
+...
+
+Sources
+...
+*/
 import Foundation
 import UIKit
 
@@ -12,7 +18,9 @@ protocol filterResultsDelegate{
     func done(child: FilterTableViewController)
 }
 
-
+/*
+TODO: pull labels, denominations, styles, etc from data model using, for ex. data.getMeta("denomination")
+*/
 class FilterTableViewController: UITableViewController {
 
     let labels = ["Denomination", "Worship Style", "Size", "Times"]

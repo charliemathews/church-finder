@@ -1,10 +1,16 @@
-//
-//  ViewController.swift
-//  DetailedView
-//
-//  Created by Sam Gill on 2/4/16.
-//  Copyright © 2016 SeriousLlama. All rights reserved.
-//
+/*
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
+
+Author: Sam Gill
+Created:
+Modified: 24/02/16
+
+Changelog
+...
+
+Sources
+...
+*/
 
 import UIKit
 import MapKit
