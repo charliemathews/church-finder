@@ -41,6 +41,8 @@ struct Constants {
             
             return params
         }
+        
+        static let NumberOfResultsToPullAtOnce : Int = 10
     }
     
 }

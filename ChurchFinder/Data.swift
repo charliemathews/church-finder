@@ -27,13 +27,15 @@ final class Data {
     static let sharedInstance = Data()
     
     var results : [Church] = []
-    var currentResultParameters : [String:AnyObject] = [:]
+    var currentParameters : [String:AnyObject] = [:]
+    var currentStart = 0
+    var currentLimit = 0
     
     /*
     Private init is used here so that a second instance cannot be created. This function acts as an initial search function, filling the results with information from the default search parameters.
     */
     private init() {
-        pullResults(0, n: 10, params: Constants.Defaults.get())
+        pullResults(Constants.Defaults.get())
     }
     
     /*
@@ -80,25 +82,43 @@ final class Data {
     TODO: automatic pagination
     TODO: if params is empty, pull next set. see below.
     */
-    func pullResults(let s : Int = 0, let n : Int = 10, let params : [String:AnyObject] = [:]) {
-        
-        // TODO
-        // if params is empty, the person pulling results must want the next set of results
-        // use params which was stored if it is not empty
+    func pullResults(let params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
         
         let query = PFQuery(className: Constants.Parse.ChurchClass)
-        query.skip = s
-        query.limit = n
         
+        
+        // if no parameters were passed in, the user probbaly wants the next set of results in the table
+        if(params.count == 0) {
+            if(results.count == currentLimit) {                             // if we got a full set a results last time
+                query.skip = currentStart + currentLimit                    // skip to the end of our last result set
+                query.limit = currentLimit                                  // attempt to use the same limit as before
+            } else if(results.count > 0 && results.count < currentLimit) {
+                return false                                                // if we clearly hit the limit last time, there are no more
+            } else {
+                return false                                                // else if no results were found
+            }
+        }
+            
+        // parameters were passed in, skip to the requested result and use requested limit
+        else {
+            query.skip = s
+            query.limit = n
+        }
+        
+        
+        // if parameters were requested apply them to query
         if let denom = params["denomination"] as? String {
             query.whereKey("denomination", containsString: denom)
         }
+        
         if let style = params["style"] as? String {
             query.whereKey("style", containsString: style)
         }
+        
         if let size = params["size"] as? Int {
             query.whereKey("size", equalTo: size)
         }
+        
         if let loc = params["loc"] as? PFGeoPoint {
             query.whereKey("loc", nearGeoPoint:loc, withinMiles:100.0)
         } else {
@@ -106,14 +126,24 @@ final class Data {
             query.whereKey("loc", nearGeoPoint: PFGeoPoint(latitude: Constants.Defaults.Lat, longitude: Constants.Defaults.Lon), withinMiles: 20.0)
         }
         
+        
         // compound query
         // for(int i = 0; i < times.count; i++)
         // if(time.count > 0) query.whereKey("time", containsString:...
         
         // after results are exhausted, get results in the subsequent radius
+        // so if results < number of results to get at once then try to increase radius by 1s up to 50
         
-        self.currentResultParameters = params // only save params once results are successfully pulled
-        //return results
+        // set results = query.results
+        
+        if(results.count > 0) {
+            currentStart = query.skip
+            currentLimit = query.limit
+        }
+        if(params.count > 0) {             // if results were successfully pulled and we didn't use stored parameters
+            self.currentParameters = params
+        }
+        return true
     }
     
 }
