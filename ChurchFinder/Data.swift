@@ -7,6 +7,7 @@ Modified: 25/02/16
 
 Changelog
 * 25-02-16 Merged into master.
+* 25-02-16 After a successful call to pullResults, subsequent calls will attempt to pull the next page of results automatically.
 
 Tested & Passed
 Unit:               {mm/dd/yy} by {last name}

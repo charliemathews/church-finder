@@ -23,6 +23,7 @@
 		0F20281B1C7F560600AFC9AA /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20281A1C7F560600AFC9AA /* Church.swift */; };
 		0F20281C1C7F560600AFC9AA /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20281A1C7F560600AFC9AA /* Church.swift */; };
 		0F20281E1C7F563F00AFC9AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20281D1C7F563F00AFC9AA /* Constants.swift */; };
+		0F2028231C7F81AE00AFC9AA /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2028221C7F81AE00AFC9AA /* DataTests.swift */; };
 		371EB5EF1C7CC0CF0092A1B9 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371EB5EE1C7CC0CF0092A1B9 /* Global.swift */; };
 		373719C61C7C1EEF001A21B0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D431C6E213E00482663 /* libsqlite3.tbd */; };
 		373719C71C7C1EEF001A21B0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D411C6E213400482663 /* libz.tbd */; };
@@ -95,6 +96,7 @@
 		0F2028171C7F55FD00AFC9AA /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		0F20281A1C7F560600AFC9AA /* Church.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Church.swift; sourceTree = "<group>"; };
 		0F20281D1C7F563F00AFC9AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0F2028221C7F81AE00AFC9AA /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		371EB5EE1C7CC0CF0092A1B9 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		37FE8D311C6E20D500482663 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37FE8D331C6E20E400482663 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -219,8 +221,9 @@
 		037F2F091C61000000E971DB /* ChurchFinderTests */ = {
 			isa = PBXGroup;
 			children = (
-				037F2F0C1C61000000E971DB /* ChurchFinderTests.swift */,
 				037F2F0A1C61000000E971DB /* Supporting Files */,
+				037F2F0C1C61000000E971DB /* ChurchFinderTests.swift */,
+				0F2028221C7F81AE00AFC9AA /* DataTests.swift */,
 			);
 			path = ChurchFinderTests;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				037F2F0D1C61000000E971DB /* ChurchFinderTests.swift in Sources */,
 				0F2028191C7F55FD00AFC9AA /* Data.swift in Sources */,
 				0F20281C1C7F560600AFC9AA /* Church.swift in Sources */,
+				0F2028231C7F81AE00AFC9AA /* DataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
