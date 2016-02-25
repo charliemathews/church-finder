@@ -25,7 +25,7 @@ class ChurchFinderTests: XCTestCase {
     func testChurchConstructorObject() {
         let id = "A"
         let name = "Test"
-        let c = Church(id: id, name: name)
+        let c = ChurchOld(id: id, name: name)
         
         XCTAssert(c.id == id, "Pass id")
         XCTAssert(c.name == name, "Pass name")
