@@ -90,16 +90,27 @@ class DataTests: XCTestCase {
     /*
         Tests for Data::pullResults()
     */
-    func testPullResultsNoParams() {
+    func testPullResultsNoParamsNoPrior() {
         let instance = Data.sharedInstance
         XCTAssertFalse(instance.pullResults())
-        //XCTAssertTrue(instance.results.count > 0)
     }
     
-    func testPullResultsDefaultParams() {
+    func testPullResultsDefaultParamsNoPrior() {
         let instance = Data.sharedInstance
         XCTAssertTrue(instance.pullResults(Constants.Defaults.get()))
         XCTAssertTrue(instance.results.count > 0)
+    }
+    
+    func testPullResultsFullParamsNoPrior() {
+        // need to write full set of sample parameters
+    }
+    
+    func testPullResultsNoParamsPriorSuccess() {
+        // can't write this until we have like 20 churches in the database
+    }
+    
+    func testPullResultsFullParamsPriorSuccess() {
+        // blocked
     }
     
     func testPullResultsDefault() {
