@@ -26,8 +26,8 @@ class DataTests: XCTestCase {
     
     
     /*
-     ***SINGLETON TESTS***
-     */
+        Tests for singleton, Data.
+    */
     
     func testSharedInstance() {
         let instance = Data.sharedInstance
@@ -69,7 +69,7 @@ class DataTests: XCTestCase {
     }
     
     /*
-    ***RESULT TESTS***
+        Tests for Data::getMeta()
     */
     func testMetaValidKey() {
         let key = "denomination"
@@ -86,5 +86,27 @@ class DataTests: XCTestCase {
         XCTAssertFalse(instance.getMeta(key).count > 0)
     }
     
+    /*
+        Tests for Data::pullResults()
+    */
+    func testPullResultsNoParams() {
+        let instance = Data.sharedInstance
+        
+        // this test won't work until we have more than Constants.Defaults.number of results to pull
+        //let status : Bool = instance.pullResults()
+        //XCTAssertTrue(status)
+        
+        XCTAssertTrue(instance.results.count > 0)
+    }
     
+    func testPullResultsDefault() {
+        let instance = Data.sharedInstance
+        
+        XCTAssertTrue(instance.pullResults(Constants.Defaults.get()))
+        
+        let results : [Church] = instance.results
+        
+        XCTAssertTrue(results.count > 0)
+        XCTAssertTrue(results.count <= Constants.Defaults.NumberOfResultsToPullAtOnce)
+    }
 }

@@ -83,25 +83,24 @@ final class Data {
     TODO: automatic pagination
     TODO: if params is empty, pull next set. see below.
     */
-    func pullResults(let params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
+    func pullResults(var params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
         
         let query = PFQuery(className: Constants.Parse.ChurchClass)
         
         
         // if no parameters were passed in, the user probbaly wants the next set of results in the table
-        if(params.count == 0) {
+        if(params.count == 0 && results.count > 0) {
             if(results.count == currentLimit) {                             // if we got a full set a results last time
                 query.skip = currentStart + currentLimit                    // skip to the end of our last result set
                 query.limit = currentLimit                                  // attempt to use the same limit as before
-            } else if(results.count > 0 && results.count < currentLimit) {
+            } else if(results.count < currentLimit) {
                 return false                                                // if we clearly hit the limit last time, there are no more
-            } else {
-                return false                                                // else if no results were found
             }
         }
             
         // parameters were passed in, skip to the requested result and use requested limit
         else {
+            params = Constants.Defaults.get()
             query.skip = s
             query.limit = n
         }
@@ -128,6 +127,21 @@ final class Data {
         }
         
         
+        var found : [PFObject]
+        
+        do {
+            try found = query.findObjects()
+        }
+        catch {
+            return false
+        }
+        
+        for f in found {
+            let church : Church = Church()
+            church.name = f["name"] as! String
+            results.append(church)
+        }
+        
         // compound query
         // for(int i = 0; i < times.count; i++)
         // if(time.count > 0) query.whereKey("time", containsString:...
@@ -137,14 +151,16 @@ final class Data {
         
         // set results = query.results
         
-        if(results.count > 0) {
-            currentStart = query.skip
-            currentLimit = query.limit
-        }
         if(params.count > 0) {             // if results were successfully pulled and we didn't use stored parameters
             self.currentParameters = params
         }
-        return true
+        if(results.count > 0) {
+            currentStart = query.skip
+            currentLimit = query.limit
+            return true
+        } else {
+            return false
+        }
     }
     
 }
