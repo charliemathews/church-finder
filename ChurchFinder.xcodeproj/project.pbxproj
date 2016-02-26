@@ -234,11 +234,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		371EB62C1C7CD7BB0092A1B9 /* ChurchFinderUITests */ = {
+		0F2028121C7F55C700AFC9AA /* Depricated */ = {
 			isa = PBXGroup;
 			children = (
+				371EB5EE1C7CC0CF0092A1B9 /* Global.swift */,
+				37FE8D4B1C6E281D00482663 /* ParseBackend.swift */,
 			);
-			name = ChurchFinderUITests;
+			name = Depricated;
+			sourceTree = "<group>";
+		};
+		0F2028131C7F55CE00AFC9AA /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				0F2028171C7F55FD00AFC9AA /* Data.swift */,
+				0F20281A1C7F560600AFC9AA /* Church.swift */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
+		0F20281F1C7F56A800AFC9AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				034E16051C7CAC1F004AD878 /* FilterViewCell.swift */,
+				034E15FD1C7C9F9D004AD878 /* FilterTableViewController.swift */,
+				034E15FF1C7C9F9D004AD878 /* MapViewController.swift */,
+				034E16001C7C9F9D004AD878 /* SecondViewController.swift */,
+				75D436DD1C79108800F62108 /* DetailedViewController.swift */,
+				037F2F161C6106A600E971DB /* ListViewController.swift */,
+				037F2F181C61087400E971DB /* ChurchListCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		37FE8D241C6E1F4600482663 /* Framework */ = {
