@@ -33,26 +33,19 @@ final class Data {
     var currentLimit = 0
     
     /*
-    Private init is used here so that a second instance cannot be created. This function acts as an initial search function, filling the results with information from the default search parameters.
+    Private init is used here so that a second instance cannot be created.
     */
     private init() {
-        pullResults(Constants.Defaults.get())
+        //pullResults(Constants.Defaults.get())
     }
     
     /*
-    Returns a list of options for denominations, church sizes, and worship sytles
+    Get list of possible values held by key.
     */
     func getMeta(let type : String) -> [String] {
         
         var options : [String] = []
         let query = PFQuery(className: Constants.Parse.ChurchClass)
-        
-        /* TO BE DELETED AFTER DEBUGGING
-        // use query.wherekeyexists instead?
-        if(type != "denomination" && type != "size" && type != "style") {
-        return options
-        }
-        */
         
         query.whereKeyExists(type)
         query.selectKeys([type]) // alternative to checking each input to see if it's valid
@@ -68,7 +61,9 @@ final class Data {
         }
         
         for f in found {
-            options.append(f[type] as! String)
+            if(!options.contains(f[type] as! String)) {
+                options.append(f[type] as! String)
+            }
         }
         
         return options
@@ -88,7 +83,7 @@ final class Data {
         let query = PFQuery(className: Constants.Parse.ChurchClass)
         
         
-        // if no parameters were passed in, the user probbaly wants the next set of results in the table
+        // no parameters passed in, prior query exists
         if(params.count == 0 && results.count > 0) {
             if(results.count == currentLimit) {                             // if we got a full set a results last time
                 query.skip = currentStart + currentLimit                    // skip to the end of our last result set
@@ -98,15 +93,19 @@ final class Data {
             }
         }
             
-        // parameters were passed in, skip to the requested result and use requested limit
+        // no parameters passed in, no prior query
+        else if(params.count == 0 && results.count == 0) {
+            return false
+        }
+            
+        // parameters were passed in
         else {
-            params = Constants.Defaults.get()
             query.skip = s
             query.limit = n
         }
         
         
-        // if parameters were requested apply them to query
+        // if individual parameters were requested apply them to query
         if let denom = params["denomination"] as? String {
             query.whereKey("denomination", containsString: denom)
         }
@@ -138,7 +137,17 @@ final class Data {
         
         for f in found {
             let church : Church = Church()
-            church.name = f["name"] as! String
+            
+            church.name     = f["name"]         as! String
+            church.denom    = f["denomination"] as! String
+            church.size     = f["size"]         as! Int
+            church.style    = f["style"]        as! String
+            church.location = f["loc"]          as! PFGeoPoint
+            church.times    = f["times"]        as! String
+            church.address  = f["address"]      as! String
+            church.desc     = f["description"]  as! String
+            church.url      = f["url"]          as! String
+            
             results.append(church)
         }
         
@@ -163,5 +172,11 @@ final class Data {
         }
     }
     
+    func clear() {
+        results = []
+        currentParameters = [:]
+        currentStart = 0
+        currentLimit = 0
+    }
 }
     

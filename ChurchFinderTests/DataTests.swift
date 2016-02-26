@@ -73,6 +73,7 @@ class DataTests: XCTestCase {
     */
     func testMetaValidKey() {
         let key = "denomination"
+        
         let instance = Data.sharedInstance
         //let meta : [String] = instance.getMeta(key)
         
@@ -91,11 +92,13 @@ class DataTests: XCTestCase {
     */
     func testPullResultsNoParams() {
         let instance = Data.sharedInstance
-        
-        // this test won't work until we have more than Constants.Defaults.number of results to pull
-        //let status : Bool = instance.pullResults()
-        //XCTAssertTrue(status)
-        
+        XCTAssertFalse(instance.pullResults())
+        //XCTAssertTrue(instance.results.count > 0)
+    }
+    
+    func testPullResultsDefaultParams() {
+        let instance = Data.sharedInstance
+        XCTAssertTrue(instance.pullResults(Constants.Defaults.get()))
         XCTAssertTrue(instance.results.count > 0)
     }
     
