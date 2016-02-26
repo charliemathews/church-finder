@@ -1,10 +1,16 @@
-//
-//  AppDelegate.swift
-//  ChurchFinder
-//
-//  Created by Michael Curtis on 2/2/16.
-//  Copyright (c) 2016 Michael Curtis. All rights reserved.
-//
+/*
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
+
+Author: Michael Curtis
+Created:
+Modified: 24/02/16
+
+Changelog
+...
+
+Sources
+...
+*/
 
 import UIKit
 import Parse
@@ -21,10 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        Parse.setApplicationId("OTXY6dM8ChkriarqrX4SPi2e2Def9v1EM0VVNoOW",
-            clientKey: "5I1Iky8vY7hheR7X9QAejEbXaw96UMFBYGzVr4h3")
-        
-        //Parse.setApplicationId(Constants.Parse.MasterKey, clientKey: Constants.Parse.ClientKey)
+        //TODO, figure out why we can't use Constants.Parse.{keyname} here without crashing parse
+        Parse.setApplicationId("OTXY6dM8ChkriarqrX4SPi2e2Def9v1EM0VVNoOW", clientKey: "5I1Iky8vY7hheR7X9QAejEbXaw96UMFBYGzVr4h3")
         
         return true
     }
