@@ -10,8 +10,8 @@ Changelog
 * 25-02-16 After a successful call to pullResults, subsequent calls will attempt to pull the next page of results automatically.
 
 Tested & Passed
-Unit:               {mm/dd/yy} by {last name}
-Integration:        {mm/dd/yy} by {last name}
+Unit:               26/02/16 by Charlie
+Integration:        26/02/16 by Charlie
 
 Sources:
 http://krakendev.io/blog/the-right-way-to-write-a-singleton
