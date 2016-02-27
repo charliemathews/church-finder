@@ -123,8 +123,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         let child = segue.destinationViewController as! FilterTableViewController
         child.delegate = self
     }
-    func done(child: FilterTableViewController){
-        parCheck = child.check
+    func doneWithFilters(child: FilterTableViewController){
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

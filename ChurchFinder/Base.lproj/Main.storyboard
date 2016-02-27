@@ -23,7 +23,11 @@
                                     <items>
                                         <navigationItem id="eQA-pj-7yf">
                                             <nil key="title"/>
-                                            <barButtonItem key="leftBarButtonItem" title="Filters" id="RYE-Sz-fD9"/>
+                                            <barButtonItem key="leftBarButtonItem" title="Filters" id="RYE-Sz-fD9">
+                                                <connections>
+                                                    <segue destination="vO3-2u-4cJ" kind="presentation" identifier="filterViewSegue" id="FLC-R7-Ghz"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="nNE-Eu-ydG">
                                                 <rect key="frame" x="180" y="8" width="240" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -461,7 +465,7 @@
                                     <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qov-QV-Jnd">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="600" id="moN-E9-SJe"/>
+                                            <constraint firstAttribute="width" constant="600" id="0HP-zV-TIw"/>
                                         </constraints>
                                         <items>
                                             <navigationItem id="OGc-cT-KPd">
@@ -493,35 +497,34 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="0ba-b5-b6T"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerY" secondItem="Upz-dK-egg" secondAttribute="centerY" id="2SL-LI-mca"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="3pv-Eh-bsX"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="5eF-Z1-6Uc"/>
-                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="86l-GL-9xh"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="A0e-n3-G7L"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="C6g-WU-Ehj"/>
-                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="CsW-Ps-NGV"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="Hbe-la-uYj"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="Upz-dK-egg" secondAttribute="centerX" id="Hsa-oy-854"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="Upz-dK-egg" secondAttribute="centerX" id="I1H-FU-4Vr"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="Upz-dK-egg" secondAttribute="centerX" id="Irx-lU-Xea"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="JIp-Td-SMg"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerY" secondItem="Upz-dK-egg" secondAttribute="centerY" id="QSx-jl-3yW"/>
-                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="Uce-Pt-DYM"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="Wl5-ew-1gR"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="Xv4-Kx-g81"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="Znb-C8-HnH"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="dRC-Ns-eNA"/>
-                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="dbB-eN-WMH"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="eX5-xL-Ups"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="fdC-gG-quh"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="gFm-eL-bnb"/>
-                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="kIT-ru-r62"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="mb8-vO-Yzp"/>
-                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="n30-wk-HXa"/>
-                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="sKr-Z2-ltX"/>
-                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="v7m-2n-KlG"/>
-                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="yA8-0O-g7I"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="1YI-o1-qbs"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="29z-mQ-Iq6"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="4wl-Kn-eV5"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="Upz-dK-egg" secondAttribute="centerX" id="9b9-U7-YMY"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="9mV-n8-x6b"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="CrO-Kf-bL7"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="Upz-dK-egg" secondAttribute="centerX" id="CxV-L4-Zlg"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="FEV-v4-tMt"/>
+                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="Gm0-Ty-3if"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="GuX-jo-dcw"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="I9t-3i-ABb"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="IrH-Ux-HLY"/>
+                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="QFa-1A-S1F"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="RS4-2L-brV"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="Sbn-Vx-5og"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="WL3-ep-AFF"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="awf-HG-Wy1"/>
+                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="h1c-AV-9ue"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="hf3-oR-X5R"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerY" secondItem="Upz-dK-egg" secondAttribute="centerY" id="jHQ-Sc-pBa"/>
+                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="jez-3N-rff"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerY" secondItem="Upz-dK-egg" secondAttribute="centerY" id="lmA-MT-4d4"/>
+                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="lr5-gs-aGd"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="luq-e1-72V"/>
+                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="mXd-Tm-inj"/>
+                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="qqk-3b-gA4"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="xCw-Py-X9l"/>
+                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="xsf-hS-999"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -558,7 +561,7 @@
                                     <barButtonItem key="backBarButtonItem" title="Back" id="ACw-cf-5Xb"/>
                                     <barButtonItem key="leftBarButtonItem" title="Done" id="Qpk-2m-42R">
                                         <connections>
-                                            <action selector="done:" destination="vO3-2u-4cJ" id="csE-Do-mO0"/>
+                                            <action selector="doneWithFilters:" destination="vO3-2u-4cJ" id="aio-uo-FGd"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -631,4 +634,7 @@
         <image name="star-xxl.png" width="256" height="256"/>
         <image name="websiteImage.png" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="s8l-gw-gcb"/>
+    </inferredMetricsTieBreakers>
 </document>
