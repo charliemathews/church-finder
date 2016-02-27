@@ -16,7 +16,7 @@ import UIKit
 import MapKit
 
 
-protocol detailedViewDelegate{
+protocol detailedViewDelegate {
     func done(child:DetailedViewController)
 }
 
@@ -49,7 +49,6 @@ class DetailedViewController: UIViewController {
             regionRadius * 2.0, regionRadius * 2.0)
         churchMap.setRegion(coordinateRegion, animated: true)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
