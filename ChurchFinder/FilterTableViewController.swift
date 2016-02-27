@@ -15,7 +15,7 @@ import Foundation
 import UIKit
 
 protocol filterResultsDelegate{
-    func done(child: FilterTableViewController)
+    func doneWithFilters(child: FilterTableViewController)
 }
 
 /*
@@ -30,8 +30,8 @@ class FilterTableViewController: UITableViewController {
     let times = ["10:00-11:00","11:00-12:00", "Anytime before kickoff"]
     var delegate: filterResultsDelegate!
     var check: Int!
-    @IBAction func done(sender: AnyObject) {
-        delegate.done(self)
+    @IBAction func doneWithFilters(sender: AnyObject) {
+        delegate.doneWithFilters(self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

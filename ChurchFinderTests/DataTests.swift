@@ -26,8 +26,8 @@ class DataTests: XCTestCase {
     
     
     /*
-     ***SINGLETON TESTS***
-     */
+        Tests for singleton, Data.
+    */
     
     func testSharedInstance() {
         let instance = Data.sharedInstance
@@ -69,10 +69,11 @@ class DataTests: XCTestCase {
     }
     
     /*
-    ***RESULT TESTS***
+        Tests for Data::getMeta()
     */
     func testMetaValidKey() {
         let key = "denomination"
+        
         let instance = Data.sharedInstance
         //let meta : [String] = instance.getMeta(key)
         
@@ -86,5 +87,40 @@ class DataTests: XCTestCase {
         XCTAssertFalse(instance.getMeta(key).count > 0)
     }
     
+    /*
+        Tests for Data::pullResults()
+    */
+    func testPullResultsNoParamsNoPrior() {
+        let instance = Data.sharedInstance
+        XCTAssertFalse(instance.pullResults())
+    }
     
+    func testPullResultsDefaultParamsNoPrior() {
+        let instance = Data.sharedInstance
+        XCTAssertTrue(instance.pullResults(Constants.Defaults.get()))
+        XCTAssertTrue(instance.results.count > 0)
+    }
+    
+    func testPullResultsFullParamsNoPrior() {
+        // need to write full set of sample parameters
+    }
+    
+    func testPullResultsNoParamsPriorSuccess() {
+        // can't write this until we have like 20 churches in the database
+    }
+    
+    func testPullResultsFullParamsPriorSuccess() {
+        // blocked
+    }
+    
+    func testPullResultsDefault() {
+        let instance = Data.sharedInstance
+        
+        XCTAssertTrue(instance.pullResults(Constants.Defaults.get()))
+        
+        let results : [Church] = instance.results
+        
+        XCTAssertTrue(results.count > 0)
+        XCTAssertTrue(results.count <= Constants.Defaults.NumberOfResultsToPullAtOnce)
+    }
 }

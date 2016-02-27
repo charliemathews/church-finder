@@ -16,6 +16,11 @@ import UIKit
 import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDelegate, UISearchBarDelegate, filterResultsDelegate{
     
+    @IBOutlet weak var listMapSwitchControl: UISegmentedControl!
+    @IBOutlet weak var mapView: MapViewController!
+    @IBOutlet weak var listView: ListViewController!
+    
+    
     var searchController:UISearchController!
     var annotation: MKAnnotation!
     var localSearchRequest:MKLocalSearchRequest!
@@ -50,6 +55,15 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         
     }
     
+    @IBAction func listMapSwitched(sender: AnyObject) {
+        if(listMapSwitchControl.selectedSegmentIndex == 0)
+        {
+    
+        }else
+        {
+        
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -109,8 +123,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         let child = segue.destinationViewController as! FilterTableViewController
         child.delegate = self
     }
-    func done(child: FilterTableViewController){
-        parCheck = child.check
+    func doneWithFilters(child: FilterTableViewController){
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

@@ -16,7 +16,7 @@ import UIKit
 import MapKit
 import Parse
 
-class ListViewController: UITableViewController, CLLocationManagerDelegate, detailedViewDelegate {
+class ListViewController: UITableViewController, CLLocationManagerDelegate, detailedViewDelegate, filterResultsDelegate {
     
     let churchCellIdentifier = "ChurchListCell"
     
@@ -115,11 +115,20 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
             
             dest.church = Globals.sharedInstance.churchList[index]
         }
+        else if(segue.identifier == "filterViewSegue") {
+            let child = segue.destinationViewController as! FilterTableViewController
+            child.delegate = self
+        }
     }
     
     func done(vc: DetailedViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+
+    func doneWithFilters(child: FilterTableViewController){
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     @IBAction func cancel(segue :UIStoryboardSegue) {
         NSLog("Got rid of him.")
@@ -172,6 +181,8 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         
         return newImage
     }
+    
+    
     
     /*
     // Override to support conditional editing of the table view.
