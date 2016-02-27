@@ -14,9 +14,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="2PS-6h-3lp">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YO6-hE-rEU">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <items>
+                                        <navigationItem id="eQA-pj-7yf">
+                                            <nil key="title"/>
+                                            <barButtonItem key="leftBarButtonItem" title="Filters" id="RYE-Sz-fD9"/>
+                                            <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="nNE-Eu-ydG">
+                                                <rect key="frame" x="180" y="8" width="240" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <segments>
+                                                    <segment title="List"/>
+                                                    <segment title="Map"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="listMapSwitched:" destination="hel-lN-dXH" eventType="valueChanged" id="yuJ-cr-OgT"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <barButtonItem key="rightBarButtonItem" systemItem="search" id="oMS-Na-m5T">
+                                                <connections>
+                                                    <action selector="showSearchBar:" destination="hel-lN-dXH" id="i7J-9A-k5m"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </navigationItem>
+                                    </items>
+                                </navigationBar>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="YO6-hE-rEU" firstAttribute="centerX" secondItem="2PS-6h-3lp" secondAttribute="centerX" id="DDd-df-Lm8"/>
+                                <constraint firstItem="YO6-hE-rEU" firstAttribute="top" secondItem="2PS-6h-3lp" secondAttribute="top" id="Y8X-Ie-SS5"/>
+                                <constraint firstItem="YO6-hE-rEU" firstAttribute="leading" secondItem="2PS-6h-3lp" secondAttribute="leading" id="xpy-2L-GYi"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChurchListCell" id="JdF-7h-oiZ" customClass="ChurchListCell" customModule="ChurchFinder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="600" height="121"/>
+                                <rect key="frame" x="0.0" y="66" width="600" height="121"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JdF-7h-oiZ" id="ds2-GS-BrE">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
@@ -415,48 +452,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </mapView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qov-QV-Jnd">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Upz-dK-egg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem id="OGc-cT-KPd">
-                                        <barButtonItem key="leftBarButtonItem" title="Filters" id="pKW-ls-tbz">
-                                            <connections>
-                                                <segue destination="vO3-2u-4cJ" kind="presentation" id="s8l-gw-gcb"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="LpR-rN-PkC">
-                                            <connections>
-                                                <action selector="showSearchBar:" destination="hel-lN-dXH" id="LRU-Ln-zDa"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qov-QV-Jnd">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="600" id="moN-E9-SJe"/>
+                                        </constraints>
+                                        <items>
+                                            <navigationItem id="OGc-cT-KPd">
+                                                <nil key="title"/>
+                                                <barButtonItem key="leftBarButtonItem" title="Filters" id="pKW-ls-tbz">
+                                                    <connections>
+                                                        <segue destination="vO3-2u-4cJ" kind="presentation" id="s8l-gw-gcb"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="yWB-h8-9pe">
+                                                    <rect key="frame" x="180" y="8" width="240" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="List"/>
+                                                        <segment title="Map"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="listMapSwitched:" destination="hel-lN-dXH" eventType="valueChanged" id="WWj-NY-9Bp"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <barButtonItem key="rightBarButtonItem" systemItem="search" id="LpR-rN-PkC">
+                                                    <connections>
+                                                        <action selector="showSearchBar:" destination="hel-lN-dXH" id="LRU-Ln-zDa"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="0ba-b5-b6T"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerY" secondItem="Upz-dK-egg" secondAttribute="centerY" id="2SL-LI-mca"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="3pv-Eh-bsX"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="5eF-Z1-6Uc"/>
+                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="86l-GL-9xh"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="A0e-n3-G7L"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="C6g-WU-Ehj"/>
+                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="CsW-Ps-NGV"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="Hbe-la-uYj"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="Upz-dK-egg" secondAttribute="centerX" id="Hsa-oy-854"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="Upz-dK-egg" secondAttribute="centerX" id="I1H-FU-4Vr"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="Upz-dK-egg" secondAttribute="centerX" id="Irx-lU-Xea"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="JIp-Td-SMg"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="centerY" secondItem="Upz-dK-egg" secondAttribute="centerY" id="QSx-jl-3yW"/>
+                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="Uce-Pt-DYM"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="Wl5-ew-1gR"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="Xv4-Kx-g81"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="Znb-C8-HnH"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="dRC-Ns-eNA"/>
+                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="dbB-eN-WMH"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="eX5-xL-Ups"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="fdC-gG-quh"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="gFm-eL-bnb"/>
+                                    <constraint firstAttribute="bottom" secondItem="qov-QV-Jnd" secondAttribute="bottom" id="kIT-ru-r62"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="Upz-dK-egg" secondAttribute="top" id="mb8-vO-Yzp"/>
+                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="n30-wk-HXa"/>
+                                    <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="Upz-dK-egg" secondAttribute="leading" id="sKr-Z2-ltX"/>
+                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="v7m-2n-KlG"/>
+                                    <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="yA8-0O-g7I"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="PGR-tO-Ahl" secondAttribute="centerX" id="1O3-6b-Q4y"/>
                             <constraint firstItem="r2K-bf-J6W" firstAttribute="bottom" secondItem="VOE-kN-b44" secondAttribute="top" id="KdW-zS-zEH"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="r2K-bf-J6W" secondAttribute="top" id="LNj-iH-hXs"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="trailing" secondItem="r2K-bf-J6W" secondAttribute="trailing" id="RfM-jM-xFt"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="r2K-bf-J6W" secondAttribute="leading" id="VEp-ON-niG"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="PGR-tO-Ahl" secondAttribute="top" id="eQy-fJ-lfS"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="PGR-tO-Ahl" secondAttribute="leading" id="uxv-ND-zbk"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="View Map" image="medMap" id="ioO-Uu-V2c"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="filBut" destination="pKW-ls-tbz" id="ozL-Eg-Rej"/>
+                        <outlet property="listMapSwitchControl" destination="yWB-h8-9pe" id="fA2-Rd-HHA"/>
                         <outlet property="mapview" destination="r2K-bf-J6W" id="jAB-Gb-b6x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcv-G8-Ghi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757" y="-343"/>
+            <point key="canvasLocation" x="750" y="-334"/>
         </scene>
         <!--Filter Table View Controller-->
         <scene sceneID="3Nr-T8-VF7">
