@@ -69,6 +69,7 @@
 		75EA09931C85582400EC90F2 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75EA098D1C85582400EC90F2 /* ParseFacebookUtilsV4.framework */; };
 		75EA09941C85582400EC90F2 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75EA098E1C85582400EC90F2 /* ParseTwitterUtils.framework */; };
 		75EA09951C85582400EC90F2 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75EA098F1C85582400EC90F2 /* ParseUI.framework */; };
+		75EA09971C85F66100EC90F2 /* DetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA09961C85F66100EC90F2 /* DetailedViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		75EA098D1C85582400EC90F2 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		75EA098E1C85582400EC90F2 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		75EA098F1C85582400EC90F2 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		75EA09961C85F66100EC90F2 /* DetailedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 				75EA09361C82271300EC90F2 /* ChurchFinderUITests.swift */,
 				75EA09381C82271300EC90F2 /* Info.plist */,
 				75EA093E1C82278000EC90F2 /* FilterTableViewControllerTests.swift */,
+				75EA09961C85F66100EC90F2 /* DetailedViewControllerTests.swift */,
 			);
 			path = ChurchFinderUITests;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 			files = (
 				75EA09371C82271300EC90F2 /* ChurchFinderUITests.swift in Sources */,
 				75EA093F1C82278000EC90F2 /* FilterTableViewControllerTests.swift in Sources */,
+				75EA09971C85F66100EC90F2 /* DetailedViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
