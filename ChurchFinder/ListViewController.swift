@@ -22,9 +22,6 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     
     @IBOutlet var table: UITableView!
     
-    
-    
-    
     var location : PFGeoPoint = PFGeoPoint()
     
     
@@ -86,7 +83,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     }
     
     func setTitleForCell(cell:ChurchListCell, indexPath:NSIndexPath) {
-        let church = Globals.sharedInstance.churchList[indexPath.row] as ChurchOld
+        let church = Globals.sharedInstance.churchList[indexPath.row] as Church
         cell.churchName.text = church.name ?? "[No Title]"
         cell.denomination.text = church.denom ?? "[No Denomination]"
         cell.churchType.text = church.style ?? "[No Type]"
@@ -156,6 +153,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
             
             
             //self.presentViewController(shareMenu, animated: true, completion: nil)
+            Data.sharedInstance.addBookmark(indexPath.row)
         })
         // 3
         bookmark.backgroundColor = UIColor.blueColor()

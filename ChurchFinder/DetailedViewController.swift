@@ -22,7 +22,7 @@ protocol detailedViewDelegate {
 
 class DetailedViewController: UIViewController {
     
-    var church : ChurchOld = ChurchOld(id: "", name: "")
+    var church : Church = Church()
     
     var bookmarked: Bool = false
     var delegate:detailedViewDelegate!
@@ -59,7 +59,7 @@ class DetailedViewController: UIViewController {
         worshipStyleLabel.text = church.style
         timeLabel.text = church.times
         addressLabel.text = church.address
-        descriptionLabel.text = church.descr
+        descriptionLabel.text = church.desc
         
         //Website setup
         let tap = UITapGestureRecognizer(target: self, action: Selector("openChurchWebsite"))
@@ -72,7 +72,7 @@ class DetailedViewController: UIViewController {
         
         
         //map stuff
-        let initialLocation = CLLocation(latitude: (church.location?.latitude)!, longitude: (church.location?.longitude)!)
+        let initialLocation = CLLocation(latitude: church.location.latitude, longitude: church.location.longitude)
         centerMapOnLocation(initialLocation)
     }
 
@@ -92,7 +92,7 @@ class DetailedViewController: UIViewController {
     }
     
     func openChurchWebsite() {
-        if let url = NSURL(string: church.url!) {
+        if let url = NSURL(string: church.url) {
             
             if UIApplication.sharedApplication().canOpenURL(url) == false {
                 let alertController = UIAlertController(title: "Error", message: "This website doesn't exist", preferredStyle: .Alert)

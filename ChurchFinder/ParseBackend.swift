@@ -64,7 +64,7 @@ func GrabChurchList(let geoPoint : PFGeoPoint, let start : Int, let n : Int) -> 
     return churchList
 }
 
-func GrabChurchList(let start : Int, let n : Int) -> [ChurchOld] {
+func GrabChurchList(let start : Int, let n : Int) -> [Church] {
     let query = PFQuery(className:"Church")
     query.skip = start
     query.limit = n
@@ -76,25 +76,23 @@ func GrabChurchList(let start : Int, let n : Int) -> [ChurchOld] {
         print("Bad Shit")
     }
     
-    var churchList : [ChurchOld] = []
+    var churchList : [Church] = []
     
     for church in churchArray {
-        let id = church.objectId
-        let name = church["name"] as! String
-        
-        if let id = id {
-            let c = ChurchOld(id: id, name: name)
-            c.denom = church["denomination"] as? String
-            c.size = church["size"] as? Int
-            c.style = church["style"] as? String
-            c.location = church["loc"] as? PFGeoPoint
-            c.times = church["times"] as? String
-            c.address = church["address"] as? String
-            c.descr = church["description"] as? String
-            c.url = church["url"] as? String
+            let c = Church()
+            
+            c.name     = church["name"]         as! String
+            c.denom    = church["denomination"] as! String
+            c.size     = church["size"]         as! Int
+            c.style    = church["style"]        as! String
+            c.location = church["loc"]          as! PFGeoPoint
+            c.times    = church["times"]        as! String
+            c.address  = church["address"]      as! String
+            c.desc     = church["description"]  as! String
+            c.url      = church["url"]          as! String
+            c.object   = church
             
             churchList.append(c)
-        }
     }
     
     print("Done")

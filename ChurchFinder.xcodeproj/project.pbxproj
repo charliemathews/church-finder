@@ -26,6 +26,7 @@
 		0F2028231C7F81AE00AFC9AA /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2028221C7F81AE00AFC9AA /* DataTests.swift */; };
 		0F2028241C7F972000AFC9AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20281D1C7F563F00AFC9AA /* Constants.swift */; };
 		371EB5EF1C7CC0CF0092A1B9 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371EB5EE1C7CC0CF0092A1B9 /* Global.swift */; };
+		3729A8671C8523B3000AF907 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3729A8661C8523B3000AF907 /* BookmarksViewController.swift */; };
 		373719C61C7C1EEF001A21B0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D431C6E213E00482663 /* libsqlite3.tbd */; };
 		373719C71C7C1EEF001A21B0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D411C6E213400482663 /* libz.tbd */; };
 		373719C81C7C1EEF001A21B0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D3F1C6E211B00482663 /* SystemConfiguration.framework */; };
@@ -108,6 +109,7 @@
 		0F20281D1C7F563F00AFC9AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0F2028221C7F81AE00AFC9AA /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		371EB5EE1C7CC0CF0092A1B9 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		3729A8661C8523B3000AF907 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		37FE8D311C6E20D500482663 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37FE8D331C6E20E400482663 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		37FE8D351C6E20EA00482663 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -287,6 +289,7 @@
 				75D436DD1C79108800F62108 /* DetailedViewController.swift */,
 				037F2F161C6106A600E971DB /* ListViewController.swift */,
 				037F2F181C61087400E971DB /* ChurchListCell.swift */,
+				3729A8661C8523B3000AF907 /* BookmarksViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3729A8671C8523B3000AF907 /* BookmarksViewController.swift in Sources */,
 				75D436DE1C79108800F62108 /* DetailedViewController.swift in Sources */,
 				034E16011C7C9F9D004AD878 /* FilterTableViewController.swift in Sources */,
 				034E16041C7C9F9D004AD878 /* SecondViewController.swift in Sources */,
@@ -789,6 +793,7 @@
 				75EA093D1C82271300EC90F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

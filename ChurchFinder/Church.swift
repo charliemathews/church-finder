@@ -32,6 +32,7 @@ class Church {
     var address : String
     var desc    : String
     var url     : String
+    var object  : PFObject?
     
     init() {
         self.id = ""

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -404,25 +403,113 @@
             </objects>
             <point key="canvasLocation" x="1499" y="386"/>
         </scene>
-        <!--Favorites-->
-        <scene sceneID="fCT-qS-jVh">
+        <!--Bookmarks View Controller-->
+        <scene sceneID="T7j-Wm-aqb">
             <objects>
-                <viewController id="C2R-mc-kug" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1Us-2y-xLC"/>
-                        <viewControllerLayoutGuide type="bottom" id="HVv-Kk-CWG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mNT-6H-1cN">
+                <tableViewController id="KzA-6E-DEh" customClass="BookmarksViewController" customModule="ChurchFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="114" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tzs-wz-60m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart-2" id="RZe-SR-QCx"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fhh-KA-CMI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChurchListCell" rowHeight="114" id="LKa-QE-2vF" customClass="ChurchListCell" customModule="ChurchFinder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="114"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LKa-QE-2vF" id="BN2-vg-5Za">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="113"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ChurchName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEZ-vI-oQH">
+                                            <rect key="frame" x="8" y="8" width="456" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="Be8-La-47B"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Denomination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzL-pr-aqv">
+                                            <rect key="frame" x="8" y="32" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="y1m-Ni-eJy"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Church Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKA-7d-T49">
+                                            <rect key="frame" x="8" y="56" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Dwf-p3-vJo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Service Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puf-5C-QiG">
+                                            <rect key="frame" x="8" y="85" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="sSs-U1-W57"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zf3-P4-Pfe">
+                                            <rect key="frame" x="478" y="9" width="114" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="3lB-85-yCU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Zf3-P4-Pfe" firstAttribute="top" secondItem="BN2-vg-5Za" secondAttribute="topMargin" id="28Z-7T-e5G"/>
+                                        <constraint firstItem="WzL-pr-aqv" firstAttribute="leading" secondItem="BN2-vg-5Za" secondAttribute="leadingMargin" id="4TV-8i-NEr"/>
+                                        <constraint firstItem="Puf-5C-QiG" firstAttribute="leading" secondItem="BN2-vg-5Za" secondAttribute="leadingMargin" id="65E-H9-DGH"/>
+                                        <constraint firstItem="fEZ-vI-oQH" firstAttribute="trailing" secondItem="BN2-vg-5Za" secondAttribute="trailingMargin" id="8eb-n1-tiQ"/>
+                                        <constraint firstItem="fEZ-vI-oQH" firstAttribute="top" secondItem="BN2-vg-5Za" secondAttribute="topMargin" id="O5Y-Gd-YHD"/>
+                                        <constraint firstItem="fEZ-vI-oQH" firstAttribute="trailing" secondItem="BN2-vg-5Za" secondAttribute="trailingMargin" id="OI7-87-DjF"/>
+                                        <constraint firstItem="WzL-pr-aqv" firstAttribute="top" secondItem="fEZ-vI-oQH" secondAttribute="bottom" id="RQr-jz-PJq"/>
+                                        <constraint firstItem="Zf3-P4-Pfe" firstAttribute="leading" secondItem="fEZ-vI-oQH" secondAttribute="trailing" id="TnW-Rl-LXI"/>
+                                        <constraint firstItem="Puf-5C-QiG" firstAttribute="top" secondItem="UKA-7d-T49" secondAttribute="bottom" id="dcz-hI-6ms"/>
+                                        <constraint firstItem="UKA-7d-T49" firstAttribute="top" secondItem="WzL-pr-aqv" secondAttribute="bottom" id="hcN-1O-huc"/>
+                                        <constraint firstItem="UKA-7d-T49" firstAttribute="leading" secondItem="BN2-vg-5Za" secondAttribute="leadingMargin" id="iAz-TG-Rm8"/>
+                                        <constraint firstItem="fEZ-vI-oQH" firstAttribute="leading" secondItem="BN2-vg-5Za" secondAttribute="leadingMargin" id="mf2-bk-Y2g"/>
+                                        <constraint firstItem="Zf3-P4-Pfe" firstAttribute="trailing" secondItem="BN2-vg-5Za" secondAttribute="trailingMargin" id="rmf-SO-2N9"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="OI7-87-DjF"/>
+                                            <exclude reference="8eb-n1-tiQ"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ChurchName" destination="fEZ-vI-oQH" id="eZJ-Qu-6D9"/>
+                                    <outlet property="churchName" destination="fEZ-vI-oQH" id="oeH-ob-7Qc"/>
+                                    <outlet property="churchType" destination="UKA-7d-T49" id="GoK-q4-6EP"/>
+                                    <outlet property="denomination" destination="WzL-pr-aqv" id="HSu-sS-Pl8"/>
+                                    <outlet property="distance" destination="Zf3-P4-Pfe" id="0nw-Hr-4et"/>
+                                    <outlet property="serviceTime" destination="Puf-5C-QiG" id="0CR-Fj-reK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KzA-6E-DEh" id="6bk-dE-svJ"/>
+                            <outlet property="delegate" destination="KzA-6E-DEh" id="NPt-Xr-JER"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="O0h-FY-JNc"/>
+                    <connections>
+                        <outlet property="table" destination="Tzs-wz-60m" id="8bC-BL-rrs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rqt-4Z-Ufo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768" y="1076"/>
+            <point key="canvasLocation" x="0.0" y="980"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -437,7 +524,7 @@
                     <connections>
                         <segue destination="vEF-9B-AbD" kind="relationship" relationship="viewControllers" id="eD6-PG-rx7"/>
                         <segue destination="hel-lN-dXH" kind="relationship" relationship="viewControllers" id="jDO-Qn-b2N"/>
-                        <segue destination="C2R-mc-kug" kind="relationship" relationship="viewControllers" id="70Z-OH-WaM"/>
+                        <segue destination="KzA-6E-DEh" kind="relationship" relationship="viewControllers" id="Ceb-p1-yI8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -625,7 +712,6 @@
         <image name="backArrow.png" width="128" height="128"/>
         <image name="clocks.png" width="128" height="128"/>
         <image name="compass.png" width="128" height="128"/>
-        <image name="heart-2" width="30" height="30"/>
         <image name="infoImage.png" width="48" height="48"/>
         <image name="medMap" width="42" height="42"/>
         <image name="music.png" width="128" height="128"/>
@@ -635,6 +721,6 @@
         <image name="websiteImage.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s8l-gw-gcb"/>
+        <segue reference="FLC-R7-Ghz"/>
     </inferredMetricsTieBreakers>
 </document>
