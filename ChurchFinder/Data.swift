@@ -27,6 +27,8 @@ final class Data {
     
     static let sharedInstance = Data()
     
+    let defaultRadius = 20
+    var radius = 20
     var results : [Church] = []
     var bookmarks : [Church] = []
     var currentParameters : [String:AnyObject] = [:]
@@ -76,8 +78,8 @@ final class Data {
     
     TODO: take array of strings for times rathern than CSV
     TODO: find a way to show churches of a similar size once the closest results have been exhausted
-    TODO: automatic pagination
-    TODO: if params is empty, pull next set. see below.
+    
+    TODO: increase radius of search if results < limit, by 5 miles, up to 50
     */
     func pullResults(var params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
         
