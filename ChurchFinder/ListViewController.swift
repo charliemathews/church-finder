@@ -89,6 +89,8 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         cell.churchType.text = church.style ?? "[No Type]"
         cell.serviceTime.text = church.times ?? "[No Times]"
         cell.distance.text = "Needs work"
+        
+        cell.churchImage.image = UIImage(named: "churches.jpg")
     }
     
     //MARK: Segue
@@ -136,23 +138,8 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        // 1
-        
-        
+     
         let bookmark = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Bookmark" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            
-            
-            // 2
-            //let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
-            
-            //let twitterAction = UIAlertAction(title: "Twitter", style: UIAlertActionStyle.Default, handler: nil)
-            //let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-            
-            //shareMenu.addAction(twitterAction)
-            //shareMenu.addAction(cancelAction)
-            
-            
-            //self.presentViewController(shareMenu, animated: true, completion: nil)
             Data.sharedInstance.addBookmark(indexPath.row)
         })
         // 3
