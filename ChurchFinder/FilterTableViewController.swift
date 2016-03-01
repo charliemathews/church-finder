@@ -24,10 +24,10 @@ TODO: pull labels, denominations, styles, etc from data model using, for ex. dat
 class FilterTableViewController: UITableViewController {
 
     let labels = ["Denomination", "Worship Style", "Size", "Times"]
-    let denoms = ["Evangelical", "Lutheran", "Catholic", "Protestant", "Boatright"]
-    let worshipStyles = ["Contemporary", "Traditional", "80's Disco"]
-    let sizes = ["0-100", "100-200", "200-300", "300+"]
-    let times = ["10:00-11:00","11:00-12:00", "Anytime before kickoff"]
+    let denoms = data.getMeta("denomination")
+    let worshipStyles = data.getMeta("style")
+    let sizes = ["Small", "Medium", "Osteen"]
+    let times = data.getMeta("times")
     var delegate: filterResultsDelegate!
     var check: Int!
     @IBAction func done(sender: AnyObject) {
@@ -42,6 +42,7 @@ class FilterTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
     
     
@@ -70,15 +71,19 @@ class FilterTableViewController: UITableViewController {
         switch (indexPath.row){
             case 0:
                 cell.pickerLabels = denoms
+                cell.cellName = "denoms"
                 break
             case 1:
                 cell.pickerLabels = worshipStyles
+                cell.cellName = "style"
                 break
             case 2:
                 cell.pickerLabels = sizes
+                cell.cellName = "size"
                 break
             case 3:
                 cell.pickerLabels = times
+                cell.cellName = "times"
                 break
             default: break
         }

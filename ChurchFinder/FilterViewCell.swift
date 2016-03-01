@@ -20,6 +20,7 @@ class FilterViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDeleg
     @IBOutlet var view: UIView!
     @IBOutlet weak var filterCategoryPicker: UIPickerView!
     var labelText: String!
+    var cellName: String!
     var pickerLabels = [String]()
     
     override func awakeFromNib() {
@@ -52,5 +53,9 @@ class FilterViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDeleg
         return pickerLabels[row]
     }
     
-
+    func pickerView(pickerView: UIPickerView,
+        didSelectRow row: Int,
+        inComponent component: Int){
+            church.churchDictionary[cellName] = pickerLabels[row]
+    }
 }

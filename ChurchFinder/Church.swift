@@ -21,7 +21,6 @@ import Foundation
 import Parse
 
 class Church {
-    
     var id      : String
     var name    : String
     var denom   : String
@@ -32,6 +31,7 @@ class Church {
     var address : String
     var desc    : String
     var url     : String
+    var churchDictionary: [String: String] = [:]
     
     init() {
         self.id = ""
@@ -69,5 +69,35 @@ class Church {
             self.address = address
             self.desc = desc
             self.url = url
+    }
+    func mapNameToString(input: String) -> String{
+        switch input{
+        case "id":
+            return id
+        case "name":
+            return name
+        case "denoms":
+            return denom
+        case "style":
+            return style
+        case "times":
+            return times
+        case "address":
+            return address
+        case "desc":
+            return desc
+        case "url":
+            return url
+        default:
+            return ""
+        }
+    }
+    func mapNameToInt(input: String) -> Int{
+        switch input{
+            case "size":
+                return size
+            default:
+                return -1
+        }
     }
 }
