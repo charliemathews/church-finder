@@ -38,6 +38,16 @@
                ReferencedContainer = "container:ChurchFinder.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "75EA09331C82271300EC90F2"
+               BuildableName = "ChurchFinderUITests.xctest"
+               BlueprintName = "ChurchFinderUITests"
+               ReferencedContainer = "container:ChurchFinder.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

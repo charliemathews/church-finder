@@ -32,6 +32,7 @@ class Church {
     var desc    : String
     var url     : String
     var churchDictionary: [String: String] = [:]
+    var object  : PFObject?
     
     init() {
         self.id = ""
@@ -69,35 +70,5 @@ class Church {
             self.address = address
             self.desc = desc
             self.url = url
-    }
-    func mapNameToString(input: String) -> String{
-        switch input{
-        case "id":
-            return id
-        case "name":
-            return name
-        case "denoms":
-            return denom
-        case "style":
-            return style
-        case "times":
-            return times
-        case "address":
-            return address
-        case "desc":
-            return desc
-        case "url":
-            return url
-        default:
-            return ""
-        }
-    }
-    func mapNameToInt(input: String) -> Int{
-        switch input{
-            case "size":
-                return size
-            default:
-                return -1
-        }
     }
 }

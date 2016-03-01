@@ -1,51 +1,32 @@
-/*
-Copyright 2016 Serious Llama and Grove City College. All rights reserved.
+//
+//  BookmarksViewController.swift
+//  ChurchFinder
+//
+//  Created by Daniel Mitchell on 2/29/16.
+//  Copyright © 2016 Michael Curtis. All rights reserved.
+//
 
-Author: Sarah Burgess
-Created:
-Modified: 24/02/16
-
-Changelog
-...
-
-Sources
-...
-*/
-import Foundation
 import UIKit
 
-protocol filterResultsDelegate{
-    func doneWithFilters(child: FilterTableViewController)
-}
+class BookmarksViewController: UITableViewController {
+    
+    let churchCellIdentifier = "ChurchListCell"
 
-/*
-TODO: pull labels, denominations, styles, etc from data model using, for ex. data.getMeta("denomination")
-*/
-class FilterTableViewController: UITableViewController {
-
-    let labels = ["Denomination", "Worship Style", "Size", "Times"]
-    let denoms = data.getMeta("denomination")
-    let worshipStyles = data.getMeta("style")
-    let sizes = ["Small", "Medium", "Osteen"]
-    let times = data.getMeta("times")
-    var delegate: filterResultsDelegate!
-    var check: Int!
-    @IBAction func doneWithFilters(sender: AnyObject) {
-        delegate.doneWithFilters(self)
-    }
+    @IBOutlet var table: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self;
-        self.tableView.delegate = self;
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
     }
     
-    
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,39 +42,25 @@ class FilterTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return Data.sharedInstance.bookmarks.count
     }
 
-    //Note: This assigns the cellName (which in turn is used to name the churchDictionary keys) to what the name of each variable
-    //in the church class is.
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> FilterViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tblCell", forIndexPath: indexPath) as! FilterViewCell
-        cell.textLabel?.text = labels[indexPath.row]
-        switch (indexPath.row){
-            case 0:
-                cell.pickerLabels = denoms
-                cell.cellName = "denoms"
-                break
-            case 1:
-                cell.pickerLabels = worshipStyles
-                cell.cellName = "style"
-                break
-            case 2:
-                cell.pickerLabels = sizes
-                cell.cellName = "size"
-                break
-            case 3:
-                cell.pickerLabels = times
-                cell.cellName = "times"
-                break
-            default: break
-        }
-        cell.contentView.bringSubviewToFront(cell.filterCategoryPicker)
-        cell.setSelected(true, animated: true)
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ChurchListCell", forIndexPath: indexPath) as! ChurchListCell
         // Configure the cell...
+        setTitleForCell(cell, indexPath: indexPath)
         return cell
     }
     
+    func setTitleForCell(cell:ChurchListCell, indexPath:NSIndexPath) {
+        let church = Data.sharedInstance.bookmarks[indexPath.row] as Church
+        cell.churchName.text = church.name ?? "[No Title]"
+        cell.denomination.text = church.denom ?? "[No Denomination]"
+        cell.churchType.text = church.style ?? "[No Type]"
+        cell.serviceTime.text = church.times ?? "[No Times]"
+        cell.distance.text = "Needs work"
+    }
 
     /*
     // Override to support conditional editing of the table view.

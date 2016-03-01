@@ -10,8 +10,8 @@ Changelog
 * 25-02-16 After a successful call to pullResults, subsequent calls will attempt to pull the next page of results automatically.
 
 Tested & Passed
-Unit:               {mm/dd/yy} by {last name}
-Integration:        {mm/dd/yy} by {last name}
+Unit:               26/02/16 by Charlie
+Integration:        26/02/16 by Charlie
 
 Sources:
 http://krakendev.io/blog/the-right-way-to-write-a-singleton
@@ -28,31 +28,25 @@ final class Data {
     static let sharedInstance = Data()
     
     var results : [Church] = []
+    var bookmarks : [Church] = []
     var currentParameters : [String:AnyObject] = [:]
     var currentStart = 0
     var currentLimit = 0
     
     /*
-    Private init is used here so that a second instance cannot be created. This function acts as an initial search function, filling the results with information from the default search parameters.
+    Private init is used here so that a second instance cannot be created.
     */
     private init() {
-        pullResults(Constants.Defaults.get())
+        //pullResults(Constants.Defaults.get())
     }
     
     /*
-    Returns a list of options for denominations, church sizes, and worship sytles
+    Get list of possible values held by key.
     */
     func getMeta(let type : String) -> [String] {
         
         var options : [String] = []
         let query = PFQuery(className: Constants.Parse.ChurchClass)
-        
-        /* TO BE DELETED AFTER DEBUGGING
-        // use query.wherekeyexists instead?
-        if(type != "denomination" && type != "size" && type != "style") {
-        return options
-        }
-        */
         
         query.whereKeyExists(type)
         query.selectKeys([type]) // alternative to checking each input to see if it's valid
@@ -68,7 +62,9 @@ final class Data {
         }
         
         for f in found {
-            options.append(f[type] as! String)
+            if(!options.contains(f[type] as! String)) {
+                options.append(f[type] as! String)
+            }
         }
         
         return options
@@ -83,31 +79,34 @@ final class Data {
     TODO: automatic pagination
     TODO: if params is empty, pull next set. see below.
     */
-    func pullResults(let params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
+    func pullResults(var params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
         
         let query = PFQuery(className: Constants.Parse.ChurchClass)
         
         
-        // if no parameters were passed in, the user probbaly wants the next set of results in the table
-        if(params.count == 0) {
+        // no parameters passed in, prior query exists
+        if(params.count == 0 && results.count > 0) {
             if(results.count == currentLimit) {                             // if we got a full set a results last time
                 query.skip = currentStart + currentLimit                    // skip to the end of our last result set
                 query.limit = currentLimit                                  // attempt to use the same limit as before
-            } else if(results.count > 0 && results.count < currentLimit) {
+            } else if(results.count < currentLimit) {
                 return false                                                // if we clearly hit the limit last time, there are no more
-            } else {
-                return false                                                // else if no results were found
             }
         }
             
-        // parameters were passed in, skip to the requested result and use requested limit
+        // no parameters passed in, no prior query
+        else if(params.count == 0 && results.count == 0) {
+            return false
+        }
+            
+        // parameters were passed in
         else {
             query.skip = s
             query.limit = n
         }
         
         
-        // if parameters were requested apply them to query
+        // if individual parameters were requested apply them to query
         if let denom = params["denomination"] as? String {
             query.whereKey("denomination", containsString: denom)
         }
@@ -128,6 +127,32 @@ final class Data {
         }
         
         
+        var found : [PFObject]
+        
+        do {
+            try found = query.findObjects()
+        }
+        catch {
+            return false
+        }
+        
+        for f in found {
+            let church : Church = Church()
+            
+            church.name     = f["name"]         as! String
+            church.denom    = f["denomination"] as! String
+            church.size     = f["size"]         as! Int
+            church.style    = f["style"]        as! String
+            church.location = f["loc"]          as! PFGeoPoint
+            church.times    = f["times"]        as! String
+            church.address  = f["address"]      as! String
+            church.desc     = f["description"]  as! String
+            church.url      = f["url"]          as! String
+            church.object   = f
+            
+            results.append(church)
+        }
+        
         // compound query
         // for(int i = 0; i < times.count; i++)
         // if(time.count > 0) query.whereKey("time", containsString:...
@@ -137,15 +162,67 @@ final class Data {
         
         // set results = query.results
         
-        if(results.count > 0) {
-            currentStart = query.skip
-            currentLimit = query.limit
-        }
         if(params.count > 0) {             // if results were successfully pulled and we didn't use stored parameters
             self.currentParameters = params
         }
-        return true
+        if(results.count > 0) {
+            currentStart = query.skip
+            currentLimit = query.limit
+            return true
+        } else {
+            return false
+        }
     }
     
+    func clear() {
+        results = []
+        currentParameters = [:]
+        currentStart = 0
+        currentLimit = 0
+    }
+    
+    func addBookmark(let resultIndex : Int) {
+        //depricated
+        let addition = Globals.sharedInstance.churchList[resultIndex]
+        //let addition = results[resultIndex]
+        
+        for b in bookmarks {
+            if (b.object!.objectId == addition.object!.objectId) { return }
+        }
+        
+        bookmarks.append(addition)
+        addition.object!.pinInBackground()
+    }
+    
+    func pullBookmarks() {
+        let query = PFQuery(className: Constants.Parse.ChurchClass)
+        query.fromLocalDatastore()
+        query.findObjectsInBackgroundWithBlock {
+        (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+            
+            for f in objects! {
+                let church : Church = Church()
+                
+                church.name     = f["name"]         as! String
+                church.denom    = f["denomination"] as! String
+                church.size     = f["size"]         as! Int
+                church.style    = f["style"]        as! String
+                church.location = f["loc"]          as! PFGeoPoint
+                church.times    = f["times"]        as! String
+                church.address  = f["address"]      as! String
+                church.desc     = f["description"]  as! String
+                church.url      = f["url"]          as! String
+                church.object   = f
+                
+                self.bookmarks.append(church)
+            }
+                
+            } else {
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+    }
 }
     

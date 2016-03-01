@@ -28,7 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //TODO, figure out why we can't use Constants.Parse.{keyname} here without crashing parse
+        Parse.enableLocalDatastore()
         Parse.setApplicationId("OTXY6dM8ChkriarqrX4SPi2e2Def9v1EM0VVNoOW", clientKey: "5I1Iky8vY7hheR7X9QAejEbXaw96UMFBYGzVr4h3")
+        
+        Data.sharedInstance.pullBookmarks()
         
         return true
     }

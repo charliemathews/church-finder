@@ -16,14 +16,11 @@ import UIKit
 import MapKit
 import Parse
 
-class ListViewController: UITableViewController, CLLocationManagerDelegate, detailedViewDelegate {
+class ListViewController: UITableViewController, CLLocationManagerDelegate, detailedViewDelegate, filterResultsDelegate {
     
     let churchCellIdentifier = "ChurchListCell"
     
     @IBOutlet var table: UITableView!
-    
-    
-    
     
     var location : PFGeoPoint = PFGeoPoint()
     
@@ -86,7 +83,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     }
     
     func setTitleForCell(cell:ChurchListCell, indexPath:NSIndexPath) {
-        let church = Globals.sharedInstance.churchList[indexPath.row] as ChurchOld
+        let church = Globals.sharedInstance.churchList[indexPath.row] as Church
         cell.churchName.text = church.name ?? "[No Title]"
         cell.denomination.text = church.denom ?? "[No Denomination]"
         cell.churchType.text = church.style ?? "[No Type]"
@@ -115,11 +112,20 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
             
             dest.church = Globals.sharedInstance.churchList[index]
         }
+        else if(segue.identifier == "filterViewSegue") {
+            let child = segue.destinationViewController as! FilterTableViewController
+            child.delegate = self
+        }
     }
     
     func done(vc: DetailedViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+
+    func doneWithFilters(child: FilterTableViewController){
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     @IBAction func cancel(segue :UIStoryboardSegue) {
         NSLog("Got rid of him.")
@@ -147,6 +153,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
             
             
             //self.presentViewController(shareMenu, animated: true, completion: nil)
+            Data.sharedInstance.addBookmark(indexPath.row)
         })
         // 3
         bookmark.backgroundColor = UIColor.blueColor()
@@ -172,6 +179,8 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         
         return newImage
     }
+    
+    
     
     /*
     // Override to support conditional editing of the table view.

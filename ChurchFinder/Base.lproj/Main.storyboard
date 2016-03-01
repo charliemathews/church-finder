@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -14,9 +13,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="2PS-6h-3lp">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YO6-hE-rEU">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <items>
+                                        <navigationItem id="eQA-pj-7yf">
+                                            <nil key="title"/>
+                                            <barButtonItem key="leftBarButtonItem" title="Filters" id="RYE-Sz-fD9">
+                                                <connections>
+                                                    <segue destination="vO3-2u-4cJ" kind="presentation" identifier="filterViewSegue" id="FLC-R7-Ghz"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="nNE-Eu-ydG">
+                                                <rect key="frame" x="180" y="8" width="240" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <segments>
+                                                    <segment title="List"/>
+                                                    <segment title="Map"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="listMapSwitched:" destination="hel-lN-dXH" eventType="valueChanged" id="yuJ-cr-OgT"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <barButtonItem key="rightBarButtonItem" systemItem="search" id="oMS-Na-m5T">
+                                                <connections>
+                                                    <action selector="showSearchBar:" destination="hel-lN-dXH" id="i7J-9A-k5m"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </navigationItem>
+                                    </items>
+                                </navigationBar>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="YO6-hE-rEU" firstAttribute="centerX" secondItem="2PS-6h-3lp" secondAttribute="centerX" id="DDd-df-Lm8"/>
+                                <constraint firstItem="YO6-hE-rEU" firstAttribute="top" secondItem="2PS-6h-3lp" secondAttribute="top" id="Y8X-Ie-SS5"/>
+                                <constraint firstItem="YO6-hE-rEU" firstAttribute="leading" secondItem="2PS-6h-3lp" secondAttribute="leading" id="xpy-2L-GYi"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChurchListCell" id="JdF-7h-oiZ" customClass="ChurchListCell" customModule="ChurchFinder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="600" height="121"/>
+                                <rect key="frame" x="0.0" y="66" width="600" height="121"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JdF-7h-oiZ" id="ds2-GS-BrE">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
@@ -363,25 +403,113 @@
             </objects>
             <point key="canvasLocation" x="1499" y="386"/>
         </scene>
-        <!--Favorites-->
-        <scene sceneID="fCT-qS-jVh">
+        <!--Bookmarks View Controller-->
+        <scene sceneID="T7j-Wm-aqb">
             <objects>
-                <viewController id="C2R-mc-kug" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1Us-2y-xLC"/>
-                        <viewControllerLayoutGuide type="bottom" id="HVv-Kk-CWG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mNT-6H-1cN">
+                <tableViewController id="KzA-6E-DEh" customClass="BookmarksViewController" customModule="ChurchFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="114" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tzs-wz-60m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart-2" id="RZe-SR-QCx"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fhh-KA-CMI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChurchListCell" rowHeight="114" id="LKa-QE-2vF" customClass="ChurchListCell" customModule="ChurchFinder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="114"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LKa-QE-2vF" id="BN2-vg-5Za">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="113"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ChurchName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEZ-vI-oQH">
+                                            <rect key="frame" x="8" y="8" width="456" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="Be8-La-47B"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Denomination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzL-pr-aqv">
+                                            <rect key="frame" x="8" y="32" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="y1m-Ni-eJy"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Church Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKA-7d-T49">
+                                            <rect key="frame" x="8" y="56" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Dwf-p3-vJo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Service Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puf-5C-QiG">
+                                            <rect key="frame" x="8" y="85" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="sSs-U1-W57"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zf3-P4-Pfe">
+                                            <rect key="frame" x="478" y="9" width="114" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="3lB-85-yCU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Zf3-P4-Pfe" firstAttribute="top" secondItem="BN2-vg-5Za" secondAttribute="topMargin" id="28Z-7T-e5G"/>
+                                        <constraint firstItem="WzL-pr-aqv" firstAttribute="leading" secondItem="BN2-vg-5Za" secondAttribute="leadingMargin" id="4TV-8i-NEr"/>
+                                        <constraint firstItem="Puf-5C-QiG" firstAttribute="leading" secondItem="BN2-vg-5Za" secondAttribute="leadingMargin" id="65E-H9-DGH"/>
+                                        <constraint firstItem="fEZ-vI-oQH" firstAttribute="trailing" secondItem="BN2-vg-5Za" secondAttribute="trailingMargin" id="8eb-n1-tiQ"/>
+                                        <constraint firstItem="fEZ-vI-oQH" firstAttribute="top" secondItem="BN2-vg-5Za" secondAttribute="topMargin" id="O5Y-Gd-YHD"/>
+                                        <constraint firstItem="fEZ-vI-oQH" firstAttribute="trailing" secondItem="BN2-vg-5Za" secondAttribute="trailingMargin" id="OI7-87-DjF"/>
+                                        <constraint firstItem="WzL-pr-aqv" firstAttribute="top" secondItem="fEZ-vI-oQH" secondAttribute="bottom" id="RQr-jz-PJq"/>
+                                        <constraint firstItem="Zf3-P4-Pfe" firstAttribute="leading" secondItem="fEZ-vI-oQH" secondAttribute="trailing" id="TnW-Rl-LXI"/>
+                                        <constraint firstItem="Puf-5C-QiG" firstAttribute="top" secondItem="UKA-7d-T49" secondAttribute="bottom" id="dcz-hI-6ms"/>
+                                        <constraint firstItem="UKA-7d-T49" firstAttribute="top" secondItem="WzL-pr-aqv" secondAttribute="bottom" id="hcN-1O-huc"/>
+                                        <constraint firstItem="UKA-7d-T49" firstAttribute="leading" secondItem="BN2-vg-5Za" secondAttribute="leadingMargin" id="iAz-TG-Rm8"/>
+                                        <constraint firstItem="fEZ-vI-oQH" firstAttribute="leading" secondItem="BN2-vg-5Za" secondAttribute="leadingMargin" id="mf2-bk-Y2g"/>
+                                        <constraint firstItem="Zf3-P4-Pfe" firstAttribute="trailing" secondItem="BN2-vg-5Za" secondAttribute="trailingMargin" id="rmf-SO-2N9"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="8eb-n1-tiQ"/>
+                                            <exclude reference="OI7-87-DjF"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ChurchName" destination="fEZ-vI-oQH" id="eZJ-Qu-6D9"/>
+                                    <outlet property="churchName" destination="fEZ-vI-oQH" id="oeH-ob-7Qc"/>
+                                    <outlet property="churchType" destination="UKA-7d-T49" id="GoK-q4-6EP"/>
+                                    <outlet property="denomination" destination="WzL-pr-aqv" id="HSu-sS-Pl8"/>
+                                    <outlet property="distance" destination="Zf3-P4-Pfe" id="0nw-Hr-4et"/>
+                                    <outlet property="serviceTime" destination="Puf-5C-QiG" id="0CR-Fj-reK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KzA-6E-DEh" id="6bk-dE-svJ"/>
+                            <outlet property="delegate" destination="KzA-6E-DEh" id="NPt-Xr-JER"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="O0h-FY-JNc"/>
+                    <connections>
+                        <outlet property="table" destination="Tzs-wz-60m" id="8bC-BL-rrs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rqt-4Z-Ufo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768" y="1076"/>
+            <point key="canvasLocation" x="0.0" y="980"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -396,7 +524,7 @@
                     <connections>
                         <segue destination="vEF-9B-AbD" kind="relationship" relationship="viewControllers" id="eD6-PG-rx7"/>
                         <segue destination="hel-lN-dXH" kind="relationship" relationship="viewControllers" id="jDO-Qn-b2N"/>
-                        <segue destination="C2R-mc-kug" kind="relationship" relationship="viewControllers" id="70Z-OH-WaM"/>
+                        <segue destination="KzA-6E-DEh" kind="relationship" relationship="viewControllers" id="Ceb-p1-yI8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -415,18 +543,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </mapView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qov-QV-Jnd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem id="OGc-cT-KPd">
+                                        <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" title="Filters" id="pKW-ls-tbz">
                                             <connections>
                                                 <segue destination="vO3-2u-4cJ" kind="presentation" id="s8l-gw-gcb"/>
                                             </connections>
                                         </barButtonItem>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="yWB-h8-9pe">
+                                            <rect key="frame" x="180" y="8" width="240" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="List"/>
+                                                <segment title="Map"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="listMapSwitched:" destination="hel-lN-dXH" eventType="valueChanged" id="WWj-NY-9Bp"/>
+                                            </connections>
+                                        </segmentedControl>
                                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="LpR-rN-PkC">
                                             <connections>
                                                 <action selector="showSearchBar:" destination="hel-lN-dXH" id="LRU-Ln-zDa"/>
@@ -438,25 +578,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="centerX" secondItem="PGR-tO-Ahl" secondAttribute="centerX" id="1O3-6b-Q4y"/>
-                            <constraint firstItem="r2K-bf-J6W" firstAttribute="bottom" secondItem="VOE-kN-b44" secondAttribute="top" id="KdW-zS-zEH"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="r2K-bf-J6W" secondAttribute="top" id="LNj-iH-hXs"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="trailing" secondItem="r2K-bf-J6W" secondAttribute="trailing" id="RfM-jM-xFt"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="r2K-bf-J6W" secondAttribute="leading" id="VEp-ON-niG"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="PGR-tO-Ahl" secondAttribute="top" id="eQy-fJ-lfS"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="PGR-tO-Ahl" secondAttribute="leading" id="uxv-ND-zbk"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="PGR-tO-Ahl" secondAttribute="leading" id="Zfe-qu-KVQ"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="r2K-bf-J6W" secondAttribute="leading" id="eVS-fG-qhy"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="r2K-bf-J6W" secondAttribute="top" id="g7R-eW-aKF"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="trailing" secondItem="r2K-bf-J6W" secondAttribute="trailing" id="ich-rS-Uc4"/>
+                            <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="jrT-Ys-THo"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="PGR-tO-Ahl" secondAttribute="top" id="lwA-AJ-7on"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="View Map" image="medMap" id="ioO-Uu-V2c"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="filBut" destination="pKW-ls-tbz" id="ozL-Eg-Rej"/>
+                        <outlet property="listMapSwitchControl" destination="yWB-h8-9pe" id="fA2-Rd-HHA"/>
                         <outlet property="mapview" destination="r2K-bf-J6W" id="jAB-Gb-b6x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcv-G8-Ghi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757" y="-343"/>
+            <point key="canvasLocation" x="750" y="-334"/>
         </scene>
         <!--Filter Table View Controller-->
         <scene sceneID="3Nr-T8-VF7">
@@ -474,7 +614,7 @@
                                     <barButtonItem key="backBarButtonItem" title="Back" id="ACw-cf-5Xb"/>
                                     <barButtonItem key="leftBarButtonItem" title="Done" id="Qpk-2m-42R">
                                         <connections>
-                                            <action selector="done:" destination="vO3-2u-4cJ" id="csE-Do-mO0"/>
+                                            <action selector="doneWithFilters:" destination="vO3-2u-4cJ" id="aio-uo-FGd"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -538,7 +678,6 @@
         <image name="backArrow.png" width="128" height="128"/>
         <image name="clocks.png" width="128" height="128"/>
         <image name="compass.png" width="128" height="128"/>
-        <image name="heart-2" width="30" height="30"/>
         <image name="infoImage.png" width="48" height="48"/>
         <image name="medMap" width="42" height="42"/>
         <image name="music.png" width="128" height="128"/>
@@ -547,4 +686,7 @@
         <image name="star-xxl.png" width="256" height="256"/>
         <image name="websiteImage.png" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FLC-R7-Ghz"/>
+    </inferredMetricsTieBreakers>
 </document>
