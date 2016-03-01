@@ -16,6 +16,7 @@ import UIKit
 
 class ChurchListCell: UITableViewCell {
 
+    @IBOutlet weak var churchImage: UIImageView!
     @IBOutlet weak var churchName : UILabel!
     @IBOutlet weak var denomination: UILabel!
     @IBOutlet weak var churchType: UILabel!

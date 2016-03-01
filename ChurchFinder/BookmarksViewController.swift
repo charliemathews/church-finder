@@ -53,6 +53,17 @@ class BookmarksViewController: UITableViewController {
         return cell
     }
     
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
+    
     func setTitleForCell(cell:ChurchListCell, indexPath:NSIndexPath) {
         let church = Data.sharedInstance.bookmarks[indexPath.row] as Church
         cell.churchName.text = church.name ?? "[No Title]"
@@ -61,7 +72,7 @@ class BookmarksViewController: UITableViewController {
         cell.serviceTime.text = church.times ?? "[No Times]"
         cell.distance.text = "Needs work"
     }
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

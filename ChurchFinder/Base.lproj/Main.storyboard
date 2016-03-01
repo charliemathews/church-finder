@@ -17,8 +17,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YO6-hE-rEU">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YO6-hE-rEU">
+                                    <rect key="frame" x="0.0" y="5" width="600" height="44"/>
                                     <items>
                                         <navigationItem id="eQA-pj-7yf">
                                             <nil key="title"/>
@@ -50,7 +50,6 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="YO6-hE-rEU" firstAttribute="centerX" secondItem="2PS-6h-3lp" secondAttribute="centerX" id="DDd-df-Lm8"/>
-                                <constraint firstItem="YO6-hE-rEU" firstAttribute="top" secondItem="2PS-6h-3lp" secondAttribute="top" id="Y8X-Ie-SS5"/>
                                 <constraint firstItem="YO6-hE-rEU" firstAttribute="leading" secondItem="2PS-6h-3lp" secondAttribute="leading" id="xpy-2L-GYi"/>
                             </constraints>
                         </view>
@@ -62,13 +61,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P4y-50-tqg">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="124"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ChurchName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaZ-cZ-QnG">
                                             <rect key="frame" x="8" y="8" width="456" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="HXB-0e-g4O"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Denomination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3k-Md-58w">
@@ -77,7 +79,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="yRF-MI-WVQ"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Church Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpI-2n-2xJ">
@@ -86,7 +88,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="y0o-m7-aQf"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Service Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnV-Nd-J8O">
@@ -95,7 +97,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="aqK-Vp-SWI"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qc-zf-nq2">
@@ -104,7 +106,7 @@
                                                 <constraint firstAttribute="height" constant="24" id="ScM-i8-OJu"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -132,6 +134,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="ChurchName" destination="uaZ-cZ-QnG" id="g1B-E9-uB9"/>
+                                    <outlet property="churchImage" destination="P4y-50-tqg" id="X1d-sY-pOu"/>
                                     <outlet property="churchName" destination="uaZ-cZ-QnG" id="w1G-IQ-MxW"/>
                                     <outlet property="churchType" destination="ZpI-2n-2xJ" id="LP3-97-bkb"/>
                                     <outlet property="denomination" destination="E3k-Md-58w" id="77Y-q2-hnw"/>
@@ -547,7 +550,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </mapView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qov-QV-Jnd">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="5" width="600" height="44"/>
                                 <items>
                                     <navigationItem id="OGc-cT-KPd">
                                         <nil key="title"/>
@@ -578,12 +581,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="PGR-tO-Ahl" secondAttribute="leading" id="Zfe-qu-KVQ"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="r2K-bf-J6W" secondAttribute="leading" id="eVS-fG-qhy"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="r2K-bf-J6W" secondAttribute="top" id="g7R-eW-aKF"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="trailing" secondItem="r2K-bf-J6W" secondAttribute="trailing" id="ich-rS-Uc4"/>
-                            <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="jrT-Ys-THo"/>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="PGR-tO-Ahl" secondAttribute="top" id="lwA-AJ-7on"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="r2K-bf-J6W" secondAttribute="top" id="EMU-WH-oqI"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="PGR-tO-Ahl" secondAttribute="leading" id="Srp-Jk-vDG"/>
+                            <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="Vfl-8U-GZ8"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="PGR-tO-Ahl" secondAttribute="top" constant="5" id="dxJ-K9-JyB"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="trailing" secondItem="r2K-bf-J6W" secondAttribute="trailing" id="hMP-Sj-mzv"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="r2K-bf-J6W" secondAttribute="leading" id="uai-Yz-CRw"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="View Map" image="medMap" id="ioO-Uu-V2c"/>
