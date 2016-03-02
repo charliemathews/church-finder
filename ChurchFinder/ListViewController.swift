@@ -29,14 +29,12 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         super.viewDidLoad()
         
         //Start Location Services
-        Globals.sharedInstance.locationManager.delegate = self
-        Globals.sharedInstance.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        Globals.sharedInstance.locationManager.requestWhenInUseAuthorization()
-        Globals.sharedInstance.locationManager.startUpdatingLocation()
+        Data.sharedInstance.locationManager.delegate = self
+        Data.sharedInstance.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        Data.sharedInstance.locationManager.requestWhenInUseAuthorization()
+        Data.sharedInstance.locationManager.startUpdatingLocation()
         
-        if Globals.sharedInstance.churchList.count == 0 {
-            Globals.sharedInstance.churchList = GrabChurchList(0, n: 5)
-        }
+        Data.sharedInstance.results = GrabChurchList(0, n: 5)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -72,7 +70,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Globals.sharedInstance.churchList.count
+        return Data.sharedInstance.results.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ChurchListCell {
@@ -83,7 +81,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     }
     
     func setTitleForCell(cell:ChurchListCell, indexPath:NSIndexPath) {
-        let church = Globals.sharedInstance.churchList[indexPath.row] as Church
+        let church = Data.sharedInstance.results[indexPath.row] as Church
         cell.churchName.text = church.name ?? "[No Title]"
         cell.denomination.text = church.denom ?? "[No Denomination]"
         cell.churchType.text = church.style ?? "[No Type]"
@@ -112,7 +110,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
             
             let dest = segue.destinationViewController as! DetailedViewController
             
-            dest.church = Globals.sharedInstance.churchList[index]
+            dest.church = Data.sharedInstance.results[index]
         }
         else if(segue.identifier == "filterViewSegue") {
             let child = segue.destinationViewController as! FilterTableViewController

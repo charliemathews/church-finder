@@ -56,6 +56,6 @@ class FilterViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDeleg
     func pickerView(pickerView: UIPickerView,
         didSelectRow row: Int,
         inComponent component: Int){
-            churchModel.churchDictionary[cellName] = pickerLabels[row]
+            //churchModel.churchDictionary[cellName] = pickerLabels[row]
     }
 }

@@ -33,6 +33,8 @@ final class Data {
     var results : [Church] = []
     var bookmarks : [Church] = []
     
+    let locationManager = CLLocationManager()
+    
     var currentParameters : [String:AnyObject] = [:]
     var currentStart = 0
     var currentLimit = 0
@@ -186,9 +188,6 @@ final class Data {
     }
     
     func addBookmark(let resultIndex : Int) {
-        //depricated
-        //let addition = Globals.sharedInstance.churchList[resultIndex]
-        
         if (results.count > resultIndex) {
             
             let addition = results[resultIndex]
@@ -199,6 +198,14 @@ final class Data {
             
             bookmarks.append(addition)
             addition.object!.pinInBackground()
+        }
+    }
+    
+    func removeBookmark(let bookmarkIndex : Int) {
+        if (bookmarks.count > bookmarkIndex) {
+            let remove = bookmarks[bookmarkIndex]
+            remove.object!.unpinInBackground()
+            bookmarks.removeAtIndex(bookmarkIndex)
         }
     }
     

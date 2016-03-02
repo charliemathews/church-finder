@@ -46,10 +46,10 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         parCheck = 10
-        Globals.sharedInstance.locationManager.delegate = self
-        Globals.sharedInstance.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        Globals.sharedInstance.locationManager.requestWhenInUseAuthorization()
-        Globals.sharedInstance.locationManager.startUpdatingLocation()
+        Data.sharedInstance.locationManager.delegate = self
+        Data.sharedInstance.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        Data.sharedInstance.locationManager.requestWhenInUseAuthorization()
+        Data.sharedInstance.locationManager.startUpdatingLocation()
         self.mapview.showsUserLocation = true
         
         
