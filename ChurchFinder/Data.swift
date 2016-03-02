@@ -29,8 +29,10 @@ final class Data {
     
     let defaultRadius = 20
     var radius = 20
+    
     var results : [Church] = []
     var bookmarks : [Church] = []
+    
     var currentParameters : [String:AnyObject] = [:]
     var currentStart = 0
     var currentLimit = 0
@@ -39,7 +41,7 @@ final class Data {
     Private init is used here so that a second instance cannot be created.
     */
     private init() {
-        //pullResults(Constants.Defaults.get())
+        pullBookmarks()
     }
     
     /*
@@ -96,12 +98,12 @@ final class Data {
             }
         }
             
-        // no parameters passed in, no prior query
+            // no parameters passed in, no prior query
         else if(params.count == 0 && results.count == 0) {
             return false
         }
             
-        // parameters were passed in
+            // parameters were passed in
         else {
             query.skip = s
             query.limit = n
@@ -185,41 +187,46 @@ final class Data {
     
     func addBookmark(let resultIndex : Int) {
         //depricated
-        let addition = Globals.sharedInstance.churchList[resultIndex]
-        //let addition = results[resultIndex]
+        //let addition = Globals.sharedInstance.churchList[resultIndex]
         
-        for b in bookmarks {
-            if (b.object!.objectId == addition.object!.objectId) { return }
+        if (results.count > resultIndex) {
+            
+            let addition = results[resultIndex]
+            
+            for b in bookmarks {
+                if (b.object!.objectId == addition.object!.objectId) { return }
+            }
+            
+            bookmarks.append(addition)
+            addition.object!.pinInBackground()
         }
-        
-        bookmarks.append(addition)
-        addition.object!.pinInBackground()
     }
     
     func pullBookmarks() {
+        bookmarks = []
         let query = PFQuery(className: Constants.Parse.ChurchClass)
         query.fromLocalDatastore()
         query.findObjectsInBackgroundWithBlock {
-        (objects: [PFObject]?, error: NSError?) -> Void in
+            (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
-            
-            for f in objects! {
-                let church : Church = Church()
                 
-                church.name     = f["name"]         as! String
-                church.denom    = f["denomination"] as! String
-                church.size     = f["size"]         as! Int
-                church.style    = f["style"]        as! String
-                church.location = f["loc"]          as! PFGeoPoint
-                church.times    = f["times"]        as! String
-                church.address  = f["address"]      as! String
-                church.desc     = f["description"]  as! String
-                church.url      = f["url"]          as! String
-                church.object   = f
-                
-                self.bookmarks.append(church)
-            }
+                for f in objects! {
+                    let church : Church = Church()
+                    
+                    church.name     = f["name"]         as! String
+                    church.denom    = f["denomination"] as! String
+                    church.size     = f["size"]         as! Int
+                    church.style    = f["style"]        as! String
+                    church.location = f["loc"]          as! PFGeoPoint
+                    church.times    = f["times"]        as! String
+                    church.address  = f["address"]      as! String
+                    church.desc     = f["description"]  as! String
+                    church.url      = f["url"]          as! String
+                    church.object   = f
+                    
+                    self.bookmarks.append(church)
+                }
                 
             } else {
                 print("Error: \(error!) \(error!.userInfo)")

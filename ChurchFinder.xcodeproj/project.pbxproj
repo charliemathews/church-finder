@@ -16,7 +16,6 @@
 		037F2EFC1C61000000E971DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 037F2EFA1C61000000E971DB /* Main.storyboard */; };
 		037F2EFE1C61000000E971DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 037F2EFD1C61000000E971DB /* Images.xcassets */; };
 		037F2F011C61000000E971DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037F2EFF1C61000000E971DB /* LaunchScreen.xib */; };
-		037F2F0D1C61000000E971DB /* ChurchFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F0C1C61000000E971DB /* ChurchFinderTests.swift */; };
 		037F2F171C6106A600E971DB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F161C6106A600E971DB /* ListViewController.swift */; };
 		037F2F191C61087400E971DB /* ChurchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F181C61087400E971DB /* ChurchListCell.swift */; };
 		0F2028181C7F55FD00AFC9AA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2028171C7F55FD00AFC9AA /* Data.swift */; };
@@ -24,6 +23,13 @@
 		0F20281E1C7F563F00AFC9AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20281D1C7F563F00AFC9AA /* Constants.swift */; };
 		0F2028231C7F81AE00AFC9AA /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2028221C7F81AE00AFC9AA /* DataTests.swift */; };
 		0F2028241C7F972000AFC9AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20281D1C7F563F00AFC9AA /* Constants.swift */; };
+		0FC57AB31C8730B1009AA565 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57AAD1C8730B1009AA565 /* Bolts.framework */; };
+		0FC57AB41C8730B1009AA565 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57AAE1C8730B1009AA565 /* Parse.framework */; };
+		0FC57AB51C8730B1009AA565 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57AAF1C8730B1009AA565 /* ParseFacebookUtils.framework */; };
+		0FC57AB61C8730B1009AA565 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57AB01C8730B1009AA565 /* ParseFacebookUtilsV4.framework */; };
+		0FC57AB71C8730B1009AA565 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57AB11C8730B1009AA565 /* ParseTwitterUtils.framework */; };
+		0FC57AB81C8730B1009AA565 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC57AB21C8730B1009AA565 /* ParseUI.framework */; };
+		0FC57AB91C873550009AA565 /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037715BE1C85F00000303162 /* Church.swift */; };
 		371EB5EF1C7CC0CF0092A1B9 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371EB5EE1C7CC0CF0092A1B9 /* Global.swift */; };
 		3729A8671C8523B3000AF907 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3729A8661C8523B3000AF907 /* BookmarksViewController.swift */; };
 		373719C61C7C1EEF001A21B0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D431C6E213E00482663 /* libsqlite3.tbd */; };
@@ -102,12 +108,17 @@
 		037F2F001C61000000E971DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		037F2F061C61000000E971DB /* ChurchFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChurchFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		037F2F0B1C61000000E971DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		037F2F0C1C61000000E971DB /* ChurchFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchFinderTests.swift; sourceTree = "<group>"; };
 		037F2F161C6106A600E971DB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		037F2F181C61087400E971DB /* ChurchListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchListCell.swift; sourceTree = "<group>"; };
 		0F2028171C7F55FD00AFC9AA /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		0F20281D1C7F563F00AFC9AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0F2028221C7F81AE00AFC9AA /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
+		0FC57AAD1C8730B1009AA565 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		0FC57AAE1C8730B1009AA565 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		0FC57AAF1C8730B1009AA565 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		0FC57AB01C8730B1009AA565 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		0FC57AB11C8730B1009AA565 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
+		0FC57AB21C8730B1009AA565 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		371EB5EE1C7CC0CF0092A1B9 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		3729A8661C8523B3000AF907 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		37A4B6CD1C875B4500A116AE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -249,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				037F2F0A1C61000000E971DB /* Supporting Files */,
-				037F2F0C1C61000000E971DB /* ChurchFinderTests.swift */,
 				0F2028221C7F81AE00AFC9AA /* DataTests.swift */,
 			);
 			path = ChurchFinderTests;
@@ -513,8 +523,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC57AB91C873550009AA565 /* Church.swift in Sources */,
 				0F2028241C7F972000AFC9AA /* Constants.swift in Sources */,
-				037F2F0D1C61000000E971DB /* ChurchFinderTests.swift in Sources */,
 				0F2028191C7F55FD00AFC9AA /* Data.swift in Sources */,
 				0F2028231C7F81AE00AFC9AA /* DataTests.swift in Sources */,
 			);
