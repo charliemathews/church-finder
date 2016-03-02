@@ -8,6 +8,7 @@ Modified: 25/02/16
 
 import XCTest
 import Parse
+//@testable import ChurchFinder
 
 class DataTests: XCTestCase {
     
