@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -231,6 +231,7 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="CM0-TH-DRi">
                                 <rect key="frame" x="20" y="165" width="46" height="44"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="TCI-TL-S7j"/>
                                     <constraint firstAttribute="height" constant="44" id="Tgm-LT-iYa"/>
@@ -262,12 +263,16 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHARE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCy-AK-feb">
                                 <rect key="frame" x="20" y="214" width="58" height="21"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="58" id="PfN-sL-bud"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="c0H-NM-5O0" appends="YES" id="5Lb-n4-8eW"/>
+                                </connections>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpQ-bZ-ssk">
                                 <rect key="frame" x="0.0" y="468" width="600" height="132"/>
@@ -404,6 +409,8 @@
                         <outlet property="descriptionLabel" destination="D38-5Z-gpj" id="XJc-fe-LG4"/>
                         <outlet property="distanceLabel" destination="zQO-KQ-IAK" id="MsT-r7-J3w"/>
                         <outlet property="namesLabel" destination="c66-AJ-dnK" id="lxr-PS-C6O"/>
+                        <outlet property="shareImage" destination="CM0-TH-DRi" id="TRD-yM-tXj"/>
+                        <outlet property="shareLabel" destination="WCy-AK-feb" id="Bct-rO-87u"/>
                         <outlet property="timeLabel" destination="hMb-xB-u8g" id="r4d-f4-W29"/>
                         <outlet property="websiteIcon" destination="s8a-Xf-Ss5" id="0De-J4-884"/>
                         <outlet property="websiteLinkLabel" destination="prx-fp-wnH" id="ZMK-5l-gdK"/>
@@ -412,6 +419,8 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ctv-BS-RPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="M63-yd-9VS" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="Vbg-Wr-2ff"/>
+                <tapGestureRecognizer id="c0H-NM-5O0"/>
             </objects>
             <point key="canvasLocation" x="1479" y="68"/>
         </scene>

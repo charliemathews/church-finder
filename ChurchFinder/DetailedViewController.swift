@@ -31,6 +31,8 @@ class DetailedViewController: UIViewController {
     
     @IBOutlet weak var bookMarkIcon : UIButton!
     
+    @IBOutlet weak var shareImage: UIImageView!
+    @IBOutlet weak var shareLabel: UILabel!
     @IBOutlet var distanceLabel : UILabel!
     @IBOutlet var namesLabel : UILabel!
     @IBOutlet var denominationLabel : UILabel!
@@ -69,7 +71,12 @@ class DetailedViewController: UIViewController {
         websiteIcon.userInteractionEnabled = true
         websiteIcon.addGestureRecognizer(tap)
         
-        
+        //share button setup
+        let tapShare = UITapGestureRecognizer(target: self,action:Selector("share"))
+        shareImage.addGestureRecognizer(tapShare)
+        shareImage.userInteractionEnabled = true
+        shareLabel.addGestureRecognizer(tapShare)
+        shareLabel.userInteractionEnabled = true
         
         //map stuff
         let initialLocation = CLLocation(latitude: church.location.latitude, longitude: church.location.longitude)
@@ -90,7 +97,20 @@ class DetailedViewController: UIViewController {
        
         bookmarked = !bookmarked
     }
-    
+    func share(){
+        let textToShare = "Check out "+church.name+"!"
+        
+        if let myWebsite = NSURL(string: church.url) {
+            let objectsToShare = [textToShare, myWebsite]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            //New Excluded Activities Code
+            activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList]
+            //
+            
+            self.presentViewController(activityVC, animated: true, completion: nil)
+        }
+    }
     func openChurchWebsite() {
         if let url = NSURL(string: church.url) {
             
