@@ -39,8 +39,8 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     var parCheck: Int!
     
     @IBOutlet weak var filBut: UIBarButtonItem!
-    //@IBOutlet weak var mapSearch: UISearchBar!
     @IBOutlet weak var mapview: MKMapView!
+    
     
     @IBAction func showSearchBar(sender: AnyObject) {
         searchController = UISearchController(searchResultsController: nil)
@@ -53,19 +53,20 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     @IBAction func doneWithMap(sender: AnyObject) {
         delegate.doneWithMapView(self)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         parCheck = 10
+        //first time map loads, it pulls on the users current location
         Data.sharedInstance.locationManager.delegate = self
         Data.sharedInstance.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         Data.sharedInstance.locationManager.requestWhenInUseAuthorization()
         Data.sharedInstance.locationManager.startUpdatingLocation()
         self.mapview.showsUserLocation = true
         listMapSegControl.selectedSegmentIndex = 1
-       
-        
     }
     
+    //I really don't think this is relevant anymore
     @IBAction func listMapSwitched(sender: AnyObject) {
         if(listMapSwitchControl.selectedSegmentIndex == 0)
         {
@@ -82,7 +83,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     }
     
     
-    
+    //center map on current location
     func locationManager(manager:CLLocationManager,didUpdateLocations locations: [CLLocation]){
         let location = locations.last
         let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
@@ -98,14 +99,14 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar){
-        //1
+        
         searchBar.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
         if self.mapview.annotations.count != 0{
             annotation = self.mapview.annotations[0]
             self.mapview.removeAnnotation(annotation)
         }
-        //2
+        //take search request...
         localSearchRequest = MKLocalSearchRequest()
         localSearchRequest.naturalLanguageQuery = searchBar.text
         localSearch = MKLocalSearch(request: localSearchRequest)
@@ -117,16 +118,16 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
                 self.presentViewController(alertController, animated: true, completion: nil)
                 return
             }
-            //3
-            self.pointAnnotation = MKPointAnnotation()
-            self.pointAnnotation.title = searchBar.text
-            self.pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: localSearchResponse!.boundingRegion.center.latitude, longitude:     localSearchResponse!.boundingRegion.center.longitude)
+        //place a pin at the point
+        self.pointAnnotation = MKPointAnnotation()
+        self.pointAnnotation.title = searchBar.text
+        self.pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: localSearchResponse!.boundingRegion.center.latitude, longitude:     localSearchResponse!.boundingRegion.center.longitude)
             
-            
-            self.pinAnnotationView = MKPinAnnotationView(annotation: self.pointAnnotation, reuseIdentifier: nil)
-            self.mapview.centerCoordinate = self.pointAnnotation.coordinate
-            self.mapview.addAnnotation(self.pinAnnotationView.annotation!)
-            self.mapview.setRegion(MKCoordinateRegion(center: localSearchResponse!.boundingRegion.center, span: MKCoordinateSpan(latitudeDelta:1,longitudeDelta: 1)),animated:true)
+        self.pinAnnotationView = MKPinAnnotationView(annotation: self.pointAnnotation, reuseIdentifier: nil)
+        //center map on searched location
+        self.mapview.centerCoordinate = self.pointAnnotation.coordinate
+        self.mapview.addAnnotation(self.pinAnnotationView.annotation!)
+        self.mapview.setRegion(MKCoordinateRegion(center: localSearchResponse!.boundingRegion.center, span: MKCoordinateSpan(latitudeDelta:1,longitudeDelta: 1)),animated:true)
 
         }
     }
