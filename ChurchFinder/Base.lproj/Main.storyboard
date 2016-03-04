@@ -407,6 +407,8 @@
                         <outlet property="churchViewImage" destination="Jp4-o1-4p5" id="wfH-Pw-XrZ"/>
                         <outlet property="denominationLabel" destination="mee-Bp-wAU" id="eav-2x-WM2"/>
                         <outlet property="descriptionLabel" destination="D38-5Z-gpj" id="XJc-fe-LG4"/>
+                        <outlet property="directionsImage" destination="WBG-Pl-CUe" id="bbh-3T-hrt"/>
+                        <outlet property="directionsLabel" destination="fbm-V0-qQ1" id="DSA-VR-G9x"/>
                         <outlet property="distanceLabel" destination="zQO-KQ-IAK" id="MsT-r7-J3w"/>
                         <outlet property="namesLabel" destination="c66-AJ-dnK" id="lxr-PS-C6O"/>
                         <outlet property="shareImage" destination="CM0-TH-DRi" id="TRD-yM-tXj"/>

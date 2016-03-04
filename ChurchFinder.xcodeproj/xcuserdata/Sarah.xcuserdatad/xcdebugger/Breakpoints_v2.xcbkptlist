@@ -402,11 +402,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChurchFinder/DetailedViewController.swift"
-            timestampString = "478755486.889972"
+            timestampString = "478756438.164978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "share()"
             landmarkType = "5">
          </BreakpointContent>

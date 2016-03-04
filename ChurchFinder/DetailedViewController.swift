@@ -27,10 +27,11 @@ class DetailedViewController: UIViewController {
     var bookmarked: Bool = false
     var delegate:detailedViewDelegate!
     
+    
+    @IBOutlet weak var directionsImage: UIImageView!
+    @IBOutlet weak var directionsLabel: UILabel!
     @IBOutlet var churchViewImage : UIImageView!
-    
     @IBOutlet weak var bookMarkIcon : UIButton!
-    
     @IBOutlet weak var shareImage: UIImageView!
     @IBOutlet weak var shareLabel: UILabel!
     @IBOutlet var distanceLabel : UILabel!
@@ -78,6 +79,13 @@ class DetailedViewController: UIViewController {
         shareLabel.addGestureRecognizer(tapShare)
         shareLabel.userInteractionEnabled = true
         
+        //directions button setup
+        let tapDir = UITapGestureRecognizer(target: self,action:Selector("getDirections"))
+        directionsImage.addGestureRecognizer(tapDir)
+        directionsImage.userInteractionEnabled = true
+        directionsLabel.addGestureRecognizer(tapDir)
+        directionsLabel.userInteractionEnabled = true
+        
         //map stuff
         let initialLocation = CLLocation(latitude: church.location.latitude, longitude: church.location.longitude)
         centerMapOnLocation(initialLocation)
@@ -96,6 +104,22 @@ class DetailedViewController: UIViewController {
         }
        
         bookmarked = !bookmarked
+    }
+    
+    func getDirections(){
+      
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(church.location.latitude, church.location.longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(church.name)"
+        mapItem.openInMapsWithLaunchOptions(options)
+        
     }
     func share(){
         let textToShare = "Check out "+church.name+"!"
