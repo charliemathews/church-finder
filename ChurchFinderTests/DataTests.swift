@@ -30,6 +30,7 @@ class DataTests: XCTestCase {
         Tests for singleton, Data.
     */
     
+    // does the shared instance exist?
     func testSharedInstance() {
         let instance = Data.sharedInstance
         XCTAssertNotNil(instance, "")
@@ -43,12 +44,14 @@ class DataTests: XCTestCase {
     }
     */
     
+    // is the shared instance persistent?
     func testSharedInstance_Twice() {
         let instance1 = Data.sharedInstance
         let instance2 = Data.sharedInstance
         XCTAssertTrue(instance1 === instance2)
     }
     
+    // is the singleton thread safe?
     func testSharedInstance_ThreadSafety() {
         var instance1 : Data!
         var instance2 : Data!
@@ -111,7 +114,7 @@ class DataTests: XCTestCase {
     }
     
     func testPullResultsFullParamsPriorSuccess() {
-        // blocked
+        //
     }
     
     func testPullResultsDefault() {
