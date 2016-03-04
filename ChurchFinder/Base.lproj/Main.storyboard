@@ -36,6 +36,7 @@
                                                 </segments>
                                                 <connections>
                                                     <action selector="listMapSwitched:" destination="hel-lN-dXH" eventType="valueChanged" id="yuJ-cr-OgT"/>
+                                                    <segue destination="hel-lN-dXH" kind="show" identifier="mapViewSegue" id="uXL-1a-gBE"/>
                                                 </connections>
                                             </segmentedControl>
                                             <barButtonItem key="rightBarButtonItem" systemItem="search" id="oMS-Na-m5T">
@@ -153,11 +154,12 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Table" destination="pEo-lN-CWE" id="vyQ-S0-DHE"/>
+                        <outlet property="listMapSegControl" destination="nNE-Eu-ydG" id="Krd-hN-6nU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhf-mM-2JU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="386"/>
+            <point key="canvasLocation" x="738" y="68"/>
         </scene>
         <!--Detailed View Controller-->
         <scene sceneID="Ldu-N9-EPs">
@@ -404,7 +406,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ctv-BS-RPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="M63-yd-9VS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1499" y="386"/>
+            <point key="canvasLocation" x="1479" y="68"/>
         </scene>
         <!--Bookmarks View Controller-->
         <scene sceneID="T7j-Wm-aqb">
@@ -526,7 +528,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="vEF-9B-AbD" kind="relationship" relationship="viewControllers" id="eD6-PG-rx7"/>
-                        <segue destination="hel-lN-dXH" kind="relationship" relationship="viewControllers" id="jDO-Qn-b2N"/>
                         <segue destination="KzA-6E-DEh" kind="relationship" relationship="viewControllers" id="Ceb-p1-yI8"/>
                     </connections>
                 </tabBarController>
@@ -534,7 +535,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="68"/>
         </scene>
-        <!--View Map-->
+        <!--Search-->
         <scene sceneID="bNT-Yw-FIt">
             <objects>
                 <viewController id="hel-lN-dXH" customClass="MapViewController" customModule="ChurchFinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -546,9 +547,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                            </mapView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qov-QV-Jnd">
                                 <rect key="frame" x="0.0" y="5" width="600" height="44"/>
                                 <items>
@@ -567,6 +565,7 @@
                                                 <segment title="Map"/>
                                             </segments>
                                             <connections>
+                                                <action selector="doneWithMap:" destination="hel-lN-dXH" eventType="valueChanged" id="5TX-fv-HOr"/>
                                                 <action selector="listMapSwitched:" destination="hel-lN-dXH" eventType="valueChanged" id="WWj-NY-9Bp"/>
                                             </connections>
                                         </segmentedControl>
@@ -578,10 +577,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
+                                <rect key="frame" x="0.0" y="49" width="600" height="551"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="r2K-bf-J6W" secondAttribute="top" id="EMU-WH-oqI"/>
+                            <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="r2K-bf-J6W" secondAttribute="top" constant="-44" id="EMU-WH-oqI"/>
                             <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="PGR-tO-Ahl" secondAttribute="leading" id="Srp-Jk-vDG"/>
                             <constraint firstAttribute="trailing" secondItem="qov-QV-Jnd" secondAttribute="trailing" id="Vfl-8U-GZ8"/>
                             <constraint firstItem="qov-QV-Jnd" firstAttribute="top" secondItem="PGR-tO-Ahl" secondAttribute="top" constant="5" id="dxJ-K9-JyB"/>
@@ -589,19 +591,20 @@
                             <constraint firstItem="qov-QV-Jnd" firstAttribute="leading" secondItem="r2K-bf-J6W" secondAttribute="leading" id="uai-Yz-CRw"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="View Map" image="medMap" id="ioO-Uu-V2c"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="search" id="tP0-dq-Uso" userLabel="viewMap"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="filBut" destination="pKW-ls-tbz" id="ozL-Eg-Rej"/>
+                        <outlet property="listMapSegControl" destination="yWB-h8-9pe" id="mSX-4R-yKo"/>
                         <outlet property="listMapSwitchControl" destination="yWB-h8-9pe" id="fA2-Rd-HHA"/>
                         <outlet property="mapview" destination="r2K-bf-J6W" id="jAB-Gb-b6x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcv-G8-Ghi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-334"/>
+            <point key="canvasLocation" x="1479" y="980"/>
         </scene>
-        <!--Filter Table View Controller-->
+        <!--Search-->
         <scene sceneID="3Nr-T8-VF7">
             <objects>
                 <tableViewController id="vO3-2u-4cJ" customClass="FilterTableViewController" customModule="ChurchFinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -669,11 +672,12 @@
                             <outlet property="delegate" destination="vO3-2u-4cJ" id="tmH-At-qcs"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Search" image="search" id="UPy-Io-9b7" userLabel="viewMap"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9H-iR-Ukd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533" y="-343"/>
+            <point key="canvasLocation" x="730" y="999"/>
         </scene>
     </scenes>
     <resources>
@@ -682,7 +686,6 @@
         <image name="clocks.png" width="128" height="128"/>
         <image name="compass.png" width="128" height="128"/>
         <image name="infoImage.png" width="48" height="48"/>
-        <image name="medMap" width="42" height="42"/>
         <image name="music.png" width="128" height="128"/>
         <image name="search" width="33" height="33"/>
         <image name="shareImage.png" width="625" height="625"/>

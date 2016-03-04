@@ -16,7 +16,7 @@ import UIKit
 import MapKit
 import Parse
 
-class ListViewController: UITableViewController, CLLocationManagerDelegate, detailedViewDelegate, filterResultsDelegate {
+class ListViewController: UITableViewController, CLLocationManagerDelegate, detailedViewDelegate, filterResultsDelegate, mapViewControllerDelegate {
     
     let churchCellIdentifier = "ChurchListCell"
     
@@ -24,6 +24,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     
     var location : PFGeoPoint = PFGeoPoint()
     
+    @IBOutlet var listMapSegControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         
         Data.sharedInstance.results = GrabChurchList(0, n: 5)
         
+        listMapSegControl.selectedSegmentIndex = 0
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -116,12 +118,19 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
             let child = segue.destinationViewController as! FilterTableViewController
             child.delegate = self
         }
+        else if(segue.identifier == "mapViewSegue"){
+            let child = segue.destinationViewController as! MapViewController
+            child.delegate = self
+        }
     }
     
     func done(vc: DetailedViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    func doneWithMapView(child: MapViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+        listMapSegControl.selectedSegmentIndex = 0
+    }
     func doneWithFilters(child: FilterTableViewController){
         dismissViewControllerAnimated(true, completion: nil)
     }

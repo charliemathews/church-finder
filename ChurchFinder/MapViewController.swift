@@ -14,13 +14,20 @@ Sources
 
 import UIKit
 import MapKit
+
+protocol mapViewControllerDelegate{
+    func doneWithMapView(child: MapViewController)
+}
+
 class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDelegate, UISearchBarDelegate, filterResultsDelegate{
     
     @IBOutlet weak var listMapSwitchControl: UISegmentedControl!
     @IBOutlet weak var mapView: MapViewController!
     @IBOutlet weak var listView: ListViewController!
     
+    @IBOutlet var listMapSegControl: UISegmentedControl!
     
+    var delegate: mapViewControllerDelegate!
     var searchController:UISearchController!
     var annotation: MKAnnotation!
     var localSearchRequest:MKLocalSearchRequest!
@@ -43,6 +50,9 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         
     }
     
+    @IBAction func doneWithMap(sender: AnyObject) {
+        delegate.doneWithMapView(self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         parCheck = 10
@@ -51,7 +61,8 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         Data.sharedInstance.locationManager.requestWhenInUseAuthorization()
         Data.sharedInstance.locationManager.startUpdatingLocation()
         self.mapview.showsUserLocation = true
-        
+        listMapSegControl.selectedSegmentIndex = 1
+       
         
     }
     
