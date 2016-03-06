@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -62,8 +62,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P4y-50-tqg">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="124"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P4y-50-tqg">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ChurchName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaZ-cZ-QnG">
                                             <rect key="frame" x="8" y="8" width="456" height="24"/>
@@ -74,7 +74,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Denomination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3k-Md-58w">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Denomination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3k-Md-58w">
                                             <rect key="frame" x="8" y="32" width="584" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="yRF-MI-WVQ"/>
@@ -117,11 +117,18 @@
                                         <constraint firstItem="1Qc-zf-nq2" firstAttribute="leading" secondItem="uaZ-cZ-QnG" secondAttribute="trailing" id="Au3-pv-4Lq"/>
                                         <constraint firstItem="E3k-Md-58w" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leadingMargin" id="FG6-bY-S1G"/>
                                         <constraint firstItem="WnV-Nd-J8O" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leadingMargin" id="FVR-6D-V3t"/>
+                                        <constraint firstItem="P4y-50-tqg" firstAttribute="centerX" secondItem="ZpI-2n-2xJ" secondAttribute="centerX" id="Hvi-yk-B1f"/>
+                                        <constraint firstAttribute="trailing" secondItem="P4y-50-tqg" secondAttribute="trailing" id="Jsf-JD-tls"/>
                                         <constraint firstItem="1Qc-zf-nq2" firstAttribute="trailing" secondItem="ds2-GS-BrE" secondAttribute="trailingMargin" id="PQm-Lz-2cM"/>
                                         <constraint firstItem="ZpI-2n-2xJ" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leadingMargin" id="RLx-7K-aoI"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="P4y-50-tqg" secondAttribute="bottom" constant="-8" id="RxA-bN-8gL"/>
+                                        <constraint firstItem="P4y-50-tqg" firstAttribute="centerX" secondItem="WnV-Nd-J8O" secondAttribute="centerX" id="WHe-Qh-hwO"/>
+                                        <constraint firstItem="P4y-50-tqg" firstAttribute="centerX" secondItem="E3k-Md-58w" secondAttribute="centerX" id="Xa6-bj-xPE"/>
                                         <constraint firstItem="E3k-Md-58w" firstAttribute="top" secondItem="uaZ-cZ-QnG" secondAttribute="bottom" id="XdU-EM-61D"/>
                                         <constraint firstItem="WnV-Nd-J8O" firstAttribute="top" secondItem="ZpI-2n-2xJ" secondAttribute="bottom" id="Xk4-h7-MEa"/>
+                                        <constraint firstItem="P4y-50-tqg" firstAttribute="top" secondItem="ds2-GS-BrE" secondAttribute="top" id="a1L-Et-GD5"/>
                                         <constraint firstItem="ZpI-2n-2xJ" firstAttribute="top" secondItem="E3k-Md-58w" secondAttribute="bottom" id="c76-wf-dNr"/>
+                                        <constraint firstItem="P4y-50-tqg" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leading" id="cnv-id-s68"/>
                                         <constraint firstItem="uaZ-cZ-QnG" firstAttribute="top" secondItem="ds2-GS-BrE" secondAttribute="topMargin" id="hvg-ae-rHW"/>
                                         <constraint firstItem="uaZ-cZ-QnG" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leadingMargin" id="q10-lH-DuK"/>
                                         <constraint firstItem="1Qc-zf-nq2" firstAttribute="top" secondItem="ds2-GS-BrE" secondAttribute="topMargin" id="wfZ-Jq-CMQ"/>
