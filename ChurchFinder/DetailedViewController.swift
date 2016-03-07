@@ -55,7 +55,7 @@ class DetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        churchViewImage.image = UIImage(named: "churches.jpg")
+        churchViewImage.image = UIImage(named: "../Pictures/churches.jpg")
         distanceLabel.text = "5 mi"
         namesLabel.text = church.name
         denominationLabel.text = church.denom
