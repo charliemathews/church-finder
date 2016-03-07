@@ -35,14 +35,17 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         Data.sharedInstance.locationManager.requestWhenInUseAuthorization()
         Data.sharedInstance.locationManager.startUpdatingLocation()
         
-        Data.sharedInstance.results = GrabChurchList(0, n: 5)
-        
         listMapSegControl.selectedSegmentIndex = 0
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print(Data.sharedInstance.pullResults(Constants.Defaults.get()))
+        table.reloadData()
     }
     
     override func didReceiveMemoryWarning() {

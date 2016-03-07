@@ -142,6 +142,8 @@ final class Data {
             return false
         }
         
+        results = []
+        
         for f in found {
             let church : Church = Church()
             
