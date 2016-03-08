@@ -33,11 +33,33 @@ class ChurchListCell: UITableViewCell {
        
       
     }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
+    func setCellInfo(indexPath:NSIndexPath) {
+        let church = Data.sharedInstance.results[indexPath.row] as Church
+        churchName.text = church.name ?? "[No Title]"
+        denomination.text = church.denom ?? "[No Denomination]"
+        churchType.text = church.style ?? "[No Type]"
+        serviceTime.text = church.times ?? "[No Times]"
+        distance.text = "Needs work"
+        
+        churchImage.image = UIImage(named: "churches.jpg")
+    }
+    
+    func setCellInfoBookmark(indexPath:NSIndexPath) {
+        let church = Data.sharedInstance.bookmarks[indexPath.row] as Church
+        churchName.text = church.name ?? "[No Title]"
+        denomination.text = church.denom ?? "[No Denomination]"
+        churchType.text = church.style ?? "[No Type]"
+        serviceTime.text = church.times ?? "[No Times]"
+        distance.text = "Needs work"
+        
+        churchImage.image = UIImage(named: "churches.jpg")
+    }
 
 }
