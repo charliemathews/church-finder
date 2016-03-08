@@ -28,7 +28,7 @@ final class Data {
     static let sharedInstance = Data()
     
     let defaultRadius = 20
-    var radius = 20
+    var radius : Int
     
     var results : [Church] = []
     var bookmarks : [Church] = []
@@ -43,6 +43,7 @@ final class Data {
     Private init is used here so that a second instance cannot be created.
     */
     private init() {
+        radius = defaultRadius
         pullBookmarks()
     }
     
@@ -82,7 +83,6 @@ final class Data {
     
     TODO: take array of strings for times rathern than CSV
     TODO: find a way to show churches of a similar size once the closest results have been exhausted
-    
     TODO: increase radius of search if results < limit, by 5 miles, up to 50
     */
     func pullResults(var params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
@@ -105,7 +105,7 @@ final class Data {
             return false
         }
             
-            // parameters were passed in
+            // parameters were passed in, results.count also == 0 here but it's implied
         else {
             query.skip = s
             query.limit = n
@@ -156,7 +156,7 @@ final class Data {
             church.address  = f["address"]      as! String
             church.desc     = f["description"]  as! String
             church.url      = f["url"]          as! String
-            church.object   = f
+            church.object   = f                              // <--   !!!!!! WHY. BAD. MUST REMOVE !!!!!!
             
             results.append(church)
         }
@@ -170,10 +170,10 @@ final class Data {
         
         // set results = query.results
         
-        if(params.count > 0) {             // if results were successfully pulled and we didn't use stored parameters
-            self.currentParameters = params
-        }
         if(results.count > 0) {
+            if(params.count > 0) {
+                self.currentParameters = params
+            }
             currentStart = query.skip
             currentLimit = query.limit
             return true

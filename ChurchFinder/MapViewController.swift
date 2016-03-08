@@ -58,12 +58,39 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         super.viewDidLoad()
         parCheck = 10
         //first time map loads, it pulls on the users current location
-        Data.sharedInstance.locationManager.delegate = self
-        Data.sharedInstance.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        Data.sharedInstance.locationManager.requestWhenInUseAuthorization()
-        Data.sharedInstance.locationManager.startUpdatingLocation()
+        data.locationManager.delegate = self
+        data.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        data.locationManager.requestWhenInUseAuthorization()
+        data.locationManager.startUpdatingLocation()
         self.mapview.showsUserLocation = true
         listMapSegControl.selectedSegmentIndex = 1
+        
+        outputChurchResultsToMap()
+    }
+    
+    func outputChurchResultsToMap() -> Bool {
+        if(data.results.count == 0) {
+            NSLog("no results?")
+            return false
+        }
+        
+        for r in data.results {
+            let lat = r.location.latitude
+            let lon = r.location.longitude
+        
+            let loc = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+            let pin = MKPointAnnotation()
+            pin.coordinate = loc
+            
+            mapview.addAnnotation(pin)
+        }
+        
+        //let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+        //let reg = MKCoordinateRegion(center: loc, span: span)
+        //map.setRegion(reg, animated: false)
+        
+        mapview.showAnnotations(mapview.annotations, animated: true)
+        return true
     }
     
     //I really don't think this is relevant anymore

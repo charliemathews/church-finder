@@ -30,10 +30,12 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         super.viewDidLoad()
         
         //Start Location Services
-        Data.sharedInstance.locationManager.delegate = self
-        Data.sharedInstance.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        Data.sharedInstance.locationManager.requestWhenInUseAuthorization()
-        Data.sharedInstance.locationManager.startUpdatingLocation()
+        data.locationManager.delegate = self
+        data.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        data.locationManager.requestWhenInUseAuthorization()
+        data.locationManager.startUpdatingLocation()
+        
+        data.pullResults(Constants.Defaults.get())
         
         listMapSegControl.selectedSegmentIndex = 0
         // Uncomment the following line to preserve selection between presentations
