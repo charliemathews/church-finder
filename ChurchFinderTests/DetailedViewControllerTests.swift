@@ -21,7 +21,8 @@ class DetailedViewControllerTests: XCTestCase {
         
         viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("DetailedViewController") as! DetailedViewController
         
-        viewController.church = GrabChurchList(0, n: 1).first!
+        //this is a depricated function, don't use
+        //viewController.church = GrabChurchList(0, n: 1).first!
         
         viewController.loadView()
         //viewController.viewDidLoad()

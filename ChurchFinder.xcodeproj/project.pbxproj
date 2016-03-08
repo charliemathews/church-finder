@@ -131,7 +131,7 @@
 		0F2028171C7F55FD00AFC9AA /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		0F20281D1C7F563F00AFC9AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0F2028221C7F81AE00AFC9AA /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
-		0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CognitiveWalkthroughTests.swift; sourceTree = "<group>"; };
+		0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CognitiveWalkthroughTests.swift; path = ../ChurchFinderTests/CognitiveWalkthroughTests.swift; sourceTree = "<group>"; };
 		0F79702D1C8F387B00FA40FE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		0F79702E1C8F387B00FA40FE /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		0F79702F1C8F387B00FA40FE /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -272,7 +272,6 @@
 				037F2F0A1C61000000E971DB /* Supporting Files */,
 				0F2028221C7F81AE00AFC9AA /* DataTests.swift */,
 				75EA0A941C8CE9C700EC90F2 /* DetailedViewControllerTests.swift */,
-				0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */,
 			);
 			path = ChurchFinderTests;
 			sourceTree = "<group>";
@@ -354,6 +353,7 @@
 		75EA09351C82271300EC90F2 /* ChurchFinderUITests */ = {
 			isa = PBXGroup;
 			children = (
+				0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */,
 				75EA09361C82271300EC90F2 /* ChurchFinderUITests.swift */,
 				75EA09381C82271300EC90F2 /* Info.plist */,
 				75EA093E1C82278000EC90F2 /* FilterTableViewControllerTests.swift */,
