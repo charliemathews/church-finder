@@ -48,8 +48,10 @@ class BookmarksViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ChurchListCell", forIndexPath: indexPath) as! ChurchListCell
+        
         // Configure the cell...
-        setTitleForCell(cell, indexPath: indexPath)
+        cell.setCellInfoBookmark(indexPath)
+        
         return cell
     }
     
@@ -64,15 +66,6 @@ class BookmarksViewController: UITableViewController {
             Data.sharedInstance.removeBookmark(indexPath.row)
             tableView.reloadData()
         }
-    }
-    
-    func setTitleForCell(cell:ChurchListCell, indexPath:NSIndexPath) {
-        let church = Data.sharedInstance.bookmarks[indexPath.row] as Church
-        cell.churchName.text = church.name ?? "[No Title]"
-        cell.denomination.text = church.denom ?? "[No Denomination]"
-        cell.churchType.text = church.style ?? "[No Type]"
-        cell.serviceTime.text = church.times ?? "[No Times]"
-        cell.distance.text = "Needs work"
     }
     
     /*

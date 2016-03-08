@@ -44,7 +44,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     }
     
     override func viewDidAppear(animated: Bool) {
-        print(Data.sharedInstance.pullResults(Constants.Defaults.get()))
+        //Data.sharedInstance.pullResults(Constants.Defaults.get())
         table.reloadData()
     }
     
@@ -58,7 +58,8 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     func locationManager(manager:CLLocationManager,didUpdateLocations locations: [CLLocation]){
         location = PFGeoPoint(location: locations.last)
         manager.stopUpdatingLocation()
-        //Globals.sharedInstance.churchList = GrabChurchList(location, start: 0, n: 5)
+        
+        Data.sharedInstance.pullResults(Constants.Defaults.get())
         table.reloadData()
     }
     
@@ -80,20 +81,11 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ChurchListCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ChurchListCell", forIndexPath: indexPath) as! ChurchListCell
-        // Configure the cell...
-        setTitleForCell(cell, indexPath: indexPath)
-        return cell
-    }
-    
-    func setTitleForCell(cell:ChurchListCell, indexPath:NSIndexPath) {
-        let church = Data.sharedInstance.results[indexPath.row] as Church
-        cell.churchName.text = church.name ?? "[No Title]"
-        cell.denomination.text = church.denom ?? "[No Denomination]"
-        cell.churchType.text = church.style ?? "[No Type]"
-        cell.serviceTime.text = church.times ?? "[No Times]"
-        cell.distance.text = "Needs work"
         
-        cell.churchImage.image = UIImage(named: "churches.jpg")
+        // Configure the cell...
+        cell.setCellInfo(indexPath)
+        
+        return cell
     }
     
     //MARK: Segue
@@ -144,6 +136,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
     
     
@@ -176,52 +169,4 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         
         return newImage
     }
-    
-    
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return NO if you do not want the specified item to be editable.
-    return true
-    }
-    */
-    
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return NO if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
 }

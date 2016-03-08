@@ -43,6 +43,7 @@
 		3788C39B1C8DC44E00DC6EE0 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3788C3951C8DC44E00DC6EE0 /* ParseUI.framework */; };
 		3788C39D1C8DC68100DC6EE0 /* ListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3788C39C1C8DC68100DC6EE0 /* ListViewTests.swift */; };
 		37A4B6DA1C892E6400A116AE /* WX_circle_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A4B6D91C892E6400A116AE /* WX_circle_white.png */; };
+		37B5E1B01C8E932D0092BF11 /* BookmarksViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B5E1AF1C8E932D0092BF11 /* BookmarksViewTests.swift */; };
 		37FE8D321C6E20D500482663 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D311C6E20D500482663 /* AudioToolbox.framework */; };
 		37FE8D341C6E20E400482663 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D331C6E20E400482663 /* CFNetwork.framework */; };
 		37FE8D361C6E20EA00482663 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D351C6E20EA00482663 /* CoreGraphics.framework */; };
@@ -116,6 +117,7 @@
 		3788C3951C8DC44E00DC6EE0 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		3788C39C1C8DC68100DC6EE0 /* ListViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewTests.swift; sourceTree = "<group>"; };
 		37A4B6D91C892E6400A116AE /* WX_circle_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WX_circle_white.png; sourceTree = "<group>"; };
+		37B5E1AF1C8E932D0092BF11 /* BookmarksViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewTests.swift; sourceTree = "<group>"; };
 		37FE8D311C6E20D500482663 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37FE8D331C6E20E400482663 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		37FE8D351C6E20EA00482663 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -334,6 +336,7 @@
 				75EA093E1C82278000EC90F2 /* FilterTableViewControllerTests.swift */,
 				75EA09961C85F66100EC90F2 /* DetailedViewControllerTests.swift */,
 				3788C39C1C8DC68100DC6EE0 /* ListViewTests.swift */,
+				37B5E1AF1C8E932D0092BF11 /* BookmarksViewTests.swift */,
 			);
 			path = ChurchFinderUITests;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37B5E1B01C8E932D0092BF11 /* BookmarksViewTests.swift in Sources */,
 				3788C39D1C8DC68100DC6EE0 /* ListViewTests.swift in Sources */,
 				75EA09371C82271300EC90F2 /* ChurchFinderUITests.swift in Sources */,
 				75EA093F1C82278000EC90F2 /* FilterTableViewControllerTests.swift in Sources */,
@@ -727,6 +731,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ChurchFinderUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -740,6 +748,10 @@
 		75EA093D1C82271300EC90F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ChurchFinderUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
