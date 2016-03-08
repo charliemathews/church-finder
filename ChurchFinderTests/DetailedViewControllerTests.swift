@@ -61,37 +61,10 @@ class DetailedViewControllerTests: XCTestCase {
     
     func testViewDidLoad() {
         
-        viewController.viewDidLoad()
-    }
-    
-    func testCenterMap() {
-        
-        //        func centerMapOnLocation(location: CLLocation) {
-        //            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-        //                regionRadius * 2.0, regionRadius * 2.0)
-        //            churchMap.setRegion(coordinateRegion, animated: true)
-        //        }
-        //var sampleLocation: CLLocation = CLLocation(
-        
-        //let coordinates = CLLocationCoordinate2D(latitude: 2.0, longitude: 2.0)
-        
-        //        viewController.centerMapOnLocation(CLLocation(latitude: 2.0, longitude: 2.0))
-        //        XCTAssert(viewController.churchMap.region == MKCoordinateRegionMakeWithDistance(coordinates, viewController.regionRadius * 2.0, viewController.regionRadius * 2.0))
-        
-        
+        XCTAssertNotNil(viewController.viewDidLoad())
     }
     
     func testToggleBookMark() {
-        //        @IBAction func toggleBookMark() {
-        //            if bookmarked {
-        //                bookMarkIcon.setImage(UIImage(named: "star-xxl.png"), forState: .Normal)
-        //            }
-        //            else {
-        //                bookMarkIcon.setImage(UIImage(named: "star-512.png"), forState: .Normal)
-        //            }
-        //
-        //            bookmarked = !bookmarked
-        //        }
         
         let bookmarkOriginalValue = viewController.bookmarked
         
@@ -107,33 +80,31 @@ class DetailedViewControllerTests: XCTestCase {
         }
     }
     
-    func testOpenChurchWebsite() {
-//        func openChurchWebsite() {
-//            if let url = NSURL(string: church.url) {
-//                
-//                if UIApplication.sharedApplication().canOpenURL(url) == false {
-//                    let alertController = UIAlertController(title: "Error", message: "This website doesn't exist", preferredStyle: .Alert)
-//                    
-//                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-//                    alertController.addAction(defaultAction)
-//                    
-//                    presentViewController(alertController, animated: true, completion: nil)
-//                }
-//                
-//                
-//                UIApplication.sharedApplication().openURL(url)
-//            }
-//        }
-//        print(viewController.church.url)
-////        viewController.church.url = "https://www.facebook.com"
-//        print(UIApplication.sharedApplication().windows.count)
-//        print(UIApplication.sharedApplication().windows.description)
-//
-//        viewController.toggleBookMark()
-//        print(UIApplication.sharedApplication().windows.count)
-//        
-//        print(UIApplication.sharedApplication().windows.description)
+    func testOpenChurchWebsiteFail() {
+        //testing if the UIAlertController is popped up
+        viewController.church.url = "junkUrl"
         
+        //the presented view controller should just be the view controller
+        print(viewController.isBeingPresented())
+        XCTAssertNotNil(viewController.openChurchWebsite())
+        
+    }
+    
+    func testOpenChurchWebsiteSuccess() {
+        
+        //viewController.church.url = "https://www.facebook.com"
+        
+        //the presented view controller should just be the view controller
+        //XCTAssertEqual(viewController.presentedViewController, viewController)
+        
+        XCTAssertNotNil(viewController.openChurchWebsite())
+        
+        //now it should be the alert view controller
+        //XCTAssertEqual(viewController.presentedViewController, viewController)
+    }
+    
+    func testShareButtonPopup() {
+        XCTAssertNotNil(viewController.share())
     }
     
     func testPerformanceExample() {

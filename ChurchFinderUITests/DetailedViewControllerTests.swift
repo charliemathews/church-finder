@@ -7,6 +7,8 @@
 //
 
 import XCTest
+@testable import ChurchFinder
+
 
 class DetailedViewControllerTests: XCTestCase {
         
@@ -28,26 +30,57 @@ class DetailedViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Failed to find matching element please file bug (bugreport.apple.com) and provide output from Console.app
-        // Failed to find matching element please file bug (bugreport.apple.com) and provide output from Console.app
+    
+    func testSafariOpen() {
         
         let app = XCUIApplication()
+        app.tables.staticTexts["Evangelical"].tap()
+        
+        //tapping web image icon
         let element = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
-        let button = element.childrenMatchingType(.Button).matchingIdentifier("Button").elementBoundByIndex(1)
-        button.tap()
-        button.tap()
         element.tap()
-        XCUIDevice.sharedDevice().orientation = .Portrait
-        XCUIDevice.sharedDevice().orientation = .Portrait
-        app.statusBars.buttons["Back to ChurchFinder"].tap()
-        XCUIDevice.sharedDevice().orientation = .Portrait
-        XCUIDevice.sharedDevice().orientation = .Portrait
-        element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Map).element.tap()
-        element.childrenMatchingType(.Button).matchingIdentifier("Button").elementBoundByIndex(0).tap()
         
     }
     
+    func testFailSafariOpen() {
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let app = XCUIApplication()
+        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(3).staticTexts["Needs work"].tap()
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
+        
+        //app.alerts["Error"].collectionViews.buttons["OK"].tap()
+    }
+    
+    func testPressBookmarksIcon() {
+        let app = XCUIApplication()
+        app.tables.staticTexts["SUN 10:30"].tap()
+        
+        let button = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Button).matchingIdentifier("Button").elementBoundByIndex(1)
+
+        button.tap()
+        //shouldn't be the same
+        button.tap()
+        //should be the same now
+    }
+    
+    func testDirectionsButton() {
+        
+        let app = XCUIApplication()
+        app.tables.staticTexts["Evangelical"].tap()
+        app.staticTexts["DIRECTIONS"].tap()
+        
+        //can't test because other application opens....
+        
+    }
+    
+    func testShareButton() {
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let app = XCUIApplication()
+        app.tables.staticTexts["SUN 10:30"].tap()
+        app.staticTexts["SHARE"].tap()
+        
+        app.sheets.buttons["Cancel"].tap()
+    }
 }

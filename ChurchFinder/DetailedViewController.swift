@@ -55,7 +55,7 @@ class DetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        churchViewImage.image = UIImage(named: "../Pictures/churches.jpg")
+        churchViewImage.image = UIImage(named: "churches.jpg")
         distanceLabel.text = "5 mi"
         namesLabel.text = church.name
         denominationLabel.text = church.denom
@@ -90,7 +90,7 @@ class DetailedViewController: UIViewController {
         let initialLocation = CLLocation(latitude: church.location.latitude, longitude: church.location.longitude)
         centerMapOnLocation(initialLocation)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -102,12 +102,12 @@ class DetailedViewController: UIViewController {
         else {
             bookMarkIcon.setImage(UIImage(named: "star-512.png"), forState: .Normal)
         }
-       
+        
         bookmarked = !bookmarked
     }
     
     func getDirections(){
-      
+        
         let regionDistance:CLLocationDistance = 10000
         let coordinates = CLLocationCoordinate2DMake(church.location.latitude, church.location.longitude)
         let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
@@ -136,20 +136,24 @@ class DetailedViewController: UIViewController {
         }
     }
     func openChurchWebsite() {
-        if let url = NSURL(string: church.url) {
-            
-            if UIApplication.sharedApplication().canOpenURL(url) == false {
-                let alertController = UIAlertController(title: "Error", message: "This website doesn't exist", preferredStyle: .Alert)
-                
-                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                alertController.addAction(defaultAction)
-                
-                presentViewController(alertController, animated: true, completion: nil)
-            }
+        let url = NSURL(string: church.url)
+        
+        if url == nil || UIApplication.sharedApplication().canOpenURL(url!) == false {
+            let alertController = UIAlertController(title: "Error", message: "This website doesn't exist", preferredStyle: .Alert)
             
             
-            UIApplication.sharedApplication().openURL(url)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            UIApplication.sharedApplication().openURL(url!)
         }
+        
+        
+        
+        
     }
     @IBAction func done(sender: AnyObject) {
         delegate.done(self)
