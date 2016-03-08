@@ -24,6 +24,8 @@ class CognitiveWalkthroughTests: XCTestCase {
     
     func findChurchesInTheArea() { // default, no location input
         let app = XCUIApplication()
+        
+        XCTAssertTrue(true  == true)
     }
     
     func findChurchesInAnAreaUsingCustomLocation() { // zip or address input
