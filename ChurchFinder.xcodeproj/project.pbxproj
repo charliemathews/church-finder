@@ -42,6 +42,8 @@
 		373719CD1C7C1EEF001A21B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D351C6E20EA00482663 /* CoreGraphics.framework */; };
 		373719CE1C7C1EEF001A21B0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D331C6E20E400482663 /* CFNetwork.framework */; };
 		373719CF1C7C1EEF001A21B0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D311C6E20D500482663 /* AudioToolbox.framework */; };
+		37621F2B1C8FE14C004DED9C /* BookmarksViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37621F291C8FE14C004DED9C /* BookmarksViewTests.swift */; };
+		37621F2C1C8FE14C004DED9C /* ListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37621F2A1C8FE14C004DED9C /* ListViewTests.swift */; };
 		37FE8D321C6E20D500482663 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D311C6E20D500482663 /* AudioToolbox.framework */; };
 		37FE8D341C6E20E400482663 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D331C6E20E400482663 /* CFNetwork.framework */; };
 		37FE8D361C6E20EA00482663 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D351C6E20EA00482663 /* CoreGraphics.framework */; };
@@ -139,6 +141,8 @@
 		0F7970311C8F387B00FA40FE /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		0F7970321C8F387B00FA40FE /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		3729A8661C8523B3000AF907 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		37621F291C8FE14C004DED9C /* BookmarksViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewTests.swift; sourceTree = "<group>"; };
+		37621F2A1C8FE14C004DED9C /* ListViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewTests.swift; sourceTree = "<group>"; };
 		37FE8D311C6E20D500482663 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37FE8D331C6E20E400482663 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		37FE8D351C6E20EA00482663 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -353,6 +357,8 @@
 		75EA09351C82271300EC90F2 /* ChurchFinderUITests */ = {
 			isa = PBXGroup;
 			children = (
+				37621F291C8FE14C004DED9C /* BookmarksViewTests.swift */,
+				37621F2A1C8FE14C004DED9C /* ListViewTests.swift */,
 				0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */,
 				75EA09361C82271300EC90F2 /* ChurchFinderUITests.swift */,
 				75EA09381C82271300EC90F2 /* Info.plist */,
@@ -564,6 +570,8 @@
 			files = (
 				75EA09371C82271300EC90F2 /* ChurchFinderUITests.swift in Sources */,
 				75EA093F1C82278000EC90F2 /* FilterTableViewControllerTests.swift in Sources */,
+				37621F2C1C8FE14C004DED9C /* ListViewTests.swift in Sources */,
+				37621F2B1C8FE14C004DED9C /* BookmarksViewTests.swift in Sources */,
 				75EA09971C85F66100EC90F2 /* DetailedViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
