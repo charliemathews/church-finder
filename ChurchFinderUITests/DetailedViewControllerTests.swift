@@ -41,16 +41,20 @@ class DetailedViewControllerTests: XCTestCase {
         element.tap()
         
     }
+
     
-    func testFailSafariOpen() {
-        XCUIDevice.sharedDevice().orientation = .Portrait
-        
-        let app = XCUIApplication()
-        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(3).staticTexts["Needs work"].tap()
-        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
-        
-        //app.alerts["Error"].collectionViews.buttons["OK"].tap()
-    }
+    
+    ///This test is useless for now
+//    func testFailSafariOpen() {
+//        XCUIDevice.sharedDevice().orientation = .Portrait
+//        
+//        let app = XCUIApplication()
+//        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(3).staticTexts["Needs work"].tap()
+//        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
+//        
+//        
+//        app.alerts["Error"].collectionViews["OK"].tap()
+//    }
     
     func testPressBookmarksIcon() {
         let app = XCUIApplication()
@@ -78,9 +82,9 @@ class DetailedViewControllerTests: XCTestCase {
         XCUIDevice.sharedDevice().orientation = .Portrait
         
         let app = XCUIApplication()
-        app.tables.staticTexts["SUN 10:30"].tap()
+        app.tables.staticTexts["Presbyterian"].tap()
         app.staticTexts["SHARE"].tap()
-        
         app.sheets.buttons["Cancel"].tap()
+        
     }
 }

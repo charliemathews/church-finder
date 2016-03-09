@@ -24,12 +24,6 @@
 		0F2028231C7F81AE00AFC9AA /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2028221C7F81AE00AFC9AA /* DataTests.swift */; };
 		0F2028241C7F972000AFC9AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20281D1C7F563F00AFC9AA /* Constants.swift */; };
 		0F79702C1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */; };
-		0F7970331C8F387B00FA40FE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F79702D1C8F387B00FA40FE /* Bolts.framework */; };
-		0F7970341C8F387B00FA40FE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F79702E1C8F387B00FA40FE /* Parse.framework */; };
-		0F7970351C8F387B00FA40FE /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F79702F1C8F387B00FA40FE /* ParseFacebookUtils.framework */; };
-		0F7970361C8F387B00FA40FE /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F7970301C8F387B00FA40FE /* ParseFacebookUtilsV4.framework */; };
-		0F7970371C8F387B00FA40FE /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F7970311C8F387B00FA40FE /* ParseTwitterUtils.framework */; };
-		0F7970381C8F387B00FA40FE /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F7970321C8F387B00FA40FE /* ParseUI.framework */; };
 		0FC57AB91C873550009AA565 /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037715BE1C85F00000303162 /* Church.swift */; };
 		3729A8671C8523B3000AF907 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3729A8661C8523B3000AF907 /* BookmarksViewController.swift */; };
 		373719C61C7C1EEF001A21B0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D431C6E213E00482663 /* libsqlite3.tbd */; };
@@ -59,6 +53,13 @@
 		75EA093F1C82278000EC90F2 /* FilterTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA093E1C82278000EC90F2 /* FilterTableViewControllerTests.swift */; };
 		75EA09971C85F66100EC90F2 /* DetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA09961C85F66100EC90F2 /* DetailedViewControllerTests.swift */; };
 		75EA0A951C8CE9C700EC90F2 /* DetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA0A941C8CE9C700EC90F2 /* DetailedViewControllerTests.swift */; };
+		75F4D8071C8FE1F6003B7E66 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F4D8011C8FE1F6003B7E66 /* Bolts.framework */; };
+		75F4D8081C8FE1F6003B7E66 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F4D8021C8FE1F6003B7E66 /* Parse.framework */; };
+		75F4D8091C8FE1F6003B7E66 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F4D8031C8FE1F6003B7E66 /* ParseFacebookUtils.framework */; };
+		75F4D80A1C8FE1F6003B7E66 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F4D8041C8FE1F6003B7E66 /* ParseFacebookUtilsV4.framework */; };
+		75F4D80B1C8FE1F6003B7E66 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F4D8051C8FE1F6003B7E66 /* ParseTwitterUtils.framework */; };
+		75F4D80C1C8FE1F6003B7E66 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F4D8061C8FE1F6003B7E66 /* ParseUI.framework */; };
+		75F4D80E1C8FE474003B7E66 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4D80D1C8FE474003B7E66 /* MapViewControllerTests.swift */; };
 		75F7C62E1C8D1DF500FEF740 /* addressImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6221C8D1DF500FEF740 /* addressImage.png */; };
 		75F7C62F1C8D1DF500FEF740 /* addressImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6221C8D1DF500FEF740 /* addressImage.png */; };
 		75F7C6301C8D1DF500FEF740 /* addressImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6221C8D1DF500FEF740 /* addressImage.png */; };
@@ -134,12 +135,6 @@
 		0F20281D1C7F563F00AFC9AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0F2028221C7F81AE00AFC9AA /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CognitiveWalkthroughTests.swift; path = ../ChurchFinderTests/CognitiveWalkthroughTests.swift; sourceTree = "<group>"; };
-		0F79702D1C8F387B00FA40FE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		0F79702E1C8F387B00FA40FE /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		0F79702F1C8F387B00FA40FE /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		0F7970301C8F387B00FA40FE /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
-		0F7970311C8F387B00FA40FE /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
-		0F7970321C8F387B00FA40FE /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		3729A8661C8523B3000AF907 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		37621F291C8FE14C004DED9C /* BookmarksViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewTests.swift; sourceTree = "<group>"; };
 		37621F2A1C8FE14C004DED9C /* ListViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewTests.swift; sourceTree = "<group>"; };
@@ -160,6 +155,13 @@
 		75EA093E1C82278000EC90F2 /* FilterTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewControllerTests.swift; sourceTree = "<group>"; };
 		75EA09961C85F66100EC90F2 /* DetailedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerTests.swift; sourceTree = "<group>"; };
 		75EA0A941C8CE9C700EC90F2 /* DetailedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerTests.swift; sourceTree = "<group>"; };
+		75F4D8011C8FE1F6003B7E66 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		75F4D8021C8FE1F6003B7E66 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		75F4D8031C8FE1F6003B7E66 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		75F4D8041C8FE1F6003B7E66 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		75F4D8051C8FE1F6003B7E66 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
+		75F4D8061C8FE1F6003B7E66 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		75F4D80D1C8FE474003B7E66 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		75F7C6221C8D1DF500FEF740 /* addressImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addressImage.png; sourceTree = "<group>"; };
 		75F7C6231C8D1DF500FEF740 /* backArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow.png; sourceTree = "<group>"; };
 		75F7C6241C8D1DF500FEF740 /* churches.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = churches.jpg; sourceTree = "<group>"; };
@@ -181,20 +183,20 @@
 			files = (
 				37FE8D441C6E213E00482663 /* libsqlite3.tbd in Frameworks */,
 				37FE8D421C6E213400482663 /* libz.tbd in Frameworks */,
-				0F7970361C8F387B00FA40FE /* ParseFacebookUtilsV4.framework in Frameworks */,
+				75F4D80A1C8FE1F6003B7E66 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				37FE8D401C6E211B00482663 /* SystemConfiguration.framework in Frameworks */,
-				0F7970371C8F387B00FA40FE /* ParseTwitterUtils.framework in Frameworks */,
+				75F4D80B1C8FE1F6003B7E66 /* ParseTwitterUtils.framework in Frameworks */,
 				37FE8D3E1C6E210F00482663 /* StoreKit.framework in Frameworks */,
-				0F7970381C8F387B00FA40FE /* ParseUI.framework in Frameworks */,
+				75F4D80C1C8FE1F6003B7E66 /* ParseUI.framework in Frameworks */,
 				37FE8D3C1C6E210800482663 /* Security.framework in Frameworks */,
 				37FE8D3A1C6E20FF00482663 /* QuartzCore.framework in Frameworks */,
 				37FE8D381C6E20F600482663 /* CoreLocation.framework in Frameworks */,
 				37FE8D361C6E20EA00482663 /* CoreGraphics.framework in Frameworks */,
-				0F7970331C8F387B00FA40FE /* Bolts.framework in Frameworks */,
+				75F4D8071C8FE1F6003B7E66 /* Bolts.framework in Frameworks */,
 				37FE8D341C6E20E400482663 /* CFNetwork.framework in Frameworks */,
-				0F7970341C8F387B00FA40FE /* Parse.framework in Frameworks */,
+				75F4D8081C8FE1F6003B7E66 /* Parse.framework in Frameworks */,
 				37FE8D321C6E20D500482663 /* AudioToolbox.framework in Frameworks */,
-				0F7970351C8F387B00FA40FE /* ParseFacebookUtils.framework in Frameworks */,
+				75F4D8091C8FE1F6003B7E66 /* ParseFacebookUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,12 +317,12 @@
 		37FE8D241C6E1F4600482663 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				0F79702D1C8F387B00FA40FE /* Bolts.framework */,
-				0F79702E1C8F387B00FA40FE /* Parse.framework */,
-				0F79702F1C8F387B00FA40FE /* ParseFacebookUtils.framework */,
-				0F7970301C8F387B00FA40FE /* ParseFacebookUtilsV4.framework */,
-				0F7970311C8F387B00FA40FE /* ParseTwitterUtils.framework */,
-				0F7970321C8F387B00FA40FE /* ParseUI.framework */,
+				75F4D8011C8FE1F6003B7E66 /* Bolts.framework */,
+				75F4D8021C8FE1F6003B7E66 /* Parse.framework */,
+				75F4D8031C8FE1F6003B7E66 /* ParseFacebookUtils.framework */,
+				75F4D8041C8FE1F6003B7E66 /* ParseFacebookUtilsV4.framework */,
+				75F4D8051C8FE1F6003B7E66 /* ParseTwitterUtils.framework */,
+				75F4D8061C8FE1F6003B7E66 /* ParseUI.framework */,
 				37FE8D431C6E213E00482663 /* libsqlite3.tbd */,
 				37FE8D411C6E213400482663 /* libz.tbd */,
 				37FE8D3F1C6E211B00482663 /* SystemConfiguration.framework */,
@@ -364,6 +366,7 @@
 				75EA09381C82271300EC90F2 /* Info.plist */,
 				75EA093E1C82278000EC90F2 /* FilterTableViewControllerTests.swift */,
 				75EA09961C85F66100EC90F2 /* DetailedViewControllerTests.swift */,
+				75F4D80D1C8FE474003B7E66 /* MapViewControllerTests.swift */,
 			);
 			path = ChurchFinderUITests;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				75EA09371C82271300EC90F2 /* ChurchFinderUITests.swift in Sources */,
 				75EA093F1C82278000EC90F2 /* FilterTableViewControllerTests.swift in Sources */,
 				37621F2C1C8FE14C004DED9C /* ListViewTests.swift in Sources */,
+				75F4D80E1C8FE474003B7E66 /* MapViewControllerTests.swift in Sources */,
 				37621F2B1C8FE14C004DED9C /* BookmarksViewTests.swift in Sources */,
 				75EA09971C85F66100EC90F2 /* DetailedViewControllerTests.swift in Sources */,
 			);
