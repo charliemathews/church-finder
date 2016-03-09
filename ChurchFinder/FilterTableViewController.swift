@@ -21,15 +21,20 @@ protocol filterResultsDelegate{
 /*
 TODO: pull labels, denominations, styles, etc from data model using, for ex. data.getMeta("denomination")
 */
-class FilterTableViewController: UITableViewController {
+class FilterTableViewController: UITableViewController, specificFilterViewControllerDelegate{
 
+  
     let labels = ["Denomination", "Worship Style", "Size", "Times"]
     let denoms = data.getMeta("denomination")
     let worshipStyles = data.getMeta("style")
     let sizes = ["Small", "Medium", "Osteen"]
     let times = data.getMeta("times")
+    var selectedFilter: String!
+    var selectedFilterRow: Int!
     var delegate: filterResultsDelegate!
     var check: Int!
+    
+    
     @IBAction func doneWithFilters(sender: AnyObject) {
         delegate.doneWithFilters(self)
     }
@@ -42,9 +47,33 @@ class FilterTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+        data
     }
-    
+    func mapIndexToPickerValues(index: Int) -> [String]{
+        switch (index){
+        case 0:
+            return denoms
+        case 1:
+            return worshipStyles
+        case 2:
+            return sizes
+        case 3:
+            return times
+        default: return []
+        }
+    }
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "specificFilterSegue"){
+            let dest = segue.destinationViewController as! SpecificFilterSelectViewController
+            dest.delegate = self
+            dest.pickerName = selectedFilter
+            dest.pickerValues = mapIndexToPickerValues(selectedFilterRow)
+        }
+     }
+    func doneWithSpecificFilter(child: SpecificFilterSelectViewController){
+        params[child.pickerName] = child.selectedPickerValue
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
 
     override func didReceiveMemoryWarning() {
@@ -88,10 +117,16 @@ class FilterTableViewController: UITableViewController {
                 break
             default: break
         }
-        cell.contentView.bringSubviewToFront(cell.filterCategoryPicker)
+        cell.contentView.bringSubviewToFront(cell.goButton)
         cell.setSelected(true, animated: true)
         // Configure the cell...
         return cell
+    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedFilterRow = indexPath.row
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! FilterViewCell
+        selectedFilter = currentCell.cellName
+        self.performSegueWithIdentifier("specificFilterSegue", sender: self)
     }
     
 

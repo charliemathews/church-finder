@@ -136,6 +136,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         child.delegate = self
     }
     func doneWithFilters(child: FilterTableViewController){
+        data.currentParameters = params
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

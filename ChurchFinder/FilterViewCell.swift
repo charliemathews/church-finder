@@ -13,21 +13,24 @@ Sources
 */
 
 import UIKit
-
-class FilterViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
+//UIPickerViewDataSource, UIPickerViewDelegate
+class FilterViewCell: UITableViewCell  {
 
     @IBOutlet weak var filterCategoryLabel: UILabel!
     @IBOutlet var view: UIView!
-    @IBOutlet weak var filterCategoryPicker: UIPickerView!
+    
     var labelText: String!
     var cellName: String!
     var pickerLabels = [String]()
     
+    @IBOutlet var selectedFilterLabel: UILabel!
+    @IBOutlet var goButton: UIButton!
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        filterCategoryPicker.delegate = self
-        filterCategoryPicker.dataSource = self
+        //filterCategoryPicker.delegate = self
+        //filterCategoryPicker.dataSource = self
         self.view.bringSubviewToFront(view)
     }
     func initialize(lT: String, pL: [String]){
@@ -41,21 +44,21 @@ class FilterViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDeleg
         // Configure the view for the selected state
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerLabels.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerLabels[row]
-    }
-    
-    func pickerView(pickerView: UIPickerView,
-        didSelectRow row: Int,
-        inComponent component: Int){
-            //churchModel.churchDictionary[cellName] = pickerLabels[row]
-    }
+//    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//    
+//    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return pickerLabels.count
+//    }
+//    
+//    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return pickerLabels[row]
+//    }
+//    
+//    func pickerView(pickerView: UIPickerView,
+//        didSelectRow row: Int,
+//        inComponent component: Int){
+//            //churchModel.churchDictionary[cellName] = pickerLabels[row]
+//    }
 }

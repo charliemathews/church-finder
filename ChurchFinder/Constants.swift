@@ -46,7 +46,7 @@ struct Constants {
     }
     
 }
-
+var params : [String:AnyObject] = [:]
 let data = Data.sharedInstance
 
 

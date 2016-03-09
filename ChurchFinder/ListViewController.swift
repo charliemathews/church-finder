@@ -35,6 +35,12 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         Data.sharedInstance.locationManager.requestWhenInUseAuthorization()
         Data.sharedInstance.locationManager.startUpdatingLocation()
         
+        //Initialize params variable
+        params["denoms"] = ""
+        params["style"] = ""
+        params["size"] = ""
+        params["times"] = ""
+        
         listMapSegControl.selectedSegmentIndex = 0
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -135,6 +141,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         listMapSegControl.selectedSegmentIndex = 0
     }
     func doneWithFilters(child: FilterTableViewController){
+        data.currentParameters = params
         dismissViewControllerAnimated(true, completion: nil)
     }
     
