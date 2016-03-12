@@ -89,6 +89,13 @@ class DetailedViewController: UIViewController {
         //map stuff
         let initialLocation = CLLocation(latitude: church.location.latitude, longitude: church.location.longitude)
         centerMapOnLocation(initialLocation)
+        
+        //drop pin
+        let loc = CLLocationCoordinate2D(latitude: church.location.latitude, longitude: church.location.longitude)
+        let pin = MKPointAnnotation()
+        pin.coordinate = loc
+        
+        churchMap.addAnnotation(pin)
     }
     
     override func didReceiveMemoryWarning() {
@@ -122,7 +129,7 @@ class DetailedViewController: UIViewController {
         
     }
     func share(){
-        let textToShare = "Check out "+church.name+"!"
+        let textToShare = "Check out \(church.name) at \(church.url)!"
         
         if let myWebsite = NSURL(string: church.url) {
             let objectsToShare = [textToShare, myWebsite]
