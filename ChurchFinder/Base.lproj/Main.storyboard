@@ -785,15 +785,11 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qf-Qo-xnE">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4qf-Qo-xnE">
                                 <rect key="frame" x="0.0" y="126" width="600" height="229"/>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gG7-mF-Bb5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gG7-mF-Bb5">
                                 <rect key="frame" x="154" y="68" width="292" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="3uW-Ci-11c"/>
-                                    <constraint firstAttribute="width" constant="292" id="Lnv-hq-1Vs"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -803,13 +799,12 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7kd-LH-K39" secondAttribute="trailing" id="36u-x0-sTz"/>
                             <constraint firstItem="7kd-LH-K39" firstAttribute="top" secondItem="udv-Hb-0FA" secondAttribute="top" id="53n-YP-vKM"/>
-                            <constraint firstItem="4qf-Qo-xnE" firstAttribute="leading" secondItem="udv-Hb-0FA" secondAttribute="leading" id="BiJ-Wj-3qX"/>
-                            <constraint firstItem="dru-oe-al1" firstAttribute="top" secondItem="4qf-Qo-xnE" secondAttribute="bottom" constant="196" id="CCq-DF-XgP"/>
-                            <constraint firstItem="4qf-Qo-xnE" firstAttribute="trailing" secondItem="7kd-LH-K39" secondAttribute="trailing" id="Tik-MR-jk7"/>
+                            <constraint firstItem="4qf-Qo-xnE" firstAttribute="top" secondItem="gG7-mF-Bb5" secondAttribute="bottom" constant="8" symbolic="YES" id="GWA-Ya-64H"/>
+                            <constraint firstItem="4qf-Qo-xnE" firstAttribute="trailing" secondItem="7kd-LH-K39" secondAttribute="trailing" id="HzJ-jK-yKx"/>
                             <constraint firstItem="gG7-mF-Bb5" firstAttribute="top" secondItem="7kd-LH-K39" secondAttribute="bottom" constant="24" id="eaH-Op-5Py"/>
                             <constraint firstItem="7kd-LH-K39" firstAttribute="centerX" secondItem="gG7-mF-Bb5" secondAttribute="centerX" id="fTg-3f-ExU"/>
-                            <constraint firstItem="4qf-Qo-xnE" firstAttribute="leading" secondItem="7kd-LH-K39" secondAttribute="leading" id="qCM-4q-VPs"/>
-                            <constraint firstItem="4qf-Qo-xnE" firstAttribute="top" secondItem="gG7-mF-Bb5" secondAttribute="bottom" constant="8" symbolic="YES" id="xIL-bm-vew"/>
+                            <constraint firstItem="4qf-Qo-xnE" firstAttribute="leading" secondItem="udv-Hb-0FA" secondAttribute="leading" id="oJJ-eT-N0Q"/>
+                            <constraint firstItem="4qf-Qo-xnE" firstAttribute="leading" secondItem="7kd-LH-K39" secondAttribute="leading" id="tce-ET-MHk"/>
                         </constraints>
                     </view>
                     <connections>

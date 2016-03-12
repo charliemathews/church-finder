@@ -49,6 +49,7 @@ class SpecificFilterSelectViewController: UIViewController, UIPickerViewDelegate
     func pickerView(pickerView: UIPickerView,
         didSelectRow row: Int,
         inComponent component: Int){
-            params[pickerName] = pickerValues[row]
+            selectedPickerValue = pickerValues[row] as String
+            NSLog(selectedPickerValue)
     }
 }
