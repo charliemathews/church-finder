@@ -42,7 +42,7 @@
                                             </segmentedControl>
                                             <barButtonItem key="rightBarButtonItem" systemItem="search" id="oMS-Na-m5T">
                                                 <connections>
-                                                    <action selector="showSearchBar:" destination="hel-lN-dXH" id="i7J-9A-k5m"/>
+                                                    <action selector="showSearchBar:" destination="vEF-9B-AbD" id="DOb-Ob-WYZ"/>
                                                 </connections>
                                             </barButtonItem>
                                         </navigationItem>
@@ -163,6 +163,7 @@
                     <connections>
                         <outlet property="Table" destination="pEo-lN-CWE" id="vyQ-S0-DHE"/>
                         <outlet property="listMapSegControl" destination="nNE-Eu-ydG" id="Krd-hN-6nU"/>
+                        <outlet property="searchController" destination="oMS-Na-m5T" id="Lu8-e7-dY5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhf-mM-2JU" userLabel="First Responder" sceneMemberID="firstResponder"/>
