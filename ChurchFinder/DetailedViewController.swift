@@ -66,31 +66,43 @@ class DetailedViewController: UIViewController {
         
         //Website setup
         let tap = UITapGestureRecognizer(target: self, action: Selector("openChurchWebsite"))
-        websiteLinkLabel.addGestureRecognizer(tap)
-        websiteLinkLabel.userInteractionEnabled = true
         
+        websiteLinkLabel.userInteractionEnabled = true
+        websiteLinkLabel.addGestureRecognizer(tap)
+        
+        let tapL = UITapGestureRecognizer(target: self, action: Selector("openChurchWebsite"))
         websiteIcon.userInteractionEnabled = true
-        websiteIcon.addGestureRecognizer(tap)
+        websiteIcon.addGestureRecognizer(tapL)
         
         //share button setup
         let tapShare = UITapGestureRecognizer(target: self,action:Selector("share"))
         shareImage.addGestureRecognizer(tapShare)
         shareImage.userInteractionEnabled = true
-        shareLabel.addGestureRecognizer(tapShare)
+        
+        let tapShareL = UITapGestureRecognizer(target: self,action:Selector("share"))
+        shareLabel.addGestureRecognizer(tapShareL)
         shareLabel.userInteractionEnabled = true
         
         //directions button setup
         let tapDir = UITapGestureRecognizer(target: self,action:Selector("getDirections"))
         directionsImage.addGestureRecognizer(tapDir)
         directionsImage.userInteractionEnabled = true
-        directionsLabel.addGestureRecognizer(tapDir)
+        let tapDirL = UITapGestureRecognizer(target: self,action:Selector("getDirections"))
+        directionsLabel.addGestureRecognizer(tapDirL)
         directionsLabel.userInteractionEnabled = true
         
-        //map stuff
+        //map initialization
         let initialLocation = CLLocation(latitude: church.location.latitude, longitude: church.location.longitude)
         centerMapOnLocation(initialLocation)
+        
+        //drop pin
+        let loc = CLLocationCoordinate2D(latitude: church.location.latitude, longitude: church.location.longitude)
+        let pin = MKPointAnnotation()
+        pin.coordinate = loc
+        
+        churchMap.addAnnotation(pin)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -102,12 +114,12 @@ class DetailedViewController: UIViewController {
         else {
             bookMarkIcon.setImage(UIImage(named: "star-512.png"), forState: .Normal)
         }
-       
+        
         bookmarked = !bookmarked
     }
     
     func getDirections(){
-      
+        
         let regionDistance:CLLocationDistance = 10000
         let coordinates = CLLocationCoordinate2DMake(church.location.latitude, church.location.longitude)
         let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
@@ -122,7 +134,7 @@ class DetailedViewController: UIViewController {
         
     }
     func share(){
-        let textToShare = "Check out "+church.name+"!"
+        let textToShare = "Check out \(church.name) at \(church.url)!"
         
         if let myWebsite = NSURL(string: church.url) {
             let objectsToShare = [textToShare, myWebsite]
@@ -136,20 +148,24 @@ class DetailedViewController: UIViewController {
         }
     }
     func openChurchWebsite() {
-        if let url = NSURL(string: church.url) {
-            
-            if UIApplication.sharedApplication().canOpenURL(url) == false {
-                let alertController = UIAlertController(title: "Error", message: "This website doesn't exist", preferredStyle: .Alert)
-                
-                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                alertController.addAction(defaultAction)
-                
-                presentViewController(alertController, animated: true, completion: nil)
-            }
+        let url = NSURL(string: church.url)
+        
+        if url == nil || UIApplication.sharedApplication().canOpenURL(url!) == false {
+            let alertController = UIAlertController(title: "Error", message: "This website doesn't exist", preferredStyle: .Alert)
             
             
-            UIApplication.sharedApplication().openURL(url)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            UIApplication.sharedApplication().openURL(url!)
         }
+        
+        
+        
+        
     }
     @IBAction func done(sender: AnyObject) {
         delegate.done(self)

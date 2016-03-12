@@ -1,5 +1,5 @@
 //
-//  ListViewTests.swift
+//  BookmarksViewTests.swift
 //  ChurchFinder
 //
 //  Created by Daniel Mitchell on 3/7/16.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class ListViewTests: XCTestCase {
+class BookmarksViewTests: XCTestCase {
     
     //http://masilotti.com/xctest-helpers/
     private func waitForElementToAppear(element: XCUIElement,
@@ -37,6 +37,8 @@ class ListViewTests: XCTestCase {
         XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        
+        XCUIApplication().tabBars.buttons["Bookmarks"].tap()
     }
     
     override func tearDown() {
@@ -44,20 +46,9 @@ class ListViewTests: XCTestCase {
         super.tearDown()
     }
     
-    func testBookmarksNav() {
-        XCUIApplication().tabBars.buttons["Bookmarks"].tap()
-        waitForElementToAppear(XCUIApplication().tables.navigationBars["Bookmarks"])
-    }
-    
-    func testMapButton() {
-        XCUIApplication().tables.navigationBars.buttons["Map"].tap()
-        XCTAssert(XCUIApplication().navigationBars.buttons["Map"].selected)
-    }
-    
-    func testFiltersButton() {
-        let tablesQuery = XCUIApplication().tables
-        tablesQuery.navigationBars.buttons["Filters"].tap()
-        waitForElementToAppear(tablesQuery.buttons["Done"])
+    func testListNav() {
+        XCUIApplication().tabBars.buttons["Search"].tap()
+        waitForElementToAppear(XCUIApplication().tables.navigationBars.buttons["List"])
     }
     
     func testDetailedViewButton() {
@@ -66,16 +57,17 @@ class ListViewTests: XCTestCase {
         waitForElementToAppear(XCUIApplication().staticTexts["SHARE"])
     }
     
-    func testSwipeBookmarksButton() {
+    func testDeleteButtonSwipe() {
         XCUIApplication().tables.cells.allElementsBoundByIndex[0].swipeLeft()
-        waitForElementToAppear(XCUIApplication().tables.cells.allElementsBoundByIndex[0].buttons["Bookmark"])
+        
+        waitForElementToAppear(XCUIApplication().tables.cells.allElementsBoundByIndex[0].buttons["Delete"])
     }
     
-    func testBookmarksButton() {
-        let book = XCUIApplication().tables.cells.allElementsBoundByIndex[0]
+    func testDeleteButton() {
+        let delete = XCUIApplication().tables.cells.allElementsBoundByIndex[0]
         
-        book.swipeLeft()
-        book.buttons["Bookmark"].tap()
+        delete.swipeLeft()
+        delete.buttons["Delete"].tap()
     }
     
 }

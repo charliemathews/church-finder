@@ -2,17 +2,35 @@
 //  MapViewControllerTests.swift
 //  ChurchFinder
 //
-//  Created by Michael Curtis on 3/8/16.
+//  Created by Sam Gill on 3/8/16.
 //  Copyright © 2016 Michael Curtis. All rights reserved.
 //
 
 import XCTest
 
+
+
 class MapViewControllerTests: XCTestCase {
+    //http://masilotti.com/xctest-helpers/
+    private func waitForElementToAppear(element: XCUIElement,
+        file: String = __FILE__, line: UInt = __LINE__) {
+            let existsPredicate = NSPredicate(format: "exists == true")
+            expectationForPredicate(existsPredicate,
+                evaluatedWithObject: element, handler: nil)
+            
+            waitForExpectationsWithTimeout(5) { (error) -> Void in
+                if (error != nil) {
+                    let message = "Failed to find \(element) after 5 seconds."
+                    self.recordFailureWithDescription(message,
+                        inFile: file, atLine: line, expected: true)
+                }
+            }
+    }
+    
     
     override func setUp() {
         super.setUp()
-       
+        
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -27,21 +45,34 @@ class MapViewControllerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
-    func testSearch() {
+    
+    
+    func testSearchBarSearchButtonClicked_CaseNothingFound() {
         
         let app = XCUIApplication()
-        let tablesQuery = app.tables
-        tablesQuery.navigationBars.buttons["Map"].tap()
-        let navigationBarsQuery = app.navigationBars
-        navigationBarsQuery.buttons["Search"].tap()
-        app.buttons["Cancel"].tap()
-        navigationBarsQuery.buttons["Filters"].tap()
-        tablesQuery.buttons["Done"].tap()
-        app.otherElements["Current Location"].tap()
+        app.tables.navigationBars.buttons["Map"].tap()
+        app.navigationBars.buttons["Search"].tap()
+        app.searchFields["Search"].typeText("oiwjefowi")
+        app.typeText("jefwoiejf\r")
         
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        waitForElementToAppear(app.alerts.collectionViews.buttons["Dismiss"])
+        app.alerts.collectionViews.buttons["Dismiss"].tap()
+        
+        
     }
-
+    
+    func testSearchBarSearchButtonClicked_PlaceFound() {
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let app = XCUIApplication()
+        app.tables.navigationBars.buttons["Map"].tap()
+        app.navigationBars.buttons["Search"].tap()
+        app.searchFields["Search"].typeText("grove city")
+        app.typeText("\r")
+        waitForElementToAppear(app.otherElements["Map pin"])
+        app.otherElements["Map pin"].tap()
+        
+        
+    }
+    
 }

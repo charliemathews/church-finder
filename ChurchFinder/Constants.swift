@@ -15,6 +15,8 @@ http://stackoverflow.com/questions/26252233/global-constants-file-in-swift
 import Foundation
 import Parse
 
+let data = Data.sharedInstance
+
 struct Constants {
     
     struct Parse {
@@ -47,6 +49,6 @@ struct Constants {
     
 }
 var params : [String:AnyObject] = [:]
-let data = Data.sharedInstance
+
 
 
