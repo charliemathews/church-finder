@@ -66,27 +66,32 @@ class DetailedViewController: UIViewController {
         
         //Website setup
         let tap = UITapGestureRecognizer(target: self, action: Selector("openChurchWebsite"))
-        websiteLinkLabel.addGestureRecognizer(tap)
-        websiteLinkLabel.userInteractionEnabled = true
         
+        websiteLinkLabel.userInteractionEnabled = true
+        websiteLinkLabel.addGestureRecognizer(tap)
+        
+        let tapL = UITapGestureRecognizer(target: self, action: Selector("openChurchWebsite"))
         websiteIcon.userInteractionEnabled = true
-        websiteIcon.addGestureRecognizer(tap)
+        websiteIcon.addGestureRecognizer(tapL)
         
         //share button setup
         let tapShare = UITapGestureRecognizer(target: self,action:Selector("share"))
         shareImage.addGestureRecognizer(tapShare)
         shareImage.userInteractionEnabled = true
-        shareLabel.addGestureRecognizer(tapShare)
+        
+        let tapShareL = UITapGestureRecognizer(target: self,action:Selector("share"))
+        shareLabel.addGestureRecognizer(tapShareL)
         shareLabel.userInteractionEnabled = true
         
         //directions button setup
         let tapDir = UITapGestureRecognizer(target: self,action:Selector("getDirections"))
         directionsImage.addGestureRecognizer(tapDir)
         directionsImage.userInteractionEnabled = true
-        directionsLabel.addGestureRecognizer(tapDir)
+        let tapDirL = UITapGestureRecognizer(target: self,action:Selector("getDirections"))
+        directionsLabel.addGestureRecognizer(tapDirL)
         directionsLabel.userInteractionEnabled = true
         
-        //map stuff
+        //map initialization
         let initialLocation = CLLocation(latitude: church.location.latitude, longitude: church.location.longitude)
         centerMapOnLocation(initialLocation)
         
