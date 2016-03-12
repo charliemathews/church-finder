@@ -8,10 +8,10 @@
 
 import UIKit
 
-class BookmarksViewController: UITableViewController {
+class BookmarksViewController: UITableViewController,detailedViewDelegate {
     
     let churchCellIdentifier = "ChurchListCell"
-
+    var current = 0
     @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
@@ -38,14 +38,17 @@ class BookmarksViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return Data.sharedInstance.bookmarks.count
     }
-
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        current = indexPath.row
+        return indexPath
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ChurchListCell", forIndexPath: indexPath) as! ChurchListCell
         
         // Configure the cell...
         cell.setCellInfoBookmark(indexPath)
-        
         return cell
     }
     
@@ -60,5 +63,18 @@ class BookmarksViewController: UITableViewController {
             Data.sharedInstance.removeBookmark(indexPath.row)
             tableView.reloadData()
         }
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "detSegue") {
+            
+            
+            let dest = segue.destinationViewController as! DetailedViewController
+            
+            dest.church = Data.sharedInstance.bookmarks[current]
+        }
+    }
+    
+    func done(vc: DetailedViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
