@@ -123,8 +123,6 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         print("Errors: " + error.localizedDescription)
     }
     
-    
-    
     func searchBarSearchButtonClicked(searchBar: UISearchBar){
         
         searchBar.resignFirstResponder()

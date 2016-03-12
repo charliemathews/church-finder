@@ -16,13 +16,14 @@ import UIKit
 import MapKit
 import Parse
 
-class ListViewController: UITableViewController, CLLocationManagerDelegate, detailedViewDelegate, filterResultsDelegate, mapViewControllerDelegate {
+class ListViewController: UITableViewController, CLLocationManagerDelegate, detailedViewDelegate, filterResultsDelegate, mapViewControllerDelegate, UISearchBarDelegate {
     
     let churchCellIdentifier = "ChurchListCell"
     
     @IBOutlet var table: UITableView!
     
     var location : PFGeoPoint = PFGeoPoint()
+    var searchController:UISearchController!
     
     @IBOutlet var listMapSegControl: UISegmentedControl!
     
@@ -38,11 +39,6 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         data.pullResults(Constants.Defaults.get())
         
         listMapSegControl.selectedSegmentIndex = 0
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -170,5 +166,18 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         UIGraphicsEndImageContext()
         
         return newImage
+    }
+    func searchBarSearchButtonClicked(searchBar: UISearchBar){
+        
+        searchBar.resignFirstResponder()
+        dismissViewControllerAnimated(true, completion: nil)
+       
+    }
+    @IBAction func showSearchBar(sender: AnyObject) {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.searchBar.delegate = self
+        presentViewController(searchController, animated: true, completion: nil)
+        
     }
 }
