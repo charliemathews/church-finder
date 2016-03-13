@@ -134,7 +134,7 @@ class DetailedViewController: UIViewController {
         
     }
     func share(){
-        let textToShare = "Check out \(church.name) at \(church.url)!"
+        let textToShare = "Check out \(church.name) at \(church.url)!\nService Time: \(church.times)"
         
         if let myWebsite = NSURL(string: church.url) {
             let objectsToShare = [textToShare, myWebsite]
