@@ -37,6 +37,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     var pointAnnotation:MKPointAnnotation!
     var pinAnnotationView:MKPinAnnotationView!
     var parCheck: Int!
+    var churchAn: [churchAnnotation]!
     
     @IBOutlet weak var filBut: UIBarButtonItem!
     @IBOutlet weak var mapview: MKMapView!
@@ -73,7 +74,9 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
             NSLog("no results?")
             return false
         }
-        
+        let anotView = MKAnnotationView()
+        let detailBut = UIButton(type: .DetailDisclosure)
+        anotView.rightCalloutAccessoryView = detailBut
         for r in data.results {
             let lat = r.location.latitude
             let lon = r.location.longitude
@@ -81,6 +84,8 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
             let loc = CLLocationCoordinate2D(latitude: lat, longitude: lon)
             let pin = MKPointAnnotation()
             pin.coordinate = loc
+            pin.title = r.name
+            pin.subtitle = r.times
             
             mapview.addAnnotation(pin)
         }
@@ -163,6 +168,30 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     func doneWithFilters(child: FilterTableViewController){
         data.currentParameters = params
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        var view = mapView.dequeueReusableAnnotationViewWithIdentifier("AnnotationView Id")
+        if view == nil{
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView Id")
+            view!.canShowCallout = true
+        } else {
+            view!.annotation = annotation
+        }
+        
+        view?.leftCalloutAccessoryView = nil
+        view?.rightCalloutAccessoryView = UIButton(type: UIButtonType.InfoLight)
+        //swift 1.2
+        //view?.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
+        
+        return view
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        //I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
+        if (control as? UIButton)?.buttonType == UIButtonType.DetailDisclosure {
+            mapView.deselectAnnotation(view.annotation, animated: false)
+            performSegueWithIdentifier("mapToDetSeg", sender: view)
+        }
     }
 }
 

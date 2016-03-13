@@ -655,6 +655,7 @@
                         <outlet property="listMapSegControl" destination="yWB-h8-9pe" id="mSX-4R-yKo"/>
                         <outlet property="listMapSwitchControl" destination="yWB-h8-9pe" id="fA2-Rd-HHA"/>
                         <outlet property="mapview" destination="r2K-bf-J6W" id="jAB-Gb-b6x"/>
+                        <segue destination="9bt-vL-kmA" kind="show" identifier="mapToDetSeg" id="Iqg-Hp-vX7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcv-G8-Ghi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -833,7 +834,7 @@
         <image name="websiteImage.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FLC-R7-Ghz"/>
-        <segue reference="0lV-4p-bSo"/>
+        <segue reference="s8l-gw-gcb"/>
+        <segue reference="Iqg-Hp-vX7"/>
     </inferredMetricsTieBreakers>
 </document>
