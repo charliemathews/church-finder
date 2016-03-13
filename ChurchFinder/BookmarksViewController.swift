@@ -75,6 +75,6 @@ class BookmarksViewController: UITableViewController,detailedViewDelegate {
     }
     
     func done(vc: DetailedViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
+        //dismissViewControllerAnimated(true, completion: nil)
     }
 }

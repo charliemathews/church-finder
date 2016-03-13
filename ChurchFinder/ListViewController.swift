@@ -22,6 +22,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     
     @IBOutlet var table: UITableView!
     
+    var current = 0
     var location : PFGeoPoint = PFGeoPoint()
     var searchController:UISearchController!
     
@@ -92,6 +93,10 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         return cell
     }
     
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        current = indexPath.row
+        return indexPath
+    }
     //MARK: Segue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -146,14 +151,23 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-     
-        let bookmark = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Bookmark" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        var bookmarkImage = UIImage(named:"bookmarkStarBlue.png")!
+        for church in Data.sharedInstance.bookmarks {
+            if(church.id == Data.sharedInstance.results[current].id) {
+                bookmarkImage = UIImage(named: "bookmarkStarRed.png")!
+            }
+            else {
+                bookmarkImage = UIImage(named: "bookmarkStarBlue.png")!
+            }
+        }
+        
+        let bookmark = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "                    " , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             Data.sharedInstance.addBookmark(indexPath.row)
         })
-        // 3
-        bookmark.backgroundColor = UIColor.blueColor()
         
-        //let bookmarkImage: UIImage = UIImage(named: "star-xxl.png")!
+        // 3
+        bookmark.backgroundColor = UIColor(patternImage:bookmarkImage)
+        
         
         //let newBookMarkImage = resizeImage(bookmarkImage, newWidth: 118)
         
@@ -162,7 +176,6 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         // 5
         return [bookmark]
     }
-    
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         
         let scale = newWidth / image.size.width

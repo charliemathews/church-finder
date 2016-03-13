@@ -33,6 +33,8 @@
 		26BEC0D91C93A15300AB2AF2 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BEC0D31C93A15300AB2AF2 /* ParseFacebookUtilsV4.framework */; };
 		26BEC0DA1C93A15300AB2AF2 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BEC0D41C93A15300AB2AF2 /* ParseTwitterUtils.framework */; };
 		26BEC0DB1C93A15300AB2AF2 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BEC0D51C93A15300AB2AF2 /* ParseUI.framework */; };
+		26BEC0DE1C94DFE400AB2AF2 /* bookmarkStarBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */; };
+		26BEC0DF1C94DFE400AB2AF2 /* bookmarkStarRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BEC0DD1C94DFE400AB2AF2 /* bookmarkStarRed.png */; };
 		3729A8671C8523B3000AF907 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3729A8661C8523B3000AF907 /* BookmarksViewController.swift */; };
 		373719C61C7C1EEF001A21B0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D431C6E213E00482663 /* libsqlite3.tbd */; };
 		373719C71C7C1EEF001A21B0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D411C6E213400482663 /* libz.tbd */; };
@@ -145,6 +147,8 @@
 		26BEC0D31C93A15300AB2AF2 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		26BEC0D41C93A15300AB2AF2 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		26BEC0D51C93A15300AB2AF2 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarkStarBlue.png; sourceTree = "<group>"; };
+		26BEC0DD1C94DFE400AB2AF2 /* bookmarkStarRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarkStarRed.png; sourceTree = "<group>"; };
 		3729A8661C8523B3000AF907 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		37621F291C8FE14C004DED9C /* BookmarksViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewTests.swift; sourceTree = "<group>"; };
 		37621F2A1C8FE14C004DED9C /* ListViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewTests.swift; sourceTree = "<group>"; };
@@ -346,6 +350,8 @@
 		75D436DF1C79181600F62108 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */,
+				26BEC0DD1C94DFE400AB2AF2 /* bookmarkStarRed.png */,
 				75F7C6221C8D1DF500FEF740 /* addressImage.png */,
 				75F7C6231C8D1DF500FEF740 /* backArrow.png */,
 				75F7C6241C8D1DF500FEF740 /* churches.jpg */,
@@ -497,6 +503,8 @@
 				037F2F011C61000000E971DB /* LaunchScreen.xib in Resources */,
 				75F7C6491C8D1DF500FEF740 /* star-xxl.png in Resources */,
 				037F2EFE1C61000000E971DB /* Images.xcassets in Resources */,
+				26BEC0DF1C94DFE400AB2AF2 /* bookmarkStarRed.png in Resources */,
+				26BEC0DE1C94DFE400AB2AF2 /* bookmarkStarBlue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

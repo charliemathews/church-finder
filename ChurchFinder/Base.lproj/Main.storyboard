@@ -338,7 +338,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="backArrow.png"/>
                                 <connections>
-                                    <segue destination="M63-yd-9VS" kind="unwind" unwindAction="cancel:" id="vhf-39-N0u"/>
+                                    <segue destination="M63-yd-9VS" kind="unwind" unwindAction="cancel:" id="BAP-1w-nic"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -817,24 +817,6 @@
             </objects>
             <point key="canvasLocation" x="730" y="1780"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="v2w-2c-pfh">
-            <objects>
-                <viewController id="qDV-r1-yVp" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GCB-K2-yFh"/>
-                        <viewControllerLayoutGuide type="bottom" id="MxN-C2-DV4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hei-Ct-uAs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ha-Vw-8Dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="582" y="731"/>
-        </scene>
     </scenes>
     <resources>
         <image name="WX_circle_white.png" width="400" height="400"/>
@@ -851,7 +833,7 @@
         <image name="websiteImage.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s8l-gw-gcb"/>
-        <segue reference="Nde-hP-tRr"/>
+        <segue reference="FLC-R7-Ghz"/>
+        <segue reference="0lV-4p-bSo"/>
     </inferredMetricsTieBreakers>
 </document>
