@@ -611,7 +611,7 @@
                                         <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" title="Filters" id="pKW-ls-tbz">
                                             <connections>
-                                                <segue destination="vO3-2u-4cJ" kind="presentation" id="s8l-gw-gcb"/>
+                                                <segue destination="vO3-2u-4cJ" kind="presentation" identifier="mapToFiltersSegue" id="s8l-gw-gcb"/>
                                             </connections>
                                         </barButtonItem>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="yWB-h8-9pe">
@@ -655,7 +655,7 @@
                         <outlet property="listMapSegControl" destination="yWB-h8-9pe" id="mSX-4R-yKo"/>
                         <outlet property="listMapSwitchControl" destination="yWB-h8-9pe" id="fA2-Rd-HHA"/>
                         <outlet property="mapview" destination="r2K-bf-J6W" id="jAB-Gb-b6x"/>
-                        <segue destination="9bt-vL-kmA" kind="show" identifier="mapToDetSeg" id="Iqg-Hp-vX7"/>
+                        <segue destination="9bt-vL-kmA" kind="show" identifier="mapToDetSegue" id="Iqg-Hp-vX7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcv-G8-Ghi" userLabel="First Responder" sceneMemberID="firstResponder"/>

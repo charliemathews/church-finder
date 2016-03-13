@@ -19,7 +19,7 @@ protocol mapViewControllerDelegate{
     func doneWithMapView(child: MapViewController)
 }
 
-class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDelegate, UISearchBarDelegate, filterResultsDelegate{
+class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDelegate, UISearchBarDelegate, filterResultsDelegate, detailedViewDelegate{
     
     @IBOutlet weak var listMapSwitchControl: UISegmentedControl!
     @IBOutlet weak var mapView: MapViewController!
@@ -27,6 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
     
     @IBOutlet var listMapSegControl: UISegmentedControl!
     
+    var current = Church()
     var delegate: mapViewControllerDelegate!
     var searchController:UISearchController!
     var annotation: MKAnnotation!
@@ -65,7 +66,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         data.locationManager.startUpdatingLocation()
         self.mapview.showsUserLocation = true
         listMapSegControl.selectedSegmentIndex = 1
-        
+        mapview.delegate = self
         outputChurchResultsToMap()
     }
     
@@ -82,10 +83,8 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
             let lon = r.location.longitude
         
             let loc = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-            let pin = MKPointAnnotation()
-            pin.coordinate = loc
-            pin.title = r.name
-            pin.subtitle = r.times
+            //let pin = MKPointAnnotation()
+            let pin = churchAnnotation(title: r.name, times: r.times, church: r, coordinate: loc)
             
             mapview.addAnnotation(pin)
         }
@@ -162,36 +161,53 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         }
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let child = segue.destinationViewController as! FilterTableViewController
-        child.delegate = self
+        
+        if (segue.identifier == "mapToDetSegue") {
+            let dest = segue.destinationViewController as! DetailedViewController
+            dest.delegate = self
+            dest.church = current
+        }
+        else if(segue.identifier == "mapToFiltersSegue") {
+            let child = segue.destinationViewController as! FilterTableViewController
+            child.delegate = self
+        }
     }
     func doneWithFilters(child: FilterTableViewController){
         data.currentParameters = params
         dismissViewControllerAnimated(true, completion: nil)
     }
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        var view = mapView.dequeueReusableAnnotationViewWithIdentifier("AnnotationView Id")
-        if view == nil{
-            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView Id")
-            view!.canShowCallout = true
-        } else {
-            view!.annotation = annotation
+        var view = MKPinAnnotationView()
+        //check if user location
+        if(annotation.isKindOfClass(MKUserLocation)) {
+            return nil
         }
-        
-        view?.leftCalloutAccessoryView = nil
-        view?.rightCalloutAccessoryView = UIButton(type: UIButtonType.InfoLight)
-        //swift 1.2
-        //view?.rightCalloutAccessoryView = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
-        
+        //try to dismiss already open
+        if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier("pin") as? MKPinAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            view = MKPinAnnotationView(annotation:annotation,reuseIdentifier:"pin")
+            view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
+            view.canShowCallout = true
+        }
         return view
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         //I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
+        
+        let ch = view.annotation as! churchAnnotation
+        current = ch.church
+        
         if (control as? UIButton)?.buttonType == UIButtonType.DetailDisclosure {
             mapView.deselectAnnotation(view.annotation, animated: false)
             performSegueWithIdentifier("mapToDetSeg", sender: view)
         }
+    }
+    
+    func done(child: DetailedViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

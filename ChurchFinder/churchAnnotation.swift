@@ -12,13 +12,14 @@ import MapKit
 class churchAnnotation: NSObject, MKAnnotation {
     let title: String?
     let times: String
+    let church: Church
     let coordinate: CLLocationCoordinate2D
     
-    init(title: String, times: String,coordinate: CLLocationCoordinate2D) {
+    init(title: String, times: String, church: Church, coordinate:CLLocationCoordinate2D) {
         self.title = title
         self.times = times
         self.coordinate = coordinate
-        
+        self.church = church
         super.init()
     }
     
@@ -33,7 +34,7 @@ class churchAnnotation: NSObject, MKAnnotation {
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
         // 3
-        return churchAnnotation(title: title, times: times, coordinate: coordinate)
+        return churchAnnotation(title: title, times: times, church: ch, coordinate: coordinate)
     }
     var subtitle: String? {
         return times
