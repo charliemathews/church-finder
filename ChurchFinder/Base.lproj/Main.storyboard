@@ -685,14 +685,14 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tblCell" rowHeight="92" id="4Xr-Pz-DZl" customClass="FilterViewCell" customModule="ChurchFinder" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tblCell" rowHeight="92" id="4Xr-Pz-DZl" customClass="FilterViewCell" customModule="ChurchFinder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="600" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="4Xr-Pz-DZl" id="JuW-5C-Y0Z">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="91"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Xr-Pz-DZl" id="JuW-5C-Y0Z">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="91"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKe-iH-jrs">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKe-iH-jrs">
                                             <rect key="frame" x="37" y="20" width="150" height="51"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="tZQ-ar-gvv"/>
@@ -701,7 +701,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="748-jm-WN7">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="748-jm-WN7">
                                             <rect key="frame" x="195" y="20" width="269" height="51"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="269" id="5Ss-sE-0ZH"/>
@@ -710,26 +710,11 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xp9-ts-xzM">
-                                            <rect key="frame" x="534" y="33" width="26" height="26"/>
-                                            <accessibility key="accessibilityConfiguration">
-                                                <accessibilityTraits key="traits" image="YES"/>
-                                            </accessibility>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="34" id="UfN-hv-wDI"/>
-                                            </constraints>
-                                            <state key="normal" title="Button" image="go"/>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="OKe-iH-jrs" firstAttribute="firstBaseline" secondItem="748-jm-WN7" secondAttribute="firstBaseline" id="AGU-gC-f1f"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Xp9-ts-xzM" secondAttribute="trailing" constant="36" id="LnG-cc-lNy"/>
-                                        <constraint firstItem="Xp9-ts-xzM" firstAttribute="top" secondItem="JuW-5C-Y0Z" secondAttribute="topMargin" constant="19" id="XRz-mL-Y7Q"/>
                                         <constraint firstItem="OKe-iH-jrs" firstAttribute="baseline" secondItem="748-jm-WN7" secondAttribute="baseline" id="Xke-PL-NP2"/>
                                         <constraint firstItem="OKe-iH-jrs" firstAttribute="leading" secondItem="JuW-5C-Y0Z" secondAttribute="leadingMargin" constant="29" id="YeO-c3-9CO"/>
-                                        <constraint firstItem="748-jm-WN7" firstAttribute="centerY" secondItem="Xp9-ts-xzM" secondAttribute="centerY" id="ZqF-Ms-brn"/>
-                                        <constraint firstItem="Xp9-ts-xzM" firstAttribute="leading" secondItem="748-jm-WN7" secondAttribute="trailing" constant="70" id="hAj-0T-Ah3"/>
-                                        <constraint firstItem="Xp9-ts-xzM" firstAttribute="centerY" secondItem="JuW-5C-Y0Z" secondAttribute="centerY" id="nxx-Xe-vAn"/>
                                         <constraint firstItem="OKe-iH-jrs" firstAttribute="top" secondItem="JuW-5C-Y0Z" secondAttribute="topMargin" constant="12" id="q5q-ye-AgZ"/>
                                         <constraint firstItem="748-jm-WN7" firstAttribute="leading" secondItem="OKe-iH-jrs" secondAttribute="trailing" constant="8" symbolic="YES" id="rlv-Dp-lrs"/>
                                     </constraints>
@@ -737,7 +722,6 @@
                                 <accessibility key="accessibilityConfiguration" identifier="tblCell"/>
                                 <connections>
                                     <outlet property="filterCategoryLabel" destination="OKe-iH-jrs" id="5Zb-Na-eft"/>
-                                    <outlet property="goButton" destination="Xp9-ts-xzM" id="ubG-G2-3ua"/>
                                     <outlet property="selectedFilterLabel" destination="748-jm-WN7" id="dF3-pu-Nel"/>
                                     <outlet property="view" destination="JuW-5C-Y0Z" id="Kk5-GZ-VjU"/>
                                 </connections>
@@ -825,7 +809,6 @@
         <image name="backArrow.png" width="128" height="128"/>
         <image name="clocks.png" width="128" height="128"/>
         <image name="compass.png" width="128" height="128"/>
-        <image name="go" width="84" height="84"/>
         <image name="infoImage.png" width="48" height="48"/>
         <image name="music.png" width="128" height="128"/>
         <image name="search" width="33" height="33"/>

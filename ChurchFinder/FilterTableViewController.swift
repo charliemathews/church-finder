@@ -117,7 +117,6 @@ class FilterTableViewController: UITableViewController, specificFilterViewContro
                 break
             default: break
         }
-        cell.contentView.bringSubviewToFront(cell.goButton)
         cell.setSelected(true, animated: true)
         // Configure the cell...
         return cell
