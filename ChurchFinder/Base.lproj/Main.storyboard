@@ -468,12 +468,55 @@
             </objects>
             <point key="canvasLocation" x="2159" y="-104.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="EAm-VW-eM2">
+            <objects>
+                <viewController id="RcY-e1-gir" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wfr-HF-RN1"/>
+                        <viewControllerLayoutGuide type="bottom" id="00e-xp-fyk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iAL-XI-mB1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wM-W4-Jt1">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Bookmarks" id="CSB-Ke-2j1"/>
+                                </items>
+                            </navigationBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfH-4r-BZs">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <connections>
+                                    <segue destination="KzA-6E-DEh" kind="embed" id="3lm-T2-e3I"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6wM-W4-Jt1" firstAttribute="top" secondItem="Wfr-HF-RN1" secondAttribute="bottom" id="J2b-Oe-Xg9"/>
+                            <constraint firstItem="6wM-W4-Jt1" firstAttribute="bottom" secondItem="dfH-4r-BZs" secondAttribute="top" id="M1G-V8-R64"/>
+                            <constraint firstItem="dfH-4r-BZs" firstAttribute="bottom" secondItem="00e-xp-fyk" secondAttribute="top" id="MkI-6y-Jl2"/>
+                            <constraint firstItem="6wM-W4-Jt1" firstAttribute="centerX" secondItem="iAL-XI-mB1" secondAttribute="centerX" id="Riy-aR-sPP"/>
+                            <constraint firstItem="dfH-4r-BZs" firstAttribute="centerX" secondItem="iAL-XI-mB1" secondAttribute="centerX" id="Uog-b6-dsD"/>
+                            <constraint firstItem="6wM-W4-Jt1" firstAttribute="leading" secondItem="dfH-4r-BZs" secondAttribute="leading" id="XRx-3r-Pig"/>
+                            <constraint firstItem="6wM-W4-Jt1" firstAttribute="trailing" secondItem="dfH-4r-BZs" secondAttribute="trailing" id="Yzh-ao-1ad"/>
+                            <constraint firstItem="6wM-W4-Jt1" firstAttribute="leading" secondItem="iAL-XI-mB1" secondAttribute="leading" id="ib3-Oh-6Sa"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="bNh-6c-tXg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IY2-Rc-yah" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-510" y="860"/>
+        </scene>
         <!--Bookmarks View Controller-->
         <scene sceneID="T7j-Wm-aqb">
             <objects>
                 <tableViewController id="KzA-6E-DEh" customClass="BookmarksViewController" customModule="ChurchFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="114" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tzs-wz-60m">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -580,10 +623,11 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="O0h-FY-JNc"/>
+                    <navigationItem key="navigationItem" id="Z8n-BZ-WOl"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rqt-4Z-Ufo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="288" y="579"/>
+            <point key="canvasLocation" x="230" y="425.5"/>
         </scene>
         <!--Bottom Bar-->
         <scene sceneID="yl2-sM-qoP">
@@ -597,12 +641,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="pgI-ae-Xty" kind="relationship" relationship="viewControllers" id="Kzs-gh-yfn"/>
-                        <segue destination="KzA-6E-DEh" kind="relationship" relationship="viewControllers" id="tvU-LK-yL7"/>
+                        <segue destination="RcY-e1-gir" kind="relationship" relationship="viewControllers" id="8vQ-QT-owp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-482" y="80"/>
+            <point key="canvasLocation" x="-510" y="80"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="bNT-Yw-FIt">
@@ -793,6 +837,6 @@
         <image name="websiteImage.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0lV-4p-bSo"/>
+        <segue reference="Nde-hP-tRr"/>
     </inferredMetricsTieBreakers>
 </document>
