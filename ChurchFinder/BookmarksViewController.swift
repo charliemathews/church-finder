@@ -8,11 +8,10 @@
 
 import UIKit
 
-class BookmarksViewController: UITableViewController,detailedViewDelegate {
+class BookmarksViewController: UITableViewController, detailedViewDelegate {
     
     let churchCellIdentifier = "ChurchListCell"
     var current = 0
-    @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +44,7 @@ class BookmarksViewController: UITableViewController,detailedViewDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ChurchListCell", forIndexPath: indexPath) as! ChurchListCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(churchCellIdentifier, forIndexPath: indexPath) as! ChurchListCell
         
         // Configure the cell...
         cell.setCellInfoBookmark(indexPath)
@@ -66,8 +65,6 @@ class BookmarksViewController: UITableViewController,detailedViewDelegate {
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "detSegue") {
-            
-            
             let dest = segue.destinationViewController as! DetailedViewController
             
             dest.church = Data.sharedInstance.bookmarks[current]

@@ -10,7 +10,6 @@
 		034E15FC1C7C9ED0004AD878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E15FB1C7C9ED0004AD878 /* AppDelegate.swift */; };
 		034E16011C7C9F9D004AD878 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E15FD1C7C9F9D004AD878 /* FilterTableViewController.swift */; };
 		034E16031C7C9F9D004AD878 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E15FF1C7C9F9D004AD878 /* MapViewController.swift */; };
-		034E16041C7C9F9D004AD878 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E16001C7C9F9D004AD878 /* SecondViewController.swift */; };
 		034E16061C7CAC1F004AD878 /* FilterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E16051C7CAC1F004AD878 /* FilterViewCell.swift */; };
 		037715BF1C85F00000303162 /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037715BE1C85F00000303162 /* Church.swift */; };
 		037F2EFC1C61000000E971DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 037F2EFA1C61000000E971DB /* Main.storyboard */; };
@@ -49,6 +48,7 @@
 		373719CF1C7C1EEF001A21B0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D311C6E20D500482663 /* AudioToolbox.framework */; };
 		37621F2B1C8FE14C004DED9C /* BookmarksViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37621F291C8FE14C004DED9C /* BookmarksViewTests.swift */; };
 		37621F2C1C8FE14C004DED9C /* ListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37621F2A1C8FE14C004DED9C /* ListViewTests.swift */; };
+		37F0B4341C978C9B00DA821A /* TopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F0B4331C978C9B00DA821A /* TopBarViewController.swift */; };
 		37FE8D321C6E20D500482663 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D311C6E20D500482663 /* AudioToolbox.framework */; };
 		37FE8D341C6E20E400482663 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D331C6E20E400482663 /* CFNetwork.framework */; };
 		37FE8D361C6E20EA00482663 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D351C6E20EA00482663 /* CoreGraphics.framework */; };
@@ -124,7 +124,6 @@
 		034E15FB1C7C9ED0004AD878 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		034E15FD1C7C9F9D004AD878 /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		034E15FF1C7C9F9D004AD878 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		034E16001C7C9F9D004AD878 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		034E16051C7CAC1F004AD878 /* FilterViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewCell.swift; sourceTree = "<group>"; };
 		037715BE1C85F00000303162 /* Church.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Church.swift; sourceTree = "<group>"; };
 		037F2EEF1C61000000E971DB /* ChurchFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChurchFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +153,7 @@
 		3729A8661C8523B3000AF907 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		37621F291C8FE14C004DED9C /* BookmarksViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewTests.swift; sourceTree = "<group>"; };
 		37621F2A1C8FE14C004DED9C /* ListViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewTests.swift; sourceTree = "<group>"; };
+		37F0B4331C978C9B00DA821A /* TopBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarViewController.swift; sourceTree = "<group>"; };
 		37FE8D311C6E20D500482663 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37FE8D331C6E20E400482663 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		37FE8D351C6E20EA00482663 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -313,16 +313,16 @@
 		0F20281F1C7F56A800AFC9AA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				37F0B4331C978C9B00DA821A /* TopBarViewController.swift */,
 				03AB33D91C93A9BB0016C5A0 /* FilterViewController.swift */,
 				034E16051C7CAC1F004AD878 /* FilterViewCell.swift */,
 				034E15FD1C7C9F9D004AD878 /* FilterTableViewController.swift */,
+				03AB33DD1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift */,
 				034E15FF1C7C9F9D004AD878 /* MapViewController.swift */,
-				034E16001C7C9F9D004AD878 /* SecondViewController.swift */,
 				75D436DD1C79108800F62108 /* DetailedViewController.swift */,
 				037F2F161C6106A600E971DB /* ListViewController.swift */,
-				037F2F181C61087400E971DB /* ChurchListCell.swift */,
 				3729A8661C8523B3000AF907 /* BookmarksViewController.swift */,
-				03AB33DD1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift */,
+				037F2F181C61087400E971DB /* ChurchListCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -559,7 +559,6 @@
 				3729A8671C8523B3000AF907 /* BookmarksViewController.swift in Sources */,
 				75D436DE1C79108800F62108 /* DetailedViewController.swift in Sources */,
 				034E16011C7C9F9D004AD878 /* FilterTableViewController.swift in Sources */,
-				034E16041C7C9F9D004AD878 /* SecondViewController.swift in Sources */,
 				26BEC0E11C94ECAA00AB2AF2 /* churchAnnotation.swift in Sources */,
 				03AB33DE1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift in Sources */,
 				034E16061C7CAC1F004AD878 /* FilterViewCell.swift in Sources */,
@@ -568,6 +567,7 @@
 				03AB33DB1C93A9BB0016C5A0 /* FilterViewController.swift in Sources */,
 				0F20281E1C7F563F00AFC9AA /* Constants.swift in Sources */,
 				034E15FC1C7C9ED0004AD878 /* AppDelegate.swift in Sources */,
+				37F0B4341C978C9B00DA821A /* TopBarViewController.swift in Sources */,
 				037715BF1C85F00000303162 /* Church.swift in Sources */,
 				037F2F171C6106A600E971DB /* ListViewController.swift in Sources */,
 				034E16031C7C9F9D004AD878 /* MapViewController.swift in Sources */,

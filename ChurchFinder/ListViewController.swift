@@ -16,60 +16,26 @@ import UIKit
 import MapKit
 import Parse
 
-class ListViewController: UITableViewController, CLLocationManagerDelegate, detailedViewDelegate, filterResultsDelegate, mapViewControllerDelegate, UISearchBarDelegate {
+class ListViewController: UITableViewController, detailedViewDelegate {
     
     let churchCellIdentifier = "ChurchListCell"
-    
     @IBOutlet var table: UITableView!
-    
     var current = 0
-    var location : PFGeoPoint = PFGeoPoint()
-    var searchController:UISearchController!
-    
-    @IBOutlet var listMapSegControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Start Location Services
-        data.locationManager.delegate = self
-        data.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        data.locationManager.requestWhenInUseAuthorization()
-        data.locationManager.startUpdatingLocation()
-        
-        data.pullResults(Constants.Defaults.get())
-        
-        //Initialize params variable
-        params["denoms"] = ""
-        params["style"] = ""
-        params["size"] = ""
-        params["times"] = ""
-        
-        listMapSegControl.selectedSegmentIndex = 0
     }
     
     override func viewDidAppear(animated: Bool) {
         //Data.sharedInstance.pullResults(Constants.Defaults.get())
         table.reloadData()
+        
+        //MAY NEED CHANGING?
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    //MARK: Location services
-    
-    func locationManager(manager:CLLocationManager,didUpdateLocations locations: [CLLocation]){
-        location = PFGeoPoint(location: locations.last)
-        manager.stopUpdatingLocation()
-        
-        Data.sharedInstance.pullResults(Constants.Defaults.get())
-        table.reloadData()
-    }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError){
-        print("Errors: " + error.localizedDescription)
     }
     
     // MARK: - Table view data source
@@ -96,53 +62,6 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         current = indexPath.row
         return indexPath
-    }
-    //MARK: Segue
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if (segue.identifier == "detailedChurchSegue") {
-            
-            let table : [UITableViewCell] = tableView.visibleCells
-            
-            var index : Int = 0
-            for (var i = 0; i < table.count; i++) {
-                if ( table[i].selected) {
-                    index = i
-                    break
-                }
-                
-            }
-            
-            let dest = segue.destinationViewController as! DetailedViewController
-            
-            dest.church = Data.sharedInstance.results[index]
-        }
-        else if(segue.identifier == "filterViewSegue") {
-            let child = segue.destinationViewController as! FilterTableViewController
-            child.delegate = self
-        }
-        else if(segue.identifier == "mapViewSegue"){
-            let child = segue.destinationViewController as! MapViewController
-            child.delegate = self
-        }
-    }
-    
-    func done(vc: DetailedViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    func doneWithMapView(child: MapViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
-        listMapSegControl.selectedSegmentIndex = 0
-    }
-    func doneWithFilters(child: FilterTableViewController){
-        data.currentParameters = params
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    
-    @IBAction func cancel(segue :UIStoryboardSegue) {
-        NSLog("Got rid of him.")
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -176,6 +95,7 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         // 5
         return [bookmark]
     }
+    
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         
         let scale = newWidth / image.size.width
@@ -187,17 +107,36 @@ class ListViewController: UITableViewController, CLLocationManagerDelegate, deta
         
         return newImage
     }
-    func searchBarSearchButtonClicked(searchBar: UISearchBar){
+    
+    //MARK: Segue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        searchBar.resignFirstResponder()
-        dismissViewControllerAnimated(true, completion: nil)
-       
+        if (segue.identifier == "detailedChurchSegue") {
+            
+            let table : [UITableViewCell] = tableView.visibleCells
+            
+            var index : Int = 0
+            for (var i = 0; i < table.count; i++) {
+                if ( table[i].selected) {
+                    index = i
+                    break
+                }
+                
+            }
+            
+            let dest = segue.destinationViewController as! DetailedViewController
+            
+            dest.church = Data.sharedInstance.results[index]
+        }
     }
-    @IBAction func showSearchBar(sender: AnyObject) {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.searchBar.delegate = self
-        presentViewController(searchController, animated: true, completion: nil)
-        
+    
+    func done(vc: DetailedViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    @IBAction func cancel(segue :UIStoryboardSegue) {
+        NSLog("Got rid of him.")
     }
 }

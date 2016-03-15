@@ -15,58 +15,38 @@ Sources
 import UIKit
 import MapKit
 
-protocol mapViewControllerDelegate{
-    func doneWithMapView(child: MapViewController)
-}
-
-class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDelegate, UISearchBarDelegate, filterResultsDelegate, detailedViewDelegate{
-    
-    @IBOutlet weak var listMapSwitchControl: UISegmentedControl!
-    @IBOutlet weak var mapView: MapViewController!
-    @IBOutlet weak var listView: ListViewController!
-    
-    @IBOutlet var listMapSegControl: UISegmentedControl!
+class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelegate {
     
     var current = Church()
-    var delegate: mapViewControllerDelegate!
-    var searchController:UISearchController!
+    
     var annotation: MKAnnotation!
     var localSearchRequest:MKLocalSearchRequest!
     var localSearch:MKLocalSearch!
     var localSearchResponse:MKLocalSearchResponse!
     var error:NSError!
+    
     var pointAnnotation:MKPointAnnotation!
     var pinAnnotationView:MKPinAnnotationView!
     var parCheck: Int!
     var churchAn: [churchAnnotation]!
     
-    @IBOutlet weak var filBut: UIBarButtonItem!
     @IBOutlet weak var mapview: MKMapView!
-    
-    
-    @IBAction func showSearchBar(sender: AnyObject) {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.searchBar.delegate = self
-        presentViewController(searchController, animated: true, completion: nil)
-        
-    }
-    
-    @IBAction func doneWithMap(sender: AnyObject) {
-        delegate.doneWithMapView(self)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         parCheck = 10
-        //first time map loads, it pulls on the users current location
-        data.locationManager.delegate = self
-        data.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        data.locationManager.requestWhenInUseAuthorization()
-        data.locationManager.startUpdatingLocation()
         self.mapview.showsUserLocation = true
-        listMapSegControl.selectedSegmentIndex = 1
         mapview.delegate = self
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        /*let oLoc = (parentViewController as! TopBarViewController).location
+        if let location = oLoc {
+            let center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            let region = MKCoordinateRegion(center:center, span: MKCoordinateSpan(latitudeDelta:1,longitudeDelta: 1))
+            (self.childViewControllers.last as! MapViewController).mapview.setRegion(region, animated: true)
+        }*/
+        
         outputChurchResultsToMap()
     }
     
@@ -97,85 +77,19 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         return true
     }
     
-    //I really don't think this is relevant anymore
-    @IBAction func listMapSwitched(sender: AnyObject) {
-        if(listMapSwitchControl.selectedSegmentIndex == 0)
-        {
-    
-        }else
-        {
-        
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    //center map on current location
-    func locationManager(manager:CLLocationManager,didUpdateLocations locations: [CLLocation]){
-        let location = locations.last
-        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-        let region = MKCoordinateRegion(center:center, span: MKCoordinateSpan(latitudeDelta:1,longitudeDelta: 1))
-        self.mapview.setRegion(region, animated: true)
-        manager.stopUpdatingLocation()
-    }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError){
-        print("Errors: " + error.localizedDescription)
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar){
-        
-        searchBar.resignFirstResponder()
-        dismissViewControllerAnimated(true, completion: nil)
-        if self.mapview.annotations.count != 0{
-            annotation = self.mapview.annotations[0]
-            self.mapview.removeAnnotation(annotation)
-        }
-        //take search request...
-        localSearchRequest = MKLocalSearchRequest()
-        localSearchRequest.naturalLanguageQuery = searchBar.text
-        localSearch = MKLocalSearch(request: localSearchRequest)
-        localSearch.startWithCompletionHandler { (localSearchResponse, error) -> Void in
-            
-            if localSearchResponse == nil{
-                let alertController = UIAlertController(title: nil, message: "Place Not Found", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alertController, animated: true, completion: nil)
-                return
-            }
-        //place a pin at the point
-        self.pointAnnotation = MKPointAnnotation()
-        self.pointAnnotation.title = searchBar.text
-        self.pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: localSearchResponse!.boundingRegion.center.latitude, longitude:     localSearchResponse!.boundingRegion.center.longitude)
-            
-        self.pinAnnotationView = MKPinAnnotationView(annotation: self.pointAnnotation, reuseIdentifier: nil)
-        //center map on searched location
-        self.mapview.centerCoordinate = self.pointAnnotation.coordinate
-        self.mapview.addAnnotation(self.pinAnnotationView.annotation!)
-        self.mapview.setRegion(MKCoordinateRegion(center: localSearchResponse!.boundingRegion.center, span: MKCoordinateSpan(latitudeDelta:1,longitudeDelta: 1)),animated:true)
-
-        }
-    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if (segue.identifier == "mapToDetSegue") {
             let dest = segue.destinationViewController as! DetailedViewController
             dest.delegate = self
             dest.church = current
         }
-        else if(segue.identifier == "mapToFiltersSegue") {
-            let child = segue.destinationViewController as! FilterTableViewController
-            child.delegate = self
-        }
     }
-    func doneWithFilters(child: FilterTableViewController){
-        data.currentParameters = params
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         var view = MKPinAnnotationView()
         //check if user location
