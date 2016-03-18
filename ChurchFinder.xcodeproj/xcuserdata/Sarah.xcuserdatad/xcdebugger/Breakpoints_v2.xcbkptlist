@@ -14,9 +14,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "locationManager(_:didFailWithError:)"
-            landmarkType = "5">
+            endingLineNumber = "128">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -203,7 +201,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
-            endingLineNumber = "20">
+            endingLineNumber = "20"
+            landmarkName = "MapViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -343,8 +343,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
             endingLineNumber = "130"
-            landmarkName = "ListViewController"
-            landmarkType = "3">
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -359,7 +359,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131"
-            landmarkName = "done(_:)"
+            landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -422,9 +422,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "searchBarSearchButtonClicked(_:)"
-            landmarkType = "5">
+            endingLineNumber = "192">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -439,8 +437,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
+            landmarkName = "BookmarksViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -470,9 +468,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "tableView(_:editActionsForRowAtIndexPath:)"
-            landmarkType = "5">
+            endingLineNumber = "154">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -486,9 +482,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "tableView(_:editActionsForRowAtIndexPath:)"
-            landmarkType = "5">
+            endingLineNumber = "157">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -502,9 +496,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "tableView(_:editActionsForRowAtIndexPath:)"
-            landmarkType = "5">
+            endingLineNumber = "169">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -518,9 +510,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "mapView(_:viewForAnnotation:)"
-            landmarkType = "5">
+            endingLineNumber = "180">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -534,9 +524,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "mapView(_:viewForAnnotation:)"
-            landmarkType = "5">
+            endingLineNumber = "191">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -550,9 +538,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
+            endingLineNumber = "167">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -566,9 +552,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "201"
-            endingLineNumber = "201"
-            landmarkName = "mapView(_:annotationView:calloutAccessoryControlTapped:)"
-            landmarkType = "5">
+            endingLineNumber = "201">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -582,9 +566,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
+            endingLineNumber = "166">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -598,9 +580,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
+            endingLineNumber = "164">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

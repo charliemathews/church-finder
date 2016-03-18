@@ -40,13 +40,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
     }
     
     override func viewDidAppear(animated: Bool) {
-        /*let oLoc = (parentViewController as! TopBarViewController).location
-        if let location = oLoc {
-            let center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-            let region = MKCoordinateRegion(center:center, span: MKCoordinateSpan(latitudeDelta:1,longitudeDelta: 1))
-            (self.childViewControllers.last as! MapViewController).mapview.setRegion(region, animated: true)
-        }*/
-        
         outputChurchResultsToMap()
     }
     
@@ -68,10 +61,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
             
             mapview.addAnnotation(pin)
         }
-        
-        //let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
-        //let reg = MKCoordinateRegion(center: loc, span: span)
-        //map.setRegion(reg, animated: false)
         
         mapview.showAnnotations(mapview.annotations, animated: true)
         return true
@@ -124,4 +113,3 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
-
