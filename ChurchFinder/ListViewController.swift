@@ -130,12 +130,9 @@ class ListViewController: UITableViewController, detailedViewDelegate {
             dest.church = Data.sharedInstance.results[index]
         }
     }
-    
     func done(vc: DetailedViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
     @IBAction func cancel(segue :UIStoryboardSegue) {
         NSLog("Got rid of him.")
     }
