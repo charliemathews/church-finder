@@ -82,6 +82,9 @@ class ListViewController: UITableViewController, detailedViewDelegate {
         
         let bookmark = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "                    " , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             Data.sharedInstance.addBookmark(indexPath.row)
+            
+            //makes the cell slide back when pressed
+            self.setEditing(false, animated: true)
         })
         
         // 3

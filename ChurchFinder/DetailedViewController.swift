@@ -63,7 +63,7 @@ class DetailedViewController: UIViewController {
         
         //setting data
         churchViewImage.image = UIImage(named: "churches.jpg")
-        distanceLabel.text = "5 mi"
+        distanceLabel.text = getDistanceString(church)
         namesLabel.text = church.name
         denominationLabel.text = church.denom
         worshipStyleLabel.text = church.style
