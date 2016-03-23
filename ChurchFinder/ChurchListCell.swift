@@ -48,7 +48,8 @@ class ChurchListCell: UITableViewCell {
         serviceTime.text = church.times ?? "[No Times]"
         distance.text = "Needs work"
         
-        churchImage.image = UIImage(named: "churches.jpg")
+        churchImage.image = darkenImage(UIImage(named: "churches.jpg")!)
+        
     }
     
     func setCellInfoBookmark(indexPath:NSIndexPath) {
@@ -59,7 +60,7 @@ class ChurchListCell: UITableViewCell {
         serviceTime.text = church.times ?? "[No Times]"
         distance.text = "Needs work"
         
-        churchImage.image = UIImage(named: "churches.jpg")
-    }
+        churchImage.image = darkenImage(UIImage(named: "churches.jpg")!)
 
+    }
 }

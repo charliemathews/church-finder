@@ -26,8 +26,9 @@ class DetailedViewController: UIViewController {
     
     var bookmarked: Bool = false
     var delegate:detailedViewDelegate!
+    let highlightedBookmarkColor: UIColor = UIColor(colorLiteralRed: 1.0, green: 0.84, blue: 0.0, alpha: 1)
     
-    
+    @IBOutlet weak var backgroundCircle: UIImageView!
     @IBOutlet weak var directionsImage: UIImageView!
     @IBOutlet weak var directionsLabel: UILabel!
     @IBOutlet var churchViewImage : UIImageView!
@@ -55,6 +56,12 @@ class DetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bookmarked = Data.sharedInstance.bookmarks.contains { (Church) -> Bool in
+            church.id == Church.id
+        }
+        
+        //setting data
         churchViewImage.image = UIImage(named: "churches.jpg")
         distanceLabel.text = "5 mi"
         namesLabel.text = church.name
@@ -63,6 +70,18 @@ class DetailedViewController: UIViewController {
         timeLabel.text = church.times
         addressLabel.text = church.address
         descriptionLabel.text = church.desc
+        backgroundCircle.alpha = 0.9
+        
+        //this is so that the tint color can be changed to change the bookmark status
+        let image = bookMarkIcon.imageView?.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        bookMarkIcon.setImage(image, forState: .Normal)
+        
+        if bookmarked {
+            bookMarkIcon.imageView?.tintColor = highlightedBookmarkColor
+        } else {
+            bookMarkIcon.imageView?.tintColor = UIColor.blueColor()
+        }
+        
         
         //Website setup
         let tap = UITapGestureRecognizer(target: self, action: Selector("openChurchWebsite"))
@@ -109,10 +128,13 @@ class DetailedViewController: UIViewController {
     
     @IBAction func toggleBookMark() {
         if bookmarked {
-            bookMarkIcon.setImage(UIImage(named: "star-xxl.png"), forState: .Normal)
+            bookMarkIcon.imageView?.tintColor = UIColor.blueColor()
+            Data.sharedInstance.removeBookmark(church)
         }
         else {
-            bookMarkIcon.setImage(UIImage(named: "star-512.png"), forState: .Normal)
+            bookMarkIcon.imageView?.tintColor = highlightedBookmarkColor
+            Data.sharedInstance.addBookmark(church)
+
         }
         
         bookmarked = !bookmarked
