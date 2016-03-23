@@ -48,16 +48,16 @@ class Church {
     }
     
     init(
-        let id      : String,
-        let name    : String,
-        let denom   : String,
-        let size    : Int,
-        let style   : String,
-        let location: PFGeoPoint,
-        let times   : String,
-        let address : String,
-        let desc    : String,
-        let url     : String
+        let id      :   String,
+        let name    :   String,
+        let denom   :   String,
+        let size    :   Int,
+        let style   :   String,
+        let location:   PFGeoPoint,
+        let times   :   String,
+        let address :   String,
+        let desc    :   String,
+        let url     :   String
         ) {
             
             self.id = id
