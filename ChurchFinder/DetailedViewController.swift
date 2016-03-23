@@ -129,9 +129,12 @@ class DetailedViewController: UIViewController {
     @IBAction func toggleBookMark() {
         if bookmarked {
             bookMarkIcon.imageView?.tintColor = UIColor.blueColor()
+            Data.sharedInstance.removeBookmark(church)
         }
         else {
             bookMarkIcon.imageView?.tintColor = highlightedBookmarkColor
+            Data.sharedInstance.addBookmark(church)
+
         }
         
         bookmarked = !bookmarked

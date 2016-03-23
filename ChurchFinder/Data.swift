@@ -203,6 +203,22 @@ final class Data {
         }
     }
     
+    func addBookmark(addedChurch: Church) {
+        //find the index
+        var index = 0
+        for church in results {
+            if (church.id == addedChurch.id){
+                break
+            } else {
+                index++
+            }
+        }
+        
+        if (index < results.count) {
+            addBookmark(index)
+        }
+    }
+    
     func removeBookmark(let bookmarkIndex : Int) {
         if (bookmarks.count > bookmarkIndex) {
             let remove = bookmarks[bookmarkIndex]
@@ -210,6 +226,25 @@ final class Data {
             bookmarks.removeAtIndex(bookmarkIndex)
         }
     }
+    
+    //for detailed view
+    func removeBookmark(bookmarkedChurch: Church) {
+        //find the index
+        var index = 0
+        for church in bookmarks {
+            if (church.id == bookmarkedChurch.id){
+                break
+            } else {
+                index++
+            }
+        }
+        
+        if (index < bookmarks.count) {
+            removeBookmark(index)
+        }
+    }
+    
+    
     
     func pullBookmarks() {
         bookmarks = []
