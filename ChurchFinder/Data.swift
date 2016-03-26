@@ -161,14 +161,14 @@ final class Data {
             results.append(church)
         }
         
-        // compound query
-        // for(int i = 0; i < times.count; i++)
-        // if(time.count > 0) query.whereKey("time", containsString:...
-        
-        // after results are exhausted, get results in the subsequent radius
-        // so if results < number of results to get at once then try to increase radius by 1s up to 50
-        
-        // set results = query.results
+//         compound query
+//         for(int i = 0; i < times.count; i++)
+//         if(time.count > 0) query.whereKey("time", containsString:...
+//        
+//         after results are exhausted, get results in the subsequent radius
+//         so if results < number of results to get at once then try to increase radius by 1s up to 50
+//        
+//         set results = query.results
         
         if(results.count > 0) {
             if(params.count > 0) {

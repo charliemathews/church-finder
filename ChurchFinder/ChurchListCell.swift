@@ -28,11 +28,6 @@ class ChurchListCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    @IBAction func makeSegue(sender: AnyObject) {
-       
-      
-    }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

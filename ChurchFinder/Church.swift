@@ -21,16 +21,16 @@ import Foundation
 import Parse
 
 class Church {
-    var id      : String
-    var name    : String
-    var denom   : String
-    var size    : Int
-    var style   : String
-    var location: PFGeoPoint
-    var times   : String
-    var address : String
-    var desc    : String
-    var url     : String
+    var id          : String
+    var name        : String
+    var denom       : String
+    var size        : Int
+    var style       : String
+    var location    : PFGeoPoint
+    var times       : String
+    var address     : String
+    var desc        : String
+    var url         : String
     var churchDictionary: [String: String] = [:]
     var object  : PFObject?
     
@@ -48,16 +48,16 @@ class Church {
     }
     
     init(
-        let id      : String,
-        let name    : String,
-        let denom   : String,
-        let size    : Int,
-        let style   : String,
-        let location: PFGeoPoint,
-        let times   : String,
-        let address : String,
-        let desc    : String,
-        let url     : String
+        let id          : String,
+        let name        : String,
+        let denom       : String,
+        let size        : Int,
+        let style       : String,
+        let location    : PFGeoPoint,
+        let times       : String,
+        let address     : String,
+        let desc        : String,
+        let url         : String
         ) {
             
             self.id = id
