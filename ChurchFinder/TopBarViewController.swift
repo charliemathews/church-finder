@@ -31,7 +31,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
         data.locationManager.startUpdatingLocation()
         
         //Pull first data
-        data.pullResults(Constants.Defaults.get())
+        //data.pullResults(Constants.Defaults.get())
         
         //Initialize params variable
         params["denoms"] = ""
