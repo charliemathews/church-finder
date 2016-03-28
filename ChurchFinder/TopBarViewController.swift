@@ -105,40 +105,4 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
         presentViewController(searchController, animated: true, completion: nil)
         
     }
-
-    /*
-    func searchBarSearchButtonClicked(searchBar: UISearchBar){
-    
-    searchBar.resignFirstResponder()
-    dismissViewControllerAnimated(true, completion: nil)
-    if self.mapview.annotations.count != 0{
-    annotation = self.mapview.annotations[0]
-    self.mapview.removeAnnotation(annotation)
-    }
-    //take search request...
-    localSearchRequest = MKLocalSearchRequest()
-    localSearchRequest.naturalLanguageQuery = searchBar.text
-    localSearch = MKLocalSearch(request: localSearchRequest)
-    localSearch.startWithCompletionHandler { (localSearchResponse, error) -> Void in
-    
-    if localSearchResponse == nil{
-    let alertController = UIAlertController(title: nil, message: "Place Not Found", preferredStyle: UIAlertControllerStyle.Alert)
-    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-    self.presentViewController(alertController, animated: true, completion: nil)
-    return
-    }
-    //place a pin at the point
-    self.pointAnnotation = MKPointAnnotation()
-    self.pointAnnotation.title = searchBar.text
-    self.pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: localSearchResponse!.boundingRegion.center.latitude, longitude:     localSearchResponse!.boundingRegion.center.longitude)
-    
-    self.pinAnnotationView = MKPinAnnotationView(annotation: self.pointAnnotation, reuseIdentifier: nil)
-    //center map on searched location
-    self.mapview.centerCoordinate = self.pointAnnotation.coordinate
-    self.mapview.addAnnotation(self.pinAnnotationView.annotation!)
-    self.mapview.setRegion(MKCoordinateRegion(center: localSearchResponse!.boundingRegion.center, span: MKCoordinateSpan(latitudeDelta:1,longitudeDelta: 1)),animated:true)
-    
-    }
-    }
-    */
 }

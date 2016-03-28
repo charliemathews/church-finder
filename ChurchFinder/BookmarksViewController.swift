@@ -60,6 +60,7 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
             Data.sharedInstance.removeBookmark(indexPath.row)
+            
             tableView.reloadData()
         }
     }
