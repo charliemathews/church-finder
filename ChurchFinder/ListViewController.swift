@@ -27,7 +27,7 @@ class ListViewController: UITableViewController, detailedViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        //Data.sharedInstance.pullResults(Constants.Defaults.get())
+        Data.sharedInstance.pullResults(Constants.Defaults.get())
         table.reloadData()
         
         //MAY NEED CHANGING?
@@ -71,8 +71,9 @@ class ListViewController: UITableViewController, detailedViewDelegate {
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         var bookmarkImage = UIImage(named:"bookmarkStarBlue.png")!
+        
         for church in Data.sharedInstance.bookmarks {
-            if(church.id == Data.sharedInstance.results[current].id) {
+            if(church.id == Data.sharedInstance.results[indexPath.row].id) {
                 bookmarkImage = UIImage(named: "bookmarkStarRed.png")!
             }
             else {
@@ -81,7 +82,10 @@ class ListViewController: UITableViewController, detailedViewDelegate {
         }
         
         let bookmark = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "                    " , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            Data.sharedInstance.addBookmark(indexPath.row)
+            Data.sharedInstance.addBookmark(Data.sharedInstance.results[indexPath.row])
+            
+            //makes the cell slide back when pressed
+            self.setEditing(false, animated: true)
         })
         
         // 3
@@ -96,6 +100,7 @@ class ListViewController: UITableViewController, detailedViewDelegate {
         return [bookmark]
     }
     
+    /*
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         
         let scale = newWidth / image.size.width
@@ -106,7 +111,7 @@ class ListViewController: UITableViewController, detailedViewDelegate {
         UIGraphicsEndImageContext()
         
         return newImage
-    }
+    }*/
     
     //MARK: Segue
     
@@ -114,31 +119,14 @@ class ListViewController: UITableViewController, detailedViewDelegate {
         
         if (segue.identifier == "detailedChurchSegue") {
             
-            let table : [UITableViewCell] = tableView.visibleCells
-            
-            var index : Int = 0
-            for (var i = 0; i < table.count; i++) {
-                if ( table[i].selected) {
-                    index = i
-                    break
-                }
-                
-            }
-            
             let dest = segue.destinationViewController as! DetailedViewController
             
-            dest.church = Data.sharedInstance.results[index]
+            dest.church = Data.sharedInstance.results[current]
         }
-
     }
-    
     func done(vc: DetailedViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    func doneWithFilters(child: FilterTableViewController) {
-        data.pullResults(params)
-    }
-    
     @IBAction func cancel(segue :UIStoryboardSegue) {
         NSLog("Got rid of him.")
     }

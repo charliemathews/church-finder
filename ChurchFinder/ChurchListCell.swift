@@ -13,6 +13,8 @@ Sources
 */
 
 import UIKit
+import MapKit
+
 
 class ChurchListCell: UITableViewCell {
 
@@ -41,10 +43,15 @@ class ChurchListCell: UITableViewCell {
         denomination.text = church.denom ?? "[No Denomination]"
         churchType.text = church.style ?? "[No Type]"
         serviceTime.text = church.times ?? "[No Times]"
-        distance.text = "Needs work"
         
-        churchImage.image = UIImage(named: "churches.jpg")
+        distance.text = getDistanceString(church)
+        
+        //if currentLocation not known, I'm guessing that means they just didn't give us their location...
+        
+        churchImage.image = darkenImage(UIImage(named: "churches.jpg")!)
+        
     }
+    
     
     func setCellInfoBookmark(indexPath:NSIndexPath) {
         let church = Data.sharedInstance.bookmarks[indexPath.row] as Church
@@ -52,9 +59,11 @@ class ChurchListCell: UITableViewCell {
         denomination.text = church.denom ?? "[No Denomination]"
         churchType.text = church.style ?? "[No Type]"
         serviceTime.text = church.times ?? "[No Times]"
-        distance.text = "Needs work"
+        distance.text = getDistanceString(church)
         
-        churchImage.image = UIImage(named: "churches.jpg")
-    }
+        churchImage.image = darkenImage(UIImage(named: "churches.jpg")!)
 
+    }
+    
+    
 }

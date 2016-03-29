@@ -147,6 +147,7 @@ final class Data {
         for f in found {
             let church : Church = Church()
             
+            church.id       = f.objectId!
             church.name     = f["name"]         as! String
             church.denom    = f["denomination"] as! String
             church.size     = f["size"]         as! Int
@@ -189,18 +190,13 @@ final class Data {
         currentLimit = 0
     }
     
-    func addBookmark(let resultIndex : Int) {
-        if (results.count > resultIndex) {
-            
-            let addition = results[resultIndex]
-            
-            for b in bookmarks {
-                if (b.object!.objectId == addition.object!.objectId) { return }
-            }
-            
-            bookmarks.append(addition)
-            addition.object!.pinInBackground()
+    func addBookmark(addedChurch: Church) {
+        for b in bookmarks {
+            if (b.object!.objectId == addedChurch.object!.objectId) { return }
         }
+        
+        bookmarks.append(addedChurch)
+        addedChurch.object!.pinInBackground()
     }
     
     func removeBookmark(let bookmarkIndex : Int) {
@@ -210,6 +206,25 @@ final class Data {
             bookmarks.removeAtIndex(bookmarkIndex)
         }
     }
+    
+    //for detailed view
+    func removeBookmark(bookmarkedChurch: Church) {
+        //find the index
+        var index = 0
+        for church in bookmarks {
+            if (church.id == bookmarkedChurch.id){
+                break
+            } else {
+                index++
+            }
+        }
+        
+        if (index < bookmarks.count) {
+            removeBookmark(index)
+        }
+    }
+    
+    
     
     func pullBookmarks() {
         bookmarks = []
@@ -223,6 +238,15 @@ final class Data {
                 for f in objects! {
                     let church : Church = Church()
                     
+                    for b in self.bookmarks {
+                        if (b.object!.objectId == f.objectId) { return }
+                    }
+                    
+                    NSOperationQueue.mainQueue().addOperationWithBlock({
+                        NSLog(f.objectId!)
+                    })
+                    
+                    church.id       = f.objectId!
                     church.name     = f["name"]         as! String
                     church.denom    = f["denomination"] as! String
                     church.size     = f["size"]         as! Int
