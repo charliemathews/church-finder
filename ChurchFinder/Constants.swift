@@ -3,7 +3,7 @@ Copyright 2016 Serious Llama and Grove City College. All rights reserved.
 
 Author: Charlie Mathews
 Created: 21/02/16
-Modified: 25/02/16
+Modified: 29/03/16
 
 Changelog
 * Magnificent file header was authored by codereview2k16 #squad
@@ -15,7 +15,7 @@ http://stackoverflow.com/questions/26252233/global-constants-file-in-swift
 import Foundation
 import Parse
 
-let data = Data.sharedInstance
+let data = Data.sharedInstance // THIS-> "data", NOT THIS-> "Data.sharedInstance"
 
 struct Constants {
     
@@ -52,6 +52,10 @@ struct Constants {
 
 
 /* Everything below this line needs to be removed. Colors may be fine. Functions should be in the views and params is unnecessary. */
+
+
+
+
 
 var params : [String:AnyObject] = [:]
 
