@@ -26,8 +26,6 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -35,7 +33,7 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Data.sharedInstance.bookmarks.count
+        return data.bookmarks.count
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
@@ -45,8 +43,6 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(churchCellIdentifier, forIndexPath: indexPath) as! ChurchListCell
-        
-        // Configure the cell...
         cell.setCellInfoBookmark(indexPath)
         return cell
     }
@@ -59,20 +55,18 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
-            Data.sharedInstance.removeBookmark(indexPath.row)
+            data.removeBookmark(indexPath.row)
             
             tableView.reloadData()
         }
     }
-    //MARK: Segue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "detailedChurchSegueBook") {
             
             let dest = segue.destinationViewController as! DetailedViewController
-            
-            dest.church = Data.sharedInstance.bookmarks[current]
+            dest.church = data.bookmarks[current]
         }
     }
     
@@ -81,6 +75,6 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
     }
     
     @IBAction func cancel(segue :UIStoryboardSegue) {
-        NSLog("Got rid of him.")
+        //NSLog("Got rid of him.")
     }
 }

@@ -157,6 +157,7 @@ final class Data {
             church.address  = f["address"]      as! String
             church.desc     = f["description"]  as! String
             church.url      = f["url"]          as! String
+            church.img      = f["banner"]       as? PFFile
             church.object   = f                              // need to eliminate this...
             
             results.append(church)

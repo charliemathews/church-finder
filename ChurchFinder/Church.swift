@@ -31,7 +31,7 @@ class Church {
     var address : String
     var desc    : String
     var url     : String
-    var churchDictionary: [String: String] = [:]
+    var img     : PFFile?
     var object  : PFObject?
     
     init() {
@@ -45,6 +45,7 @@ class Church {
         self.address = ""
         self.desc = ""
         self.url = ""
+        self.img = nil
     }
     
     init(

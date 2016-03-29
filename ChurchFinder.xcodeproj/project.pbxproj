@@ -24,6 +24,8 @@
 		0F16D5851CAAA9EC00E6C7AD /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F16D57F1CAAA9EC00E6C7AD /* ParseFacebookUtilsV4.framework */; };
 		0F16D5861CAAA9EC00E6C7AD /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F16D5801CAAA9EC00E6C7AD /* ParseTwitterUtils.framework */; };
 		0F16D5871CAAA9EC00E6C7AD /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F16D5811CAAA9EC00E6C7AD /* ParseUI.framework */; };
+		0F16D5891CAABB1600E6C7AD /* cellguides.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F16D5881CAABB1600E6C7AD /* cellguides.png */; };
+		0F16D58B1CAACA7400E6C7AD /* dummyphoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F16D58A1CAACA7400E6C7AD /* dummyphoto.png */; };
 		0F2028181C7F55FD00AFC9AA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2028171C7F55FD00AFC9AA /* Data.swift */; };
 		0F2028191C7F55FD00AFC9AA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2028171C7F55FD00AFC9AA /* Data.swift */; };
 		0F20281E1C7F563F00AFC9AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20281D1C7F563F00AFC9AA /* Constants.swift */; };
@@ -70,9 +72,6 @@
 		75F7C6311C8D1DF500FEF740 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6231C8D1DF500FEF740 /* backArrow.png */; };
 		75F7C6321C8D1DF500FEF740 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6231C8D1DF500FEF740 /* backArrow.png */; };
 		75F7C6331C8D1DF500FEF740 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6231C8D1DF500FEF740 /* backArrow.png */; };
-		75F7C6341C8D1DF500FEF740 /* churches.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6241C8D1DF500FEF740 /* churches.jpg */; };
-		75F7C6351C8D1DF500FEF740 /* churches.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6241C8D1DF500FEF740 /* churches.jpg */; };
-		75F7C6361C8D1DF500FEF740 /* churches.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6241C8D1DF500FEF740 /* churches.jpg */; };
 		75F7C6371C8D1DF500FEF740 /* clocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6251C8D1DF500FEF740 /* clocks.png */; };
 		75F7C6381C8D1DF500FEF740 /* clocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6251C8D1DF500FEF740 /* clocks.png */; };
 		75F7C6391C8D1DF500FEF740 /* clocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6251C8D1DF500FEF740 /* clocks.png */; };
@@ -141,6 +140,8 @@
 		0F16D57F1CAAA9EC00E6C7AD /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		0F16D5801CAAA9EC00E6C7AD /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		0F16D5811CAAA9EC00E6C7AD /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		0F16D5881CAABB1600E6C7AD /* cellguides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellguides.png; sourceTree = "<group>"; };
+		0F16D58A1CAACA7400E6C7AD /* dummyphoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummyphoto.png; sourceTree = "<group>"; };
 		0F2028171C7F55FD00AFC9AA /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		0F20281D1C7F563F00AFC9AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0F2028221C7F81AE00AFC9AA /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
@@ -172,7 +173,6 @@
 		75F4D80D1C8FE474003B7E66 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		75F7C6221C8D1DF500FEF740 /* addressImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addressImage.png; sourceTree = "<group>"; };
 		75F7C6231C8D1DF500FEF740 /* backArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow.png; sourceTree = "<group>"; };
-		75F7C6241C8D1DF500FEF740 /* churches.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = churches.jpg; sourceTree = "<group>"; };
 		75F7C6251C8D1DF500FEF740 /* clocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clocks.png; sourceTree = "<group>"; };
 		75F7C6261C8D1DF500FEF740 /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
 		75F7C6271C8D1DF500FEF740 /* infoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoImage.png; sourceTree = "<group>"; };
@@ -350,11 +350,12 @@
 		75D436DF1C79181600F62108 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				0F16D58A1CAACA7400E6C7AD /* dummyphoto.png */,
+				0F16D5881CAABB1600E6C7AD /* cellguides.png */,
 				26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */,
 				26BEC0DD1C94DFE400AB2AF2 /* bookmarkStarRed.png */,
 				75F7C6221C8D1DF500FEF740 /* addressImage.png */,
 				75F7C6231C8D1DF500FEF740 /* backArrow.png */,
-				75F7C6241C8D1DF500FEF740 /* churches.jpg */,
 				75F7C6251C8D1DF500FEF740 /* clocks.png */,
 				75F7C6261C8D1DF500FEF740 /* compass.png */,
 				75F7C6271C8D1DF500FEF740 /* infoImage.png */,
@@ -488,12 +489,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75F7C6341C8D1DF500FEF740 /* churches.jpg in Resources */,
 				75F7C6311C8D1DF500FEF740 /* backArrow.png in Resources */,
 				75F7C62E1C8D1DF500FEF740 /* addressImage.png in Resources */,
 				75F7C64C1C8D1DF500FEF740 /* websiteImage.png in Resources */,
 				75F7C63D1C8D1DF500FEF740 /* infoImage.png in Resources */,
 				037F2EFC1C61000000E971DB /* Main.storyboard in Resources */,
+				0F16D58B1CAACA7400E6C7AD /* dummyphoto.png in Resources */,
 				75F7C6401C8D1DF500FEF740 /* music.png in Resources */,
 				75F7C6461C8D1DF500FEF740 /* star-512.png in Resources */,
 				75F7C63A1C8D1DF500FEF740 /* compass.png in Resources */,
@@ -504,6 +505,7 @@
 				75F7C6491C8D1DF500FEF740 /* star-xxl.png in Resources */,
 				037F2EFE1C61000000E971DB /* Images.xcassets in Resources */,
 				26BEC0DF1C94DFE400AB2AF2 /* bookmarkStarRed.png in Resources */,
+				0F16D5891CAABB1600E6C7AD /* cellguides.png in Resources */,
 				26BEC0DE1C94DFE400AB2AF2 /* bookmarkStarBlue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,7 +516,6 @@
 			files = (
 				75F7C6381C8D1DF500FEF740 /* clocks.png in Resources */,
 				75F7C6411C8D1DF500FEF740 /* music.png in Resources */,
-				75F7C6351C8D1DF500FEF740 /* churches.jpg in Resources */,
 				75F7C6321C8D1DF500FEF740 /* backArrow.png in Resources */,
 				75F7C63E1C8D1DF500FEF740 /* infoImage.png in Resources */,
 				75F7C62F1C8D1DF500FEF740 /* addressImage.png in Resources */,
@@ -533,7 +534,6 @@
 			files = (
 				75F7C6391C8D1DF500FEF740 /* clocks.png in Resources */,
 				75F7C6421C8D1DF500FEF740 /* music.png in Resources */,
-				75F7C6361C8D1DF500FEF740 /* churches.jpg in Resources */,
 				75F7C6331C8D1DF500FEF740 /* backArrow.png in Resources */,
 				75F7C63F1C8D1DF500FEF740 /* infoImage.png in Resources */,
 				75F7C6301C8D1DF500FEF740 /* addressImage.png in Resources */,
