@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -149,8 +149,6 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="1Qc-zf-nq2" firstAttribute="trailing" secondItem="E3k-Md-58w" secondAttribute="trailing" id="0Pk-oV-LEl"/>
-                                        <constraint firstItem="uaZ-cZ-QnG" firstAttribute="trailing" secondItem="ds2-GS-BrE" secondAttribute="trailingMargin" id="0rw-5J-3T1"/>
-                                        <constraint firstItem="uaZ-cZ-QnG" firstAttribute="trailing" secondItem="ds2-GS-BrE" secondAttribute="trailingMargin" id="8l6-la-58L"/>
                                         <constraint firstItem="E3k-Md-58w" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leadingMargin" id="FG6-bY-S1G"/>
                                         <constraint firstItem="WnV-Nd-J8O" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leadingMargin" id="FVR-6D-V3t"/>
                                         <constraint firstItem="P4y-50-tqg" firstAttribute="centerX" secondItem="ZpI-2n-2xJ" secondAttribute="centerX" id="Hvi-yk-B1f"/>
@@ -169,12 +167,6 @@
                                         <constraint firstItem="uaZ-cZ-QnG" firstAttribute="leading" secondItem="ds2-GS-BrE" secondAttribute="leadingMargin" id="q10-lH-DuK"/>
                                         <constraint firstItem="1Qc-zf-nq2" firstAttribute="centerY" secondItem="uaZ-cZ-QnG" secondAttribute="centerY" id="wXT-w5-D0U"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="0rw-5J-3T1"/>
-                                            <exclude reference="8l6-la-58L"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="ChurchName" destination="uaZ-cZ-QnG" id="g1B-E9-uB9"/>
@@ -521,14 +513,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChurchListCell" id="2tz-SY-EAd" customClass="ChurchListCell" customModule="ChurchFinder" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChurchListCell" id="NcS-9k-EgY" customClass="ChurchListCell" customModule="ChurchFinder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2tz-SY-EAd" id="zvm-x8-bCl">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NcS-9k-EgY" id="Htn-Jz-goC">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="113"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LFs-Wf-CDn">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QOj-ZH-76D">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChurchName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oh4-BL-ZkN">
@@ -540,86 +532,68 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Denomination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqR-oI-QWL">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Denomination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqR-oI-QWL">
                                             <rect key="frame" x="8" y="32" width="584" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="qds-Dr-SFO"/>
+                                                <constraint firstAttribute="height" constant="21" id="D01-Bu-k5q"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Church Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tI-Aa-QPm">
-                                            <rect key="frame" x="8" y="53" width="584" height="21"/>
+                                            <rect key="frame" x="8" y="53" width="88" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="VVK-gy-W2y"/>
+                                                <constraint firstAttribute="height" constant="21" id="Ewn-pG-hdb"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mee-gx-1ho">
-                                            <rect key="frame" x="8" y="74" width="584" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="9pJ-9p-TEM"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pas-dr-YOf">
+                                            <rect key="frame" x="8" y="74" width="89" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-qF-25a">
-                                            <rect key="frame" x="478" y="9" width="114" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaK-cR-1tB">
+                                            <rect key="frame" x="478" y="8" width="114" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="114" id="7YH-zU-XM1"/>
+                                                <constraint firstAttribute="width" constant="114" id="gLp-En-2VQ"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pas-dr-YOf">
-                                            <rect key="frame" x="8" y="78" width="584" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="jIG-qF-25a" firstAttribute="trailing" secondItem="lqR-oI-QWL" secondAttribute="trailing" id="1zt-kw-atC"/>
-                                        <constraint firstItem="Oh4-BL-ZkN" firstAttribute="leading" secondItem="zvm-x8-bCl" secondAttribute="leadingMargin" id="76g-eX-vAk"/>
-                                        <constraint firstItem="LFs-Wf-CDn" firstAttribute="centerX" secondItem="4tI-Aa-QPm" secondAttribute="centerX" id="DyB-bP-1aj"/>
-                                        <constraint firstItem="4tI-Aa-QPm" firstAttribute="top" secondItem="lqR-oI-QWL" secondAttribute="bottom" id="EoY-iK-nRP"/>
-                                        <constraint firstItem="Mee-gx-1ho" firstAttribute="leading" secondItem="zvm-x8-bCl" secondAttribute="leadingMargin" id="Lkv-NB-JFb"/>
-                                        <constraint firstItem="jIG-qF-25a" firstAttribute="leading" secondItem="Oh4-BL-ZkN" secondAttribute="trailing" constant="14" id="O5o-9J-EjQ"/>
-                                        <constraint firstItem="Mee-gx-1ho" firstAttribute="top" secondItem="4tI-Aa-QPm" secondAttribute="bottom" id="SYs-ns-omo"/>
-                                        <constraint firstItem="Oh4-BL-ZkN" firstAttribute="trailing" secondItem="zvm-x8-bCl" secondAttribute="trailingMargin" id="aHS-GN-qIc"/>
-                                        <constraint firstItem="LFs-Wf-CDn" firstAttribute="centerX" secondItem="Mee-gx-1ho" secondAttribute="centerX" id="bLS-tf-qrM"/>
-                                        <constraint firstItem="Oh4-BL-ZkN" firstAttribute="trailing" secondItem="zvm-x8-bCl" secondAttribute="trailingMargin" id="gtm-OE-0gd"/>
-                                        <constraint firstItem="Oh4-BL-ZkN" firstAttribute="top" secondItem="zvm-x8-bCl" secondAttribute="topMargin" id="hHG-fl-B3G"/>
-                                        <constraint firstItem="4tI-Aa-QPm" firstAttribute="leading" secondItem="zvm-x8-bCl" secondAttribute="leadingMargin" id="lQ0-pq-JDZ"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="LFs-Wf-CDn" secondAttribute="bottom" constant="-8" id="mdi-W0-2WZ"/>
-                                        <constraint firstItem="LFs-Wf-CDn" firstAttribute="leading" secondItem="zvm-x8-bCl" secondAttribute="leading" id="pxp-iC-E4C"/>
-                                        <constraint firstItem="LFs-Wf-CDn" firstAttribute="top" secondItem="zvm-x8-bCl" secondAttribute="top" id="tqe-9V-oHb"/>
-                                        <constraint firstItem="lqR-oI-QWL" firstAttribute="leading" secondItem="zvm-x8-bCl" secondAttribute="leadingMargin" id="uZf-Ep-WDn"/>
-                                        <constraint firstItem="lqR-oI-QWL" firstAttribute="top" secondItem="Oh4-BL-ZkN" secondAttribute="bottom" id="w2M-bE-edJ"/>
-                                        <constraint firstItem="LFs-Wf-CDn" firstAttribute="centerX" secondItem="lqR-oI-QWL" secondAttribute="centerX" id="wzr-W0-BPO"/>
-                                        <constraint firstAttribute="trailing" secondItem="LFs-Wf-CDn" secondAttribute="trailing" id="xle-jG-aa0"/>
-                                        <constraint firstItem="jIG-qF-25a" firstAttribute="centerY" secondItem="Oh4-BL-ZkN" secondAttribute="centerY" id="zr2-30-Z1a"/>
+                                        <constraint firstItem="pas-dr-YOf" firstAttribute="leading" secondItem="Htn-Jz-goC" secondAttribute="leadingMargin" id="1ox-bp-A2r"/>
+                                        <constraint firstItem="lqR-oI-QWL" firstAttribute="top" secondItem="Oh4-BL-ZkN" secondAttribute="bottom" id="1sA-9V-RyT"/>
+                                        <constraint firstItem="lqR-oI-QWL" firstAttribute="leading" secondItem="Htn-Jz-goC" secondAttribute="leadingMargin" id="9Ql-T9-3Yg"/>
+                                        <constraint firstItem="pas-dr-YOf" firstAttribute="top" secondItem="4tI-Aa-QPm" secondAttribute="bottom" id="Jda-L7-spg"/>
+                                        <constraint firstItem="WaK-cR-1tB" firstAttribute="leading" secondItem="Oh4-BL-ZkN" secondAttribute="trailing" constant="14" id="Ppb-BA-o9v"/>
+                                        <constraint firstItem="4tI-Aa-QPm" firstAttribute="top" secondItem="lqR-oI-QWL" secondAttribute="bottom" id="Qi5-yv-yY8"/>
+                                        <constraint firstItem="WaK-cR-1tB" firstAttribute="trailing" secondItem="Htn-Jz-goC" secondAttribute="trailingMargin" id="dA7-0f-z7s"/>
+                                        <constraint firstItem="WaK-cR-1tB" firstAttribute="top" secondItem="Htn-Jz-goC" secondAttribute="topMargin" id="eWe-zn-uyQ"/>
+                                        <constraint firstItem="4tI-Aa-QPm" firstAttribute="top" secondItem="Oh4-BL-ZkN" secondAttribute="bottom" id="no8-wx-RHp"/>
+                                        <constraint firstItem="4tI-Aa-QPm" firstAttribute="leading" secondItem="Htn-Jz-goC" secondAttribute="leadingMargin" id="v8M-yu-mEK"/>
+                                        <constraint firstItem="Oh4-BL-ZkN" firstAttribute="leading" secondItem="Htn-Jz-goC" secondAttribute="leadingMargin" id="yM5-GN-RKh"/>
+                                        <constraint firstItem="Oh4-BL-ZkN" firstAttribute="top" secondItem="Htn-Jz-goC" secondAttribute="topMargin" id="ylA-fF-qVX"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="aHS-GN-qIc"/>
-                                            <exclude reference="gtm-OE-0gd"/>
+                                            <exclude reference="no8-wx-RHp"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="ChurchName" destination="Oh4-BL-ZkN" id="f6U-f1-AYc"/>
-                                    <outlet property="churchImage" destination="LFs-Wf-CDn" id="ahC-Il-6IQ"/>
-                                    <outlet property="churchName" destination="Oh4-BL-ZkN" id="Aks-bH-Ca2"/>
-                                    <outlet property="churchType" destination="4tI-Aa-QPm" id="ttX-Rj-fBC"/>
-                                    <outlet property="denomination" destination="lqR-oI-QWL" id="TQR-pS-Yx4"/>
-                                    <outlet property="distance" destination="jIG-qF-25a" id="oY4-pe-n9d"/>
-                                    <outlet property="serviceTime" destination="Mee-gx-1ho" id="b0T-az-mk8"/>
+                                    <outlet property="churchImage" destination="QOj-ZH-76D" id="tOc-bG-ITs"/>
+                                    <outlet property="churchName" destination="Oh4-BL-ZkN" id="oxm-KN-Ihs"/>
+                                    <outlet property="churchType" destination="4tI-Aa-QPm" id="qp2-Cb-xsD"/>
+                                    <outlet property="denomination" destination="lqR-oI-QWL" id="glI-JW-jMg"/>
+                                    <outlet property="distance" destination="WaK-cR-1tB" id="uBe-jg-E9i"/>
+                                    <outlet property="serviceTime" destination="pas-dr-YOf" id="Z5G-nV-Nfh"/>
+                                    <segue destination="9bt-vL-kmA" kind="show" identifier="detailedChurchSegueBook" id="kBO-OA-Jyz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -843,6 +817,6 @@
         <image name="websiteImage.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0lV-4p-bSo"/>
+        <segue reference="kBO-OA-Jyz"/>
     </inferredMetricsTieBreakers>
 </document>

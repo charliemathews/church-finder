@@ -64,8 +64,12 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
             tableView.reloadData()
         }
     }
+    //MARK: Segue
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "detSegue") {
+        
+        if (segue.identifier == "detailedChurchSegueBook") {
+            
             let dest = segue.destinationViewController as! DetailedViewController
             
             dest.church = Data.sharedInstance.bookmarks[current]
@@ -73,6 +77,10 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
     }
     
     func done(vc: DetailedViewController) {
-        //dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func cancel(segue :UIStoryboardSegue) {
+        NSLog("Got rid of him.")
     }
 }

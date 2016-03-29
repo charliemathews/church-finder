@@ -27,7 +27,7 @@ class ListViewController: UITableViewController, detailedViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        //Data.sharedInstance.pullResults(Constants.Defaults.get())
+        Data.sharedInstance.pullResults(Constants.Defaults.get())
         table.reloadData()
         
         //MAY NEED CHANGING?
@@ -71,8 +71,9 @@ class ListViewController: UITableViewController, detailedViewDelegate {
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         var bookmarkImage = UIImage(named:"bookmarkStarBlue.png")!
+        
         for church in Data.sharedInstance.bookmarks {
-            if(church.id == Data.sharedInstance.results[current].id) {
+            if(church.id == Data.sharedInstance.results[indexPath.row].id) {
                 bookmarkImage = UIImage(named: "bookmarkStarRed.png")!
             }
             else {
@@ -81,7 +82,7 @@ class ListViewController: UITableViewController, detailedViewDelegate {
         }
         
         let bookmark = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "                    " , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            Data.sharedInstance.addBookmark(indexPath.row)
+            Data.sharedInstance.addBookmark(Data.sharedInstance.results[indexPath.row])
             
             //makes the cell slide back when pressed
             self.setEditing(false, animated: true)
