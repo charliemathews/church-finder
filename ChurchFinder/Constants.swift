@@ -47,6 +47,12 @@ struct Constants {
     }
     
 }
+
+
+
+
+/* Everything below this line needs to be removed. Colors may be fine. Functions should be in the views and params is unnecessary. */
+
 var params : [String:AnyObject] = [:]
 
 func getDistanceString(church : Church) -> String {
