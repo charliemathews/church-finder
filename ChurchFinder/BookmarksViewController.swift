@@ -61,7 +61,7 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if (segue.identifier == "detailedChurchSegueBook") {
+        if (segue.identifier == "bookmarksToDetailed") {
             
             let dest = segue.destinationViewController as! DetailedViewController
             dest.church = data.bookmarks[current]

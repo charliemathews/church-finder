@@ -109,7 +109,7 @@ class ListViewController: UITableViewController, detailedViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if (segue.identifier == "detailedChurchSegue") {
+        if (segue.identifier == "listToDetailed") {
             
             let dest = segue.destinationViewController as! DetailedViewController
             

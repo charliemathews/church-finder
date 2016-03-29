@@ -100,7 +100,7 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4lo-H8-Vmu" customClass="PFImageView">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
                                         </imageView>
-                                        <view alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOz-9b-TDR" userLabel="Grey Alpha">
+                                        <view userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOz-9b-TDR" userLabel="Grey Alpha">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
@@ -193,7 +193,7 @@
                                     <outlet property="distance" destination="dLO-PS-ZaM" id="cLF-AO-kUS"/>
                                     <outlet property="distanceAddr" destination="SO8-YR-MhP" id="3Ka-zk-UlQ"/>
                                     <outlet property="serviceTime" destination="Nt8-yW-UwQ" id="XhT-ln-aia"/>
-                                    <segue destination="9bt-vL-kmA" kind="show" id="Bcf-0n-nfq"/>
+                                    <segue destination="9bt-vL-kmA" kind="show" identifier="listToDetailed" id="Bcf-0n-nfq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -860,6 +860,6 @@
         <image name="websiteImage.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qme-8n-T9V"/>
+        <segue reference="Bcf-0n-nfq"/>
     </inferredMetricsTieBreakers>
 </document>
