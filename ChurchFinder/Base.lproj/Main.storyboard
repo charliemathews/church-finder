@@ -24,7 +24,7 @@
                                         <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" title="Filters" id="hly-Eo-7DZ">
                                             <connections>
-                                                <segue destination="vO3-2u-4cJ" kind="presentation" id="ktz-C4-J4S"/>
+                                                <segue destination="vO3-2u-4cJ" kind="presentation" identifier="filterViewSegue" id="ktz-C4-J4S"/>
                                             </connections>
                                         </barButtonItem>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="4du-KI-lta">

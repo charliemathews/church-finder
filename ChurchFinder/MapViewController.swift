@@ -27,14 +27,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
     
     var pointAnnotation:MKPointAnnotation!
     var pinAnnotationView:MKPinAnnotationView!
-    var parCheck: Int!
     var churchAn: [churchAnnotation]!
     
     @IBOutlet weak var mapview: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        parCheck = 10
         self.mapview.showsUserLocation = true
         mapview.delegate = self
     }

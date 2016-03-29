@@ -38,7 +38,7 @@ class FilterTableViewController: UITableViewController, specificFilterViewContro
     }
     
     @IBAction func doneWithFilters(sender: AnyObject) {
-        //delegate.doneWithFilters(self)
+        delegate.doneWithFilters(self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

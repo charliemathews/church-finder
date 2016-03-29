@@ -72,7 +72,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
     }
     
     func doneWithFilters(child: FilterTableViewController){
-        data.currentParameters = params
+        data.pullResults(params)
         dismissViewControllerAnimated(true, completion: nil)
     }
     

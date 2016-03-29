@@ -17,7 +17,6 @@
 		037F2F011C61000000E971DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037F2EFF1C61000000E971DB /* LaunchScreen.xib */; };
 		037F2F171C6106A600E971DB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F161C6106A600E971DB /* ListViewController.swift */; };
 		037F2F191C61087400E971DB /* ChurchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F181C61087400E971DB /* ChurchListCell.swift */; };
-		03AB33DB1C93A9BB0016C5A0 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB33D91C93A9BB0016C5A0 /* FilterViewController.swift */; };
 		03AB33DE1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB33DD1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift */; };
 		0F16D5821CAAA9EC00E6C7AD /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F16D57C1CAAA9EC00E6C7AD /* Bolts.framework */; };
 		0F16D5831CAAA9EC00E6C7AD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F16D57D1CAAA9EC00E6C7AD /* Parse.framework */; };
@@ -135,7 +134,6 @@
 		037F2F0B1C61000000E971DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037F2F161C6106A600E971DB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		037F2F181C61087400E971DB /* ChurchListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchListCell.swift; sourceTree = "<group>"; };
-		03AB33D91C93A9BB0016C5A0 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		03AB33DD1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecificFilterSelectViewController.swift; sourceTree = "<group>"; };
 		0F16D57C1CAAA9EC00E6C7AD /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		0F16D57D1CAAA9EC00E6C7AD /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				37F0B4331C978C9B00DA821A /* TopBarViewController.swift */,
-				03AB33D91C93A9BB0016C5A0 /* FilterViewController.swift */,
 				034E16051C7CAC1F004AD878 /* FilterViewCell.swift */,
 				034E15FD1C7C9F9D004AD878 /* FilterTableViewController.swift */,
 				03AB33DD1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift */,
@@ -564,7 +561,6 @@
 				034E16061C7CAC1F004AD878 /* FilterViewCell.swift in Sources */,
 				0F2028181C7F55FD00AFC9AA /* Data.swift in Sources */,
 				037F2F191C61087400E971DB /* ChurchListCell.swift in Sources */,
-				03AB33DB1C93A9BB0016C5A0 /* FilterViewController.swift in Sources */,
 				0F20281E1C7F563F00AFC9AA /* Constants.swift in Sources */,
 				034E15FC1C7C9ED0004AD878 /* AppDelegate.swift in Sources */,
 				37F0B4341C978C9B00DA821A /* TopBarViewController.swift in Sources */,

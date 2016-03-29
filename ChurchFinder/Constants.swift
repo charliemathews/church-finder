@@ -23,7 +23,6 @@ struct Constants {
         static let AppID : String = "OTXY6dM8ChkriarqrX4SPi2e2Def9v1EM0VVNoOW"
         static let ClientKey : String = "5I1Iky8vY7hheR7X9QAejEbXaw96UMFBYGzVr4h3"
         static let MasterKey : String = "bssyoWxlPb58XACkt5TqyWMr7G4bFaFC1PdlzXdD"
-        
         static let ChurchClass : String = "Church"
     }
     
