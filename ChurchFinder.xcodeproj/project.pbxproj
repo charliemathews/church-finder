@@ -261,14 +261,14 @@
 			children = (
 				0F20281D1C7F563F00AFC9AA /* Constants.swift */,
 				037F2EFA1C61000000E971DB /* Main.storyboard */,
-				0F20281F1C7F56A800AFC9AA /* Views */,
-				0F2028131C7F55CE00AFC9AA /* Class */,
+				26BEC0E01C94ECA900AB2AF2 /* churchAnnotation.swift */,
 				034E15FB1C7C9ED0004AD878 /* AppDelegate.swift */,
+				0F20281F1C7F56A800AFC9AA /* View */,
+				0F2028131C7F55CE00AFC9AA /* Model */,
+				75D436DF1C79181600F62108 /* Images */,
 				037F2EFF1C61000000E971DB /* LaunchScreen.xib */,
 				037F2EFD1C61000000E971DB /* Images.xcassets */,
-				75D436DF1C79181600F62108 /* Pictures */,
 				037F2EF21C61000000E971DB /* Supporting Files */,
-				26BEC0E01C94ECA900AB2AF2 /* churchAnnotation.swift */,
 			);
 			path = ChurchFinder;
 			sourceTree = "<group>";
@@ -299,16 +299,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0F2028131C7F55CE00AFC9AA /* Class */ = {
+		0F2028131C7F55CE00AFC9AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				037715BE1C85F00000303162 /* Church.swift */,
 				0F2028171C7F55FD00AFC9AA /* Data.swift */,
 			);
-			name = Class;
+			name = Model;
 			sourceTree = "<group>";
 		};
-		0F20281F1C7F56A800AFC9AA /* Views */ = {
+		0F20281F1C7F56A800AFC9AA /* View */ = {
 			isa = PBXGroup;
 			children = (
 				37F0B4331C978C9B00DA821A /* TopBarViewController.swift */,
@@ -321,7 +321,7 @@
 				3729A8661C8523B3000AF907 /* BookmarksViewController.swift */,
 				037F2F181C61087400E971DB /* ChurchListCell.swift */,
 			);
-			name = Views;
+			name = View;
 			sourceTree = "<group>";
 		};
 		37FE8D241C6E1F4600482663 /* Framework */ = {
@@ -347,7 +347,7 @@
 			name = Framework;
 			sourceTree = "<group>";
 		};
-		75D436DF1C79181600F62108 /* Pictures */ = {
+		75D436DF1C79181600F62108 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				0F16D58A1CAACA7400E6C7AD /* dummyphoto.png */,
@@ -366,7 +366,7 @@
 				75F7C62C1C8D1DF500FEF740 /* websiteImage.png */,
 				75F7C62D1C8D1DF500FEF740 /* WX_circle_white.png */,
 			);
-			name = Pictures;
+			name = Images;
 			sourceTree = "<group>";
 		};
 		75EA09351C82271300EC90F2 /* ChurchFinderUITests */ = {

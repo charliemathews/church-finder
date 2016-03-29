@@ -184,6 +184,9 @@ final class Data {
         }
     }
     
+    /*
+    This function completely empties the class.
+    */
     func clear() {
         results = []
         currentParameters = [:]
@@ -224,8 +227,6 @@ final class Data {
         }
     }
     
-    
-    
     func pullBookmarks() {
         bookmarks = []
         let query = PFQuery(className: Constants.Parse.ChurchClass)
@@ -242,9 +243,11 @@ final class Data {
                         if (b.object!.objectId == f.objectId) { return }
                     }
                     
+                    /*
                     NSOperationQueue.mainQueue().addOperationWithBlock({
                         NSLog(f.objectId!)
                     })
+                    */
                     
                     church.id       = f.objectId!
                     church.name     = f["name"]         as! String
