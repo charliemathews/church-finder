@@ -28,7 +28,7 @@ class FilterViewCell: UITableViewCell  {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.view.bringSubviewToFront(view)
+        //self.view.bringSubviewToFront(view)
     }
     func initialize(lT: String, pL: [String]){
         labelText = lT

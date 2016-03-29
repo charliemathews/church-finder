@@ -33,10 +33,15 @@ class FilterTableViewController: UITableViewController, specificFilterViewContro
     var selectedFilterRow: Int!
     var delegate: filterResultsDelegate!
     var check: Int!
+    var current = 0
+    var curInd: NSIndexPath!
     
+    @IBAction func clearFilters(sender: AnyObject) {
+        viewDidLoad()
+    }
     
     @IBAction func doneWithFilters(sender: AnyObject) {
-        delegate.doneWithFilters(self)
+        //delegate.doneWithFilters(self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +76,13 @@ class FilterTableViewController: UITableViewController, specificFilterViewContro
         }
      }
     func doneWithSpecificFilter(child: SpecificFilterSelectViewController){
+        //???
         params[child.pickerName] = child.selectedPickerValue
+       
+        selectedFilterRow = current
+        let currentCell = tableView.cellForRowAtIndexPath(curInd) as! FilterViewCell
+        currentCell.selectedFilterLabel!.text = child.selectedPickerValue
+        currentCell.selectedFilterLabel.bringSubviewToFront(currentCell.selectedFilterLabel)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -88,6 +99,12 @@ class FilterTableViewController: UITableViewController, specificFilterViewContro
         return 1
     }
 
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?{
+        current = indexPath.row
+        curInd = indexPath
+        return indexPath
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 4

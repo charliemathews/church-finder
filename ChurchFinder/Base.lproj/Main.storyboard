@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -646,10 +645,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="r2K-bf-J6W" firstAttribute="bottom" secondItem="VOE-kN-b44" secondAttribute="top" id="1jC-ds-72W"/>
-                            <constraint firstAttribute="trailing" secondItem="r2K-bf-J6W" secondAttribute="trailing" id="Hi9-qC-hIX"/>
-                            <constraint firstItem="r2K-bf-J6W" firstAttribute="top" secondItem="TSZ-Ra-ohL" secondAttribute="bottom" id="Zyb-eY-Pgd"/>
-                            <constraint firstItem="r2K-bf-J6W" firstAttribute="leading" secondItem="PGR-tO-Ahl" secondAttribute="leading" id="nNU-5S-hJw"/>
+                            <constraint firstAttribute="trailing" secondItem="r2K-bf-J6W" secondAttribute="trailing" id="AcZ-bL-0JN"/>
+                            <constraint firstItem="VOE-kN-b44" firstAttribute="top" secondItem="r2K-bf-J6W" secondAttribute="bottom" id="ETd-R9-qf1"/>
+                            <constraint firstItem="r2K-bf-J6W" firstAttribute="top" secondItem="TSZ-Ra-ohL" secondAttribute="bottom" id="KxL-yQ-7Du"/>
+                            <constraint firstItem="r2K-bf-J6W" firstAttribute="leading" secondItem="PGR-tO-Ahl" secondAttribute="leading" id="bLY-YQ-tmh"/>
                         </constraints>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -681,6 +680,18 @@
                                             <action selector="doneWithFilters:" destination="vO3-2u-4cJ" id="aio-uo-FGd"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" style="plain" id="PCV-mx-4fj">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sn7-Vg-12J">
+                                            <rect key="frame" x="447" y="7" width="133" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Clear">
+                                                <color key="titleColor" red="0.73626893940000004" green="0.0" blue="0.02958610524" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="clearFilters:" destination="vO3-2u-4cJ" eventType="touchUpInside" id="znt-7q-jCe"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
@@ -692,7 +703,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="91"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKe-iH-jrs">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKe-iH-jrs">
                                             <rect key="frame" x="37" y="20" width="150" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="tZQ-ar-gvv"/>
@@ -702,21 +713,18 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="748-jm-WN7">
-                                            <rect key="frame" x="195" y="20" width="269" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="269" id="5Ss-sE-0ZH"/>
-                                            </constraints>
+                                            <rect key="frame" x="281" y="35" width="269" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="OKe-iH-jrs" firstAttribute="firstBaseline" secondItem="748-jm-WN7" secondAttribute="firstBaseline" id="AGU-gC-f1f"/>
-                                        <constraint firstItem="OKe-iH-jrs" firstAttribute="baseline" secondItem="748-jm-WN7" secondAttribute="baseline" id="Xke-PL-NP2"/>
+                                        <constraint firstItem="748-jm-WN7" firstAttribute="centerY" secondItem="JuW-5C-Y0Z" secondAttribute="centerY" id="JJZ-rT-B5U"/>
+                                        <constraint firstItem="748-jm-WN7" firstAttribute="leading" secondItem="OKe-iH-jrs" secondAttribute="trailing" constant="94" id="TLb-uA-boy"/>
                                         <constraint firstItem="OKe-iH-jrs" firstAttribute="leading" secondItem="JuW-5C-Y0Z" secondAttribute="leadingMargin" constant="29" id="YeO-c3-9CO"/>
                                         <constraint firstItem="OKe-iH-jrs" firstAttribute="top" secondItem="JuW-5C-Y0Z" secondAttribute="topMargin" constant="12" id="q5q-ye-AgZ"/>
-                                        <constraint firstItem="748-jm-WN7" firstAttribute="leading" secondItem="OKe-iH-jrs" secondAttribute="trailing" constant="8" symbolic="YES" id="rlv-Dp-lrs"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="748-jm-WN7" secondAttribute="trailing" constant="9" id="vBn-0w-dCO"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="tblCell"/>
