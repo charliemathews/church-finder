@@ -1,10 +1,9 @@
-//
-//  churchAnnotation.swift
-//  ChurchFinder
-//
-//  Created by Sarah Burgess on 3/12/16.
-//  Copyright © 2016 Michael Curtis. All rights reserved.
-//
+/*
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
+
+Author: Sarah Burgess
+Created: 03/12/16
+*/
 
 import Foundation
 import MapKit

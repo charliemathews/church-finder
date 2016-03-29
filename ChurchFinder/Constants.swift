@@ -3,10 +3,6 @@ Copyright 2016 Serious Llama and Grove City College. All rights reserved.
 
 Author: Charlie Mathews
 Created: 21/02/16
-Modified: 29/03/16
-
-Changelog
-* Magnificent file header was authored by codereview2k16 #squad
 
 Sources
 http://stackoverflow.com/questions/26252233/global-constants-file-in-swift

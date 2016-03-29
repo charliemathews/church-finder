@@ -1,11 +1,9 @@
-//
-//  SpecificFilterSelect.swift
-//  ChurchFinder
-//
-//  Created by Michael Curtis on 3/7/16.
-//  Copyright © 2016 Michael Curtis. All rights reserved.
-//
+/*
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
 
+Author: Mike Curtis
+Created: 03/07/16
+*/
 
 import UIKit
 

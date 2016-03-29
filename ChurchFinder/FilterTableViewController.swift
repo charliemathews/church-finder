@@ -2,14 +2,7 @@
 Copyright 2016 Serious Llama and Grove City College. All rights reserved.
 
 Author: Sarah Burgess
-Created:
-Modified: 24/02/16
-
-Changelog
-...
-
-Sources
-...
+Created: 24/02/16
 */
 import Foundation
 import UIKit

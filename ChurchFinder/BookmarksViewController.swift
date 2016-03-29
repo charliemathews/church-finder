@@ -1,10 +1,8 @@
-//
-//  BookmarksViewController.swift
-//  ChurchFinder
-//
-//  Created by Daniel Mitchell on 2/29/16.
-//  Copyright © 2016 Michael Curtis. All rights reserved.
-//
+/*
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
+
+Author: Dan Mitchell
+*/
 
 import UIKit
 

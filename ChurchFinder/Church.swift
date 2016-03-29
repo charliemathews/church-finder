@@ -3,10 +3,6 @@ Copyright 2016 Serious Llama and Grove City College. All rights reserved.
 
 Author: Charlie Mathews
 Created: 21/02/16
-Modified: 25/02/16
-
-Changelog
-* Magnificent file header was authored by codereview2k16 #squad
 
 Tested & Passed
 Unit:               {mm/dd/yy} by {last name}
