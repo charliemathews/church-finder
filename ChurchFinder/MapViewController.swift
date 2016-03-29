@@ -72,7 +72,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "mapToDetSegue") {
+        if (segue.identifier == "mapToDetSeg") {
             let dest = segue.destinationViewController as! DetailedViewController
             dest.delegate = self
             dest.church = current
