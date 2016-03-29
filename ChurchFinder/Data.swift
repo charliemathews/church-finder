@@ -157,7 +157,7 @@ final class Data {
             church.address  = f["address"]      as! String
             church.desc     = f["description"]  as! String
             church.url      = f["url"]          as! String
-            church.object   = f                              // <--   !!!!!! WHY. BAD. MUST REMOVE !!!!!!
+            church.object   = f                              // need to eliminate this...
             
             results.append(church)
         }
@@ -207,7 +207,6 @@ final class Data {
         }
     }
     
-    //for detailed view
     func removeBookmark(bookmarkedChurch: Church) {
         //find the index
         var index = 0

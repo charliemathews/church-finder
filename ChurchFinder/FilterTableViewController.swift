@@ -18,9 +18,6 @@ protocol filterResultsDelegate{
     func doneWithFilters(child: FilterTableViewController)
 }
 
-/*
-TODO: pull labels, denominations, styles, etc from data model using, for ex. data.getMeta("denomination")
-*/
 class FilterTableViewController: UITableViewController, specificFilterViewControllerDelegate{
 
   
