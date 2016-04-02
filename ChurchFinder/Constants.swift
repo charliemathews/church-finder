@@ -74,40 +74,7 @@ func getDistanceString(church : Church) -> String {
     }
     
     //if we can't get a current location, don't display anything for distance
-    return ""
-}
-
-//source --- http://stackoverflow.com/questions/31661023/change-color-of-certain-pixels-in-a-uiimage
-func darkenImage(inputImage: UIImage) -> UIImage {
-    let inputCGImage     = inputImage.CGImage
-    let colorSpace       = CGColorSpaceCreateDeviceRGB()
-    let width            = CGImageGetWidth(inputCGImage)
-    let height           = CGImageGetHeight(inputCGImage)
-    let bytesPerPixel    = 4
-    let bitsPerComponent = 8
-    let bytesPerRow      = bytesPerPixel * width
-    let bitmapInfo       = CGImageAlphaInfo.PremultipliedFirst.rawValue | CGBitmapInfo.ByteOrder32Little.rawValue
-    
-    let context = CGBitmapContextCreate(nil, width, height, bitsPerComponent, bytesPerRow, colorSpace, bitmapInfo)!
-    CGContextDrawImage(context, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), inputCGImage)
-    
-    let pixelBuffer = UnsafeMutablePointer<UInt32>(CGBitmapContextGetData(context))
-    
-    var currentPixel = pixelBuffer
-    
-    for var i = 0; i < Int(height); i++ {
-        for var j = 0; j < Int(width); j++ {
-            let pixel = currentPixel.memory
-            currentPixel.memory = rgba(red: red(pixel)/2, green: green(pixel)/2, blue: blue(pixel)/2, alpha: 255)
-            
-            currentPixel++
-        }
-    }
-    
-    let outputCGImage = CGBitmapContextCreateImage(context)
-    let outputImage = UIImage(CGImage: outputCGImage!, scale: inputImage.scale, orientation: inputImage.imageOrientation)
-    
-    return outputImage
+    return "?"
 }
 
 func alpha(color: UInt32) -> UInt8 {
