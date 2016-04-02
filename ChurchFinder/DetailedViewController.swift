@@ -147,6 +147,7 @@ class DetailedViewController: UIViewController {
         mapItem.openInMapsWithLaunchOptions(options)
         
     }
+    
     func share(){
         let textToShare = "Check out \(church.name) at \(church.url)!\nService Time: \(church.times)"
         
@@ -161,6 +162,7 @@ class DetailedViewController: UIViewController {
             self.presentViewController(activityVC, animated: true, completion: nil)
         }
     }
+    
     func openChurchWebsite() {
         let url = NSURL(string: church.url)
         
@@ -176,11 +178,8 @@ class DetailedViewController: UIViewController {
         } else {
             UIApplication.sharedApplication().openURL(url!)
         }
-        
-        
-        
-        
     }
+    
     @IBAction func done(sender: AnyObject) {
         delegate.done(self)
     }
