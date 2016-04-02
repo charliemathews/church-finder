@@ -42,6 +42,24 @@ final class Data {
         pullBookmarks()
     }
     
+    func churchFromObject(f: PFObject) -> Church {
+        let church : Church = Church()
+        
+        church.id       = f.objectId!
+        church.name     = f["name"]         as! String
+        church.denom    = f["denomination"] as! String
+        church.size     = f["size"]         as! Int
+        church.style    = f["style"]        as! String
+        church.location = f["loc"]          as! PFGeoPoint
+        church.times    = f["times"]        as! String
+        church.address  = f["address"]      as! String
+        church.desc     = f["description"]  as! String
+        church.url      = f["url"]          as! String
+        church.img      = f["banner"]       as? PFFile
+     
+        return church
+    }
+    
     /*
     Get list of possible values held by key.
     */
@@ -140,21 +158,8 @@ final class Data {
         results = []
         
         for f in found {
-            let church : Church = Church()
-            
-            church.id       = f.objectId!
-            church.name     = f["name"]         as! String
-            church.denom    = f["denomination"] as! String
-            church.size     = f["size"]         as! Int
-            church.style    = f["style"]        as! String
-            church.location = f["loc"]          as! PFGeoPoint
-            church.times    = f["times"]        as! String
-            church.address  = f["address"]      as! String
-            church.desc     = f["description"]  as! String
-            church.url      = f["url"]          as! String
-            church.img      = f["banner"]       as? PFFile
-            church.object   = f                              // need to eliminate this...
-            
+            let church : Church = churchFromObject(f)
+            church.object   = f                              // <-- need to eliminate this...
             results.append(church)
         }
         
@@ -232,7 +237,7 @@ final class Data {
             if error == nil {
                 
                 for f in objects! {
-                    let church : Church = Church()
+                    let church : Church = self.churchFromObject(f)
                     
                     for b in self.bookmarks {
                         if (b.object!.objectId == f.objectId) { return }
@@ -244,18 +249,7 @@ final class Data {
                     })
                     */
                     
-                    church.id       = f.objectId!
-                    church.name     = f["name"]         as! String
-                    church.denom    = f["denomination"] as! String
-                    church.size     = f["size"]         as! Int
-                    church.style    = f["style"]        as! String
-                    church.location = f["loc"]          as! PFGeoPoint
-                    church.times    = f["times"]        as! String
-                    church.address  = f["address"]      as! String
-                    church.desc     = f["description"]  as! String
-                    church.url      = f["url"]          as! String
                     church.object   = f
-                    
                     self.bookmarks.append(church)
                 }
                 
