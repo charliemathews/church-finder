@@ -134,9 +134,7 @@ class DetailedViewController: UIViewController {
         else {
             bookMarkIcon.imageView?.tintColor = highlightedBookmarkColor
             Data.sharedInstance.addBookmark(church)
-
         }
-        
         bookmarked = !bookmarked
     }
     

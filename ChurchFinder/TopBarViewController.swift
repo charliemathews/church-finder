@@ -51,7 +51,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
         location = PFGeoPoint(location: locations.last)
         manager.stopUpdatingLocation()
         
-        Data.sharedInstance.pullResults(Constants.Defaults.get())
+        //Data.sharedInstance.pullResults(Constants.Defaults.get(), sender: self)
         //table.reloadData()
     }
     
@@ -72,7 +72,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
     }
     
     func doneWithFilters(child: FilterTableViewController){
-        data.pullResults(params)
+        data.pullResults(params, sender: self)
         dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -27,8 +27,8 @@ class ListViewController: UITableViewController, detailedViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        Data.sharedInstance.pullResults(Constants.Defaults.get())
-        table.reloadData()
+        data.pullResults(Constants.Defaults.get(), sender: self)
+        
         
         //MAY NEED CHANGING?
     }

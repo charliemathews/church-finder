@@ -85,11 +85,8 @@ final class Data {
     TODO: find a way to show churches of a similar size once the closest results have been exhausted
     TODO: increase radius of search if results < limit, by 5 miles, up to 50
     */
-    func pullResults(var params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
-        
+    func pullResultsHelper(var params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
         let query = PFQuery(className: Constants.Parse.ChurchClass)
-        
-        
         // no parameters passed in, prior query exists
         if(params.count == 0 && results.count > 0) {
             if(results.count == currentLimit) {                             // if we got a full set a results last time
@@ -162,14 +159,14 @@ final class Data {
             results.append(church)
         }
         
-//         compound query
-//         for(int i = 0; i < times.count; i++)
-//         if(time.count > 0) query.whereKey("time", containsString:...
-//        
-//         after results are exhausted, get results in the subsequent radius
-//         so if results < number of results to get at once then try to increase radius by 1s up to 50
-//        
-//         set results = query.results
+        //         compound query
+        //         for(int i = 0; i < times.count; i++)
+        //         if(time.count > 0) query.whereKey("time", containsString:...
+        //
+        //         after results are exhausted, get results in the subsequent radius
+        //         so if results < number of results to get at once then try to increase radius by 1s up to 50
+        //
+        //         set results = query.results
         
         if(results.count > 0) {
             if(params.count > 0) {
@@ -181,8 +178,18 @@ final class Data {
         } else {
             return false
         }
-    }
     
+    }
+    func pullResults(var params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce, sender: AnyObject    ) -> Bool {
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            self.pullResultsHelper(params, s: s, n: n)
+            dispatch_async(dispatch_get_main_queue()) {
+                sender.loadView()
+            }
+        }
+        return true
+    }
     func clear() {
         results = []
         currentParameters = [:]
