@@ -98,7 +98,7 @@ final class Data {
     TODO: find a way to show churches of a similar size once the closest results have been exhausted
     TODO: increase radius of search if results < limit, by 5 miles, up to 50
     */
-    func pullResults(params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
+    func pullResults(params : [String:AnyObject] = [:], s : Int = 0, n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
         
         let query = PFQuery(className: Constants.Parse.ChurchClass)
         

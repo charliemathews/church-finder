@@ -77,25 +77,3 @@ func getDistanceString(church : Church) -> String {
     return "?"
 }
 
-func alpha(color: UInt32) -> UInt8 {
-    return UInt8((color >> 24) & 255)
-}
-
-func red(color: UInt32) -> UInt8 {
-    return UInt8((color >> 16) & 255)
-}
-
-func green(color: UInt32) -> UInt8 {
-    return UInt8((color >> 8) & 255)
-}
-
-func blue(color: UInt32) -> UInt8 {
-    return UInt8((color >> 0) & 255)
-}
-
-func rgba(red red: UInt8, green: UInt8, blue: UInt8, alpha: UInt8) -> UInt32 {
-    return (UInt32(alpha) << 24) | (UInt32(red) << 16) | (UInt32(green) << 8) | (UInt32(blue) << 0)
-}
-
-
-
