@@ -1,15 +1,5 @@
 /*
 Copyright 2016 Serious Llama and Grove City College. All rights reserved.
-
-Author: Michael Curtis
-Created:
-Modified: 24/02/16
-
-Changelog
-...
-
-Sources
-...
 */
 
 import UIKit
@@ -30,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //TODO, figure out why we can't use Constants.Parse.{keyname} here without crashing parse
         Parse.enableLocalDatastore()
         Parse.setApplicationId("OTXY6dM8ChkriarqrX4SPi2e2Def9v1EM0VVNoOW", clientKey: "5I1Iky8vY7hheR7X9QAejEbXaw96UMFBYGzVr4h3")
-        
-        Data.sharedInstance.pullBookmarks()
         
         return true
     }

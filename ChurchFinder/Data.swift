@@ -1,13 +1,8 @@
 /*
 Copyright 2016 Serious Llama and Grove City College. All rights reserved.
 
-Author: Charlie Mathews
+Author: Charlie Mathews & Dan Mitchel
 Created: 21/02/16
-Modified: 25/02/16
-
-Changelog
-* 25-02-16 Merged into master.
-* 25-02-16 After a successful call to pullResults, subsequent calls will attempt to pull the next page of results automatically.
 
 Tested & Passed
 Unit:               26/02/16 by Charlie
@@ -45,6 +40,25 @@ final class Data {
     private init() {
         radius = defaultRadius
         pullBookmarks()
+    }
+    
+    func churchFromObject(f: PFObject) -> Church {
+        let church : Church = Church()
+        
+        church.id       = f.objectId!
+        church.name     = f["name"]         as! String
+        church.denom    = f["denomination"] as! String
+        church.size     = f["size"]         as! Int
+        church.style    = f["style"]        as! String
+        church.location = f["loc"]          as! PFGeoPoint
+        church.times    = f["times"]        as! String
+        church.address  = f["address"]      as! String
+        church.desc     = f["description"]  as! String
+        church.url      = f["url"]          as! String
+        church.img      = f["banner"]       as? PFFile
+        church.object   = f
+     
+        return church
     }
     
     /*
@@ -142,20 +156,8 @@ final class Data {
         results = []
         
         for f in found {
-            let church : Church = Church()
-            
-            church.id       = f.objectId!
-            church.name     = f["name"]         as! String
-            church.denom    = f["denomination"] as! String
-            church.size     = f["size"]         as! Int
-            church.style    = f["style"]        as! String
-            church.location = f["loc"]          as! PFGeoPoint
-            church.times    = f["times"]        as! String
-            church.address  = f["address"]      as! String
-            church.desc     = f["description"]  as! String
-            church.url      = f["url"]          as! String
-            church.object   = f                              // need to eliminate this...
-            
+            let church : Church = churchFromObject(f)
+            church.object   = f                              // <-- need to eliminate this...
             results.append(church)
         }
         
@@ -204,6 +206,7 @@ final class Data {
         
         bookmarks.append(addedChurch)
         addedChurch.object!.pinInBackground()
+        writeBookmarkOrder()
     }
     
     func removeBookmark(let bookmarkIndex : Int) {
@@ -212,6 +215,7 @@ final class Data {
             remove.object!.unpinInBackground()
             bookmarks.removeAtIndex(bookmarkIndex)
         }
+        writeBookmarkOrder()
     }
     
     func removeBookmark(bookmarkedChurch: Church) {
@@ -221,7 +225,7 @@ final class Data {
             if (church.id == bookmarkedChurch.id){
                 break
             } else {
-                index++
+                index += 1
             }
         }
         
@@ -229,8 +233,6 @@ final class Data {
             removeBookmark(index)
         }
     }
-    
-    
     
     func pullBookmarks() {
         bookmarks = []
@@ -240,36 +242,53 @@ final class Data {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
-                
-                for f in objects! {
-                    let church : Church = Church()
-                    
-                    for b in self.bookmarks {
-                        if (b.object!.objectId == f.objectId) { return }
+                //Grab bookmark list file
+                let path = (NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent("Bookmarks.list")
+                var order : [String] = []
+                if NSFileManager.defaultManager().fileExistsAtPath(path) {
+                    var csv : String? = nil
+                    do {
+                        csv = try String(contentsOfFile: path)
+                        order = csv!.componentsSeparatedByString(",")
+                    } catch {
+                        return
                     }
-                    
-                    NSOperationQueue.mainQueue().addOperationWithBlock({
-                        NSLog(f.objectId!)
-                    })
-                    
-                    church.id       = f.objectId!
-                    church.name     = f["name"]         as! String
-                    church.denom    = f["denomination"] as! String
-                    church.size     = f["size"]         as! Int
-                    church.style    = f["style"]        as! String
-                    church.location = f["loc"]          as! PFGeoPoint
-                    church.times    = f["times"]        as! String
-                    church.address  = f["address"]      as! String
-                    church.desc     = f["description"]  as! String
-                    church.url      = f["url"]          as! String
-                    church.object   = f
-                    
-                    self.bookmarks.append(church)
                 }
                 
+                //Get Bookmarks
+                var bookm : [Church] = []
+                for f in objects! {
+                    let church : Church = self.churchFromObject(f)
+                    bookm.append(church)
+                }
+                
+                //Set Order
+                for s in order {
+                    for b in bookm {
+                        if s == b.id {
+                            self.bookmarks.append(b)
+                        }
+                    }
+                }
             } else {
                 print("Error: \(error!) \(error!.userInfo)")
             }
+        }
+    }
+    
+    func writeBookmarkOrder() {
+        var csv : String = ""
+        for b in bookmarks {
+            csv.appendContentsOf(b.id + ",")
+        }
+        csv.removeAtIndex(csv.endIndex.predecessor())
+        
+        let path = (NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent("Bookmarks.list")
+        
+        do {
+            try csv.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding)
+        } catch {
+            NSLog("File could not be written")
         }
     }
 }

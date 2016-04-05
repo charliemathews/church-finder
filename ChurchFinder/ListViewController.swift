@@ -2,14 +2,6 @@
 Copyright 2016 Serious Llama and Grove City College. All rights reserved.
 
 Author: Dan Mitchell
-Created:
-Modified: 24/02/16
-
-Changelog
-...
-
-Sources
-...
 */
 
 import UIKit
@@ -72,8 +64,8 @@ class ListViewController: UITableViewController, detailedViewDelegate {
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         var bookmarkImage = UIImage(named:"bookmarkStarBlue.png")!
         
-        for church in Data.sharedInstance.bookmarks {
-            if(church.id == Data.sharedInstance.results[indexPath.row].id) {
+        for church in data.bookmarks {
+            if(church.id == data.results[indexPath.row].id) {
                 bookmarkImage = UIImage(named: "bookmarkStarRed.png")!
             }
             else {
@@ -82,7 +74,7 @@ class ListViewController: UITableViewController, detailedViewDelegate {
         }
         
         let bookmark = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "                    " , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            Data.sharedInstance.addBookmark(Data.sharedInstance.results[indexPath.row])
+            data.addBookmark(Data.sharedInstance.results[indexPath.row])
             
             //makes the cell slide back when pressed
             self.setEditing(false, animated: true)
@@ -117,11 +109,11 @@ class ListViewController: UITableViewController, detailedViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if (segue.identifier == "detailedChurchSegue") {
+        if (segue.identifier == "listToDetailed") {
             
             let dest = segue.destinationViewController as! DetailedViewController
             
-            dest.church = Data.sharedInstance.results[current]
+            dest.church = data.results[current]
         }
     }
     func done(vc: DetailedViewController) {

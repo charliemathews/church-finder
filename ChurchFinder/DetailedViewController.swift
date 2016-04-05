@@ -2,14 +2,6 @@
 Copyright 2016 Serious Llama and Grove City College. All rights reserved.
 
 Author: Sam Gill
-Created:
-Modified: 24/02/16
-
-Changelog
-...
-
-Sources
-...
 */
 
 import UIKit
@@ -62,7 +54,7 @@ class DetailedViewController: UIViewController {
         }
         
         //setting data
-        churchViewImage.image = UIImage(named: "churches.jpg")
+        churchViewImage.image = UIImage(named: "dummypicture.png")
         distanceLabel.text = getDistanceString(church)
         namesLabel.text = church.name
         denominationLabel.text = church.denom
@@ -153,6 +145,7 @@ class DetailedViewController: UIViewController {
         mapItem.openInMapsWithLaunchOptions(options)
         
     }
+    
     func share(){
         let textToShare = "Check out \(church.name) at \(church.url)!\nService Time: \(church.times)"
         
@@ -167,6 +160,7 @@ class DetailedViewController: UIViewController {
             self.presentViewController(activityVC, animated: true, completion: nil)
         }
     }
+    
     func openChurchWebsite() {
         let url = NSURL(string: church.url)
         
@@ -182,11 +176,8 @@ class DetailedViewController: UIViewController {
         } else {
             UIApplication.sharedApplication().openURL(url!)
         }
-        
-        
-        
-        
     }
+    
     @IBAction func done(sender: AnyObject) {
         delegate.done(self)
     }

@@ -24,6 +24,8 @@
 		0F16D5851CAAA9EC00E6C7AD /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F16D57F1CAAA9EC00E6C7AD /* ParseFacebookUtilsV4.framework */; };
 		0F16D5861CAAA9EC00E6C7AD /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F16D5801CAAA9EC00E6C7AD /* ParseTwitterUtils.framework */; };
 		0F16D5871CAAA9EC00E6C7AD /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F16D5811CAAA9EC00E6C7AD /* ParseUI.framework */; };
+		0F16D5891CAABB1600E6C7AD /* cellguides.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F16D5881CAABB1600E6C7AD /* cellguides.png */; };
+		0F16D58B1CAACA7400E6C7AD /* dummyphoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F16D58A1CAACA7400E6C7AD /* dummyphoto.png */; };
 		0F2028181C7F55FD00AFC9AA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2028171C7F55FD00AFC9AA /* Data.swift */; };
 		0F2028191C7F55FD00AFC9AA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2028171C7F55FD00AFC9AA /* Data.swift */; };
 		0F20281E1C7F563F00AFC9AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20281D1C7F563F00AFC9AA /* Constants.swift */; };
@@ -47,6 +49,7 @@
 		373719CF1C7C1EEF001A21B0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D311C6E20D500482663 /* AudioToolbox.framework */; };
 		37621F2B1C8FE14C004DED9C /* BookmarksViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37621F291C8FE14C004DED9C /* BookmarksViewTests.swift */; };
 		37621F2C1C8FE14C004DED9C /* ListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37621F2A1C8FE14C004DED9C /* ListViewTests.swift */; };
+		377135191CB350D600FA5CD1 /* BookmarksBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377135181CB350D600FA5CD1 /* BookmarksBarViewController.swift */; };
 		37F0B4341C978C9B00DA821A /* TopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F0B4331C978C9B00DA821A /* TopBarViewController.swift */; };
 		37FE8D321C6E20D500482663 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D311C6E20D500482663 /* AudioToolbox.framework */; };
 		37FE8D341C6E20E400482663 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D331C6E20E400482663 /* CFNetwork.framework */; };
@@ -70,9 +73,6 @@
 		75F7C6311C8D1DF500FEF740 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6231C8D1DF500FEF740 /* backArrow.png */; };
 		75F7C6321C8D1DF500FEF740 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6231C8D1DF500FEF740 /* backArrow.png */; };
 		75F7C6331C8D1DF500FEF740 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6231C8D1DF500FEF740 /* backArrow.png */; };
-		75F7C6341C8D1DF500FEF740 /* churches.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6241C8D1DF500FEF740 /* churches.jpg */; };
-		75F7C6351C8D1DF500FEF740 /* churches.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6241C8D1DF500FEF740 /* churches.jpg */; };
-		75F7C6361C8D1DF500FEF740 /* churches.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6241C8D1DF500FEF740 /* churches.jpg */; };
 		75F7C6371C8D1DF500FEF740 /* clocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6251C8D1DF500FEF740 /* clocks.png */; };
 		75F7C6381C8D1DF500FEF740 /* clocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6251C8D1DF500FEF740 /* clocks.png */; };
 		75F7C6391C8D1DF500FEF740 /* clocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6251C8D1DF500FEF740 /* clocks.png */; };
@@ -141,6 +141,8 @@
 		0F16D57F1CAAA9EC00E6C7AD /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		0F16D5801CAAA9EC00E6C7AD /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		0F16D5811CAAA9EC00E6C7AD /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		0F16D5881CAABB1600E6C7AD /* cellguides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellguides.png; sourceTree = "<group>"; };
+		0F16D58A1CAACA7400E6C7AD /* dummyphoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummyphoto.png; sourceTree = "<group>"; };
 		0F2028171C7F55FD00AFC9AA /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		0F20281D1C7F563F00AFC9AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0F2028221C7F81AE00AFC9AA /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		3729A8661C8523B3000AF907 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		37621F291C8FE14C004DED9C /* BookmarksViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewTests.swift; sourceTree = "<group>"; };
 		37621F2A1C8FE14C004DED9C /* ListViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewTests.swift; sourceTree = "<group>"; };
+		377135181CB350D600FA5CD1 /* BookmarksBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksBarViewController.swift; sourceTree = "<group>"; };
 		37F0B4331C978C9B00DA821A /* TopBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarViewController.swift; sourceTree = "<group>"; };
 		37FE8D311C6E20D500482663 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37FE8D331C6E20E400482663 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -172,7 +175,6 @@
 		75F4D80D1C8FE474003B7E66 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		75F7C6221C8D1DF500FEF740 /* addressImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addressImage.png; sourceTree = "<group>"; };
 		75F7C6231C8D1DF500FEF740 /* backArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow.png; sourceTree = "<group>"; };
-		75F7C6241C8D1DF500FEF740 /* churches.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = churches.jpg; sourceTree = "<group>"; };
 		75F7C6251C8D1DF500FEF740 /* clocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clocks.png; sourceTree = "<group>"; };
 		75F7C6261C8D1DF500FEF740 /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
 		75F7C6271C8D1DF500FEF740 /* infoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoImage.png; sourceTree = "<group>"; };
@@ -261,14 +263,14 @@
 			children = (
 				0F20281D1C7F563F00AFC9AA /* Constants.swift */,
 				037F2EFA1C61000000E971DB /* Main.storyboard */,
-				0F20281F1C7F56A800AFC9AA /* Views */,
-				0F2028131C7F55CE00AFC9AA /* Class */,
+				26BEC0E01C94ECA900AB2AF2 /* churchAnnotation.swift */,
 				034E15FB1C7C9ED0004AD878 /* AppDelegate.swift */,
+				0F20281F1C7F56A800AFC9AA /* View */,
+				0F2028131C7F55CE00AFC9AA /* Model */,
+				75D436DF1C79181600F62108 /* Images */,
 				037F2EFF1C61000000E971DB /* LaunchScreen.xib */,
 				037F2EFD1C61000000E971DB /* Images.xcassets */,
-				75D436DF1C79181600F62108 /* Pictures */,
 				037F2EF21C61000000E971DB /* Supporting Files */,
-				26BEC0E01C94ECA900AB2AF2 /* churchAnnotation.swift */,
 			);
 			path = ChurchFinder;
 			sourceTree = "<group>";
@@ -299,16 +301,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0F2028131C7F55CE00AFC9AA /* Class */ = {
+		0F2028131C7F55CE00AFC9AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				037715BE1C85F00000303162 /* Church.swift */,
 				0F2028171C7F55FD00AFC9AA /* Data.swift */,
 			);
-			name = Class;
+			name = Model;
 			sourceTree = "<group>";
 		};
-		0F20281F1C7F56A800AFC9AA /* Views */ = {
+		0F20281F1C7F56A800AFC9AA /* View */ = {
 			isa = PBXGroup;
 			children = (
 				37F0B4331C978C9B00DA821A /* TopBarViewController.swift */,
@@ -318,10 +320,11 @@
 				034E15FF1C7C9F9D004AD878 /* MapViewController.swift */,
 				75D436DD1C79108800F62108 /* DetailedViewController.swift */,
 				037F2F161C6106A600E971DB /* ListViewController.swift */,
+				377135181CB350D600FA5CD1 /* BookmarksBarViewController.swift */,
 				3729A8661C8523B3000AF907 /* BookmarksViewController.swift */,
 				037F2F181C61087400E971DB /* ChurchListCell.swift */,
 			);
-			name = Views;
+			name = View;
 			sourceTree = "<group>";
 		};
 		37FE8D241C6E1F4600482663 /* Framework */ = {
@@ -347,14 +350,15 @@
 			name = Framework;
 			sourceTree = "<group>";
 		};
-		75D436DF1C79181600F62108 /* Pictures */ = {
+		75D436DF1C79181600F62108 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0F16D58A1CAACA7400E6C7AD /* dummyphoto.png */,
+				0F16D5881CAABB1600E6C7AD /* cellguides.png */,
 				26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */,
 				26BEC0DD1C94DFE400AB2AF2 /* bookmarkStarRed.png */,
 				75F7C6221C8D1DF500FEF740 /* addressImage.png */,
 				75F7C6231C8D1DF500FEF740 /* backArrow.png */,
-				75F7C6241C8D1DF500FEF740 /* churches.jpg */,
 				75F7C6251C8D1DF500FEF740 /* clocks.png */,
 				75F7C6261C8D1DF500FEF740 /* compass.png */,
 				75F7C6271C8D1DF500FEF740 /* infoImage.png */,
@@ -365,7 +369,7 @@
 				75F7C62C1C8D1DF500FEF740 /* websiteImage.png */,
 				75F7C62D1C8D1DF500FEF740 /* WX_circle_white.png */,
 			);
-			name = Pictures;
+			name = Images;
 			sourceTree = "<group>";
 		};
 		75EA09351C82271300EC90F2 /* ChurchFinderUITests */ = {
@@ -446,12 +450,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Michael Curtis";
 				TargetAttributes = {
 					037F2EEE1C61000000E971DB = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 74YMV2J9D7;
+						DevelopmentTeam = CJS762UTV4;
 					};
 					037F2F051C61000000E971DB = {
 						CreatedOnToolsVersion = 6.4;
@@ -488,12 +492,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75F7C6341C8D1DF500FEF740 /* churches.jpg in Resources */,
 				75F7C6311C8D1DF500FEF740 /* backArrow.png in Resources */,
 				75F7C62E1C8D1DF500FEF740 /* addressImage.png in Resources */,
 				75F7C64C1C8D1DF500FEF740 /* websiteImage.png in Resources */,
 				75F7C63D1C8D1DF500FEF740 /* infoImage.png in Resources */,
 				037F2EFC1C61000000E971DB /* Main.storyboard in Resources */,
+				0F16D58B1CAACA7400E6C7AD /* dummyphoto.png in Resources */,
 				75F7C6401C8D1DF500FEF740 /* music.png in Resources */,
 				75F7C6461C8D1DF500FEF740 /* star-512.png in Resources */,
 				75F7C63A1C8D1DF500FEF740 /* compass.png in Resources */,
@@ -504,6 +508,7 @@
 				75F7C6491C8D1DF500FEF740 /* star-xxl.png in Resources */,
 				037F2EFE1C61000000E971DB /* Images.xcassets in Resources */,
 				26BEC0DF1C94DFE400AB2AF2 /* bookmarkStarRed.png in Resources */,
+				0F16D5891CAABB1600E6C7AD /* cellguides.png in Resources */,
 				26BEC0DE1C94DFE400AB2AF2 /* bookmarkStarBlue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,7 +519,6 @@
 			files = (
 				75F7C6381C8D1DF500FEF740 /* clocks.png in Resources */,
 				75F7C6411C8D1DF500FEF740 /* music.png in Resources */,
-				75F7C6351C8D1DF500FEF740 /* churches.jpg in Resources */,
 				75F7C6321C8D1DF500FEF740 /* backArrow.png in Resources */,
 				75F7C63E1C8D1DF500FEF740 /* infoImage.png in Resources */,
 				75F7C62F1C8D1DF500FEF740 /* addressImage.png in Resources */,
@@ -533,7 +537,6 @@
 			files = (
 				75F7C6391C8D1DF500FEF740 /* clocks.png in Resources */,
 				75F7C6421C8D1DF500FEF740 /* music.png in Resources */,
-				75F7C6361C8D1DF500FEF740 /* churches.jpg in Resources */,
 				75F7C6331C8D1DF500FEF740 /* backArrow.png in Resources */,
 				75F7C63F1C8D1DF500FEF740 /* infoImage.png in Resources */,
 				75F7C6301C8D1DF500FEF740 /* addressImage.png in Resources */,
@@ -555,6 +558,7 @@
 			files = (
 				3729A8671C8523B3000AF907 /* BookmarksViewController.swift in Sources */,
 				75D436DE1C79108800F62108 /* DetailedViewController.swift in Sources */,
+				377135191CB350D600FA5CD1 /* BookmarksBarViewController.swift in Sources */,
 				034E16011C7C9F9D004AD878 /* FilterTableViewController.swift in Sources */,
 				26BEC0E11C94ECAA00AB2AF2 /* churchAnnotation.swift in Sources */,
 				03AB33DE1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift in Sources */,
@@ -733,7 +737,7 @@
 				INFOPLIST_FILE = ChurchFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gcc.edu.SeriousLlama;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.charliemathews.church-finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -758,7 +762,7 @@
 				INFOPLIST_FILE = ChurchFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gcc.edu.SeriousLlama;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.charliemathews.church-finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -780,6 +784,7 @@
 				);
 				INFOPLIST_FILE = ChurchFinderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "gcc.edu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChurchFinder.app/ChurchFinder";
 			};
@@ -796,6 +801,7 @@
 				);
 				INFOPLIST_FILE = ChurchFinderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "gcc.edu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChurchFinder.app/ChurchFinder";
 			};

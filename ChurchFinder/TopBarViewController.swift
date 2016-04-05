@@ -1,10 +1,9 @@
-//
-//  TopBarViewController.swift
-//  ChurchFinder
-//
-//  Created by Daniel Mitchell on 3/14/16.
-//  Copyright © 2016 Michael Curtis. All rights reserved.
-//
+/*
+Copyright 2016 Serious Llama and Grove City College. All rights reserved.
+
+Author: Dan Mitchell
+Created: 03/14/16
+*/
 
 import UIKit
 import MapKit
