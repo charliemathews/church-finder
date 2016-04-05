@@ -49,6 +49,7 @@
 		373719CF1C7C1EEF001A21B0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D311C6E20D500482663 /* AudioToolbox.framework */; };
 		37621F2B1C8FE14C004DED9C /* BookmarksViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37621F291C8FE14C004DED9C /* BookmarksViewTests.swift */; };
 		37621F2C1C8FE14C004DED9C /* ListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37621F2A1C8FE14C004DED9C /* ListViewTests.swift */; };
+		377135191CB350D600FA5CD1 /* BookmarksBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377135181CB350D600FA5CD1 /* BookmarksBarViewController.swift */; };
 		37F0B4341C978C9B00DA821A /* TopBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F0B4331C978C9B00DA821A /* TopBarViewController.swift */; };
 		37FE8D321C6E20D500482663 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D311C6E20D500482663 /* AudioToolbox.framework */; };
 		37FE8D341C6E20E400482663 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D331C6E20E400482663 /* CFNetwork.framework */; };
@@ -152,6 +153,7 @@
 		3729A8661C8523B3000AF907 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		37621F291C8FE14C004DED9C /* BookmarksViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewTests.swift; sourceTree = "<group>"; };
 		37621F2A1C8FE14C004DED9C /* ListViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewTests.swift; sourceTree = "<group>"; };
+		377135181CB350D600FA5CD1 /* BookmarksBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksBarViewController.swift; sourceTree = "<group>"; };
 		37F0B4331C978C9B00DA821A /* TopBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarViewController.swift; sourceTree = "<group>"; };
 		37FE8D311C6E20D500482663 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37FE8D331C6E20E400482663 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -318,6 +320,7 @@
 				034E15FF1C7C9F9D004AD878 /* MapViewController.swift */,
 				75D436DD1C79108800F62108 /* DetailedViewController.swift */,
 				037F2F161C6106A600E971DB /* ListViewController.swift */,
+				377135181CB350D600FA5CD1 /* BookmarksBarViewController.swift */,
 				3729A8661C8523B3000AF907 /* BookmarksViewController.swift */,
 				037F2F181C61087400E971DB /* ChurchListCell.swift */,
 			);
@@ -555,6 +558,7 @@
 			files = (
 				3729A8671C8523B3000AF907 /* BookmarksViewController.swift in Sources */,
 				75D436DE1C79108800F62108 /* DetailedViewController.swift in Sources */,
+				377135191CB350D600FA5CD1 /* BookmarksBarViewController.swift in Sources */,
 				034E16011C7C9F9D004AD878 /* FilterTableViewController.swift in Sources */,
 				26BEC0E11C94ECAA00AB2AF2 /* churchAnnotation.swift in Sources */,
 				03AB33DE1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift in Sources */,

@@ -59,6 +59,17 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
         }
     }
     
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let item = data.bookmarks[sourceIndexPath.row]
+        data.bookmarks.removeAtIndex(sourceIndexPath.row)
+        data.bookmarks.insert(item, atIndex: destinationIndexPath.row)
+        data.writeBookmarkOrder()
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "bookmarksToDetailed") {

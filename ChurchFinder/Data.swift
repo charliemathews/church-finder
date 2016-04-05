@@ -56,6 +56,7 @@ final class Data {
         church.desc     = f["description"]  as! String
         church.url      = f["url"]          as! String
         church.img      = f["banner"]       as? PFFile
+        church.object   = f
      
         return church
     }
@@ -201,6 +202,7 @@ final class Data {
         
         bookmarks.append(addedChurch)
         addedChurch.object!.pinInBackground()
+        writeBookmarkOrder()
     }
     
     func removeBookmark(let bookmarkIndex : Int) {
@@ -209,6 +211,7 @@ final class Data {
             remove.object!.unpinInBackground()
             bookmarks.removeAtIndex(bookmarkIndex)
         }
+        writeBookmarkOrder()
     }
     
     func removeBookmark(bookmarkedChurch: Church) {
@@ -235,27 +238,53 @@ final class Data {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
-                
-                for f in objects! {
-                    let church : Church = self.churchFromObject(f)
-                    
-                    for b in self.bookmarks {
-                        if (b.object!.objectId == f.objectId) { return }
+                //Grab bookmark list file
+                let path = (NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent("Bookmarks.list")
+                var order : [String] = []
+                if NSFileManager.defaultManager().fileExistsAtPath(path) {
+                    var csv : String? = nil
+                    do {
+                        csv = try String(contentsOfFile: path)
+                        order = csv!.componentsSeparatedByString(",")
+                    } catch {
+                        return
                     }
-                    
-                    /*
-                    NSOperationQueue.mainQueue().addOperationWithBlock({
-                        NSLog(f.objectId!)
-                    })
-                    */
-                    
-                    church.object   = f
-                    self.bookmarks.append(church)
                 }
                 
+                //Get Bookmarks
+                var bookm : [Church] = []
+                for f in objects! {
+                    let church : Church = self.churchFromObject(f)
+                    bookm.append(church)
+                }
+                
+                //Set Order
+                for s in order {
+                    for b in bookm {
+                        if s == b.id {
+                            self.bookmarks.append(b)
+                        }
+                    }
+                }
             } else {
                 print("Error: \(error!) \(error!.userInfo)")
             }
+        }
+    }
+    
+    func writeBookmarkOrder() {
+        var csv : String = ""
+        for b in bookmarks {
+            csv.appendContentsOf(b.id + ",")
+        }
+        csv.removeAtIndex(csv.endIndex.predecessor())
+        
+        let path = (NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent("Bookmarks.list")
+        
+        do {
+            try csv.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding)
+        } catch {
+            NSLog("File could not be written")
         }
     }
 }

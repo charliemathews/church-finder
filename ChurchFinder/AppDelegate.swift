@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         Parse.setApplicationId("OTXY6dM8ChkriarqrX4SPi2e2Def9v1EM0VVNoOW", clientKey: "5I1Iky8vY7hheR7X9QAejEbXaw96UMFBYGzVr4h3")
         
-        Data.sharedInstance.pullBookmarks()
-        
         return true
     }
 
