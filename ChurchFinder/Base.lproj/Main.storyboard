@@ -49,13 +49,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iy-fd-0Wz">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <connections>
-                                    <segue destination="vEF-9B-AbD" kind="embed" id="RTw-ms-wXq"/>
+                                    <segue destination="vEF-9B-AbD" kind="embed" identifier="listViewSegue" id="RTw-ms-wXq"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INw-nC-XR1">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <connections>
-                                    <segue destination="hel-lN-dXH" kind="embed" id="6OO-nv-t3D"/>
+                                    <segue destination="hel-lN-dXH" kind="embed" identifier="mapViewSegue" id="6OO-nv-t3D"/>
                                 </connections>
                             </containerView>
                         </subviews>

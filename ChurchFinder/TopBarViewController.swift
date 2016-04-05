@@ -17,7 +17,10 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
     @IBOutlet weak var screenSwitcher: UISegmentedControl!
     @IBOutlet weak var listViewContainer: UIView!
     @IBOutlet weak var mapViewContainer: UIView!
-
+    
+    var mapViewController: MapViewController!
+    var listViewController: ListViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,8 +32,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
         data.locationManager.requestWhenInUseAuthorization()
         data.locationManager.startUpdatingLocation()
         
-        //Pull first data
-        //data.pullResults(Constants.Defaults.get())
+        data.pullResults(Constants.Defaults.get(), sender: self)
         
         //Initialize params variable
         params["denoms"] = ""
@@ -67,6 +69,12 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
         if(segue.identifier == "filterViewSegue") {
             let child = segue.destinationViewController as! FilterTableViewController
             child.delegate = self
+        }
+        else if(segue.identifier == "mapViewSegue"){
+            mapViewController = segue.destinationViewController as! MapViewController
+        }
+        else if(segue.identifier == "listViewSegue"){
+            listViewController = segue.destinationViewController as! ListViewController
         }
     }
     

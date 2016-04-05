@@ -182,12 +182,13 @@ final class Data {
         }
     
     }
-    func pullResults(var params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce, sender: AnyObject    ) -> Bool {
+    func pullResults(let params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce, sender: TopBarViewController    ) -> Bool {
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             self.pullResultsHelper(params, s: s, n: n)
             dispatch_async(dispatch_get_main_queue()) {
-                sender.loadView()
+                sender.listViewController.view.setNeedsDisplay()
+                sender.mapViewController.view.setNeedsDisplay()
             }
         }
         return true

@@ -19,7 +19,7 @@ class ListViewController: UITableViewController, detailedViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        data.pullResults(Constants.Defaults.get(), sender: self)
+        
         
         
         //MAY NEED CHANGING?

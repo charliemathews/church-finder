@@ -25,6 +25,7 @@ class FilterTableViewController: UITableViewController, specificFilterViewContro
     var check: Int!
     var current = 0
     var curInd: NSIndexPath!
+
     
     @IBAction func clearFilters(sender: AnyObject) {
         viewDidLoad()
@@ -64,6 +65,7 @@ class FilterTableViewController: UITableViewController, specificFilterViewContro
             dest.pickerName = selectedFilter
             dest.pickerValues = mapIndexToPickerValues(selectedFilterRow)
         }
+
      }
     func doneWithSpecificFilter(child: SpecificFilterSelectViewController){
         //???
