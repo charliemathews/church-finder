@@ -25,6 +25,7 @@ class SpecificFilterSelectViewController: UIViewController, UIPickerViewDelegate
         filterLabel.text = "Filter " + pickerName
         filterPicker.delegate = self
         filterPicker.dataSource = self
+         selectedPickerValue = pickerValues[0]
     }
     
     @IBAction func done(sender: AnyObject) {
@@ -32,6 +33,9 @@ class SpecificFilterSelectViewController: UIViewController, UIPickerViewDelegate
     }
     // The number of columns of data
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        if(pickerName == "times"){
+            return 2
+        }
         return 1
     }
     

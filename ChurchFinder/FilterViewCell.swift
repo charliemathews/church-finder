@@ -21,13 +21,13 @@ class FilterViewCell: UITableViewCell  {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        //self.view.bringSubviewToFront(view)
+        self.view.bringSubviewToFront(view)
     }
     func initialize(lT: String, pL: [String]){
         labelText = lT
         pickerLabels = pL
         filterCategoryLabel.text = labelText
-
+        selectedFilterLabel.text = "None"
     }
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

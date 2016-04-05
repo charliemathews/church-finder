@@ -70,6 +70,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
         if(segue.identifier == "filterViewSegue") {
             let child = segue.destinationViewController as! FilterTableViewController
             child.delegate = self
+            
         }
         else if(segue.identifier == "mapViewSegue"){
             mapViewController = segue.destinationViewController as! MapViewController

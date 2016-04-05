@@ -43,7 +43,7 @@ class FilterTableViewController: UITableViewController, specificFilterViewContro
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        data
+       
     }
     func mapIndexToPickerValues(index: Int) -> [String]{
         switch (index){
@@ -75,6 +75,7 @@ class FilterTableViewController: UITableViewController, specificFilterViewContro
         let currentCell = tableView.cellForRowAtIndexPath(curInd) as! FilterViewCell
         currentCell.selectedFilterLabel!.text = child.selectedPickerValue
         currentCell.selectedFilterLabel.bringSubviewToFront(currentCell.selectedFilterLabel)
+        currentCell.filterCategoryLabel.bringSubviewToFront(currentCell.filterCategoryLabel)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -106,23 +107,28 @@ class FilterTableViewController: UITableViewController, specificFilterViewContro
     //in the church class is.
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> FilterViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tblCell", forIndexPath: indexPath) as! FilterViewCell
-        cell.textLabel?.text = labels[indexPath.row]
+        cell.filterCategoryLabel.text = labels[indexPath.row]
+        
         switch (indexPath.row){
             case 0:
                 cell.pickerLabels = denoms
                 cell.cellName = "denoms"
+                cell.selectedFilterLabel.text = params["denoms"] as? String
                 break
             case 1:
                 cell.pickerLabels = worshipStyles
                 cell.cellName = "style"
+                cell.selectedFilterLabel.text = params["style"] as? String
                 break
             case 2:
                 cell.pickerLabels = sizes
                 cell.cellName = "size"
+                cell.selectedFilterLabel.text = params["size"] as? String
                 break
             case 3:
                 cell.pickerLabels = times
                 cell.cellName = "times"
+                cell.selectedFilterLabel.text = params["times"] as? String
                 break
             default: break
         }
