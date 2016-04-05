@@ -187,8 +187,10 @@ final class Data {
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             self.pullResultsHelper(params, s: s, n: n)
             dispatch_async(dispatch_get_main_queue()) {
-                sender.listViewController.view.setNeedsDisplay()
-                sender.mapViewController.view.setNeedsDisplay()
+                sender.mapViewController.loadView()
+                sender.mapViewController.outputChurchResultsToMap()
+                sender.listViewController.loadView()
+                
             }
         }
         return true

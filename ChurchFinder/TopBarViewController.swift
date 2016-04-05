@@ -39,6 +39,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
         params["style"] = ""
         params["size"] = ""
         params["times"] = ""
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +76,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
         }
         else if(segue.identifier == "listViewSegue"){
             listViewController = segue.destinationViewController as! ListViewController
+            
         }
     }
     
