@@ -124,7 +124,7 @@ final class Data {
         
     
         // if individual parameters were requested apply them to query
-        if let denom = params["denomination"] as? String {
+        if let denom = params["denoms"] as? String {
             query.whereKey("denomination", containsString: denom)
         }
         
