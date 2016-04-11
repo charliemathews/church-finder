@@ -65,11 +65,9 @@ class BookmarksViewTests: XCTestCase {
     }
     
     func testEditButton() {
-        
+        XCUIApplication().navigationBars["Bookmarks"].buttons["Edit"].tap()
+        waitForElementToAppear(XCUIApplication().navigationBars["Bookmarks"].buttons["Done"])
+        XCUIApplication().navigationBars["Bookmarks"].buttons["Done"].tap()
+        waitForElementToAppear(XCUIApplication().navigationBars["Bookmarks"].buttons["Edit"])
     }
-    
-    func testMoveingTable() {
-        
-    }
-    
 }

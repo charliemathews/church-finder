@@ -46,6 +46,13 @@ class MapViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
+    func testMapPins() {
+        XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).matchingIdentifier("Grace United Methodist Church, SUN 10:00, SAT 18:00").elementBoundByIndex(0).tap()
+    }
+    
+    func testMapPinDisclosure() {
+        
+    }
     
     func testSearchBarSearchButtonClicked_CaseNothingFound() {
         
@@ -57,8 +64,6 @@ class MapViewControllerTests: XCTestCase {
         
         waitForElementToAppear(app.alerts.collectionViews.buttons["Dismiss"])
         app.alerts.collectionViews.buttons["Dismiss"].tap()
-        
-        
     }
     
     func testSearchBarSearchButtonClicked_PlaceFound() {
@@ -71,13 +76,6 @@ class MapViewControllerTests: XCTestCase {
         app.typeText("\r")
         waitForElementToAppear(app.otherElements["Map pin"])
         app.otherElements["Map pin"].tap()
-        
-        
-    }
-    
-    func testMapPins() {
-        
-        
     }
     
 }
