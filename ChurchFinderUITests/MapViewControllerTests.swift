@@ -1,3 +1,4 @@
+
 //
 //  MapViewControllerTests.swift
 //  ChurchFinder
@@ -12,8 +13,7 @@ import XCTest
 
 class MapViewControllerTests: XCTestCase {
     //http://masilotti.com/xctest-helpers/
-    private func waitForElementToAppear(element: XCUIElement,
-        file: String = __FILE__, line: UInt = __LINE__) {
+    private func waitForElementToAppear(element: XCUIElement, file: String = #file, line: UInt = #line) {
             let existsPredicate = NSPredicate(format: "exists == true")
             expectationForPredicate(existsPredicate,
                 evaluatedWithObject: element, handler: nil)
@@ -71,6 +71,11 @@ class MapViewControllerTests: XCTestCase {
         app.typeText("\r")
         waitForElementToAppear(app.otherElements["Map pin"])
         app.otherElements["Map pin"].tap()
+        
+        
+    }
+    
+    func testMapPins() {
         
         
     }

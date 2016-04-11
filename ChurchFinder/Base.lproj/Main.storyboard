@@ -554,7 +554,7 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="23r-45-hOl" customClass="PFImageView">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
                                         </imageView>
-                                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7i-wi-ZOe" userLabel="Grey Alpha">
+                                        <view alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u7i-wi-ZOe" userLabel="Grey Alpha">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
@@ -638,7 +638,23 @@
                                         <constraint firstItem="u7i-wi-ZOe" firstAttribute="top" secondItem="tCF-vv-T6L" secondAttribute="top" id="w33-LU-jTS"/>
                                         <constraint firstItem="3tS-yT-HzN" firstAttribute="top" secondItem="Cvj-x0-Zv2" secondAttribute="bottom" id="yED-j5-Bha"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="r8b-pV-IXG"/>
+                                            <exclude reference="tlE-uw-mL8"/>
+                                            <exclude reference="v1K-1Q-8s3"/>
+                                            <exclude reference="Ddo-lD-x7C"/>
+                                            <exclude reference="MUa-yL-2lu"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="23r-45-hOl" firstAttribute="top" secondItem="j5K-6m-VSy" secondAttribute="top" id="1Tn-2u-jwi"/>
+                                    <constraint firstItem="23r-45-hOl" firstAttribute="leading" secondItem="j5K-6m-VSy" secondAttribute="leading" id="bJg-Wf-95A"/>
+                                    <constraint firstAttribute="bottom" secondItem="23r-45-hOl" secondAttribute="bottom" id="joH-bH-xCo"/>
+                                    <constraint firstItem="23r-45-hOl" firstAttribute="centerX" secondItem="j5K-6m-VSy" secondAttribute="centerX" id="lTz-2s-it5"/>
+                                    <constraint firstAttribute="trailing" secondItem="23r-45-hOl" secondAttribute="trailing" id="wFA-j0-KUN"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="ChurchName" destination="IDT-MT-1Wu" id="HY9-Lg-L6A"/>
                                     <outlet property="churchImage" destination="23r-45-hOl" id="JVE-Ir-6qq"/>
