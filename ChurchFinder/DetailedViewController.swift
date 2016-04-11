@@ -75,32 +75,34 @@ class DetailedViewController: UIViewController {
         }
         
         
+        /*
         //Website setup
-        let tap = UITapGestureRecognizer(target: self, action: Selector("openChurchWebsite"))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DetailedViewController.openChurchWebsite))
         
         websiteLinkLabel.userInteractionEnabled = true
         websiteLinkLabel.addGestureRecognizer(tap)
         
-        let tapL = UITapGestureRecognizer(target: self, action: Selector("openChurchWebsite"))
+        let tapL = UITapGestureRecognizer(target: self, action: #selector(DetailedViewController.openChurchWebsite))
         websiteIcon.userInteractionEnabled = true
         websiteIcon.addGestureRecognizer(tapL)
         
         //share button setup
-        let tapShare = UITapGestureRecognizer(target: self,action:Selector("share"))
+        let tapShare = UITapGestureRecognizer(target: self,action:#selector(DetailedViewController.share))
         shareImage.addGestureRecognizer(tapShare)
         shareImage.userInteractionEnabled = true
         
-        let tapShareL = UITapGestureRecognizer(target: self,action:Selector("share"))
+        let tapShareL = UITapGestureRecognizer(target: self,action:#selector(DetailedViewController.share))
         shareLabel.addGestureRecognizer(tapShareL)
         shareLabel.userInteractionEnabled = true
         
         //directions button setup
-        let tapDir = UITapGestureRecognizer(target: self,action:Selector("getDirections"))
+        let tapDir = UITapGestureRecognizer(target: self,action:#selector(DetailedViewController.getDirections))
         directionsImage.addGestureRecognizer(tapDir)
         directionsImage.userInteractionEnabled = true
-        let tapDirL = UITapGestureRecognizer(target: self,action:Selector("getDirections"))
+        let tapDirL = UITapGestureRecognizer(target: self,action:#selector(DetailedViewController.getDirections))
         directionsLabel.addGestureRecognizer(tapDirL)
         directionsLabel.userInteractionEnabled = true
+        */
         
         //map initialization
         let initialLocation = CLLocation(latitude: church.location.latitude, longitude: church.location.longitude)

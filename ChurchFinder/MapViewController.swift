@@ -35,7 +35,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
     
     func outputChurchResultsToMap() -> Bool {
         if(data.results.count == 0) {
-            NSLog("no results?")
             return false
         }
         let anotView = MKAnnotationView()

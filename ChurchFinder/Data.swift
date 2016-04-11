@@ -18,28 +18,39 @@ This class is a singleton designed to persist behind the scenes between all view
 import Foundation
 import Parse
 
-final class Data {
+final class Data : NSObject {
     
     static let sharedInstance = Data()
-    
-    let defaultRadius = 20
+
     var radius : Int
     
+    dynamic var success : Bool = false
     var results : [Church] = []
     var bookmarks : [Church] = []
     
-    let locationManager = CLLocationManager()
+    var filterTypes : Dictionary<String, String> = ["denomination":"Denomination", "style":"Worship Style", "size":"Congregation Size"]
+    var filterData : Dictionary<String, [AnyObject]> = [:]
     
-    var currentParameters : [String:AnyObject] = [:]
+    var currentParameters : Dictionary<String,AnyObject>
     var currentStart = 0
     var currentLimit = 0
     
     /*
     Private init is used here so that a second instance cannot be created.
     */
-    private init() {
-        radius = defaultRadius
+    private override init() {
+        radius = Constants.Defaults.Radius
+        currentParameters = Constants.Defaults.get()
+        
+        super.init()
+        
         pullBookmarks()
+        
+        NSOperationQueue.mainQueue().addOperationWithBlock({
+            for (type, _) in self.filterTypes {
+                self.filterData[type] = self.getMeta(type)
+            }
+        })
     }
     
     func churchFromObject(f: PFObject) -> Church {
@@ -78,13 +89,27 @@ final class Data {
             try found = query.findObjects()
         }
         catch {
-            options.append("No results.")
+            options.append("No meta data found.")
             return options // alternative to checking each input to see if it's valid
         }
         
+        options.append("Any")
+        
         for f in found {
-            if(!options.contains(f[type] as! String)) {
-                options.append(f[type] as! String)
+            if(type == "size") {
+                let meta = f[type] as! Int
+                
+                if(!options.contains(String(meta))) {
+                    options.append(String(meta))
+                }
+            
+            } else {
+                let meta = f[type] as! String
+                
+                if(!options.contains(meta)) {
+                    options.append(meta)
+                }
+                
             }
         }
         
@@ -99,9 +124,13 @@ final class Data {
     TODO: find a way to show churches of a similar size once the closest results have been exhausted
     TODO: increase radius of search if results < limit, by 5 miles, up to 50
     */
-    func pullResultsHelper(var params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
+    func pullResults(params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
+            
+    // setup
+        success = false
         let query = PFQuery(className: Constants.Parse.ChurchClass)
-        // no parameters passed in, prior query exists
+        
+    // no parameters passed in, prior query exists
         if(params.count == 0 && results.count > 0) {
             if(results.count == currentLimit) {                             // if we got a full set a results last time
                 query.skip = currentStart + currentLimit                    // skip to the end of our last result set
@@ -111,29 +140,36 @@ final class Data {
             }
         }
             
-            // no parameters passed in, no prior query
+    // no parameters passed in, no prior query
         else if(params.count == 0 && results.count == 0) {
             return false
         }
             
-            // parameters were passed in, results.count also == 0 here but it's implied
+    // parameters were passed in, results.count also == 0 here but it's implied
         else {
+            clear()
             query.skip = s
             query.limit = n
         }
         
     
-        // if individual parameters were requested apply them to query
-        if let denom = params["denoms"] as? String {
-            query.whereKey("denomination", containsString: denom)
+    // if individual parameters were requested apply them to query
+        if let denom = params["denomination"] as? String {
+            if(denom != "Any") {
+                query.whereKey("denomination", containsString: denom)
+            }
         }
         
         if let style = params["style"] as? String {
-            query.whereKey("style", containsString: style)
+            if(style != "Any") {
+                query.whereKey("style", containsString: style)
+            }
         }
         
-        if let size = params["size"] as? Int {
-            query.whereKey("size", equalTo: size)
+        if let size = params["size"] as? String {
+            if(size != "Any") {
+                query.whereKey("size", equalTo: String(size))
+            }
         }
         
         if let loc = params["loc"] as? PFGeoPoint {
@@ -143,9 +179,8 @@ final class Data {
             query.whereKey("loc", nearGeoPoint: PFGeoPoint(latitude: Constants.Defaults.Lat, longitude: Constants.Defaults.Lon), withinMiles: 20.0)
         }
         
-        
+    // check that we received results
         var found : [PFObject]
-        
         do {
             try found = query.findObjects()
         }
@@ -153,8 +188,8 @@ final class Data {
             return false
         }
         
+    // create results array
         results = []
-        
         for f in found {
             let church : Church = churchFromObject(f)
             church.object   = f                              // <-- need to eliminate this...
@@ -171,30 +206,26 @@ final class Data {
         //         set results = query.results
         
         if(results.count > 0) {
+            NSLog("We found churches in the parse database.")
+            
+            success = true
+            
             if(params.count > 0) {
                 self.currentParameters = params
             }
+            
             currentStart = query.skip
             currentLimit = query.limit
+            
             return true
+            
         } else {
+            NSLog("No results were found in the parse database or there was an error.")
             return false
         }
     
     }
-    func pullResults(let params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce, sender: TopBarViewController    ) -> Bool {
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            self.pullResultsHelper(params, s: s, n: n)
-            dispatch_async(dispatch_get_main_queue()) {
-                sender.mapViewController.loadView()
-                sender.mapViewController.outputChurchResultsToMap()
-                sender.listViewController.loadView()
-                
-            }
-        }
-        return true
-    }
+        
     func clear() {
         results = []
         currentParameters = [:]

@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import Parse
 
-class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterResultsDelegate, UISearchBarDelegate {
+class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
     
     var location : PFGeoPoint?
     var searchController:UISearchController!
@@ -21,25 +21,19 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
     var mapViewController: MapViewController!
     var listViewController: ListViewController!
     
+    let manager = CLLocationManager()
+    var p = Constants.Defaults.get()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-        //Start Location Services
-        data.locationManager.delegate = self
-        data.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        data.locationManager.requestWhenInUseAuthorization()
-        data.locationManager.startUpdatingLocation()
+        //Request user location
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        //manager.requestLocation()
         
-        data.pullResults(Constants.Defaults.get(), sender: self)
-        
-        //Initialize params variable
-        params["denoms"] = ""
-        params["style"] = ""
-        params["size"] = ""
-        params["times"] = ""
-       
+        data.pullResults(p)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,16 +43,21 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
     
     //MARK: Location services
     
-    func locationManager(manager:CLLocationManager,didUpdateLocations locations: [CLLocation]) {
-        location = PFGeoPoint(location: locations.last)
-        manager.stopUpdatingLocation()
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        //Data.sharedInstance.pullResults(Constants.Defaults.get(), sender: self)
-        //table.reloadData()
+        
+        if let location = locations.first {
+            NSLog("Found user's location: \(location)")
+            
+            p["loc"] = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            print(p)
+            //data.pullResults(p)
+            
+        }
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError){
-        print("Errors: " + error.localizedDescription)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        NSLog("Failed to find user's location: \(error.localizedDescription)")
     }
     
     // MARK: - Navigation
@@ -68,8 +67,8 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if(segue.identifier == "filterViewSegue") {
-            let child = segue.destinationViewController as! FilterTableViewController
-            child.delegate = self
+            let child = segue.destinationViewController as! FiltersViewController
+            //child.delegate = self
             
         }
         else if(segue.identifier == "mapViewSegue"){
@@ -81,9 +80,9 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, filterR
         }
     }
     
-    func doneWithFilters(child: FilterTableViewController){
-        data.pullResults(params, sender: self)
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneWithFilters(segue: UIStoryboardSegue){
+        //data.pullResults(params)
+        //dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func switchScreens(sender: AnyObject) {

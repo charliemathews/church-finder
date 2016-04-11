@@ -8,7 +8,7 @@ import UIKit
 import MapKit
 import Parse
 
-class ListViewController: UITableViewController, detailedViewDelegate {
+class ListViewController: UITableViewController {
     
     let churchCellIdentifier = "ChurchListCell"
     @IBOutlet var table: UITableView!
@@ -16,13 +16,12 @@ class ListViewController: UITableViewController, detailedViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadObservers()
+        //data.pullResults(Constants.Defaults.get())
     }
     
     override func viewDidAppear(animated: Bool) {
         
-        
-        
-        //MAY NEED CHANGING?
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,11 +29,7 @@ class ListViewController: UITableViewController, detailedViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table view data source
-    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
     
@@ -45,7 +40,6 @@ class ListViewController: UITableViewController, detailedViewDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ChurchListCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ChurchListCell", forIndexPath: indexPath) as! ChurchListCell
         
-        // Configure the cell...
         cell.setCellInfo(indexPath)
         
         return cell
@@ -80,46 +74,35 @@ class ListViewController: UITableViewController, detailedViewDelegate {
             self.setEditing(false, animated: true)
         })
         
-        // 3
         bookmark.backgroundColor = UIColor(patternImage:bookmarkImage)
         
-        
-        //let newBookMarkImage = resizeImage(bookmarkImage, newWidth: 118)
-        
-        //bookmark.backgroundColor = UIColor(patternImage: newBookMarkImage)
-        
-        // 5
         return [bookmark]
     }
-    
-    /*
-    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
-        
-        let scale = newWidth / image.size.width
-        let newHeight = image.size.height * scale
-        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
-        image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage
-    }*/
-    
-    //MARK: Segue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "listToDetailed") {
             
             let dest = segue.destinationViewController as! DetailedViewController
-            
             dest.church = data.results[current]
         }
     }
-    func done(vc: DetailedViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    
+    func loadObservers() {
+        data.addObserver(self, forKeyPath: "results", options: Constants.KVO_Options, context: nil)
     }
-    @IBAction func cancel(segue :UIStoryboardSegue) {
-        NSLog("Got rid of him.")
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        NSLog("Value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        
+        if(keyPath == "results") {
+            table.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+        
+    }
+    
+    deinit {
+        data.removeObserver(self, forKeyPath: "results", context: nil)
     }
 }
