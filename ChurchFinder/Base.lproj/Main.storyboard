@@ -210,6 +210,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Table" destination="pEo-lN-CWE" id="vyQ-S0-DHE"/>
+                        <outlet property="table" destination="pEo-lN-CWE" id="mYd-9q-0vl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhf-mM-2JU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -757,34 +758,34 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="filterCell" rowHeight="39" id="4Xr-Pz-DZl" customClass="FilterViewCell" customModule="ChurchFinder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="113.5" width="600" height="39"/>
+                                <rect key="frame" x="0.0" y="114" width="600" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Xr-Pz-DZl" id="JuW-5C-Y0Z">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="39"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{filter name}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAG-Ik-u8R">
-                                            <rect key="frame" x="8" y="9" width="235" height="21"/>
+                                            <rect key="frame" x="8" y="9" width="202" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="235" id="KR8-3Y-JYy"/>
+                                                <constraint firstAttribute="width" constant="202" id="Fjc-Xc-rw4"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{selected value}" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUB-1j-jAY">
-                                            <rect key="frame" x="251" y="9" width="308" height="21"/>
+                                            <rect key="frame" x="212" y="9" width="347" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="EAG-Ik-u8R" firstAttribute="leading" secondItem="JuW-5C-Y0Z" secondAttribute="leadingMargin" id="9kG-J8-fmp"/>
-                                        <constraint firstItem="EAG-Ik-u8R" firstAttribute="centerY" secondItem="JuW-5C-Y0Z" secondAttribute="centerY" id="LCo-Nr-gmj"/>
-                                        <constraint firstItem="EAG-Ik-u8R" firstAttribute="baseline" secondItem="oUB-1j-jAY" secondAttribute="baseline" id="Lrx-1R-Ud0"/>
-                                        <constraint firstItem="oUB-1j-jAY" firstAttribute="trailing" secondItem="JuW-5C-Y0Z" secondAttribute="trailingMargin" id="uDK-xG-fEo"/>
-                                        <constraint firstItem="oUB-1j-jAY" firstAttribute="leading" secondItem="EAG-Ik-u8R" secondAttribute="trailing" constant="8" symbolic="YES" id="uea-PW-Dcj"/>
+                                        <constraint firstItem="EAG-Ik-u8R" firstAttribute="centerY" secondItem="JuW-5C-Y0Z" secondAttribute="centerY" id="0EB-Gp-Pbn"/>
+                                        <constraint firstItem="EAG-Ik-u8R" firstAttribute="baseline" secondItem="oUB-1j-jAY" secondAttribute="baseline" id="Aar-dn-F4i"/>
+                                        <constraint firstItem="oUB-1j-jAY" firstAttribute="trailing" secondItem="JuW-5C-Y0Z" secondAttribute="trailingMargin" id="Awu-1q-EKU"/>
+                                        <constraint firstItem="EAG-Ik-u8R" firstAttribute="leading" secondItem="JuW-5C-Y0Z" secondAttribute="leadingMargin" id="Unj-Op-lXD"/>
+                                        <constraint firstItem="oUB-1j-jAY" firstAttribute="leading" secondItem="EAG-Ik-u8R" secondAttribute="trailing" constant="2" id="pjM-Tz-RyP"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="tblCell"/>
@@ -808,10 +809,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Clear" id="On9-rq-7rk">
                             <color key="tintColor" red="1" green="0.074743433492410416" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="clearAll:" destination="vO3-2u-4cJ" id="2EV-e4-yEi"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="table" destination="llb-UL-4jT" id="tVR-MD-bFa"/>
                         <segue destination="P1I-pz-I5q" kind="showDetail" identifier="listFilterSegue" id="SCg-rY-MMc"/>
                     </connections>
                 </tableViewController>
@@ -820,10 +825,10 @@
             </objects>
             <point key="canvasLocation" x="2060" y="266"/>
         </scene>
-        <!--View Controller-->
+        <!--Filter By List Controller-->
         <scene sceneID="FFV-Gj-KWi">
             <objects>
-                <viewController id="P1I-pz-I5q" sceneMemberID="viewController">
+                <viewController id="P1I-pz-I5q" customClass="FilterByListController" customModule="ChurchFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4bm-ya-rr2"/>
                         <viewControllerLayoutGuide type="bottom" id="Qhk-LZ-i6n"/>
@@ -832,17 +837,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deg-Iw-UZ7">
-                                <rect key="frame" x="0.0" y="21" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="{filter name}" id="213-aI-mgL"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="34" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmR-RT-E03">
-                                <rect key="frame" x="0.0" y="65" width="600" height="535"/>
+                                <rect key="frame" x="0.0" y="95" width="600" height="505"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="34" id="Ipg-OJ-KKY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="list_cell" rowHeight="34" id="Ipg-OJ-KKY" customClass="FilterListCell" customModule="ChurchFinder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="34"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ipg-OJ-KKY" id="s6m-df-gVa">
@@ -864,23 +863,38 @@
                                                 <constraint firstItem="SP1-7i-qhG" firstAttribute="leading" secondItem="s6m-df-gVa" secondAttribute="leadingMargin" id="WzK-WJ-VoY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="data_value" destination="SP1-7i-qhG" id="Ysr-ns-Stg"/>
+                                            <segue destination="gi2-K1-hP9" kind="unwind" unwindAction="doneWithList:" id="ydV-1a-Kia"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deg-Iw-UZ7">
+                                <rect key="frame" x="0.0" y="21" width="600" height="74"/>
+                                <items>
+                                    <navigationItem title="{filter name}" prompt="Please select one." id="213-aI-mgL"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="deg-Iw-UZ7" firstAttribute="trailing" secondItem="jmR-RT-E03" secondAttribute="trailing" id="45N-CT-Egn"/>
-                            <constraint firstItem="deg-Iw-UZ7" firstAttribute="top" secondItem="4bm-ya-rr2" secondAttribute="bottom" constant="1" id="da7-w8-Pe0"/>
-                            <constraint firstItem="deg-Iw-UZ7" firstAttribute="leading" secondItem="jmR-RT-E03" secondAttribute="leading" id="dpC-MW-pp7"/>
-                            <constraint firstItem="jmR-RT-E03" firstAttribute="bottom" secondItem="Qhk-LZ-i6n" secondAttribute="top" id="fQo-df-v8C"/>
-                            <constraint firstAttribute="trailing" secondItem="deg-Iw-UZ7" secondAttribute="trailing" id="hHc-OV-14i"/>
-                            <constraint firstItem="jmR-RT-E03" firstAttribute="top" secondItem="deg-Iw-UZ7" secondAttribute="bottom" id="oaY-fo-05a"/>
-                            <constraint firstItem="deg-Iw-UZ7" firstAttribute="leading" secondItem="HuA-qE-T5C" secondAttribute="leading" id="p8a-w0-itD"/>
+                            <constraint firstItem="jmR-RT-E03" firstAttribute="bottom" secondItem="Qhk-LZ-i6n" secondAttribute="top" id="3fN-9w-YQ9"/>
+                            <constraint firstItem="deg-Iw-UZ7" firstAttribute="leading" secondItem="HuA-qE-T5C" secondAttribute="leading" id="3vp-sz-tiY"/>
+                            <constraint firstItem="jmR-RT-E03" firstAttribute="top" secondItem="deg-Iw-UZ7" secondAttribute="bottom" id="9yX-6w-gwf"/>
+                            <constraint firstAttribute="trailing" secondItem="deg-Iw-UZ7" secondAttribute="trailing" id="NDI-pM-YeL"/>
+                            <constraint firstItem="deg-Iw-UZ7" firstAttribute="top" secondItem="4bm-ya-rr2" secondAttribute="bottom" constant="1" id="hsy-ay-WeY"/>
+                            <constraint firstItem="deg-Iw-UZ7" firstAttribute="leading" secondItem="jmR-RT-E03" secondAttribute="leading" id="lja-3Z-POL"/>
+                            <constraint firstItem="deg-Iw-UZ7" firstAttribute="trailing" secondItem="jmR-RT-E03" secondAttribute="trailing" id="vfb-kg-LDZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="jmR-RT-E03" id="NX3-D1-rUz"/>
+                        <outlet property="viewTitle" destination="213-aI-mgL" id="YGf-p0-ccC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSg-T9-qQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gi2-K1-hP9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2060" y="1050"/>
         </scene>
@@ -899,6 +913,6 @@
         <image name="websiteImage.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Iqg-Hp-vX7"/>
+        <segue reference="Bcf-0n-nfq"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,6 +11,8 @@ import UIKit
 
 class FiltersViewController: UITableViewController {
     
+    @IBOutlet var table: UITableView!
+    
     //var filterLabels : [String] = ["Denomination", "Worship Style", "Size"]
     var filterTypes = data.filterTypes
     var filterData = data.filterData
@@ -65,15 +67,20 @@ class FiltersViewController: UITableViewController {
     
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        let dest = segue.destinationViewController
+        
         if(segue.identifier == "genericFilterSegue") {
             
             //not setup
             
         } else if(segue.identifier == "listFilterSegue") {
             
-            //let enumeration = Array(filterData.values)[current_row]
+            let landing = dest as! FilterByListController
             let enumeration = filterData[Array(filterTypes.keys)[current_row]]
-            print(enumeration)
+            
+            landing.enumeration = enumeration as! [String]
+            landing.name = Array(filterTypes.values)[current_row]
+            
             
         } else if(segue.identifier == "timeFilterSegue") {
             
@@ -125,7 +132,7 @@ class FiltersViewController: UITableViewController {
         if(indexPath.section == 0) {
         
             let name = Array(filterTypes.values)[indexPath.row]
-            let value = data.currentParameters[Array(filterTypes.keys)[indexPath.row]] as! String
+            let value = filterSelected[Array(filterTypes.keys)[indexPath.row]] as! String
         
             cell.filter_name.text = name
             cell.filter_value.text = value
@@ -136,5 +143,32 @@ class FiltersViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    @IBAction func doneWithList(segue: UIStoryboardSegue) {
+        let sender = segue.sourceViewController as! FilterByListController
+        
+        let key = Array(filterTypes.keys)[current_row]
+        let newValue = sender.selection
+        
+        updateSelected(key, v: newValue)
+    }
+    
+    func updateSelected(k : String, v : String) {
+        print("Filters will update \(k) with value \(v)")
+        filterSelected[k] = v
+        table.reloadData()
+    }
+    
+    @IBAction func clearAll(sender: AnyObject) {
+        
+        for (k,_) in filterTypes {
+            if filterSelected[k] != nil {
+                self.filterSelected[k] = "Any"
+            }
+        }
+        
+        print("Resetting filters to default.")
+        table.reloadData()
     }
 }
