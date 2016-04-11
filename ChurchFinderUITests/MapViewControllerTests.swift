@@ -75,4 +75,9 @@ class MapViewControllerTests: XCTestCase {
         
     }
     
+    func testMapPins() {
+        
+        
+    }
+    
 }

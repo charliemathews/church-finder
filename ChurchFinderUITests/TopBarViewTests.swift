@@ -64,4 +64,8 @@ class TopBarViewTests: XCTestCase {
         waitForElementToAppear(XCUIApplication().tables.navigationBars.buttons["List"])
     }
     
+    func testSearchBar() {
+        
+    }
+    
 }
