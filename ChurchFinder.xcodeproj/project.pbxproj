@@ -303,7 +303,7 @@
 				034E15FD1C7C9F9D004AD878 /* FiltersViewController.swift */,
 				03AB33DD1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift */,
 				034E15FF1C7C9F9D004AD878 /* MapViewController.swift */,
-				26BEC0E01C94ECA900AB2AF2 /* churchAnnotation.swift */,
+				26BEC0E01C94ECA900AB2AF2 /* ChurchAnnotations.swift */,
 				75D436DD1C79108800F62108 /* DetailedViewController.swift */,
 				037F2F161C6106A600E971DB /* ListViewController.swift */,
 				377135181CB350D600FA5CD1 /* BookmarksBarViewController.swift */,
@@ -548,7 +548,7 @@
 				75D436DE1C79108800F62108 /* DetailedViewController.swift in Sources */,
 				377135191CB350D600FA5CD1 /* BookmarksBarViewController.swift in Sources */,
 				034E16011C7C9F9D004AD878 /* FiltersViewController.swift in Sources */,
-				26BEC0E11C94ECAA00AB2AF2 /* churchAnnotation.swift in Sources */,
+				26BEC0E11C94ECAA00AB2AF2 /* ChurchAnnotations.swift in Sources */,
 				03AB33DE1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift in Sources */,
 				034E16061C7CAC1F004AD878 /* FilterViewCell.swift in Sources */,
 				0F2028181C7F55FD00AFC9AA /* Data.swift in Sources */,
@@ -718,9 +718,8 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 					"$(SRCROOT)/**",
-					"$(PROJECT_DIR)/parse-library-1.12.0",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = ChurchFinder/Info.plist;
@@ -746,7 +745,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)/**",
-					"$(PROJECT_DIR)/parse-library-1.12.0",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = ChurchFinder/Info.plist;
