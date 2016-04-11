@@ -67,7 +67,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if(segue.identifier == "filterViewSegue") {
-            let child = segue.destinationViewController as! FiltersViewController
+            //let child = segue.destinationViewController as! FiltersViewController
             //child.delegate = self
             
         }

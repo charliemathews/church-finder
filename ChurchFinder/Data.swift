@@ -48,6 +48,7 @@ final class Data : NSObject {
         
         NSOperationQueue.mainQueue().addOperationWithBlock({
             for (type, _) in self.filterTypes {
+                print(type)
                 self.filterData[type] = self.getMeta(type)
             }
         })
