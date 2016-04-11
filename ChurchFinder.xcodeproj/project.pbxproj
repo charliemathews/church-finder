@@ -25,12 +25,6 @@
 		0F20281E1C7F563F00AFC9AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20281D1C7F563F00AFC9AA /* Constants.swift */; };
 		0F2028231C7F81AE00AFC9AA /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2028221C7F81AE00AFC9AA /* DataTests.swift */; };
 		0F2028241C7F972000AFC9AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F20281D1C7F563F00AFC9AA /* Constants.swift */; };
-		0F4DACBB1CBB194600C4D25B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4DACB51CBB194600C4D25B /* Bolts.framework */; };
-		0F4DACBC1CBB194600C4D25B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4DACB61CBB194600C4D25B /* Parse.framework */; };
-		0F4DACBD1CBB194600C4D25B /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4DACB71CBB194600C4D25B /* ParseFacebookUtils.framework */; };
-		0F4DACBE1CBB194600C4D25B /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4DACB81CBB194600C4D25B /* ParseFacebookUtilsV4.framework */; };
-		0F4DACBF1CBB194600C4D25B /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4DACB91CBB194600C4D25B /* ParseTwitterUtils.framework */; };
-		0F4DACC01CBB194600C4D25B /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4DACBA1CBB194600C4D25B /* ParseUI.framework */; };
 		0F4DACC21CBB396100C4D25B /* FilterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4DACC11CBB396100C4D25B /* FilterListCell.swift */; };
 		0F79702C1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */; };
 		0FC57AB91C873550009AA565 /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037715BE1C85F00000303162 /* Church.swift */; };
@@ -141,12 +135,6 @@
 		0F2028171C7F55FD00AFC9AA /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		0F20281D1C7F563F00AFC9AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0F2028221C7F81AE00AFC9AA /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
-		0F4DACB51CBB194600C4D25B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
-		0F4DACB61CBB194600C4D25B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
-		0F4DACB71CBB194600C4D25B /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = Frameworks/ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		0F4DACB81CBB194600C4D25B /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = Frameworks/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
-		0F4DACB91CBB194600C4D25B /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseTwitterUtils.framework; path = Frameworks/ParseTwitterUtils.framework; sourceTree = "<group>"; };
-		0F4DACBA1CBB194600C4D25B /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = Frameworks/ParseUI.framework; sourceTree = "<group>"; };
 		0F4DACC11CBB396100C4D25B /* FilterListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterListCell.swift; sourceTree = "<group>"; };
 		0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CognitiveWalkthroughTests.swift; path = ../ChurchFinderTests/CognitiveWalkthroughTests.swift; sourceTree = "<group>"; };
 		26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarkStarBlue.png; sourceTree = "<group>"; };
@@ -195,20 +183,14 @@
 			files = (
 				37FE8D441C6E213E00482663 /* libsqlite3.tbd in Frameworks */,
 				37FE8D421C6E213400482663 /* libz.tbd in Frameworks */,
-				0F4DACBE1CBB194600C4D25B /* ParseFacebookUtilsV4.framework in Frameworks */,
 				37FE8D401C6E211B00482663 /* SystemConfiguration.framework in Frameworks */,
-				0F4DACBF1CBB194600C4D25B /* ParseTwitterUtils.framework in Frameworks */,
 				37FE8D3E1C6E210F00482663 /* StoreKit.framework in Frameworks */,
-				0F4DACC01CBB194600C4D25B /* ParseUI.framework in Frameworks */,
 				37FE8D3C1C6E210800482663 /* Security.framework in Frameworks */,
 				37FE8D3A1C6E20FF00482663 /* QuartzCore.framework in Frameworks */,
 				37FE8D381C6E20F600482663 /* CoreLocation.framework in Frameworks */,
 				37FE8D361C6E20EA00482663 /* CoreGraphics.framework in Frameworks */,
-				0F4DACBB1CBB194600C4D25B /* Bolts.framework in Frameworks */,
 				37FE8D341C6E20E400482663 /* CFNetwork.framework in Frameworks */,
-				0F4DACBC1CBB194600C4D25B /* Parse.framework in Frameworks */,
 				37FE8D321C6E20D500482663 /* AudioToolbox.framework in Frameworks */,
-				0F4DACBD1CBB194600C4D25B /* ParseFacebookUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,12 +323,6 @@
 		37FE8D241C6E1F4600482663 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				0F4DACB51CBB194600C4D25B /* Bolts.framework */,
-				0F4DACB61CBB194600C4D25B /* Parse.framework */,
-				0F4DACB71CBB194600C4D25B /* ParseFacebookUtils.framework */,
-				0F4DACB81CBB194600C4D25B /* ParseFacebookUtilsV4.framework */,
-				0F4DACB91CBB194600C4D25B /* ParseTwitterUtils.framework */,
-				0F4DACBA1CBB194600C4D25B /* ParseUI.framework */,
 				37FE8D431C6E213E00482663 /* libsqlite3.tbd */,
 				37FE8D411C6E213400482663 /* libz.tbd */,
 				37FE8D3F1C6E211B00482663 /* SystemConfiguration.framework */,
