@@ -804,7 +804,7 @@
                     <navigationItem key="navigationItem" title="Filters" id="yMg-Ll-VgC">
                         <barButtonItem key="leftBarButtonItem" title="Done" id="mOd-qY-YdZ">
                             <connections>
-                                <segue destination="pmu-aS-dTd" kind="unwind" unwindAction="doneWithFilters:" id="FLP-Ei-Poi"/>
+                                <segue destination="pmu-aS-dTd" kind="unwind" unwindAction="doneWithFilters:" id="B7C-2b-ayd"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Clear" id="On9-rq-7rk">

@@ -27,31 +27,56 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
         super.viewDidLoad()
         self.mapview.showsUserLocation = true
         mapview.delegate = self
+        loadObservers()
     }
     
     override func viewDidAppear(animated: Bool) {
         outputChurchResultsToMap()
     }
     
+    func loadObservers() {
+        data.addObserver(self, forKeyPath: "success", options: Constants.KVO_Options, context: nil)
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        NSLog("Map view senses that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        
+        if(keyPath == "success") {
+            outputChurchResultsToMap()
+        }
+        
+    }
+    
+    deinit {
+        data.removeObserver(self, forKeyPath: "success", context: nil)
+    }
+    
     func outputChurchResultsToMap() -> Bool {
         if(data.results.count == 0) {
             return false
         }
+        
+        //remove old annotations
+        mapview.removeAnnotations(mapview.annotations)
+        
         let anotView = MKAnnotationView()
         let detailBut = UIButton(type: .DetailDisclosure)
         anotView.rightCalloutAccessoryView = detailBut
+        
+        //add churches to map
         for r in data.results {
             let lat = r.location.latitude
             let lon = r.location.longitude
-        
             let loc = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-            //let pin = MKPointAnnotation()
             let pin = churchAnnotation(title: r.name, times: r.times, church: r, coordinate: loc)
             
             mapview.addAnnotation(pin)
         }
         
+        //scale map to show pins
         mapview.showAnnotations(mapview.annotations, animated: true)
+        
         return true
     }
     

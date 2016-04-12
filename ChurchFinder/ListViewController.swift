@@ -84,25 +84,25 @@ class ListViewController: UITableViewController {
         if (segue.identifier == "listToDetailed") {
             
             let dest = segue.destinationViewController as! DetailedViewController
-            dest.church = data.results[current]
+            //dest.church = data.results[current]
         }
     }
     
     func loadObservers() {
-        data.addObserver(self, forKeyPath: "results", options: Constants.KVO_Options, context: nil)
+        data.addObserver(self, forKeyPath: "success", options: Constants.KVO_Options, context: nil)
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        NSLog("Value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        NSLog("List view senses that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
         
-        if(keyPath == "results") {
+        if(keyPath == "success") {
             table.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
         }
         
     }
     
     deinit {
-        data.removeObserver(self, forKeyPath: "results", context: nil)
+        data.removeObserver(self, forKeyPath: "success", context: nil)
     }
 }

@@ -83,6 +83,7 @@ final class Data : NSObject {
         
         query.whereKeyExists(type)
         query.selectKeys([type]) // alternative to checking each input to see if it's valid
+        query.orderByDescending(type)
         
         var found : [PFObject] = []
         
@@ -125,8 +126,11 @@ final class Data : NSObject {
     TODO: find a way to show churches of a similar size once the closest results have been exhausted
     TODO: increase radius of search if results < limit, by 5 miles, up to 50
     */
-    func pullResults(params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) -> Bool {
-            
+    func pullResults(params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) { //-> Bool {
+        
+        NSLog("Pulling new results.")
+        print(params)
+        
     // setup
         success = false
         let query = PFQuery(className: Constants.Parse.ChurchClass)
@@ -137,13 +141,13 @@ final class Data : NSObject {
                 query.skip = currentStart + currentLimit                    // skip to the end of our last result set
                 query.limit = currentLimit                                  // attempt to use the same limit as before
             } else if(results.count < currentLimit) {
-                return false                                                // if we clearly hit the limit last time, there are no more
+                return                                                // if we clearly hit the limit last time, there are no more
             }
         }
             
     // no parameters passed in, no prior query
         else if(params.count == 0 && results.count == 0) {
-            return false
+            return
         }
             
     // parameters were passed in, results.count also == 0 here but it's implied
@@ -180,51 +184,56 @@ final class Data : NSObject {
             query.whereKey("loc", nearGeoPoint: PFGeoPoint(latitude: Constants.Defaults.Lat, longitude: Constants.Defaults.Lon), withinMiles: 20.0)
         }
         
-    // check that we received results
-        var found : [PFObject]
-        do {
-            try found = query.findObjects()
-        }
-        catch {
-            return false
-        }
         
-    // create results array
-        results = []
-        for f in found {
-            let church : Church = churchFromObject(f)
-            church.object   = f                              // <-- need to eliminate this...
-            results.append(church)
-        }
-        
-        //         compound query
-        //         for(int i = 0; i < times.count; i++)
-        //         if(time.count > 0) query.whereKey("time", containsString:...
-        //
-        //         after results are exhausted, get results in the subsequent radius
-        //         so if results < number of results to get at once then try to increase radius by 1s up to 50
-        //
-        //         set results = query.results
-        
-        if(results.count > 0) {
-            NSLog("We found churches in the parse database.")
+        query.findObjectsInBackgroundWithBlock {
+            (objects:[PFObject]?, error:NSError?) -> Void in
             
-            success = true
-            
-            if(params.count > 0) {
-                self.currentParameters = params
+            // check that we received results
+            if let found = objects {
+                
+                // create results array
+                data.results = []
+                
+                for f in found {
+                    
+                    let church : Church = data.churchFromObject(f)
+                    church.object = f
+                    data.results.append(church)
+                    print("Background search found '\(church.name)'")
+                }
+                
+                //         compound query
+                //         for(int i = 0; i < times.count; i++)
+                //         if(time.count > 0) query.whereKey("time", containsString:...
+                //
+                //         after results are exhausted, get results in the subsequent radius
+                //         so if results < number of results to get at once then try to increase radius by 1s up to 50
+                //
+                //         set results = query.results
+                
+                if(data.results.count > 0) {
+                    NSLog("We found churches in the parse database.")
+                    
+                    data.success = true
+                    
+                    if(params.count > 0) {
+                        data.currentParameters = params
+                    }
+                    
+                    data.currentStart = query.skip
+                    data.currentLimit = query.limit
+                    
+                    //return true
+                    
+                } else {
+                    NSLog("No results were found in the parse database or there was an error.")
+                    //return false
+                }
+                
+            } else {
+                print(error?.description)
             }
-            
-            currentStart = query.skip
-            currentLimit = query.limit
-            
-            return true
-            
-        } else {
-            NSLog("No results were found in the parse database or there was an error.")
-            return false
         }
-    
     }
         
     func clear() {

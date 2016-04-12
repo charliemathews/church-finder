@@ -81,8 +81,10 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     }
     
     @IBAction func doneWithFilters(segue: UIStoryboardSegue){
-        //data.pullResults(params)
-        //dismissViewControllerAnimated(true, completion: nil)
+        NSLog("Unwound from filters and requested new results.")
+        let sender = segue.sourceViewController as! FiltersViewController
+        let params = sender.filterSelected
+        data.pullResults(params)
     }
     
     @IBAction func switchScreens(sender: AnyObject) {
