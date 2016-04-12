@@ -25,8 +25,21 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     let manager = CLLocationManager()
     var p = Constants.Defaults.get()
     
+    var indicator = UIActivityIndicatorView()
+    
+    func activityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 40, 40))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        indicator.center = self.view.center
+        //indicator.center.y -= 100
+        self.view.addSubview(indicator)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator()
+        indicator.startAnimating()
         
         // disable filters button until location has been identified and first pull is successful
         filtersButton.enabled = false
@@ -58,13 +71,20 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         if(keyPath == "success") {
             if(data.success == false) {
                 filtersButton.enabled = false
+                indicator.startAnimating()
+                indicator.backgroundColor = UIColor.whiteColor()
             } else {
                 filtersButton.enabled = true
+                indicator.stopAnimating()
+                indicator.hidesWhenStopped = true
             }
         } else if(keyPath == "error" && data.error == true) {
             filtersButton.enabled = true
-            listViewController.indicator.stopAnimating()
-            listViewController.indicator.hidesWhenStopped = true
+            indicator.stopAnimating()
+            indicator.hidesWhenStopped = true
+            let alert = UIAlertController(title: "Whoops!", message: "Sorry, we couldn't find any churches with those criteria. We'll show you the results of last successful search.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         
     }

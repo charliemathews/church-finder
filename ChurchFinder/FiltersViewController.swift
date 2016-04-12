@@ -35,6 +35,8 @@ class FiltersViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
+        
+        print(filterSelected)
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?{

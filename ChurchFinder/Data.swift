@@ -225,7 +225,7 @@ final class Data : NSObject {
             query.whereKey("loc", nearGeoPoint:loc, withinMiles:100.0)
         } else {
             // if location wasn't set, use defaults set in constants
-            query.whereKey("loc", nearGeoPoint: PFGeoPoint(latitude: Constants.Defaults.Lat, longitude: Constants.Defaults.Lon), withinMiles: 20.0)
+            query.whereKey("loc", nearGeoPoint: PFGeoPoint(latitude: currentLocation.longitude, longitude: currentLocation.latitude), withinMiles: 20.0)
         }
         
         
@@ -268,6 +268,11 @@ final class Data : NSObject {
                     data.success = true
     
                 } else {
+                    if(params.count > 0) {
+                        data.currentParameters = Constants.Defaults.get()
+                        data.currentParameters["loc"] = PFGeoPoint(latitude: data.currentLocation.latitude, longitude: data.currentLocation.longitude)
+                    }
+                    
                     print("Data: No results were found in the parse database or there was an error.")
                     data.error = true
                 }
