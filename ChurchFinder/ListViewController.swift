@@ -40,7 +40,7 @@ class ListViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ChurchListCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ChurchListCell", forIndexPath: indexPath) as! ChurchListCell
         
-        cell.setCellInfo(indexPath)
+        cell.setCellInfo(indexPath.row)
         
         return cell
     }
@@ -94,10 +94,12 @@ class ListViewController: UITableViewController {
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        NSLog("List view senses that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        print("Search senses that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
         
-        if(keyPath == "success") {
-            table.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+        if(keyPath == "success" && data.success == true) {
+            
+            print("Search sees \(data.results.count) church results.")
+            table.reloadData()
         }
         
     }

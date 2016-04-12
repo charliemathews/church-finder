@@ -41,7 +41,7 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(churchCellIdentifier, forIndexPath: indexPath) as! ChurchListCell
-        cell.setCellInfoBookmark(indexPath)
+        cell.setCellInfoBookmark(indexPath.row)
         return cell
     }
     

@@ -81,7 +81,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     }
     
     @IBAction func doneWithFilters(segue: UIStoryboardSegue){
-        NSLog("Unwound from filters and requested new results.")
+        print("Unwound from filters and requested new results.")
         let sender = segue.sourceViewController as! FiltersViewController
         let params = sender.filterSelected
         data.pullResults(params)

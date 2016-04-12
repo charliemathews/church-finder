@@ -171,4 +171,5 @@ class FiltersViewController: UITableViewController {
         print("Resetting filters to default.")
         table.reloadData()
     }
+
 }

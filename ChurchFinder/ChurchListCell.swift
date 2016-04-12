@@ -16,7 +16,6 @@ class ChurchListCell: UITableViewCell {
     @IBOutlet weak var denomination: UILabel!
     @IBOutlet weak var churchType: UILabel!
     @IBOutlet weak var serviceTime: UILabel!
-    @IBOutlet weak var distance: UILabel! // <-- This needs to be removed. Not in the spec!
     @IBOutlet weak var distanceAddr: UILabel!
     
     override func awakeFromNib() {
@@ -31,14 +30,15 @@ class ChurchListCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setCellInfo(indexPath:NSIndexPath) {
-        let church = data.results[indexPath.row] as Church
+    
+    func setCellInfo(resultIndex : Int) {
+        let church = data.results[resultIndex] as Church
         displayInfo(church)
     }
     
     
-    func setCellInfoBookmark(indexPath:NSIndexPath) {
-        let church = data.bookmarks[indexPath.row] as Church
+    func setCellInfoBookmark(resultIndex : Int) {
+        let church = data.bookmarks[resultIndex] as Church
         displayInfo(church)
     }
     
@@ -47,7 +47,7 @@ class ChurchListCell: UITableViewCell {
         denomination.text = church.denom ?? "[No Denomination]"
         churchType.text = church.style ?? "[No Type]"
         serviceTime.text = church.times ?? "[No Times]"
-        distance.text = getDistanceString(church)
+        //distance.text = getDistanceString(church)
         
         churchImage.file = church.img
         churchImage.loadInBackground()

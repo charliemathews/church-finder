@@ -20,6 +20,8 @@ class FilterByListController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        loadObservers()
 
         self.viewTitle.title = name
     }
@@ -48,5 +50,21 @@ class FilterByListController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         selection = enumeration[indexPath.row]
         return indexPath
+    }
+    
+    func loadObservers() {
+        data.addObserver(self, forKeyPath: "meta_success", options: Constants.KVO_Options, context: nil)
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        if(keyPath == "meta_success") {
+            tableView.reloadData()
+        }
+        
+    }
+    
+    deinit {
+        data.removeObserver(self, forKeyPath: "meta_success", context: nil)
     }
 }

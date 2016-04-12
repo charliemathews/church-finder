@@ -40,9 +40,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        NSLog("Map view senses that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
-        
-        if(keyPath == "success") {
+        if(keyPath == "success" && data.success == true) {
             outputChurchResultsToMap()
         }
         

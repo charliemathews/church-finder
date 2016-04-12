@@ -25,6 +25,8 @@ final class Data : NSObject {
     var radius : Int
     
     dynamic var success : Bool = false
+    dynamic var meta_success : Bool = false
+    
     var results : [Church] = []
     var bookmarks : [Church] = []
     
@@ -48,8 +50,7 @@ final class Data : NSObject {
         
         NSOperationQueue.mainQueue().addOperationWithBlock({
             for (type, _) in self.filterTypes {
-                print(type)
-                self.filterData[type] = self.getMeta(type)
+                self.getMeta(type)
             }
         })
     }
@@ -76,46 +77,63 @@ final class Data : NSObject {
     /*
     Get list of possible values held by key.
     */
-    func getMeta(let type : String) -> [String] {
+    func getMeta(let type : String) {
         
-        var options : [String] = []
         let query = PFQuery(className: Constants.Parse.ChurchClass)
         
         query.whereKeyExists(type)
-        query.selectKeys([type]) // alternative to checking each input to see if it's valid
+        query.selectKeys([type])
         query.orderByDescending(type)
         
-        var found : [PFObject] = []
-        
-        do {
-            try found = query.findObjects()
-        }
-        catch {
-            options.append("No meta data found.")
-            return options // alternative to checking each input to see if it's valid
-        }
-        
-        options.append("Any")
-        
-        for f in found {
-            if(type == "size") {
-                let meta = f[type] as! Int
-                
-                if(!options.contains(String(meta))) {
-                    options.append(String(meta))
-                }
+        query.findObjectsInBackgroundWithBlock {
+            (objects:[PFObject]?, error:NSError?) -> Void in
             
-            } else {
-                let meta = f[type] as! String
+            data.meta_success = false
+            
+            if let found = objects {
                 
-                if(!options.contains(meta)) {
-                    options.append(meta)
+                var options : [String] = []
+                
+                if(found.count == 0) {
+                    
+                    options.append("Any")
+                    
+                } else {
+                    
+                    options.append("Any")
+                    for f in found {
+                        
+                        if(type == "size") {
+                            
+                            let meta = f[type] as! Int
+                            
+                            if(!options.contains(String(meta))) {
+                                options.append(String(meta))
+                            }
+                            
+                        } else {
+                            
+                            let meta = f[type] as! String
+                            
+                            if(!options.contains(meta)) {
+                                options.append(meta)
+                            }
+                        }
+                    }
                 }
                 
+                print("Meta search found \(options.count) results for \(type).")
+                data.meta_success = true
+                data.filterData[type] = options
+                
+            } else {
+                if let e = error {
+                    NSLog(e.description)
+                } else {
+                    NSLog("There was an error but it was unreadable.")
+                }
             }
         }
-        
-        return options
     }
     
     /*
@@ -212,7 +230,7 @@ final class Data : NSObject {
                 //         set results = query.results
                 
                 if(data.results.count > 0) {
-                    NSLog("We found churches in the parse database.")
+                    print("We found churches in the parse database.")
                     
                     data.success = true
                     
@@ -226,12 +244,12 @@ final class Data : NSObject {
                     //return true
                     
                 } else {
-                    NSLog("No results were found in the parse database or there was an error.")
+                    print("No results were found in the parse database or there was an error.")
                     //return false
                 }
                 
             } else {
-                print(error?.description)
+                NSLog(error!.description)
             }
         }
     }
