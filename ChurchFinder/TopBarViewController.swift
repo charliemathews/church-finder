@@ -17,6 +17,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     @IBOutlet weak var screenSwitcher: UISegmentedControl!
     @IBOutlet weak var listViewContainer: UIView!
     @IBOutlet weak var mapViewContainer: UIView!
+    @IBOutlet weak var filtersButton: UIBarButtonItem!
     
     var mapViewController: MapViewController!
     var listViewController: ListViewController!
@@ -27,26 +28,59 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Request user location
+        // disable filters button until location has been identified and first pull is successful
+        filtersButton.enabled = false
+        loadObservers()
+        
+        // request user location
+        print("TopBar: Requesting user's location.")
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.requestLocation()
-        
-        //data.pullResults(p)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func loadObservers() {
+        data.addObserver(self, forKeyPath: "success", options: Constants.KVO_Options, context: nil)
+        data.addObserver(self, forKeyPath: "error", options: Constants.KVO_Options, context: nil)
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        print("TopBar: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        
+        if(keyPath == "success") {
+            if(data.success == false) {
+                filtersButton.enabled = false
+            } else {
+                filtersButton.enabled = true
+            }
+        } else if(keyPath == "error" && data.error == true) {
+            filtersButton.enabled = true
+            listViewController.indicator.stopAnimating()
+            listViewController.indicator.hidesWhenStopped = true
+        }
+        
+    }
+    
+    deinit {
+        data.removeObserver(self, forKeyPath: "success", context: nil)
+        data.removeObserver(self, forKeyPath: "error", context: nil)
     }
     
     //MARK: Location services
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        print("TopBar: User's location updated...")
+        
         if let location = locations.first {
             
-            print("Found user's location: \(location)")
+            print("TopBar: Found user's location: \(location)")
             
             p["loc"] = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             data.pullResults(p)
@@ -55,28 +89,25 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         
-        print("Failed to find user's location: \(error.localizedDescription)")
+        print("TopBar: Failed to find user's location: \(error.localizedDescription)")
         
         data.pullResults(p)
     }
-    
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
         if(segue.identifier == "filterViewSegue") {
+            
             //let child = segue.destinationViewController as! FiltersViewController
             //child.delegate = self
             
-        }
-        else if(segue.identifier == "mapViewSegue"){
-            mapViewController = segue.destinationViewController as! MapViewController
-        }
-        else if(segue.identifier == "listViewSegue"){
-            listViewController = segue.destinationViewController as! ListViewController
+        } else if(segue.identifier == "mapViewSegue"){
             
+            mapViewController = segue.destinationViewController as! MapViewController
+            
+        } else if(segue.identifier == "listViewSegue"){
+            
+            listViewController = segue.destinationViewController as! ListViewController
         }
     }
     

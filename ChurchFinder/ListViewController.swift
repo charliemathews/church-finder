@@ -14,14 +14,25 @@ class ListViewController: UITableViewController {
     @IBOutlet var table: UITableView!
     var current = 0
     
+    var indicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadObservers()
-        //data.pullResults(Constants.Defaults.get())
+        activityIndicator()
+        indicator.startAnimating()
     }
     
     override func viewDidAppear(animated: Bool) {
         
+    }
+    
+    func activityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 40, 40))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        indicator.center = self.view.center
+        indicator.center.y -= 100
+        self.view.addSubview(indicator)
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,12 +105,20 @@ class ListViewController: UITableViewController {
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        print("Search: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        print("List/Map: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
         
         if(keyPath == "success" && data.success == true) {
             
-            print("Search: I see \(data.results.count) church results.")
+            indicator.stopAnimating()
+            indicator.hidesWhenStopped = true
+            
+            print("List/Map: I see \(data.results.count) church results.")
             table.reloadData()
+        
+        } else {
+            
+            indicator.startAnimating()
+            indicator.backgroundColor = UIColor.whiteColor()
         }
         
     }

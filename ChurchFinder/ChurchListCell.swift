@@ -78,7 +78,9 @@ class ChurchListCell: UITableViewCell {
         serviceTime.text = church.times ?? "[No Times]"
         
         var distance : String
-        if let loc = data.currentParameters["loc"] {
+        let loc = data.currentLocation
+        
+        if loc != Constants.Defaults.getLoc() {
             var raw = getDistance(church.location.latitude, lng1: church.location.longitude, lat2: loc.latitude, lng2: loc.longitude)
             raw *= MIinKM
             distance = String(format: "%0.1f", raw)

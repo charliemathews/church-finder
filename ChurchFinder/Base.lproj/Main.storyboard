@@ -76,6 +76,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="7ng-81-dcr"/>
                     <connections>
+                        <outlet property="filtersButton" destination="hly-Eo-7DZ" id="kZe-sK-Pvz"/>
                         <outlet property="listViewContainer" destination="3iy-fd-0Wz" id="wqe-2U-WyB"/>
                         <outlet property="mapViewContainer" destination="INw-nC-XR1" id="FZl-bx-uC9"/>
                         <outlet property="screenSwitcher" destination="4du-KI-lta" id="wm5-RC-oZl"/>

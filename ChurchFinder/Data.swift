@@ -26,6 +26,7 @@ final class Data : NSObject {
     
     dynamic var success : Bool = false
     dynamic var meta_success : Bool = false
+    dynamic var error : Bool = false
     
     var results : [Church] = []
     var bookmarks : [Church] = []
@@ -36,6 +37,7 @@ final class Data : NSObject {
     var currentParameters : Dictionary<String,AnyObject>
     var currentStart = 0
     var currentLimit = 0
+    var currentLocation : PFGeoPoint
     
     /*
     Private init is used here so that a second instance cannot be created.
@@ -43,6 +45,7 @@ final class Data : NSObject {
     private override init() {
         radius = Constants.Defaults.Radius
         currentParameters = Constants.Defaults.get()
+        currentLocation = Constants.Defaults.getLoc()
         
         super.init()
         
@@ -157,6 +160,8 @@ final class Data : NSObject {
         
     // setup
         success = false
+        error = false
+
         let query = PFQuery(className: Constants.Parse.ChurchClass)
         
     // no parameters passed in, prior query exists
@@ -206,6 +211,7 @@ final class Data : NSObject {
         }
         
         if let loc = params["loc"] as? PFGeoPoint {
+            currentLocation = loc
             query.whereKey("loc", nearGeoPoint:loc, withinMiles:100.0)
         } else {
             // if location wasn't set, use defaults set in constants
@@ -242,8 +248,6 @@ final class Data : NSObject {
                 if(data.results.count > 0) {
                     print("Data: I found churches in the parse database.")
                     
-                    data.success = true
-                    
                     if(params.count > 0) {
                         data.currentParameters = params
                     }
@@ -251,15 +255,16 @@ final class Data : NSObject {
                     data.currentStart = query.skip
                     data.currentLimit = query.limit
                     
-                    //return true
-                    
+                    data.success = true
+    
                 } else {
                     print("Data: No results were found in the parse database or there was an error.")
-                    //return false
+                    data.error = true
                 }
                 
             } else {
                 NSLog(error!.description)
+                data.error = true
             }
         }
     }

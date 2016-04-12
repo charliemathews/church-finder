@@ -133,7 +133,13 @@ class FiltersViewController: UITableViewController {
         
             let name = Array(filterTypes.values)[indexPath.row]
             let column_name = Array(filterTypes.keys)[indexPath.row]
-            let value = filterSelected[column_name] as! String
+            
+            var value : String
+            if let v = filterSelected[column_name] as? String {
+                value = v
+            } else {
+                value = "Any"
+            }
         
             cell.filter_name.text = name
             cell.filter_value.text = value
