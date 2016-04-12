@@ -46,32 +46,32 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iy-fd-0Wz">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                                <connections>
-                                    <segue destination="vEF-9B-AbD" kind="embed" identifier="listViewSegue" id="RTw-ms-wXq"/>
-                                </connections>
-                            </containerView>
                             <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INw-nC-XR1">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <connections>
                                     <segue destination="hel-lN-dXH" kind="embed" identifier="mapViewSegue" id="6OO-nv-t3D"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iy-fd-0Wz">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <connections>
+                                    <segue destination="vEF-9B-AbD" kind="embed" identifier="listViewSegue" id="RTw-ms-wXq"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="INw-nC-XR1" firstAttribute="top" secondItem="3iy-fd-0Wz" secondAttribute="top" id="MiR-qI-UxI"/>
-                            <constraint firstItem="INw-nC-XR1" firstAttribute="trailing" secondItem="3iy-fd-0Wz" secondAttribute="trailing" id="Pic-ot-2WY"/>
+                            <constraint firstItem="INw-nC-XR1" firstAttribute="leading" secondItem="3iy-fd-0Wz" secondAttribute="leading" id="F8Y-hQ-BRi"/>
+                            <constraint firstItem="INw-nC-XR1" firstAttribute="top" secondItem="3iy-fd-0Wz" secondAttribute="top" id="Nc4-xV-bEy"/>
+                            <constraint firstItem="INw-nC-XR1" firstAttribute="bottom" secondItem="wPZ-Ik-UBb" secondAttribute="top" id="Q50-89-8J5"/>
+                            <constraint firstItem="INw-nC-XR1" firstAttribute="trailing" secondItem="3iy-fd-0Wz" secondAttribute="trailing" id="XHe-2e-z4S"/>
                             <constraint firstItem="Xe2-gW-V9B" firstAttribute="top" secondItem="D2K-bd-5i5" secondAttribute="bottom" id="ZiX-kW-x3F"/>
                             <constraint firstItem="Xe2-gW-V9B" firstAttribute="leading" secondItem="huH-nK-DvK" secondAttribute="leading" id="cIb-tK-k50"/>
                             <constraint firstItem="3iy-fd-0Wz" firstAttribute="trailing" secondItem="Xe2-gW-V9B" secondAttribute="trailing" id="eTg-8I-cmZ"/>
-                            <constraint firstItem="INw-nC-XR1" firstAttribute="leading" secondItem="3iy-fd-0Wz" secondAttribute="leading" id="h7B-Wi-9t4"/>
                             <constraint firstItem="3iy-fd-0Wz" firstAttribute="top" secondItem="Xe2-gW-V9B" secondAttribute="bottom" id="he1-vJ-wKh"/>
                             <constraint firstItem="3iy-fd-0Wz" firstAttribute="leading" secondItem="Xe2-gW-V9B" secondAttribute="leading" id="jNn-Ct-ZiT"/>
                             <constraint firstItem="Xe2-gW-V9B" firstAttribute="centerX" secondItem="huH-nK-DvK" secondAttribute="centerX" id="nKx-qb-moc"/>
                             <constraint firstItem="3iy-fd-0Wz" firstAttribute="bottom" secondItem="wPZ-Ik-UBb" secondAttribute="top" id="nvn-Pj-joW"/>
-                            <constraint firstItem="INw-nC-XR1" firstAttribute="bottom" secondItem="wPZ-Ik-UBb" secondAttribute="top" id="q3a-az-GVh"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="7ng-81-dcr"/>
@@ -668,11 +668,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-bf-J6W">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r2K-bf-J6W" firstAttribute="top" secondItem="TSZ-Ra-ohL" secondAttribute="bottom" id="RLI-H7-gEI"/>
+                            <constraint firstItem="r2K-bf-J6W" firstAttribute="trailing" secondItem="PGR-tO-Ahl" secondAttribute="trailing" id="Sxu-fA-UMs"/>
+                            <constraint firstItem="r2K-bf-J6W" firstAttribute="leading" secondItem="PGR-tO-Ahl" secondAttribute="leading" id="hXL-tq-sdd"/>
+                            <constraint firstItem="r2K-bf-J6W" firstAttribute="bottom" secondItem="PGR-tO-Ahl" secondAttribute="bottom" id="zyc-mc-yEK"/>
+                        </constraints>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -869,6 +875,6 @@
         <image name="websiteImage.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bcf-0n-nfq"/>
+        <segue reference="Iqg-Hp-vX7"/>
     </inferredMetricsTieBreakers>
 </document>
