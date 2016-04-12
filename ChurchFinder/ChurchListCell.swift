@@ -79,6 +79,7 @@ class ChurchListCell: UITableViewCell {
         
         var distance : String
         let loc = data.currentLocation
+        var street = church.addr_street
         
         if loc != Constants.Defaults.getLoc() {
             var raw = getDistance(church.location.latitude, lng1: church.location.longitude, lat2: loc.latitude, lng2: loc.longitude)
@@ -87,10 +88,14 @@ class ChurchListCell: UITableViewCell {
         } else {
             distance = "?"
         }
-        distanceAddr.text = "\(distance)mi • " + church.addr_street
+        
+        if(street == "") {
+            street = "No address provided."
+        }
+        
+        distanceAddr.text = "\(distance)mi • " + street
 
-        if let _ = church.img?.name {
-        //if (church.img!.name != "undefined") {
+        if let _ = church.img?.name { //if (church.img!.name != "undefined") {
             churchImage.file = church.img
             churchImage.loadInBackground()
             self.churchImage.alpha = 0.4

@@ -155,8 +155,18 @@ final class Data : NSObject {
     */
     func pullResults(params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) { //-> Bool {
         
-        NSLog("Data: Pulling new results.")
-        print(params)
+        print("")
+        print("Data: Pulling new results.")
+        
+        if(params.count > 0) {
+            print("Data: The following parameters were provided.")
+            for p in params {
+                print("     - \(p.0) as \(p.1)")
+            }
+            print("")
+        } else {
+            print("Data: No parameters were provided...")
+        }
         
     // setup
         success = false

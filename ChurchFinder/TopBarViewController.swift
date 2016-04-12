@@ -34,9 +34,11 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         
         // request user location
         print("TopBar: Requesting user's location.")
+        manager.requestWhenInUseAuthorization()
+        
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
+        manager.distanceFilter = 500
         manager.requestLocation()
     }
 
