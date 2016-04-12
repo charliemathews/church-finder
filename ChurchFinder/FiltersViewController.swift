@@ -132,7 +132,8 @@ class FiltersViewController: UITableViewController {
         if(indexPath.section == 0) {
         
             let name = Array(filterTypes.values)[indexPath.row]
-            let value = filterSelected[Array(filterTypes.keys)[indexPath.row]] as! String
+            let column_name = Array(filterTypes.keys)[indexPath.row]
+            let value = filterSelected[column_name] as! String
         
             cell.filter_name.text = name
             cell.filter_value.text = value

@@ -122,7 +122,7 @@ final class Data : NSObject {
                     }
                 }
                 
-                print("Meta search found \(options.count) results for \(type).")
+                print("Data: Meta search found \(options.count) results for \(type).")
                 data.meta_success = true
                 data.filterData[type] = options
                 
@@ -130,7 +130,7 @@ final class Data : NSObject {
                 if let e = error {
                     NSLog(e.description)
                 } else {
-                    NSLog("There was an error but it was unreadable.")
+                    NSLog("Data: There was an error but it was unreadable.")
                 }
             }
         }
@@ -146,7 +146,7 @@ final class Data : NSObject {
     */
     func pullResults(params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) { //-> Bool {
         
-        NSLog("Pulling new results.")
+        NSLog("Data: Pulling new results.")
         print(params)
         
     // setup
@@ -191,7 +191,11 @@ final class Data : NSObject {
         
         if let size = params["size"] as? String {
             if(size != "Any") {
-                query.whereKey("size", equalTo: String(size))
+                if let s = Int(size) {
+                    query.whereKey("size", greaterThan: s-100)
+                    query.whereKey("size", lessThan: s+100)
+                }
+                //query.whereKey("size", equalTo: Int(size))
             }
         }
         
@@ -217,7 +221,7 @@ final class Data : NSObject {
                     let church : Church = data.churchFromObject(f)
                     church.object = f
                     data.results.append(church)
-                    print("Background search found '\(church.name)'")
+                    print("Data: Background search found '\(church.name)'")
                 }
                 
                 //         compound query
@@ -230,7 +234,7 @@ final class Data : NSObject {
                 //         set results = query.results
                 
                 if(data.results.count > 0) {
-                    print("We found churches in the parse database.")
+                    print("Data: We found churches in the parse database.")
                     
                     data.success = true
                     
@@ -244,7 +248,7 @@ final class Data : NSObject {
                     //return true
                     
                 } else {
-                    print("No results were found in the parse database or there was an error.")
+                    print("Data: No results were found in the parse database or there was an error.")
                     //return false
                 }
                 
