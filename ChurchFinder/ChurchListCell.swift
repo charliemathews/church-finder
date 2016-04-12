@@ -7,7 +7,7 @@ Author: Dan Mitchell
 import UIKit
 import MapKit
 import ParseUI
-import QuartzCore
+//import QuartzCore
 
 class ChurchListCell: UITableViewCell {
 
@@ -18,6 +18,30 @@ class ChurchListCell: UITableViewCell {
     @IBOutlet weak var churchType: UILabel!
     @IBOutlet weak var serviceTime: UILabel!
     @IBOutlet weak var distanceAddr: UILabel!
+    
+    let pi = 3.14159265358979323846
+    let earthRadiusKm = 6371.0
+    let MIinKM = 0.62137119
+    
+    func deg2rad(deg: Double) -> Double {
+        return (deg * pi / 180)
+    }
+    
+    func rad2deg(rad: Double) -> Double {
+        return (rad * 180 / pi)
+    }
+    
+    // return the distance between two coordinates in km
+    func getDistance(lat1: Double, lng1: Double, lat2: Double, lng2: Double) -> Double {
+        
+        let lat1r = deg2rad(lat1)
+        let lon1r = deg2rad(lng1)
+        let lat2r = deg2rad(lat2)
+        let lon2r = deg2rad(lng2)
+        let u = sin((lat2r - lat1r)/2)
+        let v = sin((lon2r - lon1r)/2)
+        return 2.0 * earthRadiusKm * asin(sqrt(u * u + cos(lat1r) * cos(lat2r) * v * v))
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,7 +77,15 @@ class ChurchListCell: UITableViewCell {
         churchType.text = church.style ?? "[No Type]"
         serviceTime.text = church.times ?? "[No Times]"
         
-        distanceAddr.text = "0mi • " + church.address
+        var distance : String
+        if let loc = data.currentParameters["loc"] {
+            var raw = getDistance(church.location.latitude, lng1: church.location.longitude, lat2: loc.latitude, lng2: loc.longitude)
+            raw *= MIinKM
+            distance = String(format: "%0.1f", raw)
+        } else {
+            distance = "?"
+        }
+        distanceAddr.text = "\(distance)mi • " + church.addr_street
 
         if let _ = church.img?.name {
         //if (church.img!.name != "undefined") {

@@ -31,9 +31,9 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
-        //manager.requestLocation()
+        manager.requestLocation()
         
-        data.pullResults(p)
+        //data.pullResults(p)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,20 +44,20 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     //MARK: Location services
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        
         if let location = locations.first {
-            NSLog("Found user's location: \(location)")
+            
+            print("Found user's location: \(location)")
             
             p["loc"] = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            print(p)
-            //data.pullResults(p)
-            
+            data.pullResults(p)
         }
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        NSLog("Failed to find user's location: \(error.localizedDescription)")
+        
+        print("Failed to find user's location: \(error.localizedDescription)")
+        
+        data.pullResults(p)
     }
     
     // MARK: - Navigation

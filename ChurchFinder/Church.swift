@@ -25,6 +25,10 @@ class Church {
     var location: PFGeoPoint
     var times   : String
     var address : String
+    var addr_street     : String
+    var addr_city       : String
+    var addr_state      : String
+    var addr_zip        : String
     var desc    : String
     var url     : String
     var img     : PFFile?
@@ -39,33 +43,12 @@ class Church {
         self.location = PFGeoPoint()
         self.times = ""
         self.address = ""
+        self.addr_street = ""
+        self.addr_city = ""
+        self.addr_state = ""
+        self.addr_zip = ""
         self.desc = ""
         self.url = ""
         self.img = nil
-    }
-    
-    init(
-        let id      :   String,
-        let name    :   String,
-        let denom   :   String,
-        let size    :   Int,
-        let style   :   String,
-        let location:   PFGeoPoint,
-        let times   :   String,
-        let address :   String,
-        let desc    :   String,
-        let url     :   String
-        ) {
-            
-            self.id = id
-            self.name = name
-            self.denom = denom
-            self.size = size
-            self.style = style
-            self.location = location
-            self.times = times
-            self.address = address
-            self.desc = desc
-            self.url = url
     }
 }

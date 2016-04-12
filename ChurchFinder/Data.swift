@@ -65,7 +65,13 @@ final class Data : NSObject {
         church.style    = f["style"]        as! String
         church.location = f["loc"]          as! PFGeoPoint
         church.times    = f["times"]        as! String
-        church.address  = f["address"]      as! String
+        
+        church.address      = f["address"]          as! String
+        church.addr_street  = f["addr_street"]      as! String
+        church.addr_city    = f["addr_city"]        as! String
+        church.addr_street  = f["addr_street"]      as! String
+        church.addr_zip     = f["addr_zip"]         as! String
+        
         church.desc     = f["description"]  as! String
         church.url      = f["url"]          as! String
         church.img      = f["banner"]       as? PFFile
@@ -192,8 +198,8 @@ final class Data : NSObject {
         if let size = params["size"] as? String {
             if(size != "Any") {
                 if let s = Int(size) {
-                    query.whereKey("size", greaterThan: s-100)
-                    query.whereKey("size", lessThan: s+100)
+                    query.whereKey("size", greaterThan: s-150)
+                    query.whereKey("size", lessThan: s+150)
                 }
                 //query.whereKey("size", equalTo: Int(size))
             }
@@ -234,7 +240,7 @@ final class Data : NSObject {
                 //         set results = query.results
                 
                 if(data.results.count > 0) {
-                    print("Data: We found churches in the parse database.")
+                    print("Data: I found churches in the parse database.")
                     
                     data.success = true
                     

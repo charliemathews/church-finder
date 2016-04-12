@@ -94,11 +94,11 @@ class ListViewController: UITableViewController {
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        print("Search senses that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        print("Search: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
         
         if(keyPath == "success" && data.success == true) {
             
-            print("Search sees \(data.results.count) church results.")
+            print("Search: I see \(data.results.count) church results.")
             table.reloadData()
         }
         
