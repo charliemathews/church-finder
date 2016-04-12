@@ -93,6 +93,9 @@ class ChurchListCell: UITableViewCell {
             churchImage.loadInBackground()
             self.churchImage.alpha = 0.4
             self.backgroundColor = UIColor.blackColor()
+        } else {
+            churchImage.image = UIImage(named: "dummyphoto.png")
+            print("ListCell: \"\(church.name)\" didn't have an image. Using default instead.")
         }
         
         churchName.shadowColor = UIColor.blackColor()
