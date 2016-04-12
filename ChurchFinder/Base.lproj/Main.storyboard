@@ -101,7 +101,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4lo-H8-Vmu" customClass="PFImageView">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4lo-H8-Vmu" customClass="PFImageView">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
                                         </imageView>
                                         <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOz-9b-TDR" userLabel="Grey Alpha">
@@ -183,6 +183,7 @@
                                     <outlet property="churchType" destination="MJj-7V-wSx" id="tUb-mh-RGs"/>
                                     <outlet property="denomination" destination="LbA-9O-np1" id="H7P-X1-fwj"/>
                                     <outlet property="distanceAddr" destination="SO8-YR-MhP" id="3Ka-zk-UlQ"/>
+                                    <outlet property="overlay" destination="MOz-9b-TDR" id="xei-ey-NRI"/>
                                     <outlet property="serviceTime" destination="Nt8-yW-UwQ" id="XhT-ln-aia"/>
                                     <segue destination="9bt-vL-kmA" kind="show" identifier="listToDetailed" id="Bcf-0n-nfq"/>
                                 </connections>

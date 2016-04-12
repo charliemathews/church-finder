@@ -11,6 +11,7 @@ import QuartzCore
 
 class ChurchListCell: UITableViewCell {
 
+    @IBOutlet weak var overlay: UIView!
     @IBOutlet weak var churchImage: PFImageView!
     @IBOutlet weak var churchName : UILabel!
     @IBOutlet weak var denomination: UILabel!
@@ -22,6 +23,10 @@ class ChurchListCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         churchImage.image = UIImage(named: "dummyphoto.png")
+        churchImage.contentMode = .ScaleAspectFill
+        self.churchImage.alpha = 1
+        //self.backgroundColor = UIColor.whiteColor()
+        //self.backgroundView?.backgroundColor = UIColor.whiteColor()
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -47,10 +52,16 @@ class ChurchListCell: UITableViewCell {
         denomination.text = church.denom ?? "[No Denomination]"
         churchType.text = church.style ?? "[No Type]"
         serviceTime.text = church.times ?? "[No Times]"
-        //distance.text = getDistanceString(church)
         
-        churchImage.file = church.img
-        churchImage.loadInBackground()
+        distanceAddr.text = "0mi • " + church.address
+
+        if let _ = church.img?.name {
+        //if (church.img!.name != "undefined") {
+            churchImage.file = church.img
+            churchImage.loadInBackground()
+            self.churchImage.alpha = 0.4
+            self.backgroundColor = UIColor.blackColor()
+        }
         
         churchName.shadowColor = UIColor.blackColor()
         denomination.shadowColor = UIColor.blackColor()
