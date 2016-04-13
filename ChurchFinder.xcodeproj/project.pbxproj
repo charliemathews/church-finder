@@ -47,6 +47,8 @@
 		0FA9620F1CBB52DA00BCDFC0 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA962091CBB52DA00BCDFC0 /* ParseFacebookUtilsV4.framework */; };
 		0FA962101CBB52DA00BCDFC0 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA9620A1CBB52DA00BCDFC0 /* ParseTwitterUtils.framework */; };
 		0FA962111CBB52DA00BCDFC0 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA9620B1CBB52DA00BCDFC0 /* ParseUI.framework */; };
+		0FBFB5CB1CBE7863006AC60F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FBFB5CA1CBE7863006AC60F /* icon.png */; };
+		0FBFB5CD1CBE7A5E006AC60F /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FBFB5CC1CBE7A5E006AC60F /* icon_120.png */; };
 		0FC57AB91C873550009AA565 /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037715BE1C85F00000303162 /* Church.swift */; };
 		26BEC0DE1C94DFE400AB2AF2 /* bookmarkStarBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */; };
 		26BEC0DF1C94DFE400AB2AF2 /* bookmarkStarRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BEC0DD1C94DFE400AB2AF2 /* bookmarkStarRed.png */; };
@@ -171,6 +173,8 @@
 		0FA962091CBB52DA00BCDFC0 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		0FA9620A1CBB52DA00BCDFC0 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		0FA9620B1CBB52DA00BCDFC0 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		0FBFB5CA1CBE7863006AC60F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		0FBFB5CC1CBE7A5E006AC60F /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
 		26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarkStarBlue.png; sourceTree = "<group>"; };
 		26BEC0DD1C94DFE400AB2AF2 /* bookmarkStarRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarkStarRed.png; sourceTree = "<group>"; };
 		26BEC0E01C94ECA900AB2AF2 /* ChurchAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchAnnotations.swift; sourceTree = "<group>"; };
@@ -404,6 +408,8 @@
 		75D436DF1C79181600F62108 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0FBFB5CC1CBE7A5E006AC60F /* icon_120.png */,
+				0FBFB5CA1CBE7863006AC60F /* icon.png */,
 				0F9E94DA1CBE39BE007C6D77 /* location_icon_22.png */,
 				0F9E94DB1CBE39BE007C6D77 /* location_icon_44.png */,
 				0F4B904F1CBE372F00C870A9 /* location_icon.png */,
@@ -559,11 +565,13 @@
 				75F7C63D1C8D1DF500FEF740 /* meta_desc.png in Resources */,
 				0F4B90381CBDAB5800C870A9 /* star_circle in Resources */,
 				037F2EFC1C61000000E971DB /* Main.storyboard in Resources */,
+				0FBFB5CB1CBE7863006AC60F /* icon.png in Resources */,
 				0F16D58B1CAACA7400E6C7AD /* dummyphoto.png in Resources */,
 				75F7C6401C8D1DF500FEF740 /* meta_style.png in Resources */,
 				75F7C63A1C8D1DF500FEF740 /* action_nav.png in Resources */,
 				75F7C6431C8D1DF500FEF740 /* action_share.png in Resources */,
 				0F4B904E1CBE2ED900C870A9 /* www_icon.png in Resources */,
+				0FBFB5CD1CBE7A5E006AC60F /* icon_120.png in Resources */,
 				75F7C6371C8D1DF500FEF740 /* meta_times.png in Resources */,
 				0F4B90481CBE228000C870A9 /* info_icon.png in Resources */,
 				037F2F011C61000000E971DB /* LaunchScreen.xib in Resources */,
@@ -791,6 +799,7 @@
 		037F2F111C61000000E971DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -817,6 +826,7 @@
 		037F2F121C61000000E971DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

@@ -109,7 +109,11 @@ class FiltersViewController: UITableViewController {
             if(filterByServiceTime == true) {
                 return 3 // time question, as early as, as late as
             } else {
-                return 1 // time question
+                if(data.filterByTime == false) {
+                    return 1
+                } else {
+                    return 3
+                }
             }
             
         } else {
@@ -150,31 +154,34 @@ class FiltersViewController: UITableViewController {
             
         } else if indexPath.section == 1 {
             
-            var enabled : Bool = false
+            var enabled : Bool = data.filterByTime
             
+            /*
             if let times = filterSelected["times"] as? Dictionary<String, AnyObject> {
                 if let e = times["enabled"] as? Bool {
-                    enabled = e
+                    //enabled = e
                 }
             }
+             */
             
             if(indexPath.row == 0) {
                 let cell = tableView.dequeueReusableCellWithIdentifier("timesToggleCell", forIndexPath: indexPath) as! FilterTimesToggleCell
                 
-                //cell.toggle.on = enabled
-                
+                cell.toggle.on = enabled
                 
                 return cell
             } else if(indexPath.row == 1) {
                 let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath) as! FilterViewCell
                 
-                //
+                cell.filter_name.text = "starting from"
+                cell.filter_value.text = "00:00"
                 
                 return cell
             } else if(indexPath.row == 2) {
                 let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath) as! FilterViewCell
                 
-                //
+                cell.filter_name.text = "to"
+                cell.filter_value.text = "00:00"
                 
                 return cell
             } else {
@@ -213,4 +220,11 @@ class FiltersViewController: UITableViewController {
         table.reloadData()
     }
 
+    @IBAction func toggleFlipped(sender: AnyObject) {
+        
+        data.filterByTime = !data.filterByTime
+        table.reloadData()
+        
+    }
+    
 }

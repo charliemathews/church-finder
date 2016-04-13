@@ -1329,7 +1329,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter By Service Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gp-nC-Kgg">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1337,6 +1337,7 @@
                                             <rect key="frame" x="-25" y="-15" width="51" height="31"/>
                                             <connections>
                                                 <action selector="toggleFlip:" destination="USQ-gk-5of" eventType="valueChanged" id="9u4-eQ-ZhM"/>
+                                                <action selector="toggleFlipped:" destination="vO3-2u-4cJ" eventType="valueChanged" id="tS4-9e-eHL"/>
                                             </connections>
                                         </switch>
                                     </subviews>

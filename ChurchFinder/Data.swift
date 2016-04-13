@@ -29,6 +29,7 @@ final class Data : NSObject {
     dynamic var times_received : Int = 0
     dynamic var error : Bool = false
     var threadQueryLock : Bool = false
+    var filterByTime = false
     
     var results : [Church] = []
     var bookmarks : [Church] = []
