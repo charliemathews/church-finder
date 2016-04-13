@@ -17,7 +17,6 @@
 		037F2F011C61000000E971DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037F2EFF1C61000000E971DB /* LaunchScreen.xib */; };
 		037F2F171C6106A600E971DB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F161C6106A600E971DB /* ListViewController.swift */; };
 		037F2F191C61087400E971DB /* ChurchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F181C61087400E971DB /* ChurchListCell.swift */; };
-		03AB33DE1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AB33DD1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift */; };
 		0F16D5891CAABB1600E6C7AD /* cellguides.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F16D5881CAABB1600E6C7AD /* cellguides.png */; };
 		0F16D58B1CAACA7400E6C7AD /* dummyphoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F16D58A1CAACA7400E6C7AD /* dummyphoto.png */; };
 		0F2028181C7F55FD00AFC9AA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2028171C7F55FD00AFC9AA /* Data.swift */; };
@@ -138,7 +137,6 @@
 		037F2F0B1C61000000E971DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037F2F161C6106A600E971DB /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		037F2F181C61087400E971DB /* ChurchListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchListCell.swift; sourceTree = "<group>"; };
-		03AB33DD1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecificFilterSelectViewController.swift; sourceTree = "<group>"; };
 		0F16D5881CAABB1600E6C7AD /* cellguides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellguides.png; sourceTree = "<group>"; };
 		0F16D58A1CAACA7400E6C7AD /* dummyphoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummyphoto.png; sourceTree = "<group>"; };
 		0F2028171C7F55FD00AFC9AA /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -272,6 +270,7 @@
 				0F20281D1C7F563F00AFC9AA /* Constants.swift */,
 				037F2EFA1C61000000E971DB /* Main.storyboard */,
 				034E15FB1C7C9ED0004AD878 /* AppDelegate.swift */,
+				75D436DD1C79108800F62108 /* DetailedViewControllerOld.swift */,
 				0F20281F1C7F56A800AFC9AA /* View */,
 				0F2028131C7F55CE00AFC9AA /* Model */,
 				75D436DF1C79181600F62108 /* Images */,
@@ -321,25 +320,39 @@
 			isa = PBXGroup;
 			children = (
 				37F0B4331C978C9B00DA821A /* TopBarViewController.swift */,
-				0F4DACAE1CBAEED300C4D25B /* Filters */,
-				034E16051C7CAC1F004AD878 /* FilterViewCell.swift */,
-				034E15FD1C7C9F9D004AD878 /* FiltersViewController.swift */,
-				03AB33DD1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift */,
+				037F2F161C6106A600E971DB /* ListViewController.swift */,
+				037F2F181C61087400E971DB /* ChurchListCell.swift */,
 				034E15FF1C7C9F9D004AD878 /* MapViewController.swift */,
 				26BEC0E01C94ECA900AB2AF2 /* ChurchAnnotations.swift */,
-				75D436DD1C79108800F62108 /* DetailedViewControllerOld.swift */,
-				0F4B90351CBDA4DE00C870A9 /* DetailedViewController.swift */,
-				037F2F161C6106A600E971DB /* ListViewController.swift */,
-				377135181CB350D600FA5CD1 /* BookmarksBarViewController.swift */,
-				3729A8661C8523B3000AF907 /* BookmarksViewController.swift */,
-				037F2F181C61087400E971DB /* ChurchListCell.swift */,
+				0F4DACAE1CBAEED300C4D25B /* Filters */,
+				0F4B903D1CBDD90E00C870A9 /* Detailed */,
+				0F4B903E1CBDD93800C870A9 /* Bookmarks */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		0F4B903D1CBDD90E00C870A9 /* Detailed */ = {
+			isa = PBXGroup;
+			children = (
+				0F4B90351CBDA4DE00C870A9 /* DetailedViewController.swift */,
+			);
+			name = Detailed;
+			sourceTree = "<group>";
+		};
+		0F4B903E1CBDD93800C870A9 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				377135181CB350D600FA5CD1 /* BookmarksBarViewController.swift */,
+				3729A8661C8523B3000AF907 /* BookmarksViewController.swift */,
+			);
+			name = Bookmarks;
 			sourceTree = "<group>";
 		};
 		0F4DACAE1CBAEED300C4D25B /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				034E15FD1C7C9F9D004AD878 /* FiltersViewController.swift */,
+				034E16051C7CAC1F004AD878 /* FilterViewCell.swift */,
 				0F34BFCC1CBC596B007F57F1 /* FilterByListController.swift */,
 				0F4DACC11CBB396100C4D25B /* FilterListCell.swift */,
 			);
@@ -584,7 +597,6 @@
 				0F34BFCD1CBC596B007F57F1 /* FilterByListController.swift in Sources */,
 				034E16011C7C9F9D004AD878 /* FiltersViewController.swift in Sources */,
 				26BEC0E11C94ECAA00AB2AF2 /* ChurchAnnotations.swift in Sources */,
-				03AB33DE1C93AA140016C5A0 /* SpecificFilterSelectViewController.swift in Sources */,
 				034E16061C7CAC1F004AD878 /* FilterViewCell.swift in Sources */,
 				0F2028181C7F55FD00AFC9AA /* Data.swift in Sources */,
 				037F2F191C61087400E971DB /* ChurchListCell.swift in Sources */,
