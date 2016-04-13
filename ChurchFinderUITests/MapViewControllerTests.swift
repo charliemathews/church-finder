@@ -39,6 +39,7 @@ class MapViewControllerTests: XCTestCase {
         XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        XCUIApplication().navigationBars.buttons["Map"].tap()
     }
     
     override func tearDown() {
@@ -47,35 +48,12 @@ class MapViewControllerTests: XCTestCase {
     }
     
     func testMapPins() {
-        XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).matchingIdentifier("Grace United Methodist Church, SUN 10:00, SAT 18:00").elementBoundByIndex(0).tap()
+        XCUIApplication().otherElements["Harbison Chapel, SUN 6:00"].tap()
     }
     
     func testMapPinDisclosure() {
-        
-    }
-    
-    func testSearchBarSearchButtonClicked_CaseNothingFound() {
-        
         let app = XCUIApplication()
-        app.tables.navigationBars.buttons["Map"].tap()
-        app.navigationBars.buttons["Search"].tap()
-        app.searchFields["Search"].typeText("oiwjefowi")
-        app.typeText("jefwoiejf\r")
-        
-        waitForElementToAppear(app.alerts.collectionViews.buttons["Dismiss"])
-        app.alerts.collectionViews.buttons["Dismiss"].tap()
+        app.otherElements["PopoverDismissRegion"].tap()
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Button).element.tap()
     }
-    
-    func testSearchBarSearchButtonClicked_PlaceFound() {
-        XCUIDevice.sharedDevice().orientation = .Portrait
-        
-        let app = XCUIApplication()
-        app.tables.navigationBars.buttons["Map"].tap()
-        app.navigationBars.buttons["Search"].tap()
-        app.searchFields["Search"].typeText("grove city")
-        app.typeText("\r")
-        waitForElementToAppear(app.otherElements["Map pin"])
-        app.otherElements["Map pin"].tap()
-    }
-    
 }

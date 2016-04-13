@@ -65,7 +65,9 @@ class TopBarViewTests: XCTestCase {
     }
     
     func testSearchBar() {
-        
+        let app = XCUIApplication()
+        app.navigationBars.buttons["Search"].tap()
+        app.buttons["Cancel"].tap()
     }
     
 }
