@@ -67,6 +67,7 @@
 		37FE8D401C6E211B00482663 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D3F1C6E211B00482663 /* SystemConfiguration.framework */; };
 		37FE8D421C6E213400482663 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D411C6E213400482663 /* libz.tbd */; };
 		37FE8D441C6E213E00482663 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D431C6E213E00482663 /* libsqlite3.tbd */; };
+		75119F571CBDE59200A36919 /* churchSearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 75119F561CBDE59200A36919 /* churchSearchIcon.png */; };
 		75D436DE1C79108800F62108 /* DetailedViewControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D436DD1C79108800F62108 /* DetailedViewControllerOld.swift */; };
 		75EA093F1C82278000EC90F2 /* FilterTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA093E1C82278000EC90F2 /* FilterTableViewControllerTests.swift */; };
 		75EA09971C85F66100EC90F2 /* DetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA09961C85F66100EC90F2 /* DetailedViewControllerTests.swift */; };
@@ -176,6 +177,7 @@
 		37FE8D3F1C6E211B00482663 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		37FE8D411C6E213400482663 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		37FE8D431C6E213E00482663 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		75119F561CBDE59200A36919 /* churchSearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = churchSearchIcon.png; sourceTree = "<group>"; };
 		75D436DD1C79108800F62108 /* DetailedViewControllerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerOld.swift; sourceTree = "<group>"; };
 		75EA09341C82271300EC90F2 /* ChurchFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChurchFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75EA09381C82271300EC90F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				0F16D58A1CAACA7400E6C7AD /* dummyphoto.png */,
 				0F16D5881CAABB1600E6C7AD /* cellguides.png */,
 				26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */,
+				75119F561CBDE59200A36919 /* churchSearchIcon.png */,
 				26BEC0DD1C94DFE400AB2AF2 /* bookmarkStarRed.png */,
 				75F7C6221C8D1DF500FEF740 /* addressImage.png */,
 				75F7C6231C8D1DF500FEF740 /* backArrow.png */,
@@ -542,6 +545,7 @@
 				75F7C6461C8D1DF500FEF740 /* star-512.png in Resources */,
 				75F7C63A1C8D1DF500FEF740 /* compass.png in Resources */,
 				75F7C6431C8D1DF500FEF740 /* shareImage.png in Resources */,
+				75119F571CBDE59200A36919 /* churchSearchIcon.png in Resources */,
 				75F7C64F1C8D1DF500FEF740 /* WX_circle_white.png in Resources */,
 				75F7C6371C8D1DF500FEF740 /* clocks.png in Resources */,
 				037F2F011C61000000E971DB /* LaunchScreen.xib in Resources */,

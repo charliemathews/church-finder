@@ -15,6 +15,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     
     var location : PFGeoPoint?
     var searchController:UISearchController!
+    @IBOutlet weak var searchButton: UIBarButtonItem!
     
     @IBOutlet weak var screenSwitcher: UISegmentedControl!
     @IBOutlet weak var listViewContainer: UIView!
@@ -55,6 +56,10 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = 500
         manager.requestLocation()
+        
+        //UISearchBar.appearance().setImage(UIImage(named: "churchSearchIcon.png"), forSearchBarIcon: UISearchBarIcon.Search, state: UIControlState.Normal)
+        searchButton.image = UIImage(named: "churchSearchIcon.png")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,12 +109,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         
         if let location = locations.first {
             
-            //if (!isCustomSearch) {
-                p["loc"] = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                print(p)
-                //data.pullResults(p)
-            //}
-
+            print("TopBar: Found user's location: \(location)")
             
             p["loc"] = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             data.pullResults(p)
