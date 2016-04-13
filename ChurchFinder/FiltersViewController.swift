@@ -154,7 +154,7 @@ class FiltersViewController: UITableViewController {
             
         } else if indexPath.section == 1 {
             
-            var enabled : Bool = data.filterByTime
+            let enabled : Bool = data.filterByTime
             
             /*
             if let times = filterSelected["times"] as? Dictionary<String, AnyObject> {
@@ -173,7 +173,7 @@ class FiltersViewController: UITableViewController {
             } else if(indexPath.row == 1) {
                 let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath) as! FilterViewCell
                 
-                cell.filter_name.text = "starting from"
+                cell.filter_name.text = "from"
                 cell.filter_value.text = "00:00"
                 
                 return cell
