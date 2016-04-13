@@ -7,22 +7,26 @@ Author: Dan Mitchell
 import UIKit
 import MapKit
 import ParseUI
-import QuartzCore
+//import QuartzCore
 
 class ChurchListCell: UITableViewCell {
 
+    @IBOutlet weak var overlay: UIView!
     @IBOutlet weak var churchImage: PFImageView!
     @IBOutlet weak var churchName : UILabel!
     @IBOutlet weak var denomination: UILabel!
     @IBOutlet weak var churchType: UILabel!
     @IBOutlet weak var serviceTime: UILabel!
-    @IBOutlet weak var distance: UILabel! // <-- This needs to be removed. Not in the spec!
     @IBOutlet weak var distanceAddr: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         churchImage.image = UIImage(named: "dummyphoto.png")
+        churchImage.contentMode = .ScaleAspectFill
+        self.churchImage.alpha = 1
+        //self.backgroundColor = UIColor.whiteColor()
+        //self.backgroundView?.backgroundColor = UIColor.whiteColor()
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -31,14 +35,15 @@ class ChurchListCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setCellInfo(indexPath:NSIndexPath) {
-        let church = data.results[indexPath.row] as Church
+    
+    func setCellInfo(resultIndex : Int) {
+        let church = data.results[resultIndex] as Church
         displayInfo(church)
     }
     
     
-    func setCellInfoBookmark(indexPath:NSIndexPath) {
-        let church = data.bookmarks[indexPath.row] as Church
+    func setCellInfoBookmark(resultIndex : Int) {
+        let church = data.bookmarks[resultIndex] as Church
         displayInfo(church)
     }
     
@@ -47,10 +52,26 @@ class ChurchListCell: UITableViewCell {
         denomination.text = church.denom ?? "[No Denomination]"
         churchType.text = church.style ?? "[No Type]"
         serviceTime.text = church.times ?? "[No Times]"
-        distance.text = getDistanceString(church)
         
-        churchImage.file = church.img
-        churchImage.loadInBackground()
+        let loc = data.currentLocation
+        var street = church.addr_street
+        let distance : String = data.getDistance(loc, church: church)
+        
+        if(street == "") {
+            street = "No address provided."
+        }
+        
+        distanceAddr.text = "\(distance)mi • " + street
+
+        if let _ = church.img?.name { //if (church.img!.name != "undefined") {
+            churchImage.file = church.img
+            churchImage.loadInBackground()
+            self.churchImage.alpha = 0.4
+            self.backgroundColor = UIColor.blackColor()
+        } else {
+            churchImage.image = UIImage(named: "dummyphoto.png")
+            print("ListCell: \"\(church.name)\" didn't have an image. Using default instead.")
+        }
         
         churchName.shadowColor = UIColor.blackColor()
         denomination.shadowColor = UIColor.blackColor()

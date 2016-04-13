@@ -8,7 +8,7 @@
 import UIKit
 class FilterListCell: UITableViewCell  {
     
-    //outlets
+    @IBOutlet weak var data_value: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -16,7 +16,5 @@ class FilterListCell: UITableViewCell  {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
 }

@@ -10,13 +10,17 @@ import MapKit
 import Parse
 
 class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
+    //var isCustomSearch: Bool = false
+    
     
     var location : PFGeoPoint?
     var searchController:UISearchController!
+    @IBOutlet weak var searchButton: UIBarButtonItem!
     
     @IBOutlet weak var screenSwitcher: UISegmentedControl!
     @IBOutlet weak var listViewContainer: UIView!
     @IBOutlet weak var mapViewContainer: UIView!
+    @IBOutlet weak var filtersButton: UIBarButtonItem!
     
     var mapViewController: MapViewController!
     var listViewController: ListViewController!
@@ -24,65 +28,123 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     let manager = CLLocationManager()
     var p = Constants.Defaults.get()
     
+    var indicator = UIActivityIndicatorView()
+    
+    func activityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 40, 40))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        indicator.center = self.view.center
+        //indicator.center.y -= 100
+        self.view.addSubview(indicator)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Request user location
+        activityIndicator()
+        indicator.startAnimating()
+        
+        // disable filters button until location has been identified and first pull is successful
+        filtersButton.enabled = false
+        loadObservers()
+        
+        // request user location
+        print("TopBar: Requesting user's location.")
+        manager.requestWhenInUseAuthorization()
+        
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        //manager.requestLocation()
+        manager.distanceFilter = 500
+        manager.requestLocation()
         
-        data.pullResults(p)
+        //UISearchBar.appearance().setImage(UIImage(named: "churchSearchIcon.png"), forSearchBarIcon: UISearchBarIcon.Search, state: UIControlState.Normal)
+        searchButton.image = UIImage(named: "churchSearchIcon.png")
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func loadObservers() {
+        data.addObserver(self, forKeyPath: "success", options: Constants.KVO_Options, context: nil)
+        data.addObserver(self, forKeyPath: "error", options: Constants.KVO_Options, context: nil)
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        print("TopBar: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        
+        if(keyPath == "success") {
+            if(data.success == false) {
+                filtersButton.enabled = false
+                indicator.startAnimating()
+                indicator.backgroundColor = UIColor.whiteColor()
+            } else {
+                filtersButton.enabled = true
+                indicator.stopAnimating()
+                indicator.hidesWhenStopped = true
+            }
+        } else if(keyPath == "error" && data.error == true) {
+            filtersButton.enabled = true
+            indicator.stopAnimating()
+            indicator.hidesWhenStopped = true
+            let alert = UIAlertController(title: "Whoops!", message: "Sorry, we couldn't find any churches with those criteria. We'll show you the results of last successful search.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
+    deinit {
+        data.removeObserver(self, forKeyPath: "success", context: nil)
+        data.removeObserver(self, forKeyPath: "error", context: nil)
     }
     
     //MARK: Location services
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        print("TopBar: User's location updated...")
         
         if let location = locations.first {
-            NSLog("Found user's location: \(location)")
+            
+            print("TopBar: Found user's location: \(location)")
             
             p["loc"] = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            print(p)
-            //data.pullResults(p)
-            
+            data.pullResults(p)
         }
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        NSLog("Failed to find user's location: \(error.localizedDescription)")
+        
+        print("TopBar: Failed to find user's location: \(error.localizedDescription)")
+        
+        data.pullResults(p)
     }
-    
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
         if(segue.identifier == "filterViewSegue") {
-            let child = segue.destinationViewController as! FiltersViewController
+            
+            //let child = segue.destinationViewController as! FiltersViewController
             //child.delegate = self
             
-        }
-        else if(segue.identifier == "mapViewSegue"){
-            mapViewController = segue.destinationViewController as! MapViewController
-        }
-        else if(segue.identifier == "listViewSegue"){
-            listViewController = segue.destinationViewController as! ListViewController
+        } else if(segue.identifier == "mapViewSegue"){
             
+            mapViewController = segue.destinationViewController as! MapViewController
+            
+        } else if(segue.identifier == "listViewSegue"){
+            
+            listViewController = segue.destinationViewController as! ListViewController
         }
     }
     
     @IBAction func doneWithFilters(segue: UIStoryboardSegue){
-        //data.pullResults(params)
-        //dismissViewControllerAnimated(true, completion: nil)
+        print("Unwound from filters and requested new results.")
+        let sender = segue.sourceViewController as! FiltersViewController
+        let params = sender.filterSelected
+        data.pullResults(params)
     }
     
     @IBAction func switchScreens(sender: AnyObject) {
@@ -99,12 +161,40 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         }
     }
     
-    // MARK: - Search Bar
+    @IBAction func unwindFromDetailedToSearch(segue: UIStoryboardSegue){
+        print("Unwound from detailed to search.")
+        
+    }
     
+    // MARK: - Search Bar
+    var localSearchRequest:MKLocalSearchRequest!
+    var localSearch:MKLocalSearch!
+    var localSearchResponse:MKLocalSearchResponse!
+    var error:NSError!
     func searchBarSearchButtonClicked(searchBar: UISearchBar){
         searchBar.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
         
+        localSearchRequest = MKLocalSearchRequest()
+        localSearchRequest.naturalLanguageQuery = searchBar.text
+        localSearch = MKLocalSearch(request: localSearchRequest)
+        
+        localSearch.startWithCompletionHandler{(localSearchResponse, error) -> Void in
+            
+            if localSearchResponse == nil{
+                let alertController = UIAlertController(title: nil, message: "Place Not Found", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                return
+            }
+            
+            let lat = localSearchResponse?.boundingRegion.center.latitude
+            let lon = localSearchResponse?.boundingRegion.center.longitude
+            
+            //self.isCustomSearch = true
+            self.p["loc"] = PFGeoPoint(latitude: lat!, longitude: lon!)
+            data.pullResults(self.p)
+        }
     }
     
     @IBAction func showSearchBar(sender: AnyObject) {

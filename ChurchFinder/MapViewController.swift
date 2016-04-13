@@ -7,7 +7,7 @@ Author: Sarah Burgess
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate {
     
     var current = Church()
     
@@ -27,31 +27,54 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
         super.viewDidLoad()
         self.mapview.showsUserLocation = true
         mapview.delegate = self
+        loadObservers()
     }
     
     override func viewDidAppear(animated: Bool) {
         outputChurchResultsToMap()
     }
     
+    func loadObservers() {
+        data.addObserver(self, forKeyPath: "success", options: Constants.KVO_Options, context: nil)
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        if(keyPath == "success" && data.success == true) {
+            outputChurchResultsToMap()
+        }
+        
+    }
+    
+    deinit {
+        data.removeObserver(self, forKeyPath: "success", context: nil)
+    }
+    
     func outputChurchResultsToMap() -> Bool {
         if(data.results.count == 0) {
             return false
         }
+        
+        //remove old annotations
+        mapview.removeAnnotations(mapview.annotations)
+        
         let anotView = MKAnnotationView()
         let detailBut = UIButton(type: .DetailDisclosure)
         anotView.rightCalloutAccessoryView = detailBut
+        
+        //add churches to map
         for r in data.results {
             let lat = r.location.latitude
             let lon = r.location.longitude
-        
             let loc = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-            //let pin = MKPointAnnotation()
             let pin = churchAnnotation(title: r.name, times: r.times, church: r, coordinate: loc)
             
             mapview.addAnnotation(pin)
         }
         
+        //scale map to show pins
         mapview.showAnnotations(mapview.annotations, animated: true)
+        
         return true
     }
     
@@ -61,10 +84,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "mapToDetSeg") {
+        if (segue.identifier == "mapToDetailed") {
             let dest = segue.destinationViewController as! DetailedViewController
-            dest.delegate = self
             dest.church = current
+            dest.creator = "map"
         }
     }
     
@@ -94,7 +117,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
         
         if (control as? UIButton)?.buttonType == UIButtonType.DetailDisclosure {
             mapView.deselectAnnotation(view.annotation, animated: false)
-            performSegueWithIdentifier("mapToDetSeg", sender: view)
+            performSegueWithIdentifier("mapToDetailed", sender: view)
         }
     }
     

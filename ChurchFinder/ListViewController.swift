@@ -17,7 +17,6 @@ class ListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadObservers()
-        //data.pullResults(Constants.Defaults.get())
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -40,7 +39,7 @@ class ListViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ChurchListCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ChurchListCell", forIndexPath: indexPath) as! ChurchListCell
         
-        cell.setCellInfo(indexPath)
+        cell.setCellInfo(indexPath.row)
         
         return cell
     }
@@ -85,24 +84,28 @@ class ListViewController: UITableViewController {
             
             let dest = segue.destinationViewController as! DetailedViewController
             dest.church = data.results[current]
+            dest.creator = "list"
         }
     }
     
     func loadObservers() {
-        data.addObserver(self, forKeyPath: "results", options: Constants.KVO_Options, context: nil)
+        data.addObserver(self, forKeyPath: "success", options: Constants.KVO_Options, context: nil)
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        NSLog("Value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        print("List/Map: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
         
-        if(keyPath == "results") {
-            table.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+        if(keyPath == "success" && data.success == true) {
+            
+            print("List/Map: I see \(data.results.count) church results.")
+            table.reloadData()
+        
         }
         
     }
     
     deinit {
-        data.removeObserver(self, forKeyPath: "results", context: nil)
+        data.removeObserver(self, forKeyPath: "success", context: nil)
     }
 }
