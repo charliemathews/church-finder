@@ -38,6 +38,12 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         self.view.addSubview(indicator)
     }
     
+    func setTint(view: UIImageView, tint: UIColor) {
+        let i = view.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        view.image = i
+        view.tintColor = tint
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,6 +63,22 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = 500
         manager.requestLocation()
+        
+        // pull meta
+        NSOperationQueue.mainQueue().addOperationWithBlock({
+            for (type, _) in data.filterTypes {
+                data.getMeta(type)
+            }
+        })
+        
+        /*
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        imageView.contentMode = .ScaleAspectFill
+        let image = UIImage(named: "location_icon.png")
+        imageView.image = image
+        setTint(imageView, tint: UIColor.blueColor())
+        searchButton.customView!.addSubview(imageView)
+        */
     }
 
     override func didReceiveMemoryWarning() {

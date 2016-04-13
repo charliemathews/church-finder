@@ -24,6 +24,7 @@ class Church {
     var style   : String
     var location: PFGeoPoint
     var times   : String
+    var times_set : [[String:Int]]
     var address : String
     var addr_street     : String
     var addr_city       : String
@@ -41,6 +42,7 @@ class Church {
         self.size = 0
         self.style = ""
         self.location = PFGeoPoint()
+        self.times_set = [[String:Int]]()
         self.times = ""
         self.address = ""
         self.addr_street = ""

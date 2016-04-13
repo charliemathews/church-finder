@@ -90,22 +90,36 @@ class ListViewController: UITableViewController {
     
     func loadObservers() {
         data.addObserver(self, forKeyPath: "success", options: Constants.KVO_Options, context: nil)
+        data.addObserver(self, forKeyPath: "times_received", options: Constants.KVO_Options, context: nil)
+
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        print("List/Map: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        //print("List/Map: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
         
         if(keyPath == "success" && data.success == true) {
             
             print("List/Map: I see \(data.results.count) church results.")
-            table.reloadData()
+            
+            for i in 0..<data.results.count {
+                if(data.threadQueryLock == true) { // if another query is running, we should be waiting for that query.
+                    return
+                }
+                data.getTimes(i)
+            }
+        }
         
+        if(keyPath == "times_received" && data.times_received == data.results.count) {
+            
+            print("List/Map: \(data.times_received) church's service times found. Reloading views.")
+            table.reloadData()
         }
         
     }
     
     deinit {
         data.removeObserver(self, forKeyPath: "success", context: nil)
+        data.removeObserver(self, forKeyPath: "times_received", context: nil)
     }
 }

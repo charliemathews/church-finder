@@ -35,19 +35,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func loadObservers() {
-        data.addObserver(self, forKeyPath: "success", options: Constants.KVO_Options, context: nil)
+        data.addObserver(self, forKeyPath: "times_received", options: Constants.KVO_Options, context: nil)
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        if(keyPath == "success" && data.success == true) {
+        if(keyPath == "times_received" && data.times_received == data.results.count && data.threadQueryLock == false) {
+            
             outputChurchResultsToMap()
         }
         
     }
     
     deinit {
-        data.removeObserver(self, forKeyPath: "success", context: nil)
+        data.removeObserver(self, forKeyPath: "times_received", context: nil)
     }
     
     func outputChurchResultsToMap() -> Bool {
@@ -67,7 +68,38 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let lat = r.location.latitude
             let lon = r.location.longitude
             let loc = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-            let pin = churchAnnotation(title: r.name, times: r.times, church: r, coordinate: loc)
+            
+            var t : String = ""
+            
+            if(r.times_set.count == 0) {
+                
+                t = "No service times listed."
+                
+            } else {
+                
+                var times : String = ""
+                let sets = r.times_set
+                
+                for set in sets {
+                    for (d,t) in set {
+                        let h : Int = t/60
+                        let m : Int = t%60
+                        
+                        var m_formatted : String
+                        if(m == 0) {
+                            m_formatted = "00"
+                        } else {
+                            m_formatted = String(m)
+                        }
+                        
+                        times += "\(d) \(h):\(m_formatted) "
+                    }
+                }
+                
+                t = times
+            }
+            
+            let pin = churchAnnotation(title: r.name, times: t, church: r, coordinate: loc)
             
             mapview.addAnnotation(pin)
         }

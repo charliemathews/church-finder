@@ -243,7 +243,33 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.value.text = church.style
             } else if metaType == "times" {
                 cell.icon.image = UIImage(named: "time_icon.png")
-                cell.value.text = "TIMES ARE WIP" //TO DO ONCE TIMES ARE HANDLED
+                if(church.times_set.count == 0) {
+                    
+                    cell.value.text = "No service times listed."
+                    
+                } else {
+                    
+                    var times : String = ""
+                    let sets = church.times_set
+                    
+                    for set in sets {
+                        for (d,t) in set {
+                            let h : Int = t/60
+                            let m : Int = t%60
+                            
+                            var m_formatted : String
+                            if(m == 0) {
+                                m_formatted = "00"
+                            } else {
+                                m_formatted = String(m)
+                            }
+                            
+                            times += "\(d) \(h):\(m_formatted) "
+                        }
+                    }
+                    
+                    cell.value.text = times
+                }
             } else if metaType == "address" {
                 cell.icon.image = UIImage(named: "compass_icon.png")
                 cell.value.text = church.addr_street + ", " + church.addr_city + ", " + church.addr_state + " " + church.addr_zip
