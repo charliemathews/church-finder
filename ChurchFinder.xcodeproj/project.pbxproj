@@ -35,6 +35,7 @@
 		0F4B904A1CBE228000C870A9 /* time_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4B90461CBE228000C870A9 /* time_icon.png */; };
 		0F4B904D1CBE2ED900C870A9 /* share_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4B904B1CBE2ED900C870A9 /* share_icon.png */; };
 		0F4B904E1CBE2ED900C870A9 /* www_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4B904C1CBE2ED900C870A9 /* www_icon.png */; };
+		0F4B90501CBE372F00C870A9 /* location_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4B904F1CBE372F00C870A9 /* location_icon.png */; };
 		0F4DACC21CBB396100C4D25B /* FilterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4DACC11CBB396100C4D25B /* FilterListCell.swift */; };
 		0F79702C1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */; };
 		0FA9620C1CBB52DA00BCDFC0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA962061CBB52DA00BCDFC0 /* Bolts.framework */; };
@@ -155,6 +156,7 @@
 		0F4B90461CBE228000C870A9 /* time_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time_icon.png; sourceTree = "<group>"; };
 		0F4B904B1CBE2ED900C870A9 /* share_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_icon.png; sourceTree = "<group>"; };
 		0F4B904C1CBE2ED900C870A9 /* www_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = www_icon.png; sourceTree = "<group>"; };
+		0F4B904F1CBE372F00C870A9 /* location_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_icon.png; sourceTree = "<group>"; };
 		0F4DACC11CBB396100C4D25B /* FilterListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterListCell.swift; sourceTree = "<group>"; };
 		0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CognitiveWalkthroughTests.swift; path = ../ChurchFinderTests/CognitiveWalkthroughTests.swift; sourceTree = "<group>"; };
 		0FA962061CBB52DA00BCDFC0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 		75D436DF1C79181600F62108 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0F4B904F1CBE372F00C870A9 /* location_icon.png */,
 				0F4B904B1CBE2ED900C870A9 /* share_icon.png */,
 				0F4B904C1CBE2ED900C870A9 /* www_icon.png */,
 				0F4B90431CBE228000C870A9 /* compass_icon.png */,
@@ -560,6 +563,7 @@
 				037F2EFE1C61000000E971DB /* Images.xcassets in Resources */,
 				26BEC0DF1C94DFE400AB2AF2 /* bookmarkStarRed.png in Resources */,
 				0F4B90471CBE228000C870A9 /* compass_icon.png in Resources */,
+				0F4B90501CBE372F00C870A9 /* location_icon.png in Resources */,
 				0F16D5891CAABB1600E6C7AD /* cellguides.png in Resources */,
 				26BEC0DE1C94DFE400AB2AF2 /* bookmarkStarBlue.png in Resources */,
 			);

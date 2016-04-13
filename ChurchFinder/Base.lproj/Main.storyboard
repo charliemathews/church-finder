@@ -39,7 +39,7 @@
                                                 <action selector="switchScreens:" destination="pgI-ae-Xty" eventType="valueChanged" id="9a7-vb-y50"/>
                                             </connections>
                                         </segmentedControl>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="428-Pl-ZWr">
+                                        <barButtonItem key="rightBarButtonItem" image="location_icon.png" id="428-Pl-ZWr">
                                             <connections>
                                                 <action selector="showSearchBar:" destination="pgI-ae-Xty" id="B9R-L7-uYl"/>
                                             </connections>
@@ -1459,6 +1459,7 @@
         <image name="compass_icon.png" width="100" height="100"/>
         <image name="detailed_back.png" width="128" height="128"/>
         <image name="dummyphoto.png" width="600" height="136"/>
+        <image name="location_icon.png" width="100" height="100"/>
         <image name="search" width="33" height="33"/>
         <image name="share_icon.png" width="100" height="100"/>
         <image name="star.png" width="256" height="256"/>

@@ -58,7 +58,12 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         manager.requestLocation()
         
         //UISearchBar.appearance().setImage(UIImage(named: "churchSearchIcon.png"), forSearchBarIcon: UISearchBarIcon.Search, state: UIControlState.Normal)
-        searchButton.image = UIImage(named: "churchSearchIcon.png")
+        //searchButton.image = UIImage(named: "churchSearchIcon.png")
+        
+        let banner = UIImage(named: "location_icon.png")
+        let imageView = UIImageView(image:banner)
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        view.searchButton.image = imageView
         
     }
 
