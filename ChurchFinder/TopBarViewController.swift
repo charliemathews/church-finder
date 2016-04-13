@@ -10,6 +10,8 @@ import MapKit
 import Parse
 
 class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
+    //var isCustomSearch: Bool = false
+    
     
     var location : PFGeoPoint?
     var searchController:UISearchController!
@@ -102,7 +104,12 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         
         if let location = locations.first {
             
-            print("TopBar: Found user's location: \(location)")
+            //if (!isCustomSearch) {
+                p["loc"] = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                print(p)
+                //data.pullResults(p)
+            //}
+
             
             p["loc"] = PFGeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             data.pullResults(p)
@@ -160,11 +167,34 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     }
     
     // MARK: - Search Bar
-    
+    var localSearchRequest:MKLocalSearchRequest!
+    var localSearch:MKLocalSearch!
+    var localSearchResponse:MKLocalSearchResponse!
+    var error:NSError!
     func searchBarSearchButtonClicked(searchBar: UISearchBar){
         searchBar.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
         
+        localSearchRequest = MKLocalSearchRequest()
+        localSearchRequest.naturalLanguageQuery = searchBar.text
+        localSearch = MKLocalSearch(request: localSearchRequest)
+        
+        localSearch.startWithCompletionHandler{(localSearchResponse, error) -> Void in
+            
+            if localSearchResponse == nil{
+                let alertController = UIAlertController(title: nil, message: "Place Not Found", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                return
+            }
+            
+            let lat = localSearchResponse?.boundingRegion.center.latitude
+            let lon = localSearchResponse?.boundingRegion.center.longitude
+            
+            //self.isCustomSearch = true
+            self.p["loc"] = PFGeoPoint(latitude: lat!, longitude: lon!)
+            data.pullResults(self.p)
+        }
     }
     
     @IBAction func showSearchBar(sender: AnyObject) {
