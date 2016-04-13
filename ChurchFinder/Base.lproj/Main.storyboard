@@ -39,7 +39,7 @@
                                                 <action selector="switchScreens:" destination="pgI-ae-Xty" eventType="valueChanged" id="9a7-vb-y50"/>
                                             </connections>
                                         </segmentedControl>
-                                        <barButtonItem key="rightBarButtonItem" image="churchSearchIcon.png" id="428-Pl-ZWr">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="428-Pl-ZWr">
                                             <connections>
                                                 <action selector="showSearchBar:" destination="pgI-ae-Xty" id="B9R-L7-uYl"/>
                                             </connections>
@@ -75,7 +75,7 @@
                             <constraint firstItem="3iy-fd-0Wz" firstAttribute="bottom" secondItem="wPZ-Ik-UBb" secondAttribute="top" id="nvn-Pj-joW"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="search" id="7ng-81-dcr"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="churchSearchIcon.png" id="7ng-81-dcr"/>
                     <connections>
                         <outlet property="filtersButton" destination="hly-Eo-7DZ" id="kZe-sK-Pvz"/>
                         <outlet property="listViewContainer" destination="3iy-fd-0Wz" id="wqe-2U-WyB"/>
