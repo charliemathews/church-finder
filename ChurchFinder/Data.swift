@@ -72,7 +72,7 @@ final class Data : NSObject {
         church.address      = f["address"]          as! String
         church.addr_street  = f["addr_street"]      as! String
         church.addr_city    = f["addr_city"]        as! String
-        church.addr_street  = f["addr_street"]      as! String
+        church.addr_state   = f["addr_state"]       as! String
         church.addr_zip     = f["addr_zip"]         as! String
         
         church.desc     = f["description"]  as! String
@@ -243,7 +243,7 @@ final class Data : NSObject {
                     let church : Church = data.churchFromObject(f)
                     church.object = f
                     data.results.append(church)
-                    print("Data: Background search found '\(church.name)'")
+                    print("Data: Background search found '\(church.name)' in \(church.addr_city), \(church.addr_state)")
                 }
                 
                 //         compound query

@@ -8,6 +8,10 @@ import UIKit
 
 class DetailedMetaCell: UITableViewCell {
 
+    
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var value: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
