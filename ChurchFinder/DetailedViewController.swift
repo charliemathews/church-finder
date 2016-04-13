@@ -230,14 +230,17 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.section == 0 {
             
             var identifier = "metaCell"
-            if(indexPath.row > meta_candidates.count) {
+            if(indexPath.row >= meta_candidates.count) {
                 identifier = "metaCellDesc"
             }
             
             let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! DetailedMetaCell
             
-            let metaType = meta_candidates[indexPath.row]
-        
+            var metaType : String = ""
+            if(indexPath.row < meta_candidates.count) {
+                metaType = meta_candidates[indexPath.row]
+            }
+            
             if metaType == "style" {
                 cell.icon.image = UIImage(named: "music_icon.png")
                 cell.value.text = church.style

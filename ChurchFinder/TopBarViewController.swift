@@ -210,9 +210,9 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
             let lat = localSearchResponse?.boundingRegion.center.latitude
             let lon = localSearchResponse?.boundingRegion.center.longitude
             
-            //self.isCustomSearch = true
-            self.p["loc"] = PFGeoPoint(latitude: lat!, longitude: lon!)
-            data.pullResults(self.p)
+            var newParams = data.currentParameters
+            newParams["loc"] = PFGeoPoint(latitude: lat!, longitude: lon!)
+            data.pullResults(newParams)
         }
     }
     

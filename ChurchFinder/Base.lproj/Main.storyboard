@@ -515,6 +515,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="icon" destination="aof-KO-up5" id="O15-vI-DtS"/>
+                                            <outlet property="value" destination="Z8j-QF-NEP" id="AOD-Px-fTG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="200" id="Sm6-uQ-glb" customClass="DetailedMapCell" customModule="ChurchFinder" customModuleProvider="target">
