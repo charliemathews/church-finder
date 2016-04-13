@@ -41,6 +41,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // show loading indicator on first load
         activityIndicator()
         indicator.startAnimating()
         
@@ -56,15 +57,6 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = 500
         manager.requestLocation()
-        
-        //UISearchBar.appearance().setImage(UIImage(named: "churchSearchIcon.png"), forSearchBarIcon: UISearchBarIcon.Search, state: UIControlState.Normal)
-        //searchButton.image = UIImage(named: "churchSearchIcon.png")
-        
-        let banner = UIImage(named: "location_icon.png")
-        let imageView = UIImageView(image:banner)
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        view.searchButton.image = imageView
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -206,6 +198,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         searchController = UISearchController(searchResultsController: nil)
         searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search by address, city, or zip..."
         presentViewController(searchController, animated: true, completion: nil)
         
     }
