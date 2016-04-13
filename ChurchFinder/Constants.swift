@@ -40,6 +40,14 @@ struct Constants {
             params["size"] = "Any"
             params["loc"] = PFGeoPoint(latitude: Lat, longitude: Lon)
             
+            var t : [String:AnyObject] = [:]
+            t["enabled"] = false
+            t["day"] = ""
+            t["start"] = 0
+            t["end"] = 0
+            
+            params["times"] = t
+            
             return params
         }
         

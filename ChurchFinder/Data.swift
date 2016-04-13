@@ -26,7 +26,9 @@ final class Data : NSObject {
     
     dynamic var success : Bool = false
     dynamic var meta_success : Bool = false
+    dynamic var times_received : Int = 0
     dynamic var error : Bool = false
+    var threadQueryLock : Bool = false
     
     var results : [Church] = []
     var bookmarks : [Church] = []
@@ -50,12 +52,6 @@ final class Data : NSObject {
         super.init()
         
         pullBookmarks()
-        
-        NSOperationQueue.mainQueue().addOperationWithBlock({
-            for (type, _) in self.filterTypes {
-                self.getMeta(type)
-            }
-        })
     }
     
     func churchFromObject(f: PFObject) -> Church {
@@ -145,6 +141,57 @@ final class Data : NSObject {
         }
     }
     
+    func getTimes(index : Int) { // if results changes, cancel operation??
+        
+        if(threadQueryLock == true) {
+            return
+        }
+        
+        let id : String = results[index].id
+        
+        let query = PFQuery(className: "Service")
+        query.whereKey("owner", containsString: id)
+        
+        query.findObjectsInBackgroundWithBlock {
+            (objects:[PFObject]?, error:NSError?) -> Void in
+            
+            if let found = objects {
+                
+                var times : Array<Dictionary<String, Int>> = []
+                
+                if(found.count == 0) {
+                    
+                    print("Data: Times search found NO service times for \(id)")
+                    
+                } else {
+                    
+                    for f in found {
+                        
+                        let day = f["day"] as! String
+                        let time = f["time"] as! Int
+                        let service : Dictionary<String, Int> = [day:time]
+                        times.append(service)
+                        
+                    }
+                    
+                    // because of threading, make sure that the result still exists before setting it's times
+                    if(data.results[index].id == id && data.results[index].times_set.count == 0) {
+                        print("Data: Times search found \(times.count) service times for \(id)")
+                        data.results[index].times_set = times
+                        data.times_received += 1
+                    }
+                }
+                
+            } else {
+                if let e = error {
+                    NSLog(e.description)
+                } else {
+                    NSLog("Data: There was an error but it was unreadable.")
+                }
+            }
+        }
+    }
+    
     /*
     Update ChurchData.results with churches that match the requested parameters
     s and n are the start index and limit of the result we want to look at.
@@ -157,6 +204,12 @@ final class Data : NSObject {
         
         print("")
         print("Data: Pulling new results.")
+        
+        if(threadQueryLock == false) {
+            threadQueryLock = true
+        } else {
+            return
+        }
         
         if(params.count > 0) {
             print("Data: The following parameters were provided.")
@@ -171,6 +224,7 @@ final class Data : NSObject {
     // setup
         success = false
         error = false
+        times_received = 0
 
         let query = PFQuery(className: Constants.Parse.ChurchClass)
         
@@ -246,6 +300,9 @@ final class Data : NSObject {
                     print("Data: Background search found '\(church.name)' in \(church.addr_city), \(church.addr_state)")
                 }
                 
+                
+                // future code...?
+                
                 //         compound query
                 //         for(int i = 0; i < times.count; i++)
                 //         if(time.count > 0) query.whereKey("time", containsString:...
@@ -254,6 +311,7 @@ final class Data : NSObject {
                 //         so if results < number of results to get at once then try to increase radius by 1s up to 50
                 //
                 //         set results = query.results
+                
                 
                 if(data.results.count > 0) {
                     print("Data: I found churches in the parse database.")
@@ -265,6 +323,7 @@ final class Data : NSObject {
                     data.currentStart = query.skip
                     data.currentLimit = query.limit
                     
+                    data.threadQueryLock = false
                     data.success = true
     
                 } else {
@@ -281,6 +340,7 @@ final class Data : NSObject {
                 NSLog(error!.description)
                 data.error = true
             }
+            data.threadQueryLock = false
         }
     }
         
@@ -299,6 +359,7 @@ final class Data : NSObject {
         bookmarks.append(addedChurch)
         addedChurch.object!.pinInBackground()
         writeBookmarkOrder()
+        print("Data: Added bookmark. \(bookmarks.count) total.")
     }
     
     func removeBookmark(let bookmarkIndex : Int) {
@@ -308,6 +369,7 @@ final class Data : NSObject {
             bookmarks.removeAtIndex(bookmarkIndex)
         }
         writeBookmarkOrder()
+        print("Data: Removed bookmark. \(bookmarks.count) remaining.")
     }
     
     func removeBookmark(bookmarkedChurch: Church) {
@@ -370,17 +432,20 @@ final class Data : NSObject {
     
     func writeBookmarkOrder() {
         var csv : String = ""
-        for b in bookmarks {
-            csv.appendContentsOf(b.id + ",")
-        }
-        csv.removeAtIndex(csv.endIndex.predecessor())
         
-        let path = (NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent("Bookmarks.list")
+        if(bookmarks.count > 0) {
+            for b in bookmarks {
+                csv.appendContentsOf(b.id + ",")
+            }
+            csv.removeAtIndex(csv.endIndex.predecessor())
         
-        do {
-            try csv.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding)
-        } catch {
-            NSLog("File could not be written")
+            let path = (NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent("Bookmarks.list")
+            
+            do {
+                try csv.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding)
+            } catch {
+                NSLog("File could not be written")
+            }
         }
     }
     
@@ -415,6 +480,16 @@ final class Data : NSObject {
             return String(format: "%0.1f", raw)
         } else {
             return "?"
+        }
+    }
+    
+    func restrictResultsByTime() {
+        if let times = currentParameters["times"] as? Dictionary<String, AnyObject> {
+            if let e = times["enabled"] as? Bool {
+                if e == true {
+                    print("praise the lord, lord of time")
+                }
+            }
         }
     }
 }

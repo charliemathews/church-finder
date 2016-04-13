@@ -51,7 +51,34 @@ class ChurchListCell: UITableViewCell {
         churchName.text = church.name ?? "[No Title]"
         denomination.text = church.denom ?? "[No Denomination]"
         churchType.text = church.style ?? "[No Type]"
-        serviceTime.text = church.times ?? "[No Times]"
+        
+        if(church.times_set.count == 0) {
+            
+            serviceTime.text = "No service times."
+            
+        } else {
+            
+            var times : String = ""
+            let sets = church.times_set
+            
+            for set in sets {
+                for (d,t) in set {
+                    let h : Int = t/60
+                    let m : Int = t%60
+                    
+                    var m_formatted : String
+                    if(m == 0) {
+                        m_formatted = "00"
+                    } else {
+                        m_formatted = String(m)
+                    }
+                    
+                    times += "\(d) \(h):\(m_formatted) "
+                }
+            }
+            
+            serviceTime.text = times
+        }
         
         let loc = data.currentLocation
         var street = church.addr_street

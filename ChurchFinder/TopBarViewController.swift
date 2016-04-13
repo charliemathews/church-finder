@@ -38,9 +38,16 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         self.view.addSubview(indicator)
     }
     
+    func setTint(view: UIImageView, tint: UIColor) {
+        let i = view.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        view.image = i
+        view.tintColor = tint
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // show loading indicator on first load
         activityIndicator()
         indicator.startAnimating()
         
@@ -57,9 +64,21 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         manager.distanceFilter = 500
         manager.requestLocation()
         
-        //UISearchBar.appearance().setImage(UIImage(named: "churchSearchIcon.png"), forSearchBarIcon: UISearchBarIcon.Search, state: UIControlState.Normal)
-        searchButton.image = UIImage(named: "churchSearchIcon.png")
+        // pull meta
+        NSOperationQueue.mainQueue().addOperationWithBlock({
+            for (type, _) in data.filterTypes {
+                data.getMeta(type)
+            }
+        })
         
+        /*
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        imageView.contentMode = .ScaleAspectFill
+        let image = UIImage(named: "location_icon.png")
+        imageView.image = image
+        setTint(imageView, tint: UIColor.blueColor())
+        searchButton.customView!.addSubview(imageView)
+        */
     }
 
     override func didReceiveMemoryWarning() {
@@ -191,9 +210,9 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
             let lat = localSearchResponse?.boundingRegion.center.latitude
             let lon = localSearchResponse?.boundingRegion.center.longitude
             
-            //self.isCustomSearch = true
-            self.p["loc"] = PFGeoPoint(latitude: lat!, longitude: lon!)
-            data.pullResults(self.p)
+            var newParams = data.currentParameters
+            newParams["loc"] = PFGeoPoint(latitude: lat!, longitude: lon!)
+            data.pullResults(newParams)
         }
     }
     
@@ -201,6 +220,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         searchController = UISearchController(searchResultsController: nil)
         searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search by address, city, or zip..."
         presentViewController(searchController, animated: true, completion: nil)
         
     }

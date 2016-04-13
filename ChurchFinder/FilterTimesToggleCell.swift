@@ -2,14 +2,16 @@
  Copyright 2016 Serious Llama and Grove City College. All rights reserved.
  
  Author: Charlie Mathews
+ Created: 4/13/16
  */
 
 import UIKit
 
-class DetailedMetaCell: UITableViewCell {
-
-    @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var value: UILabel!
+class FilterTimesToggleCell: UITableViewCell {
+    
+    @IBOutlet weak var toggle: UISwitch!
+    @IBAction func toggleFlip(sender: AnyObject) {
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

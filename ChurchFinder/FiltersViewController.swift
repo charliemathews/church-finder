@@ -127,12 +127,12 @@ class FiltersViewController: UITableViewController {
         }
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> FilterViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath) as! FilterViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if(indexPath.section == 0) {
         
+            let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath) as! FilterViewCell
+            
             let name = Array(filterTypes.values)[indexPath.row]
             let column_name = Array(filterTypes.keys)[indexPath.row]
             
@@ -146,12 +146,44 @@ class FiltersViewController: UITableViewController {
             cell.filter_name.text = name
             cell.filter_value.text = value
             
-        } else {
+            return cell
             
-            // filter by time stuff
+        } else if indexPath.section == 1 {
+            
+            var enabled : Bool = false
+            
+            if let times = filterSelected["times"] as? Dictionary<String, AnyObject> {
+                if let e = times["enabled"] as? Bool {
+                    enabled = e
+                }
+            }
+            
+            if(indexPath.row == 0) {
+                let cell = tableView.dequeueReusableCellWithIdentifier("timesToggleCell", forIndexPath: indexPath) as! FilterTimesToggleCell
+                
+                //cell.toggle.on = enabled
+                
+                
+                return cell
+            } else if(indexPath.row == 1) {
+                let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath) as! FilterViewCell
+                
+                //
+                
+                return cell
+            } else if(indexPath.row == 2) {
+                let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath) as! FilterViewCell
+                
+                //
+                
+                return cell
+            } else {
+                return tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath)
+            }
+            
+        } else {
+            return tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath)
         }
-
-        return cell
     }
     
     @IBAction func doneWithList(segue: UIStoryboardSegue) {
