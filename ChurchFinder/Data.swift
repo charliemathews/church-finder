@@ -482,5 +482,15 @@ final class Data : NSObject {
             return "?"
         }
     }
+    
+    func restrictResultsByTime() {
+        if let times = currentParameters["times"] as? Dictionary<String, AnyObject> {
+            if let e = times["enabled"] as? Bool {
+                if e == true {
+                    print("praise the lord, lord of time")
+                }
+            }
+        }
+    }
 }
     

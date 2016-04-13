@@ -52,8 +52,6 @@ class ChurchListCell: UITableViewCell {
         denomination.text = church.denom ?? "[No Denomination]"
         churchType.text = church.style ?? "[No Type]"
         
-        //serviceTime.text = church.times ?? "[No Times]"
-        print(church.times_set)
         if(church.times_set.count == 0) {
             
             serviceTime.text = "No service times."

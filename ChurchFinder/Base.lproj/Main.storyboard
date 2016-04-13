@@ -388,7 +388,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{meta}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hv-0c-7p9">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -398,7 +398,9 @@
                                                 </constraint>
                                                 <constraint firstItem="7hv-0c-7p9" firstAttribute="leading" secondItem="QjF-yI-gU9" secondAttribute="trailing" constant="14" id="Qga-q3-BPq"/>
                                                 <constraint firstItem="QjF-yI-gU9" firstAttribute="centerY" secondItem="unx-VD-P6a" secondAttribute="centerY" id="RGD-cm-CVV"/>
-                                                <constraint firstItem="7hv-0c-7p9" firstAttribute="trailing" secondItem="unx-VD-P6a" secondAttribute="trailingMargin" id="SJq-ua-AXY"/>
+                                                <constraint firstItem="7hv-0c-7p9" firstAttribute="trailing" secondItem="unx-VD-P6a" secondAttribute="trailingMargin" id="SJq-ua-AXY">
+                                                    <variation key="heightClass=regular" constant="-360"/>
+                                                </constraint>
                                                 <constraint firstItem="QjF-yI-gU9" firstAttribute="bottom" secondItem="7hv-0c-7p9" secondAttribute="bottom" id="SQ4-Ye-sWZ"/>
                                                 <constraint firstItem="QjF-yI-gU9" firstAttribute="centerY" secondItem="7hv-0c-7p9" secondAttribute="centerY" id="mLT-Zt-Dif"/>
                                             </constraints>
@@ -470,7 +472,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{meta}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8j-QF-NEP">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1318,6 +1320,61 @@
                                     <outlet property="filter_value" destination="oUB-1j-jAY" id="RNL-2M-f8L"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="timesToggleCell" rowHeight="44" id="USQ-gk-5of" customClass="FilterTimesToggleCell" customModule="ChurchFinder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="152.5" width="600" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="USQ-gk-5of" id="c77-dQ-jWy">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter By Service Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gp-nC-Kgg">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jE3-yt-18b">
+                                            <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="toggleFlip:" destination="USQ-gk-5of" eventType="valueChanged" id="9u4-eQ-ZhM"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jE3-yt-18b" firstAttribute="trailing" secondItem="c77-dQ-jWy" secondAttribute="trailingMargin" id="Q0G-kS-CRc"/>
+                                        <constraint firstItem="8gp-nC-Kgg" firstAttribute="centerY" secondItem="c77-dQ-jWy" secondAttribute="centerY" id="dAB-Yv-e0G"/>
+                                        <constraint firstItem="jE3-yt-18b" firstAttribute="centerY" secondItem="c77-dQ-jWy" secondAttribute="centerY" id="f2J-vM-ffo"/>
+                                        <constraint firstItem="8gp-nC-Kgg" firstAttribute="leading" secondItem="c77-dQ-jWy" secondAttribute="leadingMargin" id="wdj-HV-JH8"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="8gp-nC-Kgg"/>
+                                            <exclude reference="jE3-yt-18b"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="dAB-Yv-e0G"/>
+                                            <exclude reference="wdj-HV-JH8"/>
+                                            <exclude reference="Q0G-kS-CRc"/>
+                                            <exclude reference="f2J-vM-ffo"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular">
+                                        <mask key="subviews">
+                                            <include reference="8gp-nC-Kgg"/>
+                                            <include reference="jE3-yt-18b"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="dAB-Yv-e0G"/>
+                                            <include reference="wdj-HV-JH8"/>
+                                            <include reference="Q0G-kS-CRc"/>
+                                            <include reference="f2J-vM-ffo"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="toggle" destination="jE3-yt-18b" id="kbL-fJ-KVR"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="vO3-2u-4cJ" id="CVq-Tb-PrW"/>
@@ -1347,7 +1404,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9H-iR-Ukd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pmu-aS-dTd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1806" y="-943"/>
+            <point key="canvasLocation" x="1806" y="-943.5"/>
         </scene>
         <!--Filter By List Controller-->
         <scene sceneID="FFV-Gj-KWi">

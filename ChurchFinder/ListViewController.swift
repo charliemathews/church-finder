@@ -108,6 +108,8 @@ class ListViewController: UITableViewController {
                 }
                 data.getTimes(i)
             }
+            
+            data.restrictResultsByTime()
         }
         
         if(keyPath == "times_received" && data.times_received == data.results.count) {

@@ -40,6 +40,7 @@
 		0F79702C1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */; };
 		0F9E94DC1CBE39BE007C6D77 /* location_icon_22.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F9E94DA1CBE39BE007C6D77 /* location_icon_22.png */; };
 		0F9E94DD1CBE39BE007C6D77 /* location_icon_44.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F9E94DB1CBE39BE007C6D77 /* location_icon_44.png */; };
+		0F9E94DF1CBE6849007C6D77 /* FilterTimesToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E94DE1CBE6849007C6D77 /* FilterTimesToggleCell.swift */; };
 		0FA9620C1CBB52DA00BCDFC0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA962061CBB52DA00BCDFC0 /* Bolts.framework */; };
 		0FA9620D1CBB52DA00BCDFC0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA962071CBB52DA00BCDFC0 /* Parse.framework */; };
 		0FA9620E1CBB52DA00BCDFC0 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA962081CBB52DA00BCDFC0 /* ParseFacebookUtils.framework */; };
@@ -163,6 +164,7 @@
 		0F79702B1C8F372F00FA40FE /* CognitiveWalkthroughTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CognitiveWalkthroughTests.swift; path = ../ChurchFinderTests/CognitiveWalkthroughTests.swift; sourceTree = "<group>"; };
 		0F9E94DA1CBE39BE007C6D77 /* location_icon_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_icon_22.png; sourceTree = "<group>"; };
 		0F9E94DB1CBE39BE007C6D77 /* location_icon_44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_icon_44.png; sourceTree = "<group>"; };
+		0F9E94DE1CBE6849007C6D77 /* FilterTimesToggleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTimesToggleCell.swift; sourceTree = "<group>"; };
 		0FA962061CBB52DA00BCDFC0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		0FA962071CBB52DA00BCDFC0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		0FA962081CBB52DA00BCDFC0 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 			children = (
 				034E15FD1C7C9F9D004AD878 /* FiltersViewController.swift */,
 				034E16051C7CAC1F004AD878 /* FilterViewCell.swift */,
+				0F9E94DE1CBE6849007C6D77 /* FilterTimesToggleCell.swift */,
 				0F34BFCC1CBC596B007F57F1 /* FilterByListController.swift */,
 				0F4DACC11CBB396100C4D25B /* FilterListCell.swift */,
 			);
@@ -628,6 +631,7 @@
 				034E16061C7CAC1F004AD878 /* FilterViewCell.swift in Sources */,
 				0F2028181C7F55FD00AFC9AA /* Data.swift in Sources */,
 				037F2F191C61087400E971DB /* ChurchListCell.swift in Sources */,
+				0F9E94DF1CBE6849007C6D77 /* FilterTimesToggleCell.swift in Sources */,
 				0F20281E1C7F563F00AFC9AA /* Constants.swift in Sources */,
 				034E15FC1C7C9ED0004AD878 /* AppDelegate.swift in Sources */,
 				37F0B4341C978C9B00DA821A /* TopBarViewController.swift in Sources */,
