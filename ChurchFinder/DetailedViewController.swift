@@ -121,7 +121,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             pin.title = church.name
             
             cell.mapView.addAnnotation(pin)
-            cell.mapView.showAnnotations(cell.mapView.annotations, animated: true)
+            cell.mapView.showAnnotations(cell.mapView.annotations, animated: false)
             
             return cell
         }
