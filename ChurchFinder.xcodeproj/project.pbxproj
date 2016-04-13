@@ -275,7 +275,7 @@
 				037F2EFA1C61000000E971DB /* Main.storyboard */,
 				034E15FB1C7C9ED0004AD878 /* AppDelegate.swift */,
 				75D436DD1C79108800F62108 /* DetailedViewControllerOld.swift */,
-				0F20281F1C7F56A800AFC9AA /* View */,
+				0F20281F1C7F56A800AFC9AA /* Controller */,
 				0F2028131C7F55CE00AFC9AA /* Model */,
 				75D436DF1C79181600F62108 /* Images */,
 				037F2EFF1C61000000E971DB /* LaunchScreen.xib */,
@@ -320,7 +320,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		0F20281F1C7F56A800AFC9AA /* View */ = {
+		0F20281F1C7F56A800AFC9AA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				37F0B4331C978C9B00DA821A /* TopBarViewController.swift */,
@@ -332,7 +332,7 @@
 				0F4B903D1CBDD90E00C870A9 /* Detailed */,
 				0F4B903E1CBDD93800C870A9 /* Bookmarks */,
 			);
-			name = View;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		0F4B903D1CBDD90E00C870A9 /* Detailed */ = {
