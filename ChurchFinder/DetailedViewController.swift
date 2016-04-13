@@ -196,12 +196,16 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             let metaType = meta_candidates[indexPath.row]
         
             if metaType == "style" {
+                cell.icon.image = UIImage(named: "music_icon.png")
                 cell.value.text = church.style
             } else if metaType == "times" {
+                cell.icon.image = UIImage(named: "time_icon.png")
                 cell.value.text = "TIMES ARE WIP" //TO DO ONCE TIMES ARE HANDLED
             } else if metaType == "address" {
+                cell.icon.image = UIImage(named: "compass_icon.png")
                 cell.value.text = church.addr_street + ", " + church.addr_city + ", " + church.addr_state + " " + church.addr_zip
             } else if identifier == "metaCellDesc" && church.desc != "" {
+                cell.icon.image = UIImage(named: "info_icon.png")
                 cell.value.text = church.desc
             }
             
