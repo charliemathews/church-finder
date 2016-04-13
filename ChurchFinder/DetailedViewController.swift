@@ -14,12 +14,21 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var action_slot_2: UIView!
     @IBOutlet weak var action_slot_3: UIView!
     
+    @IBOutlet weak var action_slot_1_image: UIImageView!
+    @IBOutlet weak var action_slot_2_image: UIImageView!
+    @IBOutlet weak var action_slot_3_image: UIImageView!
+    @IBOutlet weak var action_slot_1_text: UILabel!
+    @IBOutlet weak var action_slot_2_text: UILabel!
+    @IBOutlet weak var action_slot_3_text: UILabel!
+    
     var church : Church = Church()
     var creator : String = ""
     var bookmarked : Bool = false
     
     let highlightedBookmarkColor: UIColor = UIColor(colorLiteralRed: 1.0, green: 0.84, blue: 0.0, alpha: 1)
     let defaultBookmarkColor: UIColor = UIColor(colorLiteralRed: 0.08235, green: 0.44313, blue: 0.98431, alpha: 1)
+    let actionBackground: UIColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.02)
+    let actionBackground_selected: UIColor = UIColor(colorLiteralRed: 0.08235, green: 0.44313, blue: 0.98431, alpha: 0.2)
     
     let meta_candidates : [String] = ["style", "times", "address"]
     
@@ -50,11 +59,19 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             let d : String = data.getDistance(data.currentLocation, church: church)
             distance.text = "\(d)mi"
         
-        //if bookmarked
+        
         let i = star.imageView?.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         star.setImage(i, forState: .Normal)
         
         updateBookmarkIndicator()
+        
+        setTint(action_slot_1_image, tint: defaultBookmarkColor)
+        setTint(action_slot_2_image, tint: defaultBookmarkColor)
+        setTint(action_slot_3_image, tint: defaultBookmarkColor)
+        
+        action_slot_1_text.textColor = defaultBookmarkColor
+        action_slot_2_text.textColor = defaultBookmarkColor
+        action_slot_3_text.textColor = defaultBookmarkColor
         
         let tap_bookmark = UITapGestureRecognizer(target: self, action: #selector(DetailedViewController.toggleBookMark))
         star.userInteractionEnabled = true
@@ -71,6 +88,12 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         let tap3 = UITapGestureRecognizer(target: self, action: #selector(DetailedViewController.action_share))
         action_slot_3.userInteractionEnabled = true
         action_slot_3.addGestureRecognizer(tap3)
+    }
+    
+    func setTint(view: UIImageView, tint: UIColor) {
+        let i = view.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        view.image = i
+        view.tintColor = tint
     }
     
     func toggleBookMark() {
@@ -96,6 +119,14 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func action_openWebsite() {
+        
+        action_slot_1.backgroundColor = actionBackground_selected
+        
+        UIView.animateWithDuration(2, animations: { () -> Void in
+            self.action_slot_1.backgroundColor = self.actionBackground
+        })
+        
+        
         let url = NSURL(string: church.url)
         
         if url == nil || UIApplication.sharedApplication().canOpenURL(url!) == false {
@@ -114,6 +145,12 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func action_navigate() {
         
+        action_slot_2.backgroundColor = actionBackground_selected
+        
+        UIView.animateWithDuration(2, animations: { () -> Void in
+            self.action_slot_2.backgroundColor = self.actionBackground
+        })
+        
         let regionDistance:CLLocationDistance = 10000
         let coordinates = CLLocationCoordinate2DMake(church.location.latitude, church.location.longitude)
         let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
@@ -129,6 +166,12 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func action_share() {
+        
+        action_slot_3.backgroundColor = actionBackground_selected
+        
+        UIView.animateWithDuration(2, animations: { () -> Void in
+            self.action_slot_3.backgroundColor = self.actionBackground
+        })
         
         let textToShare = "Check out \(church.name) at \(church.url)!\nService Time: \(church.times)"
         
@@ -238,6 +281,17 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if(indexPath.section == 0) {
+            let metaType = meta_candidates[indexPath.row]
+            
+            if(metaType == "address") {
+                action_navigate()
+            }
+        }
+        return indexPath
     }
     
     // only enable below if we are using grouped table

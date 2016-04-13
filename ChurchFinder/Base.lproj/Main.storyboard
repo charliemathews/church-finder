@@ -328,7 +328,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_circle" translatesAutoresizingMaskIntoConstraints="NO" id="QpO-iX-XtQ">
+                            <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_circle" translatesAutoresizingMaskIntoConstraints="NO" id="QpO-iX-XtQ">
                                 <rect key="frame" x="460" y="14" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="PI9-Vv-zcA"/>
@@ -585,7 +585,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="4sM-BI-Qv6"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                                <color key="textColor" red="0.084187119159785051" green="0.65567456052633233" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -598,11 +598,11 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="action_website.png" translatesAutoresizingMaskIntoConstraints="NO" id="N84-4n-MnF">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="www_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="N84-4n-MnF">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.02" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="N84-4n-MnF" firstAttribute="centerX" secondItem="dnU-MK-0Ye" secondAttribute="centerX" id="LPh-fo-45q"/>
                                             <constraint firstItem="dnU-MK-0Ye" firstAttribute="top" secondItem="N84-4n-MnF" secondAttribute="bottom" constant="1" id="SpN-Sz-yp4"/>
@@ -652,7 +652,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ON-v1-U78">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="action_website.png" translatesAutoresizingMaskIntoConstraints="NO" id="jkT-0k-M7b">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="jkT-0k-M7b">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHARE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkX-tQ-msU">
@@ -661,7 +661,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="DND-B4-fKO"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                                <color key="textColor" red="0.084187119160000004" green="0.65567456049999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -675,7 +675,7 @@
                                                 </variation>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.02" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="jkT-0k-M7b" firstAttribute="centerX" secondItem="RkX-tQ-msU" secondAttribute="centerX" id="0LU-hT-ZRJ"/>
                                             <constraint firstAttribute="width" constant="104" id="3Op-n7-WGl"/>
@@ -731,16 +731,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kol-yu-XPp">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="action_website.png" translatesAutoresizingMaskIntoConstraints="NO" id="0BT-h4-AVA">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIRECTIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25S-nv-IoL">
                                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="WT2-TP-QKf"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                                <color key="textColor" red="0.084187119160000004" green="0.65567456049999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -753,8 +750,11 @@
                                                     </mask>
                                                 </variation>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compass_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="0BT-h4-AVA">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.02" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="104" id="BDZ-8D-k4b"/>
                                             <constraint firstItem="25S-nv-IoL" firstAttribute="leading" secondItem="kol-yu-XPp" secondAttribute="leading" constant="-7" id="Jq5-fp-czp"/>
@@ -768,8 +768,8 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
-                                                <exclude reference="0BT-h4-AVA"/>
                                                 <exclude reference="25S-nv-IoL"/>
+                                                <exclude reference="0BT-h4-AVA"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="BDZ-8D-k4b"/>
@@ -785,8 +785,8 @@
                                         </variation>
                                         <variation key="heightClass=regular">
                                             <mask key="subviews">
-                                                <include reference="0BT-h4-AVA"/>
                                                 <include reference="25S-nv-IoL"/>
+                                                <include reference="0BT-h4-AVA"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="BDZ-8D-k4b"/>
@@ -1010,8 +1010,14 @@
                     </view>
                     <connections>
                         <outlet property="action_slot_1" destination="gOa-O5-O0U" id="727-0i-lhv"/>
+                        <outlet property="action_slot_1_image" destination="N84-4n-MnF" id="UcT-xE-MWy"/>
+                        <outlet property="action_slot_1_text" destination="dnU-MK-0Ye" id="OvJ-kZ-c2r"/>
                         <outlet property="action_slot_2" destination="kol-yu-XPp" id="Zww-Lz-MCi"/>
+                        <outlet property="action_slot_2_image" destination="0BT-h4-AVA" id="ZVu-mo-C5G"/>
+                        <outlet property="action_slot_2_text" destination="25S-nv-IoL" id="Otj-pW-U49"/>
                         <outlet property="action_slot_3" destination="1ON-v1-U78" id="Gow-4r-1ue"/>
+                        <outlet property="action_slot_3_image" destination="jkT-0k-M7b" id="0aN-rE-iLT"/>
+                        <outlet property="action_slot_3_text" destination="RkX-tQ-msU" id="XbO-eZ-bRe"/>
                         <outlet property="circle" destination="QpO-iX-XtQ" id="Gyy-b2-bBM"/>
                         <outlet property="denom_size" destination="4zW-Cr-4eu" id="1qr-KZ-ibx"/>
                         <outlet property="distance" destination="i2s-EK-je9" id="6wc-fZ-o65"/>
@@ -1450,12 +1456,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="action_website.png" width="128" height="128"/>
+        <image name="compass_icon.png" width="100" height="100"/>
         <image name="detailed_back.png" width="128" height="128"/>
         <image name="dummyphoto.png" width="600" height="136"/>
         <image name="search" width="33" height="33"/>
+        <image name="share_icon.png" width="100" height="100"/>
         <image name="star.png" width="256" height="256"/>
         <image name="star_circle" width="70" height="70"/>
+        <image name="www_icon.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="o0J-SB-yfK"/>
