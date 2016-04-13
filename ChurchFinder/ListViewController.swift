@@ -83,7 +83,8 @@ class ListViewController: UITableViewController {
         if (segue.identifier == "listToDetailed") {
             
             let dest = segue.destinationViewController as! DetailedViewController
-            //dest.church = data.results[current]
+            dest.church = data.results[current]
+            dest.creator = "list"
         }
     }
     

@@ -154,6 +154,11 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         }
     }
     
+    @IBAction func unwindFromDetailedToSearch(segue: UIStoryboardSegue){
+        print("Unwound from detailed to search.")
+        
+    }
+    
     // MARK: - Search Bar
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar){
