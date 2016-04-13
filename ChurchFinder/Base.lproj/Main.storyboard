@@ -526,7 +526,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="hybrid" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCk-pP-cJd">
+                                                <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCk-pP-cJd">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 </mapView>
                                             </subviews>
@@ -1043,11 +1043,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="34" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmR-RT-E03">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmR-RT-E03">
                                 <rect key="frame" x="0.0" y="95" width="600" height="505"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="list_cell" rowHeight="34" id="Ipg-OJ-KKY" customClass="FilterListCell" customModule="ChurchFinder" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="list_cell" id="Ipg-OJ-KKY" customClass="FilterListCell" customModule="ChurchFinder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="34"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ipg-OJ-KKY" id="s6m-df-gVa">
@@ -1057,17 +1057,47 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{filter data value}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SP1-7i-qhG">
                                                     <rect key="frame" x="8" y="6" width="392" height="21"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="392" id="PWd-Ui-y1a"/>
                                                         <constraint firstAttribute="width" constant="392" id="Xef-FY-v5z"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="PWd-Ui-y1a"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular">
+                                                        <mask key="constraints">
+                                                            <include reference="PWd-Ui-y1a"/>
+                                                            <exclude reference="Xef-FY-v5z"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="SP1-7i-qhG" firstAttribute="centerY" secondItem="s6m-df-gVa" secondAttribute="centerY" id="1ft-Xs-mkD"/>
+                                                <constraint firstItem="SP1-7i-qhG" firstAttribute="centerY" secondItem="s6m-df-gVa" secondAttribute="centerY" id="Pmx-wW-NSe"/>
                                                 <constraint firstItem="SP1-7i-qhG" firstAttribute="leading" secondItem="s6m-df-gVa" secondAttribute="leadingMargin" id="WzK-WJ-VoY"/>
+                                                <constraint firstItem="SP1-7i-qhG" firstAttribute="leading" secondItem="s6m-df-gVa" secondAttribute="leadingMargin" id="haG-Vn-nOG">
+                                                    <variation key="heightClass=regular" constant="5"/>
+                                                </constraint>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Pmx-wW-NSe"/>
+                                                    <exclude reference="haG-Vn-nOG"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular">
+                                                <mask key="constraints">
+                                                    <exclude reference="1ft-Xs-mkD"/>
+                                                    <include reference="Pmx-wW-NSe"/>
+                                                    <exclude reference="WzK-WJ-VoY"/>
+                                                    <include reference="haG-Vn-nOG"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="data_value" destination="SP1-7i-qhG" id="Ysr-ns-Stg"/>
