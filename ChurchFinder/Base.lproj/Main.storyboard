@@ -603,7 +603,6 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.02" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="N84-4n-MnF" firstAttribute="centerX" secondItem="dnU-MK-0Ye" secondAttribute="centerX" id="LPh-fo-45q"/>
                                             <constraint firstItem="dnU-MK-0Ye" firstAttribute="top" secondItem="N84-4n-MnF" secondAttribute="bottom" constant="1" id="SpN-Sz-yp4"/>
@@ -676,7 +675,6 @@
                                                 </variation>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.02" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="jkT-0k-M7b" firstAttribute="centerX" secondItem="RkX-tQ-msU" secondAttribute="centerX" id="0LU-hT-ZRJ"/>
                                             <constraint firstAttribute="width" constant="104" id="3Op-n7-WGl"/>
@@ -755,7 +753,6 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.02" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="104" id="BDZ-8D-k4b"/>
                                             <constraint firstItem="25S-nv-IoL" firstAttribute="leading" secondItem="kol-yu-XPp" secondAttribute="leading" constant="-7" id="Jq5-fp-czp"/>
@@ -803,7 +800,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.022144396551724139" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.02" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="gOa-O5-O0U" secondAttribute="bottom" id="1fb-ZH-H0V"/>
                                     <constraint firstItem="1ON-v1-U78" firstAttribute="top" secondItem="mAN-fd-Q73" secondAttribute="top" id="51D-wg-AW4"/>

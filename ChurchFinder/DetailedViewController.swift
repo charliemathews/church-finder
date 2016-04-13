@@ -27,7 +27,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     
     let highlightedBookmarkColor: UIColor = UIColor(colorLiteralRed: 1.0, green: 0.84, blue: 0.0, alpha: 1)
     let defaultBookmarkColor: UIColor = UIColor(colorLiteralRed: 0.08235, green: 0.44313, blue: 0.98431, alpha: 1)
-    let actionBackground: UIColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.02)
+    let actionBackground: UIColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0)
     let actionBackground_selected: UIColor = UIColor(colorLiteralRed: 0.08235, green: 0.44313, blue: 0.98431, alpha: 0.2)
     
     let meta_candidates : [String] = ["style", "times", "address"]
