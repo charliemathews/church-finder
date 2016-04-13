@@ -10,11 +10,21 @@ import MapKit
 
 class DetailedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var action_slot_1: UIView!
+    @IBOutlet weak var action_slot_2: UIView!
+    @IBOutlet weak var action_slot_3: UIView!
+    
     var church : Church = Church()
     var creator : String = ""
+    var bookmarked : Bool = false
+    
+    let highlightedBookmarkColor: UIColor = UIColor(colorLiteralRed: 1.0, green: 0.84, blue: 0.0, alpha: 1)
+    let defaultBookmarkColor: UIColor = UIColor(colorLiteralRed: 0.08235, green: 0.44313, blue: 0.98431, alpha: 1)
     
     let meta_candidates : [String] = ["style", "times", "address"]
     
+    @IBOutlet weak var circle: UIImageView!
+    @IBOutlet weak var star: UIButton!
     @IBOutlet weak var image: PFImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var denom_size: UILabel!
@@ -41,8 +51,95 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             distance.text = "\(d)mi"
         
         //if bookmarked
-            //set background circle opacity
-            //set star color
+        let i = star.imageView?.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        star.setImage(i, forState: .Normal)
+        
+        updateBookmarkIndicator()
+        
+        let tap_bookmark = UITapGestureRecognizer(target: self, action: #selector(DetailedViewController.toggleBookMark))
+        star.userInteractionEnabled = true
+        star.addGestureRecognizer(tap_bookmark)
+        
+        let tap1 = UITapGestureRecognizer(target: self, action: #selector(DetailedViewController.action_openWebsite))
+        action_slot_1.userInteractionEnabled = true
+        action_slot_1.addGestureRecognizer(tap1)
+        
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(DetailedViewController.action_navigate))
+        action_slot_2.userInteractionEnabled = true
+        action_slot_2.addGestureRecognizer(tap2)
+        
+        let tap3 = UITapGestureRecognizer(target: self, action: #selector(DetailedViewController.action_share))
+        action_slot_3.userInteractionEnabled = true
+        action_slot_3.addGestureRecognizer(tap3)
+    }
+    
+    func toggleBookMark() {
+        if bookmarked {
+            Data.sharedInstance.removeBookmark(church)
+        } else {
+            Data.sharedInstance.addBookmark(church)
+        }
+        bookmarked = !bookmarked
+        updateBookmarkIndicator()
+    }
+    
+    func updateBookmarkIndicator() {
+        bookmarked = Data.sharedInstance.bookmarks.contains { (Church) -> Bool in
+            church.id == Church.id
+        }
+        
+        if bookmarked {
+            star.imageView?.tintColor = highlightedBookmarkColor
+        } else {
+            star.imageView?.tintColor = defaultBookmarkColor
+        }
+    }
+    
+    func action_openWebsite() {
+        let url = NSURL(string: church.url)
+        
+        if url == nil || UIApplication.sharedApplication().canOpenURL(url!) == false {
+            let alertController = UIAlertController(title: "Error", message: "This website doesn't exist", preferredStyle: .Alert)
+            
+            
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            UIApplication.sharedApplication().openURL(url!)
+        }
+    }
+    
+    func action_navigate() {
+        
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(church.location.latitude, church.location.longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(church.name)"
+        mapItem.openInMapsWithLaunchOptions(options)
+        
+    }
+    
+    func action_share() {
+        
+        let textToShare = "Check out \(church.name) at \(church.url)!\nService Time: \(church.times)"
+        
+        if let myWebsite = NSURL(string: church.url) {
+            let objectsToShare = [textToShare, myWebsite]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList]
+            
+            self.presentViewController(activityVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func back(sender: AnyObject) {

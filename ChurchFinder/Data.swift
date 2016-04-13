@@ -299,6 +299,7 @@ final class Data : NSObject {
         bookmarks.append(addedChurch)
         addedChurch.object!.pinInBackground()
         writeBookmarkOrder()
+        print("Data: Added bookmark. \(bookmarks.count) total.")
     }
     
     func removeBookmark(let bookmarkIndex : Int) {
@@ -308,6 +309,7 @@ final class Data : NSObject {
             bookmarks.removeAtIndex(bookmarkIndex)
         }
         writeBookmarkOrder()
+        print("Data: Removed bookmark. \(bookmarks.count) remaining.")
     }
     
     func removeBookmark(bookmarkedChurch: Church) {
@@ -370,17 +372,20 @@ final class Data : NSObject {
     
     func writeBookmarkOrder() {
         var csv : String = ""
-        for b in bookmarks {
-            csv.appendContentsOf(b.id + ",")
-        }
-        csv.removeAtIndex(csv.endIndex.predecessor())
         
-        let path = (NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent("Bookmarks.list")
+        if(bookmarks.count > 0) {
+            for b in bookmarks {
+                csv.appendContentsOf(b.id + ",")
+            }
+            csv.removeAtIndex(csv.endIndex.predecessor())
         
-        do {
-            try csv.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding)
-        } catch {
-            NSLog("File could not be written")
+            let path = (NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0] as NSString).stringByAppendingPathComponent("Bookmarks.list")
+            
+            do {
+                try csv.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding)
+            } catch {
+                NSLog("File could not be written")
+            }
         }
     }
     
