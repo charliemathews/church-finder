@@ -26,6 +26,7 @@ final class Data : NSObject {
     
     dynamic var success : Bool = false
     dynamic var meta_success : Bool = false
+    dynamic var error : Bool = false
     
     var results : [Church] = []
     var bookmarks : [Church] = []
@@ -36,6 +37,7 @@ final class Data : NSObject {
     var currentParameters : Dictionary<String,AnyObject>
     var currentStart = 0
     var currentLimit = 0
+    var currentLocation : PFGeoPoint
     
     /*
     Private init is used here so that a second instance cannot be created.
@@ -43,6 +45,7 @@ final class Data : NSObject {
     private override init() {
         radius = Constants.Defaults.Radius
         currentParameters = Constants.Defaults.get()
+        currentLocation = Constants.Defaults.getLoc()
         
         super.init()
         
@@ -65,7 +68,13 @@ final class Data : NSObject {
         church.style    = f["style"]        as! String
         church.location = f["loc"]          as! PFGeoPoint
         church.times    = f["times"]        as! String
-        church.address  = f["address"]      as! String
+        
+        church.address      = f["address"]          as! String
+        church.addr_street  = f["addr_street"]      as! String
+        church.addr_city    = f["addr_city"]        as! String
+        church.addr_street  = f["addr_street"]      as! String
+        church.addr_zip     = f["addr_zip"]         as! String
+        
         church.desc     = f["description"]  as! String
         church.url      = f["url"]          as! String
         church.img      = f["banner"]       as? PFFile
@@ -122,7 +131,7 @@ final class Data : NSObject {
                     }
                 }
                 
-                print("Meta search found \(options.count) results for \(type).")
+                print("Data: Meta search found \(options.count) results for \(type).")
                 data.meta_success = true
                 data.filterData[type] = options
                 
@@ -130,7 +139,7 @@ final class Data : NSObject {
                 if let e = error {
                     NSLog(e.description)
                 } else {
-                    NSLog("There was an error but it was unreadable.")
+                    NSLog("Data: There was an error but it was unreadable.")
                 }
             }
         }
@@ -146,11 +155,23 @@ final class Data : NSObject {
     */
     func pullResults(params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) { //-> Bool {
         
-        NSLog("Pulling new results.")
-        print(params)
+        print("")
+        print("Data: Pulling new results.")
+        
+        if(params.count > 0) {
+            print("Data: The following parameters were provided.")
+            for p in params {
+                print("     - \(p.0) as \(p.1)")
+            }
+            print("")
+        } else {
+            print("Data: No parameters were provided...")
+        }
         
     // setup
         success = false
+        error = false
+
         let query = PFQuery(className: Constants.Parse.ChurchClass)
         
     // no parameters passed in, prior query exists
@@ -191,15 +212,20 @@ final class Data : NSObject {
         
         if let size = params["size"] as? String {
             if(size != "Any") {
-                query.whereKey("size", equalTo: String(size))
+                if let s = Int(size) {
+                    query.whereKey("size", greaterThan: s-150)
+                    query.whereKey("size", lessThan: s+150)
+                }
+                //query.whereKey("size", equalTo: Int(size))
             }
         }
         
         if let loc = params["loc"] as? PFGeoPoint {
+            currentLocation = loc
             query.whereKey("loc", nearGeoPoint:loc, withinMiles:100.0)
         } else {
             // if location wasn't set, use defaults set in constants
-            query.whereKey("loc", nearGeoPoint: PFGeoPoint(latitude: Constants.Defaults.Lat, longitude: Constants.Defaults.Lon), withinMiles: 20.0)
+            query.whereKey("loc", nearGeoPoint: PFGeoPoint(latitude: currentLocation.longitude, longitude: currentLocation.latitude), withinMiles: 20.0)
         }
         
         
@@ -217,7 +243,7 @@ final class Data : NSObject {
                     let church : Church = data.churchFromObject(f)
                     church.object = f
                     data.results.append(church)
-                    print("Background search found '\(church.name)'")
+                    print("Data: Background search found '\(church.name)'")
                 }
                 
                 //         compound query
@@ -230,9 +256,7 @@ final class Data : NSObject {
                 //         set results = query.results
                 
                 if(data.results.count > 0) {
-                    print("We found churches in the parse database.")
-                    
-                    data.success = true
+                    print("Data: I found churches in the parse database.")
                     
                     if(params.count > 0) {
                         data.currentParameters = params
@@ -241,15 +265,21 @@ final class Data : NSObject {
                     data.currentStart = query.skip
                     data.currentLimit = query.limit
                     
-                    //return true
-                    
+                    data.success = true
+    
                 } else {
-                    print("No results were found in the parse database or there was an error.")
-                    //return false
+                    if(params.count > 0) {
+                        data.currentParameters = Constants.Defaults.get()
+                        data.currentParameters["loc"] = PFGeoPoint(latitude: data.currentLocation.latitude, longitude: data.currentLocation.longitude)
+                    }
+                    
+                    print("Data: No results were found in the parse database or there was an error.")
+                    data.error = true
                 }
                 
             } else {
                 NSLog(error!.description)
+                data.error = true
             }
         }
     }
@@ -351,6 +381,40 @@ final class Data : NSObject {
             try csv.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding)
         } catch {
             NSLog("File could not be written")
+        }
+    }
+    
+    let pi = 3.14159265358979323846
+    let earthRadiusKm = 6371.0
+    let MIinKM = 0.62137119
+    
+    func deg2rad(deg: Double) -> Double {
+        return (deg * pi / 180)
+    }
+    
+    func rad2deg(rad: Double) -> Double {
+        return (rad * 180 / pi)
+    }
+    
+    // return the distance between two coordinates in km
+    func calcuateDistance(lat1: Double, lng1: Double, lat2: Double, lng2: Double) -> Double {
+        
+        let lat1r = deg2rad(lat1)
+        let lon1r = deg2rad(lng1)
+        let lat2r = deg2rad(lat2)
+        let lon2r = deg2rad(lng2)
+        let u = sin((lat2r - lat1r)/2)
+        let v = sin((lon2r - lon1r)/2)
+        return 2.0 * earthRadiusKm * asin(sqrt(u * u + cos(lat1r) * cos(lat2r) * v * v))
+    }
+    
+    func getDistance(loc : PFGeoPoint, church : Church) -> String {
+        if loc != Constants.Defaults.getLoc() {
+            var raw = calcuateDistance(church.location.latitude, lng1: church.location.longitude, lat2: loc.latitude, lng2: loc.longitude)
+            raw *= MIinKM
+            return String(format: "%0.1f", raw)
+        } else {
+            return "?"
         }
     }
 }

@@ -35,6 +35,8 @@ class FiltersViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
+        
+        print(filterSelected)
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?{
@@ -132,7 +134,14 @@ class FiltersViewController: UITableViewController {
         if(indexPath.section == 0) {
         
             let name = Array(filterTypes.values)[indexPath.row]
-            let value = filterSelected[Array(filterTypes.keys)[indexPath.row]] as! String
+            let column_name = Array(filterTypes.keys)[indexPath.row]
+            
+            var value : String
+            if let v = filterSelected[column_name] as? String {
+                value = v
+            } else {
+                value = "Any"
+            }
         
             cell.filter_name.text = name
             cell.filter_value.text = value

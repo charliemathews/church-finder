@@ -7,7 +7,7 @@ Author: Sarah Burgess
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate {
     
     var current = Church()
     
@@ -84,10 +84,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "mapToDetSeg") {
+        if (segue.identifier == "mapToDetailed") {
             let dest = segue.destinationViewController as! DetailedViewController
-            dest.delegate = self
             dest.church = current
+            dest.creator = "map"
         }
     }
     
@@ -117,7 +117,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, detailedViewDelega
         
         if (control as? UIButton)?.buttonType == UIButtonType.DetailDisclosure {
             mapView.deselectAnnotation(view.annotation, animated: false)
-            performSegueWithIdentifier("mapToDetSeg", sender: view)
+            performSegueWithIdentifier("mapToDetailed", sender: view)
         }
     }
     

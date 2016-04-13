@@ -17,7 +17,6 @@ class ListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadObservers()
-        //data.pullResults(Constants.Defaults.get())
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -84,7 +83,8 @@ class ListViewController: UITableViewController {
         if (segue.identifier == "listToDetailed") {
             
             let dest = segue.destinationViewController as! DetailedViewController
-            //dest.church = data.results[current]
+            dest.church = data.results[current]
+            dest.creator = "list"
         }
     }
     
@@ -94,12 +94,13 @@ class ListViewController: UITableViewController {
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        print("Search senses that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        print("List/Map: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
         
         if(keyPath == "success" && data.success == true) {
             
-            print("Search sees \(data.results.count) church results.")
+            print("List/Map: I see \(data.results.count) church results.")
             table.reloadData()
+        
         }
         
     }

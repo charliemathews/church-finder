@@ -6,10 +6,10 @@ Author: Dan Mitchell
 
 import UIKit
 
-class BookmarksViewController: UITableViewController, detailedViewDelegate {
+class BookmarksViewController: UITableViewController {
     
     let churchCellIdentifier = "ChurchListCell"
-    var current = 0
+    var current_row = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        current = indexPath.row
+        current_row = indexPath.row
         return indexPath
     }
     
@@ -72,15 +72,17 @@ class BookmarksViewController: UITableViewController, detailedViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if (segue.identifier == "bookmarksToDetailed") {
+        if (segue.identifier == "bookmarkToDetailed") {
             
             let dest = segue.destinationViewController as! DetailedViewController
-            dest.church = data.bookmarks[current]
+            dest.church = data.bookmarks[current_row]
+            dest.creator = "bookmarks"
         }
     }
     
-    func done(vc: DetailedViewController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func unwindFromDetailedToBookmarks(segue: UIStoryboardSegue){
+        print("Unwound from detailed to bookmarks.")
+        
     }
     
     @IBAction func cancel(segue :UIStoryboardSegue) {

@@ -43,6 +43,12 @@ struct Constants {
             return params
         }
         
+        static func getLoc() -> PFGeoPoint {
+            
+            return PFGeoPoint(latitude: Lat, longitude: Lon)
+            
+        }
+        
         static let NumberOfResultsToPullAtOnce : Int = 10
     }
     
