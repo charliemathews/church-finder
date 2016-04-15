@@ -412,13 +412,13 @@
                                                     <exclude reference="7hv-0c-7p9"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="cf5-cD-KYY"/>
+                                                    <exclude reference="zoX-vY-xXi"/>
                                                     <exclude reference="1zH-b5-bBV"/>
                                                     <exclude reference="9cX-Gu-jsw"/>
                                                     <exclude reference="LSa-Wh-tQz"/>
                                                     <exclude reference="jvc-gI-KgP"/>
                                                     <exclude reference="v0a-Hx-kjT"/>
-                                                    <exclude reference="cf5-cD-KYY"/>
-                                                    <exclude reference="zoX-vY-xXi"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular">
@@ -427,13 +427,13 @@
                                                     <include reference="7hv-0c-7p9"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="cf5-cD-KYY"/>
+                                                    <include reference="zoX-vY-xXi"/>
                                                     <include reference="1zH-b5-bBV"/>
                                                     <include reference="9cX-Gu-jsw"/>
                                                     <include reference="LSa-Wh-tQz"/>
                                                     <include reference="jvc-gI-KgP"/>
                                                     <include reference="v0a-Hx-kjT"/>
-                                                    <include reference="cf5-cD-KYY"/>
-                                                    <include reference="zoX-vY-xXi"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1325,10 +1325,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="timesToggleCell" rowHeight="44" id="USQ-gk-5of" customClass="FilterTimesToggleCell" customModule="ChurchFinder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="152.5" width="600" height="39"/>
+                                <rect key="frame" x="0.0" y="152.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="USQ-gk-5of" id="c77-dQ-jWy">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter By Service Start Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gp-nC-Kgg">
@@ -1357,10 +1357,10 @@
                                             <exclude reference="jE3-yt-18b"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="dAB-Yv-e0G"/>
-                                            <exclude reference="wdj-HV-JH8"/>
                                             <exclude reference="Q0G-kS-CRc"/>
                                             <exclude reference="f2J-vM-ffo"/>
+                                            <exclude reference="dAB-Yv-e0G"/>
+                                            <exclude reference="wdj-HV-JH8"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular">
@@ -1369,10 +1369,10 @@
                                             <include reference="jE3-yt-18b"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="dAB-Yv-e0G"/>
-                                            <include reference="wdj-HV-JH8"/>
                                             <include reference="Q0G-kS-CRc"/>
                                             <include reference="f2J-vM-ffo"/>
+                                            <include reference="dAB-Yv-e0G"/>
+                                            <include reference="wdj-HV-JH8"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

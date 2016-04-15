@@ -60,7 +60,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         manager.requestWhenInUseAuthorization()
         
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         manager.distanceFilter = 500
         manager.requestLocation()
         
