@@ -173,6 +173,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
                 self.mapViewContainer.alpha = 0
             })
         } else {
+            self.mapViewController.outputChurchResultsToMap()
             UIView.animateWithDuration(0.5, animations: {
                 self.listViewContainer.alpha = 0
                 self.mapViewContainer.alpha = 1
