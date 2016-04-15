@@ -92,17 +92,32 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        print("TopBar: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        //print("TopBar: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
         
         if(keyPath == "success") {
             if(data.success == false) {
+                
                 filtersButton.enabled = false
                 indicator.startAnimating()
                 indicator.backgroundColor = UIColor.whiteColor()
+                
             } else {
+                
+                print("TopBar: I see \(data.results.count) church results.")
+                
+                for i in 0..<data.results.count {
+                    if(data.threadQueryLock == true) { // if another query is running, we should be waiting for that query.
+                        return
+                    }
+                    data.getTimes(i)
+                }
+                
+                data.restrictResultsByTime()
+                
                 filtersButton.enabled = true
                 indicator.stopAnimating()
                 indicator.hidesWhenStopped = true
+                
             }
         } else if(keyPath == "error" && data.error == true) {
             filtersButton.enabled = true
@@ -124,7 +139,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        print("TopBar: User's location updated...")
+        //print("TopBar: User's location updated.")
         
         if let location = locations.first {
             

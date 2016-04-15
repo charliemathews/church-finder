@@ -30,7 +30,8 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     let actionBackground: UIColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0)
     let actionBackground_selected: UIColor = UIColor(colorLiteralRed: 0.08235, green: 0.44313, blue: 0.98431, alpha: 0.2)
     
-    let meta_candidates : [String] = ["style", "times", "address"]
+    // the order of these items is the order they will be displayed in the table
+    var meta_candidates : [String] = []
     
     @IBOutlet weak var circle: UIImageView!
     @IBOutlet weak var star: UIButton!
@@ -43,6 +44,9 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // modify this based on what's available in the church object
+        meta_candidates = ["style", "times", "phone", "address"]
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -115,6 +119,23 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             star.imageView?.tintColor = highlightedBookmarkColor
         } else {
             star.imageView?.tintColor = defaultBookmarkColor
+        }
+    }
+    
+    func action_call() {
+        let phone : String = church.phone
+        var newPhone : String = ""
+        
+        for i in 0..<phone.characters.count {
+            let index = phone.startIndex.advancedBy(i)
+            switch (phone[index]) {
+            case "0","1","2","3","4","5","6","7","8","9" : newPhone = newPhone + String(phone[index])
+            default : ()
+            }
+        }
+        
+        if let url = NSURL(string: "tel://\(newPhone)") {
+            UIApplication.sharedApplication().openURL(url)
         }
     }
     
@@ -273,9 +294,15 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
                     
                     cell.value.text = times
                 }
+                
             } else if metaType == "address" {
                 cell.icon.image = UIImage(named: "compass_icon.png")
                 cell.value.text = church.addr_street + ", " + church.addr_city + ", " + church.addr_state + " " + church.addr_zip
+                
+            } else if metaType == "phone" {
+                //cell.icon.image = UIImage(named: "compass_icon.png")
+                cell.value.text = church.phone
+                
             } else if identifier == "metaCellDesc" && church.desc != "" {
                 cell.icon.image = UIImage(named: "info_icon.png")
                 cell.value.text = church.desc
@@ -314,11 +341,16 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         if(indexPath.section == 0) {
-            let metaType = meta_candidates[indexPath.row]
             
-            if(metaType == "address") {
-                action_navigate()
+            if indexPath.row < meta_candidates.count {
+                let metaType = meta_candidates[indexPath.row]
+                if(metaType == "address") {
+                    action_navigate()
+                } else if(metaType == "phone") {
+                    action_call()
+                }
             }
+        
         }
         return indexPath
     }

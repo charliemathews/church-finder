@@ -65,6 +65,7 @@ final class Data : NSObject {
         church.style    = f["style"]        as! String
         church.location = f["loc"]          as! PFGeoPoint
         church.times    = f["times"]        as! String
+        church.phone    = f["phone"]        as! String
         
         church.address      = f["address"]          as! String
         church.addr_street  = f["addr_street"]      as! String
