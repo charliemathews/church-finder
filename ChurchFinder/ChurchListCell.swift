@@ -78,7 +78,7 @@ class ChurchListCell: UITableViewCell {
         
         distanceAddr.text = "\(distance)mi • " + street
 
-        if let _ = church.img?.name { //if (church.img!.name != "undefined") {
+        if let _ = church.img?.name {
             churchImage.file = church.img
             churchImage.loadInBackground()
             self.churchImage.alpha = 0.4

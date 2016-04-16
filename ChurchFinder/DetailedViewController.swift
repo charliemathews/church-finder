@@ -300,7 +300,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.value.text = church.addr_street + ", " + church.addr_city + ", " + church.addr_state + " " + church.addr_zip
                 
             } else if metaType == "phone" {
-                //cell.icon.image = UIImage(named: "compass_icon.png")
+                cell.icon.image = UIImage(named: "phone_icon.png")
                 cell.value.text = church.phone
                 
             } else if identifier == "metaCellDesc" && church.desc != "" {

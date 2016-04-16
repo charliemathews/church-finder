@@ -27,6 +27,7 @@ final class Data : NSObject {
     dynamic var success : Bool = false
     dynamic var meta_success : Bool = false
     dynamic var times_received : Int = 0
+    dynamic var times_received_bookmarks : Int = 0
     dynamic var error : Bool = false
     var threadQueryLock : Bool = false
     var filterByTime = false
@@ -153,13 +154,18 @@ final class Data : NSObject {
         }
     }
     
-    func getTimes(index : Int) { // if results changes, cancel operation??
+    func getTimes(index : Int, forBookmarks : Bool = false) { // if results changes, cancel operation??
         
         if(threadQueryLock == true) {
             return
         }
+        var id : String
         
-        let id : String = results[index].id
+        if forBookmarks {
+            id = bookmarks[index].id
+        } else {
+            id = results[index].id
+        }
         
         let query = PFQuery(className: "Service")
         query.whereKey("owner", containsString: id)
@@ -187,10 +193,21 @@ final class Data : NSObject {
                     }
                     
                     // because of threading, make sure that the result still exists before setting it's times
-                    if(data.results[index].id == id && data.results[index].times_set.count == 0) {
-                        print("Data: Times search found \(times.count) service times for \(id)")
-                        data.results[index].times_set = times
-                        data.times_received += 1
+                    if forBookmarks {
+                        
+                        if(data.bookmarks[index].id == id && data.bookmarks[index].times_set.count == 0) {
+                            print("Data: Times search found \(times.count) service times for bookmark \(id)")
+                            data.bookmarks[index].times_set = times
+                            data.times_received_bookmarks += 1
+                        }
+                        
+                    } else {
+                    
+                        if(data.results[index].id == id && data.results[index].times_set.count == 0) {
+                            print("Data: Times search found \(times.count) service times for \(id)")
+                            data.results[index].times_set = times
+                            data.times_received += 1
+                        }
                     }
                 }
                 

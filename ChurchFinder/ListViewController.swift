@@ -55,27 +55,34 @@ class ListViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        var bookmarkImage = UIImage(named:"bookmarkStarBlue.png")!
         
-        for church in data.bookmarks {
-            if(church.id == data.results[indexPath.row].id) {
-                bookmarkImage = UIImage(named: "bookmarkStarRed.png")!
-            }
-            else {
-                bookmarkImage = UIImage(named: "bookmarkStarBlue.png")!
+        var bookmarkAction : UITableViewRowAction
+        var backgroundColor = UIColor.blueColor()
+        var title : String = "Save"
+        
+        for c in data.bookmarks {
+            if(data.results[indexPath.row].id == c.id) {
+                backgroundColor = UIColor.redColor()
+                title = "Unsave"
+                break
             }
         }
         
-        let bookmark = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "                    " , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            data.addBookmark(Data.sharedInstance.results[indexPath.row])
-            
-            //makes the cell slide back when pressed
-            self.setEditing(false, animated: true)
-        })
+        if(title == "Save") {
+            bookmarkAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: title , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+                data.addBookmark(Data.sharedInstance.results[indexPath.row])
+                self.setEditing(false, animated: true)
+            })
+        } else {
+            bookmarkAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: title , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+                data.removeBookmark(Data.sharedInstance.results[indexPath.row])
+                self.setEditing(false, animated: true)
+            })
+        }
         
-        bookmark.backgroundColor = UIColor(patternImage:bookmarkImage)
+        bookmarkAction.backgroundColor = backgroundColor
         
-        return [bookmark]
+        return [bookmarkAction]
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
