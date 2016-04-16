@@ -65,7 +65,6 @@ final class Data : NSObject {
         church.style    = f["style"]        as! String
         church.location = f["loc"]          as! PFGeoPoint
         church.times    = f["times"]        as! String
-        church.phone    = f["phone"]        as! String
         
         church.address      = f["address"]          as! String
         church.addr_street  = f["addr_street"]      as! String
@@ -73,11 +72,22 @@ final class Data : NSObject {
         church.addr_state   = f["addr_state"]       as! String
         church.addr_zip     = f["addr_zip"]         as! String
         
-        church.desc     = f["description"]  as! String
         church.url      = f["url"]          as! String
         church.img      = f["banner"]       as? PFFile
         church.object   = f
      
+        if f.objectForKey("description") != nil {
+            church.desc    = f["description"]        as! String
+        } else {
+            church.desc    = ""
+        }
+        
+        if f.objectForKey("phone") != nil {
+            church.phone    = f["phone"]        as! String
+        } else {
+            church.phone    = ""
+        }
+        
         return church
     }
     
@@ -493,6 +503,38 @@ final class Data : NSObject {
                 }
             }
         }
+    }
+    
+    func formatTime(set: [String:Int]) -> String {
+        var times : String = ""
+        
+        for (d,t) in set {
+            let hr24 : Int = t/60
+            let m : Int = t%60
+            
+            var m_formatted : String
+            if(m == 0) {
+                m_formatted = "00"
+            } else {
+                m_formatted = String(m)
+            }
+            
+            var post = ""
+            if(hr24 < 12) {
+                post = "a"
+            } else {
+                post = "p"
+            }
+            
+            var hr12 = hr24
+            if(hr24 > 12) {
+                hr12 -= 12
+            }
+            
+            times += "\(d) \(hr12):\(m_formatted)\(post) "
+        }
+        
+        return times
     }
 }
     

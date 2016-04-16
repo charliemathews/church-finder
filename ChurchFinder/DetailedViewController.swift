@@ -46,7 +46,19 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         
         // modify this based on what's available in the church object
-        meta_candidates = ["style", "times", "phone", "address"]
+        //meta_candidates = ["style", "times", "phone", "address"]
+        
+        meta_candidates.append("times")
+        
+        if(church.style != "") {
+            meta_candidates.append("style")
+        }
+        if(church.phone != "") {
+            meta_candidates.append("phone")
+        }
+        if(church.addr_street != "") {
+            meta_candidates.append("address")
+        }
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -277,19 +289,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
                     let sets = church.times_set
                     
                     for set in sets {
-                        for (d,t) in set {
-                            let h : Int = t/60
-                            let m : Int = t%60
-                            
-                            var m_formatted : String
-                            if(m == 0) {
-                                m_formatted = "00"
-                            } else {
-                                m_formatted = String(m)
-                            }
-                            
-                            times += "\(d) \(h):\(m_formatted) "
-                        }
+                        times += data.formatTime(set)
                     }
                     
                     cell.value.text = times

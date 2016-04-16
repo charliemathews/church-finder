@@ -62,19 +62,7 @@ class ChurchListCell: UITableViewCell {
             let sets = church.times_set
             
             for set in sets {
-                for (d,t) in set {
-                    let h : Int = t/60
-                    let m : Int = t%60
-                    
-                    var m_formatted : String
-                    if(m == 0) {
-                        m_formatted = "00"
-                    } else {
-                        m_formatted = String(m)
-                    }
-                    
-                    times += "\(d) \(h):\(m_formatted) "
-                }
+                times += data.formatTime(set)
             }
             
             serviceTime.text = times
