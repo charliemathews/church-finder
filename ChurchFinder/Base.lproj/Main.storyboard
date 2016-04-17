@@ -97,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChurchListCell" rowHeight="136" id="q65-R7-Bni" customClass="ChurchListCell" customModule="ChurchFinder" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChurchListCell" rowHeight="136" id="q65-R7-Bni" customClass="ChurchListCellWithStar" customModule="ChurchFinder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="600" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q65-R7-Bni" id="9Yd-E0-Qgc">
@@ -150,12 +150,30 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y2j-ve-IpS">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="5fL-2p-BEF"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="5fL-2p-BEF"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular">
+                                                <mask key="constraints">
+                                                    <include reference="5fL-2p-BEF"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="4lo-H8-Vmu" firstAttribute="trailing" secondItem="MOz-9b-TDR" secondAttribute="trailing" id="1nL-JR-xwp"/>
                                         <constraint firstItem="Nt8-yW-UwQ" firstAttribute="top" secondItem="SO8-YR-MhP" secondAttribute="bottom" id="3cZ-W8-hkd"/>
+                                        <constraint firstItem="Y2j-ve-IpS" firstAttribute="trailing" secondItem="MJj-7V-wSx" secondAttribute="trailing" id="771-Pe-RKP"/>
                                         <constraint firstItem="4lo-H8-Vmu" firstAttribute="top" secondItem="MOz-9b-TDR" secondAttribute="top" id="HKj-7l-AIO"/>
+                                        <constraint firstItem="Nt8-yW-UwQ" firstAttribute="top" secondItem="Y2j-ve-IpS" secondAttribute="bottom" constant="19" id="J1T-SS-8vS"/>
                                         <constraint firstItem="ebj-00-Qm3" firstAttribute="leading" secondItem="9Yd-E0-Qgc" secondAttribute="leadingMargin" constant="17" id="KeG-jg-Vet"/>
                                         <constraint firstItem="MJj-7V-wSx" firstAttribute="top" secondItem="LbA-9O-np1" secondAttribute="bottom" id="LHg-Sg-ahX"/>
                                         <constraint firstItem="SO8-YR-MhP" firstAttribute="leading" secondItem="Nt8-yW-UwQ" secondAttribute="leading" id="M2C-YW-wEg"/>
@@ -177,8 +195,29 @@
                                         <constraint firstItem="SO8-YR-MhP" firstAttribute="top" secondItem="MJj-7V-wSx" secondAttribute="bottom" id="qVk-8J-b3z"/>
                                         <constraint firstItem="LbA-9O-np1" firstAttribute="leading" secondItem="MJj-7V-wSx" secondAttribute="leading" id="shf-PU-36n"/>
                                         <constraint firstItem="LbA-9O-np1" firstAttribute="top" secondItem="ebj-00-Qm3" secondAttribute="bottom" constant="1" id="u7w-hU-zwT"/>
+                                        <constraint firstItem="Y2j-ve-IpS" firstAttribute="centerY" secondItem="MJj-7V-wSx" secondAttribute="centerY" id="vV2-tr-E19"/>
                                         <constraint firstItem="MOz-9b-TDR" firstAttribute="bottom" secondItem="4lo-H8-Vmu" secondAttribute="bottom" id="xbt-R9-KB1"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="Y2j-ve-IpS"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="J1T-SS-8vS"/>
+                                            <exclude reference="771-Pe-RKP"/>
+                                            <exclude reference="vV2-tr-E19"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular">
+                                        <mask key="subviews">
+                                            <include reference="Y2j-ve-IpS"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="J1T-SS-8vS"/>
+                                            <include reference="771-Pe-RKP"/>
+                                            <include reference="vV2-tr-E19"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="churchImage" destination="4lo-H8-Vmu" id="jTx-kH-oj0"/>
@@ -188,6 +227,7 @@
                                     <outlet property="distanceAddr" destination="SO8-YR-MhP" id="3Ka-zk-UlQ"/>
                                     <outlet property="overlay" destination="MOz-9b-TDR" id="xei-ey-NRI"/>
                                     <outlet property="serviceTime" destination="Nt8-yW-UwQ" id="XhT-ln-aia"/>
+                                    <outlet property="star" destination="Y2j-ve-IpS" id="ok7-SQ-Mad"/>
                                     <segue destination="Uoc-wL-QbE" kind="showDetail" identifier="listToDetailed" id="ueX-Y6-CaM"/>
                                 </connections>
                             </tableViewCell>
@@ -205,7 +245,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhf-mM-2JU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="312" y="1049.5"/>
+            <point key="canvasLocation" x="312" y="1048.875"/>
         </scene>
         <!--Detailed View Controller-->
         <scene sceneID="HXg-BG-GcD">
@@ -1524,6 +1564,7 @@
         <image name="share_icon.png" width="100" height="100"/>
         <image name="star.png" width="256" height="256"/>
         <image name="star_circle" width="70" height="70"/>
+        <image name="star_white.png" width="256" height="256"/>
         <image name="www_icon.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>

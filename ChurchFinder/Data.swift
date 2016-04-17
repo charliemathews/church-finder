@@ -29,6 +29,7 @@ final class Data : NSObject {
     dynamic var times_received : Int = 0
     dynamic var times_received_bookmarks : Int = 0
     dynamic var error : Bool = false
+    dynamic var bookmarks_count : Int = 0
     var threadQueryLock : Bool = false
     var filterByTime = false
     
@@ -389,6 +390,8 @@ final class Data : NSObject {
         addedChurch.object!.pinInBackground()
         writeBookmarkOrder()
         print("Data: Added bookmark. \(bookmarks.count) total.")
+        
+        bookmarks_count = bookmarks.count
     }
     
     func removeBookmark(let bookmarkIndex : Int) {
@@ -398,22 +401,18 @@ final class Data : NSObject {
             bookmarks.removeAtIndex(bookmarkIndex)
         }
         writeBookmarkOrder()
-        print("Data: Removed bookmark. \(bookmarks.count) remaining.")
+        //print("Data: Removed bookmark using int. \(bookmarks.count) remaining.")
     }
     
     func removeBookmark(bookmarkedChurch: Church) {
-        //find the index
-        var index = 0
-        for church in bookmarks {
-            if (church.id == bookmarkedChurch.id){
+        for i in 0..<bookmarks.count {
+            //print("Trying to remove index \(i) from \(bookmarks.count).")
+            if(bookmarks[i].id == bookmarkedChurch.id) {
+                bookmarks.removeAtIndex(i)
+                //print("Data: Removed bookmark using church.id. \(bookmarks.count) remaining.")
+                bookmarks_count = bookmarks.count
                 break
-            } else {
-                index += 1
             }
-        }
-        
-        if (index < bookmarks.count) {
-            removeBookmark(index)
         }
     }
     
@@ -457,6 +456,8 @@ final class Data : NSObject {
                 print("Error: \(error!) \(error!.userInfo)")
             }
         }
+        
+        bookmarks_count = bookmarks.count
     }
     
     func writeBookmarkOrder() {
