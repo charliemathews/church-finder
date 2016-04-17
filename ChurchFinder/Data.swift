@@ -399,6 +399,7 @@ final class Data : NSObject {
             let remove = bookmarks[bookmarkIndex]
             remove.object!.unpinInBackground()
             bookmarks.removeAtIndex(bookmarkIndex)
+            bookmarks_count = bookmarks.count
         }
         writeBookmarkOrder()
         //print("Data: Removed bookmark using int. \(bookmarks.count) remaining.")
