@@ -157,7 +157,7 @@ class FiltersViewController: UITableViewController {
             } else if(indexPath.row == 1) {
                 let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath) as! FilterViewCell
                 
-                cell.filter_name.text = "from"
+                cell.filter_name.text = "From"
                 
                 if var times = filterSelected["times"] as? [String:AnyObject] {
                     
@@ -195,7 +195,7 @@ class FiltersViewController: UITableViewController {
             } else if(indexPath.row == 2) {
                 let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath) as! FilterViewCell
                 
-                cell.filter_name.text = "to"
+                cell.filter_name.text = "To"
                 
                 if var times = filterSelected["times"] as? [String:AnyObject] {
                     

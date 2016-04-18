@@ -203,9 +203,9 @@
                                             <exclude reference="Y2j-ve-IpS"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="J1T-SS-8vS"/>
                                             <exclude reference="771-Pe-RKP"/>
                                             <exclude reference="vV2-tr-E19"/>
+                                            <exclude reference="J1T-SS-8vS"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular">
@@ -213,9 +213,9 @@
                                             <include reference="Y2j-ve-IpS"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="J1T-SS-8vS"/>
                                             <include reference="771-Pe-RKP"/>
                                             <include reference="vV2-tr-E19"/>
+                                            <include reference="J1T-SS-8vS"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -1564,6 +1564,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ZTJ-pf-xnq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aQn-J7-Ekt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7X-Ng-lLB">
@@ -1609,10 +1610,10 @@
                                 <exclude reference="GHu-2N-Bec"/>
                                 <exclude reference="JhT-Cx-EbK"/>
                                 <exclude reference="ZVm-Ku-vSL"/>
+                                <exclude reference="wDq-aN-oC4"/>
                                 <exclude reference="Db2-5b-cGr"/>
                                 <exclude reference="tfE-OC-D79"/>
                                 <exclude reference="zgy-AF-A6H"/>
-                                <exclude reference="wDq-aN-oC4"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -1624,10 +1625,10 @@
                                 <include reference="GHu-2N-Bec"/>
                                 <include reference="JhT-Cx-EbK"/>
                                 <include reference="ZVm-Ku-vSL"/>
+                                <include reference="wDq-aN-oC4"/>
                                 <include reference="Db2-5b-cGr"/>
                                 <include reference="tfE-OC-D79"/>
                                 <include reference="zgy-AF-A6H"/>
-                                <include reference="wDq-aN-oC4"/>
                             </mask>
                         </variation>
                     </view>
