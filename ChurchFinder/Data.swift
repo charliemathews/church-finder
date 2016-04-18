@@ -411,6 +411,7 @@ final class Data : NSObject {
             if(bookmarks[i].id == bookmarkedChurch.id) {
                 bookmarks.removeAtIndex(i)
                 //print("Data: Removed bookmark using church.id. \(bookmarks.count) remaining.")
+                writeBookmarkOrder()
                 bookmarks_count = bookmarks.count
                 break
             }

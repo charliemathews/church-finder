@@ -118,6 +118,12 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
                 indicator.stopAnimating()
                 indicator.hidesWhenStopped = true
                 
+                if(data.results.count == 0) {
+                    let alert = UIAlertController(title: "Whoops!", message: "Sorry, we couldn't find any churches with those criteria. We'll show you the results of last successful search.", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                
             }
         } else if(keyPath == "error" && data.error == true) {
             filtersButton.enabled = true

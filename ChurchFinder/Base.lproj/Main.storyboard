@@ -1371,7 +1371,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter By Service Start Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gp-nC-Kgg">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter By Service Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gp-nC-Kgg">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1444,6 +1444,7 @@
                     <connections>
                         <outlet property="table" destination="llb-UL-4jT" id="tVR-MD-bFa"/>
                         <segue destination="P1I-pz-I5q" kind="showDetail" identifier="listFilterSegue" id="SCg-rY-MMc"/>
+                        <segue destination="4yF-oA-g8Y" kind="presentation" identifier="timeFilterSegue" modalPresentationStyle="overCurrentContext" id="nwk-lE-f3W"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9H-iR-Ukd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1553,6 +1554,56 @@
                 <exit id="gi2-K1-hP9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1806" y="-159"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="luj-as-dGB">
+            <objects>
+                <viewController id="4yF-oA-g8Y" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1ft-3i-NaZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZTJ-pf-xnq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aQn-J7-Ekt">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7X-Ng-lLB">
+                                <rect key="frame" x="0.0" y="-216" width="320" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P7X-Ng-lLB" firstAttribute="top" secondItem="aQn-J7-Ekt" secondAttribute="topMargin" id="GDB-A7-RWT"/>
+                            <constraint firstItem="ZTJ-pf-xnq" firstAttribute="top" secondItem="P7X-Ng-lLB" secondAttribute="bottom" id="Ip8-FK-PCY"/>
+                            <constraint firstItem="P7X-Ng-lLB" firstAttribute="leading" secondItem="aQn-J7-Ekt" secondAttribute="leadingMargin" constant="-20" id="bMd-nw-h2G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P7X-Ng-lLB" secondAttribute="trailing" constant="-20" id="r2r-AI-OFN"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="P7X-Ng-lLB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="GDB-A7-RWT"/>
+                                <exclude reference="bMd-nw-h2G"/>
+                                <exclude reference="r2r-AI-OFN"/>
+                                <exclude reference="Ip8-FK-PCY"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="P7X-Ng-lLB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="GDB-A7-RWT"/>
+                                <include reference="bMd-nw-h2G"/>
+                                <include reference="r2r-AI-OFN"/>
+                                <include reference="Ip8-FK-PCY"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y7N-mu-z4D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2546" y="-159"/>
         </scene>
     </scenes>
     <resources>

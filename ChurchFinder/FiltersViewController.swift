@@ -49,13 +49,35 @@ class FiltersViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if(indexPath.section == 0) {
+        table.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if(current_section == 0) {
             
-            
-            // choose segue by row/filter
             self.performSegueWithIdentifier("listFilterSegue", sender: self)
             
+        } else if(current_section == 1) {
+            
+            var t : String = ""
+            var m : String = ""
+            
+            if(current_row == 1) {
+                t = "Start"
+                m = "start 'er up bitches"
+                
+                self.performSegueWithIdentifier("timeFilterSegue", sender: self)
+                
+            } else if(current_row == 2) {
+                t = "End"
+                m = "shut it down, butter bitches"
+                
+                self.performSegueWithIdentifier("timeFilterSegue", sender: self)
+            }
+        
+            
+            
         } else {
+            
+            
             
         }
         
@@ -86,7 +108,8 @@ class FiltersViewController: UITableViewController {
             
         } else if(segue.identifier == "timeFilterSegue") {
             
-            //
+            // setup destination
+            //if section is 1 and row is 1/2
             
         }
         
