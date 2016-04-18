@@ -1444,7 +1444,7 @@
                     <connections>
                         <outlet property="table" destination="llb-UL-4jT" id="tVR-MD-bFa"/>
                         <segue destination="P1I-pz-I5q" kind="showDetail" identifier="listFilterSegue" id="SCg-rY-MMc"/>
-                        <segue destination="4yF-oA-g8Y" kind="presentation" identifier="timeFilterSegue" modalPresentationStyle="overCurrentContext" id="nwk-lE-f3W"/>
+                        <segue destination="4yF-oA-g8Y" kind="showDetail" identifier="timeFilterSegue" id="xQD-oW-Cwg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9H-iR-Ukd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1555,10 +1555,10 @@
             </objects>
             <point key="canvasLocation" x="1806" y="-159"/>
         </scene>
-        <!--View Controller-->
+        <!--Filter By Time Controller-->
         <scene sceneID="luj-as-dGB">
             <objects>
-                <viewController id="4yF-oA-g8Y" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilterByTimeController" id="4yF-oA-g8Y" customClass="FilterByTimeController" customModule="ChurchFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1ft-3i-NaZ"/>
                         <viewControllerLayoutGuide type="bottom" id="ZTJ-pf-xnq"/>
@@ -1569,39 +1569,74 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7X-Ng-lLB">
                                 <rect key="frame" x="0.0" y="-216" width="320" height="216"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVR-01-Rc3">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="fLK-Fq-2wK"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fLK-Fq-2wK"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="fLK-Fq-2wK"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="VVf-pM-m73" kind="unwind" unwindAction="unwindFromTime:" id="arl-zp-mba"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="P7X-Ng-lLB" firstAttribute="top" secondItem="aQn-J7-Ekt" secondAttribute="topMargin" id="GDB-A7-RWT"/>
-                            <constraint firstItem="ZTJ-pf-xnq" firstAttribute="top" secondItem="P7X-Ng-lLB" secondAttribute="bottom" id="Ip8-FK-PCY"/>
-                            <constraint firstItem="P7X-Ng-lLB" firstAttribute="leading" secondItem="aQn-J7-Ekt" secondAttribute="leadingMargin" constant="-20" id="bMd-nw-h2G"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="P7X-Ng-lLB" secondAttribute="trailing" constant="-20" id="r2r-AI-OFN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mVR-01-Rc3" secondAttribute="trailing" constant="-20" id="Db2-5b-cGr"/>
+                            <constraint firstItem="P7X-Ng-lLB" firstAttribute="leading" secondItem="aQn-J7-Ekt" secondAttribute="leadingMargin" constant="-20" id="GHu-2N-Bec"/>
+                            <constraint firstItem="P7X-Ng-lLB" firstAttribute="top" secondItem="aQn-J7-Ekt" secondAttribute="topMargin" id="JhT-Cx-EbK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P7X-Ng-lLB" secondAttribute="trailing" constant="-20" id="ZVm-Ku-vSL"/>
+                            <constraint firstItem="mVR-01-Rc3" firstAttribute="leading" secondItem="aQn-J7-Ekt" secondAttribute="leadingMargin" constant="-20" id="tfE-OC-D79"/>
+                            <constraint firstItem="ZTJ-pf-xnq" firstAttribute="top" secondItem="mVR-01-Rc3" secondAttribute="bottom" id="wDq-aN-oC4"/>
+                            <constraint firstItem="mVR-01-Rc3" firstAttribute="top" secondItem="P7X-Ng-lLB" secondAttribute="bottom" constant="8" id="zgy-AF-A6H"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="P7X-Ng-lLB"/>
+                                <exclude reference="mVR-01-Rc3"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GDB-A7-RWT"/>
-                                <exclude reference="bMd-nw-h2G"/>
-                                <exclude reference="r2r-AI-OFN"/>
-                                <exclude reference="Ip8-FK-PCY"/>
+                                <exclude reference="GHu-2N-Bec"/>
+                                <exclude reference="JhT-Cx-EbK"/>
+                                <exclude reference="ZVm-Ku-vSL"/>
+                                <exclude reference="Db2-5b-cGr"/>
+                                <exclude reference="tfE-OC-D79"/>
+                                <exclude reference="zgy-AF-A6H"/>
+                                <exclude reference="wDq-aN-oC4"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
                                 <include reference="P7X-Ng-lLB"/>
+                                <include reference="mVR-01-Rc3"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GDB-A7-RWT"/>
-                                <include reference="bMd-nw-h2G"/>
-                                <include reference="r2r-AI-OFN"/>
-                                <include reference="Ip8-FK-PCY"/>
+                                <include reference="GHu-2N-Bec"/>
+                                <include reference="JhT-Cx-EbK"/>
+                                <include reference="ZVm-Ku-vSL"/>
+                                <include reference="Db2-5b-cGr"/>
+                                <include reference="tfE-OC-D79"/>
+                                <include reference="zgy-AF-A6H"/>
+                                <include reference="wDq-aN-oC4"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="P7X-Ng-lLB" id="lvv-o3-Mkc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y7N-mu-z4D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="VVf-pM-m73" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2546" y="-159"/>
         </scene>

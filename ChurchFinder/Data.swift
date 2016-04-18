@@ -18,6 +18,16 @@ This class is a singleton designed to persist behind the scenes between all view
 import Foundation
 import Parse
 
+class Time {
+    var day : String = ""
+    var time : Int = 0
+    
+    init(d : String, t : Int) {
+        day = d
+        time = t
+    }
+}
+
 final class Data : NSObject {
     
     static let sharedInstance = Data()
@@ -35,6 +45,7 @@ final class Data : NSObject {
     
     var results : [Church] = []
     var bookmarks : [Church] = []
+    var allTimes : [Time] = []
     
     var filterTypes : Dictionary<String, String> = ["denomination":"Denomination", "style":"Worship Style", "size":"Congregation Size"]
     var filterData : Dictionary<String, [AnyObject]> = [:]
@@ -141,7 +152,7 @@ final class Data : NSObject {
                     }
                 }
                 
-                print("Data: Meta search found \(options.count) results for \(type).")
+                print("Data: getMeta(\"\(type)\") found \(options.count) results.")
                 data.meta_success = true
                 data.filterData[type] = options
                 
@@ -222,6 +233,46 @@ final class Data : NSObject {
         }
     }
     
+    func getAllTimes() {
+        
+        let query = PFQuery(className: "Service")
+        
+        query.findObjectsInBackgroundWithBlock {
+            (objects:[PFObject]?, error:NSError?) -> Void in
+            
+            if let found = objects {
+                
+                data.allTimes = []
+                
+                if(found.count == 0) {
+                    
+                    // no church services in database? WHAT.
+                    
+                } else {
+                    
+                    for f in found {
+                        
+                        let day = f["day"] as! String
+                        let time = f["time"] as! Int
+                        let serviceTime = Time(d: day, t: time)
+                        data.allTimes.append(serviceTime)
+                        
+                    }
+                    
+                    print("Data: getAllTimes() found \(data.allTimes.count) service times.")
+                }
+                
+            } else {
+                if let e = error {
+                    NSLog(e.description)
+                } else {
+                    NSLog("Data: There was an error but it was unreadable.")
+                }
+            }
+        }
+    }
+
+    
     /*
     Update ChurchData.results with churches that match the requested parameters
     s and n are the start index and limit of the result we want to look at.
@@ -232,7 +283,6 @@ final class Data : NSObject {
     */
     func pullResults(params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) { //-> Bool {
         
-        print("")
         print("Data: Pulling new results.")
         
         if(threadQueryLock == false) {
@@ -246,7 +296,6 @@ final class Data : NSObject {
             for p in params {
                 print("     - \(p.0) as \(p.1)")
             }
-            print("")
         } else {
             print("Data: No parameters were provided...")
         }

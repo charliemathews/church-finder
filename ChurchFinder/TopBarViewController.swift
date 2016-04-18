@@ -64,12 +64,14 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         manager.distanceFilter = 500
         manager.requestLocation()
         
-        // pull meta
+        // pull times and meta info
         NSOperationQueue.mainQueue().addOperationWithBlock({
-            for (type, _) in data.filterTypes {
-                data.getMeta(type)
-            }
+            data.getAllTimes()
         })
+        
+        for (type, _) in data.filterTypes {
+            NSOperationQueue.mainQueue().addOperationWithBlock({ data.getMeta(type) })
+        }
         
         /*
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
