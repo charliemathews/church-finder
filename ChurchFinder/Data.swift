@@ -38,6 +38,7 @@ final class Data : NSObject {
     dynamic var meta_success : Bool = false
     dynamic var times_received : Int = 0
     dynamic var times_received_bookmarks : Int = 0
+    dynamic var results_filtered_by_time : Bool = false
     dynamic var error : Bool = false
     dynamic var bookmarks_count : Int = 0
     var threadQueryLock : Bool = false
@@ -565,10 +566,48 @@ final class Data : NSObject {
     }
     
     func restrictResultsByTime() {
+
+        results_filtered_by_time = false
+        
         if let times = currentParameters["times"] as? Dictionary<String, AnyObject> {
             if let e = times["enabled"] as? Bool {
                 if e == true {
-                    print("praise the lord, lord of time")
+                    
+                    let day = times["day"] as! String
+                    let start = times["start"] as! Int
+                    let end = times["end"] as! Int
+                    
+                    var ids_to_keep : [String] = []
+                    
+                    for r in results {
+                        for times in r.times_set {
+                            for (d,t) in times {
+                                if (d == day && t >= start && end >= t) {
+                                    ids_to_keep.append(r.id)
+                                }
+                            }
+                        }
+                    }
+                    
+                    var newResults : [Church] = []
+                    
+                    for r in results {
+                        if(ids_to_keep.contains(r.id) == true) {
+                            newResults.append(r)
+                        }
+                    }
+                    
+                    print("Data: Service time filter removed \(results.count-newResults.count) results.")
+                    
+                    results = newResults
+                    results_filtered_by_time = true
+                    
+                    if(results.count == 0) { // if we have no results after filter, trigger error message
+                        error = true
+                    }
+                    
+                } else {
+                    // filter by time is disabled
                 }
             }
         }

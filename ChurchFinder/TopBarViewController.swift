@@ -90,6 +90,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     func loadObservers() {
         data.addObserver(self, forKeyPath: "success", options: Constants.KVO_Options, context: nil)
         data.addObserver(self, forKeyPath: "error", options: Constants.KVO_Options, context: nil)
+        data.addObserver(self, forKeyPath: "results_filtered_by_time", options: Constants.KVO_Options, context: nil)
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
@@ -114,11 +115,16 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
                     data.getTimes(i)
                 }
                 
-                data.restrictResultsByTime()
+                if let times = data.currentParameters["times"] as? Dictionary<String, AnyObject> {
+                    if let status = times["enabled"] as? Bool {
+                        if status == false {
+                            filtersButton.enabled = true
+                            indicator.stopAnimating()
+                            indicator.hidesWhenStopped = true
+                        }
+                    }
+                }
                 
-                filtersButton.enabled = true
-                indicator.stopAnimating()
-                indicator.hidesWhenStopped = true
                 
                 if(data.results.count == 0) {
                     let alert = UIAlertController(title: "Whoops!", message: "Sorry, we couldn't find any churches with those criteria. We'll show you the results of last successful search.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -137,6 +143,10 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
                 alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             //}
+        } else if(keyPath == "results_filtered_by_time" && data.results_filtered_by_time == true) {
+            filtersButton.enabled = true
+            indicator.stopAnimating()
+            indicator.hidesWhenStopped = true
         }
         
     }
@@ -144,6 +154,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     deinit {
         data.removeObserver(self, forKeyPath: "success", context: nil)
         data.removeObserver(self, forKeyPath: "error", context: nil)
+        data.removeObserver(self, forKeyPath: "results_filtered_by_time", context: nil)
     }
     
     //MARK: Location services

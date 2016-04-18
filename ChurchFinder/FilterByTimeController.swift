@@ -19,6 +19,8 @@ class FilterByTimeController: UIViewController, UIPickerViewDataSource, UIPicker
     var mins : [Int] = []
     let period : [String] = ["AM", "PM"]
     
+    var selected : [Int] = [0,0,0,0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,9 +38,12 @@ class FilterByTimeController: UIViewController, UIPickerViewDataSource, UIPicker
         
         
             for t in data.allTimes { // fill days array and find smallest/greatest hour
-                
-                if !days.contains(t.day) {
-                    days.append(t.day)
+                if(days.count == 1 && days[0] == "-") {
+                    
+                } else {
+                    if !days.contains(t.day) {
+                        days.append(t.day)
+                    }
                 }
                 
                 var h : Int = t.time/60
@@ -116,6 +121,10 @@ class FilterByTimeController: UIViewController, UIPickerViewDataSource, UIPicker
             
         }
         
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selected[component] = row
     }
 
 }

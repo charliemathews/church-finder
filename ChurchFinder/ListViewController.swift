@@ -108,20 +108,19 @@ class ListViewController: UITableViewController {
     func loadObservers() {
         data.addObserver(self, forKeyPath: "bookmarks_count", options: Constants.KVO_Options, context: nil)
         data.addObserver(self, forKeyPath: "times_received", options: Constants.KVO_Options, context: nil)
-
+        //data.addObserver(self, forKeyPath: "results_filtered_by_time", options: Constants.KVO_Options, context: nil)
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
         //print("List/Map: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
         
-        if(keyPath == "times_received" && data.times_received == data.results.count) {
+        if(keyPath == "times_received" && data.times_received == data.results.count && data.results.count > 0 && data.threadQueryLock == false) {
             
             print("List/Map: \(data.times_received) church's service times found. Reloading views.")
+            data.restrictResultsByTime()
             table.reloadData()
-        }
-        
-        if(keyPath == "bookmarks_count") {
+        } else if(keyPath == "bookmarks_count") {
             print("List/Map: Bookmarks changed. Reloading.")
             
             //if any of the cells have a star alpha higher than 0 and they are in bookmarks, reload that cell
@@ -135,5 +134,6 @@ class ListViewController: UITableViewController {
     deinit {
         data.removeObserver(self, forKeyPath: "bookmarks_count", context: nil)
         data.removeObserver(self, forKeyPath: "times_received", context: nil)
+        //data.removeObserver(self, forKeyPath: "results_filtered_by_time", context: nil)
     }
 }
