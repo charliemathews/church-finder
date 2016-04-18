@@ -10,7 +10,22 @@ import XCTest
 @testable import ChurchFinder
 
 class FilterTableViewControllerTests: XCTestCase {
+    
+    //http://masilotti.com/xctest-helpers/
+    private func waitForElementToAppear(element: XCUIElement, file: String = #file, line: UInt = #line) {
+        let existsPredicate = NSPredicate(format: "exists == true")
+        expectationForPredicate(existsPredicate,
+                                evaluatedWithObject: element, handler: nil)
         
+        waitForExpectationsWithTimeout(5) { (error) -> Void in
+            if (error != nil) {
+                let message = "Failed to find \(element) after 5 seconds."
+                self.recordFailureWithDescription(message,
+                                                  inFile: file, atLine: line, expected: true)
+            }
+        }
+    }
+    
     override func setUp() {
         super.setUp()
         
@@ -22,6 +37,7 @@ class FilterTableViewControllerTests: XCTestCase {
         XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        XCUIApplication().navigationBars.buttons["Filters"].tap()
     }
     
     override func tearDown() {
@@ -29,41 +45,33 @@ class FilterTableViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        let app = XCUIApplication()
-        let viewMapButton = app.tabBars.buttons["View Map"]
-        viewMapButton.tap()
-        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Map).element.tap()
-        viewMapButton.tap()
-        app.navigationBars.buttons["Filters"].tap()
-        
-        let tablesQuery2 = app.tables
-        let tablesQuery = tablesQuery2
+    func testCong() {
+        let tablesQuery = XCUIApplication().tables
+        tablesQuery.staticTexts["Congregation Size"].tap()
+        tablesQuery.staticTexts["100"].tap()
+        waitForElementToAppear(tablesQuery.staticTexts["100"])
+    }
+    
+    func testDom() {
+        let tablesQuery = XCUIApplication().tables
         tablesQuery.staticTexts["Denomination"].tap()
+        tablesQuery.staticTexts["Non-Denominational"].tap()
+        waitForElementToAppear(tablesQuery.staticTexts["Non-Denominational"])
+    }
+    
+    func testWors() {
+        let tablesQuery = XCUIApplication().tables
         tablesQuery.staticTexts["Worship Style"].tap()
-        tablesQuery.staticTexts["Size"].tap()
-        tablesQuery.staticTexts["Times"].tap()
-        
-        let evangelicalPickerWheel = tablesQuery.pickerWheels["Evangelical"]
-        evangelicalPickerWheel.tap()
-        
-        let contemporaryPickerWheel = tablesQuery.pickerWheels["Contemporary"]
-        contemporaryPickerWheel.tap()
-        
-        let pickerWheel = tablesQuery.pickerWheels["0-100"]
-        pickerWheel.tap()
-        
-        let pickerWheel2 = tablesQuery.pickerWheels["10:00-11:00"]
-        pickerWheel2.tap()
-        evangelicalPickerWheel.tap()
-        contemporaryPickerWheel.tap()
-        pickerWheel.tap()
-        pickerWheel2.tap()
-        tablesQuery2.buttons["Done"].tap()
-        
+        tablesQuery.staticTexts["Traditional/Contemporary"].tap()
+        waitForElementToAppear(tablesQuery.staticTexts["Traditional/Contemporary"])
+    }
+    
+    func testClear() {
+        XCUIApplication().navigationBars["Filters"].buttons["Clear"].tap()
+    }
+    
+    func testDone() {
+        XCUIApplication().navigationBars["Filters"].buttons["Done"].tap()        
     }
     
 }
