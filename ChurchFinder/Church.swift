@@ -32,6 +32,7 @@ class Church {
     var addr_zip        : String
     var desc    : String
     var url     : String
+    var phone   : String
     var img     : PFFile?
     var object  : PFObject?
     
@@ -52,5 +53,6 @@ class Church {
         self.desc = ""
         self.url = ""
         self.img = nil
+        self.phone = ""
     }
 }

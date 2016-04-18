@@ -38,6 +38,8 @@
 		0F4B90501CBE372F00C870A9 /* location_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4B904F1CBE372F00C870A9 /* location_icon.png */; };
 		0F4DACC21CBB396100C4D25B /* FilterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4DACC11CBB396100C4D25B /* FilterListCell.swift */; };
 		0FC57AB91C873550009AA565 /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037715BE1C85F00000303162 /* Church.swift */; };
+		0FD91FA41CC4202D00EAA5C9 /* ChurchListCellWithStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD91FA31CC4202D00EAA5C9 /* ChurchListCellWithStar.swift */; };
+		0FEED92F1CC161A600D42EDF /* gcc.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 0FEED92E1CC161A600D42EDF /* gcc.gpx */; };
 		26BEC0DE1C94DFE400AB2AF2 /* bookmarkStarBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */; };
 		26BEC0DF1C94DFE400AB2AF2 /* bookmarkStarRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BEC0DD1C94DFE400AB2AF2 /* bookmarkStarRed.png */; };
 		26BEC0E11C94ECAA00AB2AF2 /* ChurchAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEC0E01C94ECA900AB2AF2 /* ChurchAnnotations.swift */; };
@@ -73,7 +75,6 @@
 		37FE8D401C6E211B00482663 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D3F1C6E211B00482663 /* SystemConfiguration.framework */; };
 		37FE8D421C6E213400482663 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D411C6E213400482663 /* libz.tbd */; };
 		37FE8D441C6E213E00482663 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D431C6E213E00482663 /* libsqlite3.tbd */; };
-		75D436DE1C79108800F62108 /* DetailedViewControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D436DD1C79108800F62108 /* DetailedViewControllerOld.swift */; };
 		75EA093F1C82278000EC90F2 /* FilterTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA093E1C82278000EC90F2 /* FilterTableViewControllerTests.swift */; };
 		75EA09971C85F66100EC90F2 /* DetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA09961C85F66100EC90F2 /* DetailedViewControllerTests.swift */; };
 		75EA0A951C8CE9C700EC90F2 /* DetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA0A941C8CE9C700EC90F2 /* DetailedViewControllerTests.swift */; };
@@ -182,7 +183,6 @@
 		37FE8D3F1C6E211B00482663 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		37FE8D411C6E213400482663 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		37FE8D431C6E213E00482663 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		75D436DD1C79108800F62108 /* DetailedViewControllerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerOld.swift; sourceTree = "<group>"; };
 		75EA09341C82271300EC90F2 /* ChurchFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChurchFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75EA09381C82271300EC90F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75EA093E1C82278000EC90F2 /* FilterTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewControllerTests.swift; sourceTree = "<group>"; };
@@ -278,11 +278,11 @@
 				0F20281D1C7F563F00AFC9AA /* Constants.swift */,
 				037F2EFA1C61000000E971DB /* Main.storyboard */,
 				034E15FB1C7C9ED0004AD878 /* AppDelegate.swift */,
-				75D436DD1C79108800F62108 /* DetailedViewControllerOld.swift */,
 				0F2028131C7F55CE00AFC9AA /* Model */,
 				0F20281F1C7F56A800AFC9AA /* Controller */,
 				75D436DF1C79181600F62108 /* Images */,
 				037F2EFF1C61000000E971DB /* LaunchScreen.xib */,
+				0FEED92E1CC161A600D42EDF /* gcc.gpx */,
 				037F2EFD1C61000000E971DB /* Images.xcassets */,
 				037F2EF21C61000000E971DB /* Supporting Files */,
 			);
@@ -330,6 +330,7 @@
 				37F0B4331C978C9B00DA821A /* TopBarViewController.swift */,
 				037F2F161C6106A600E971DB /* ListViewController.swift */,
 				037F2F181C61087400E971DB /* ChurchListCell.swift */,
+				0FD91FA31CC4202D00EAA5C9 /* ChurchListCellWithStar.swift */,
 				034E15FF1C7C9F9D004AD878 /* MapViewController.swift */,
 				26BEC0E01C94ECA900AB2AF2 /* ChurchAnnotations.swift */,
 				0F4DACAE1CBAEED300C4D25B /* Filters */,
@@ -366,6 +367,7 @@
 				0F9E94DE1CBE6849007C6D77 /* FilterTimesToggleCell.swift */,
 				0F34BFCC1CBC596B007F57F1 /* FilterByListController.swift */,
 				0F4DACC11CBB396100C4D25B /* FilterListCell.swift */,
+				0F827BFC1CC469840003763F /* FilterByTimeController.swift */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -396,6 +398,10 @@
 		75D436DF1C79181600F62108 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0F827BFA1CC43A3F0003763F /* phone_icon.png */,
+				0F827BF81CC426000003763F /* star_white.png */,
+				0FBFB5CC1CBE7A5E006AC60F /* icon_120.png */,
+				0FBFB5CA1CBE7863006AC60F /* icon.png */,
 				0F9E94DA1CBE39BE007C6D77 /* location_icon_22.png */,
 				0F9E94DB1CBE39BE007C6D77 /* location_icon_44.png */,
 				0F4B904F1CBE372F00C870A9 /* location_icon.png */,
@@ -546,15 +552,20 @@
 				0F9E94DD1CBE39BE007C6D77 /* location_icon_44.png in Resources */,
 				75F7C62E1C8D1DF500FEF740 /* meta_addr.png in Resources */,
 				75F7C64C1C8D1DF500FEF740 /* action_website.png in Resources */,
+				0F827BF91CC426000003763F /* star_white.png in Resources */,
 				0F4B904A1CBE228000C870A9 /* time_icon.png in Resources */,
 				75F7C63D1C8D1DF500FEF740 /* meta_desc.png in Resources */,
 				0F4B90381CBDAB5800C870A9 /* star_circle in Resources */,
 				037F2EFC1C61000000E971DB /* Main.storyboard in Resources */,
+				0FEED92F1CC161A600D42EDF /* gcc.gpx in Resources */,
+				0FBFB5CB1CBE7863006AC60F /* icon.png in Resources */,
 				0F16D58B1CAACA7400E6C7AD /* dummyphoto.png in Resources */,
+				0F827BFB1CC43A3F0003763F /* phone_icon.png in Resources */,
 				75F7C6401C8D1DF500FEF740 /* meta_style.png in Resources */,
 				75F7C63A1C8D1DF500FEF740 /* action_nav.png in Resources */,
 				75F7C6431C8D1DF500FEF740 /* action_share.png in Resources */,
 				0F4B904E1CBE2ED900C870A9 /* www_icon.png in Resources */,
+				0FBFB5CD1CBE7A5E006AC60F /* icon_120.png in Resources */,
 				75F7C6371C8D1DF500FEF740 /* meta_times.png in Resources */,
 				0F4B90481CBE228000C870A9 /* info_icon.png in Resources */,
 				037F2F011C61000000E971DB /* LaunchScreen.xib in Resources */,
@@ -612,11 +623,11 @@
 			files = (
 				3729A8671C8523B3000AF907 /* BookmarksViewController.swift in Sources */,
 				0F4DACC21CBB396100C4D25B /* FilterListCell.swift in Sources */,
-				75D436DE1C79108800F62108 /* DetailedViewControllerOld.swift in Sources */,
 				377135191CB350D600FA5CD1 /* BookmarksBarViewController.swift in Sources */,
 				0F34BFCD1CBC596B007F57F1 /* FilterByListController.swift in Sources */,
 				034E16011C7C9F9D004AD878 /* FiltersViewController.swift in Sources */,
 				0F4B90411CBDDA8300C870A9 /* DetailedMapCell.swift in Sources */,
+				0FD91FA41CC4202D00EAA5C9 /* ChurchListCellWithStar.swift in Sources */,
 				0F4B90421CBDDA8300C870A9 /* DetailedMetaCell.swift in Sources */,
 				26BEC0E11C94ECAA00AB2AF2 /* ChurchAnnotations.swift in Sources */,
 				034E16061C7CAC1F004AD878 /* FilterViewCell.swift in Sources */,
@@ -630,6 +641,7 @@
 				037715BF1C85F00000303162 /* Church.swift in Sources */,
 				037F2F171C6106A600E971DB /* ListViewController.swift in Sources */,
 				034E16031C7C9F9D004AD878 /* MapViewController.swift in Sources */,
+				0F827BFD1CC469840003763F /* FilterByTimeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,6 +793,7 @@
 		037F2F111C61000000E971DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -807,6 +820,7 @@
 		037F2F121C61000000E971DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

@@ -18,6 +18,16 @@ This class is a singleton designed to persist behind the scenes between all view
 import Foundation
 import Parse
 
+class Time {
+    var day : String = ""
+    var time : Int = 0
+    
+    init(d : String, t : Int) {
+        day = d
+        time = t
+    }
+}
+
 final class Data : NSObject {
     
     static let sharedInstance = Data()
@@ -27,11 +37,16 @@ final class Data : NSObject {
     dynamic var success : Bool = false
     dynamic var meta_success : Bool = false
     dynamic var times_received : Int = 0
+    dynamic var times_received_bookmarks : Int = 0
+    dynamic var results_filtered_by_time : Bool = false
     dynamic var error : Bool = false
+    dynamic var bookmarks_count : Int = 0
     var threadQueryLock : Bool = false
+    var filterByTime = false
     
     var results : [Church] = []
     var bookmarks : [Church] = []
+    var allTimes : [Time] = []
     
     var filterTypes : Dictionary<String, String> = ["denomination":"Denomination", "style":"Worship Style", "size":"Congregation Size"]
     var filterData : Dictionary<String, [AnyObject]> = [:]
@@ -71,11 +86,22 @@ final class Data : NSObject {
         church.addr_state   = f["addr_state"]       as! String
         church.addr_zip     = f["addr_zip"]         as! String
         
-        church.desc     = f["description"]  as! String
         church.url      = f["url"]          as! String
         church.img      = f["banner"]       as? PFFile
         church.object   = f
      
+        if f.objectForKey("description") != nil {
+            church.desc    = f["description"]        as! String
+        } else {
+            church.desc    = ""
+        }
+        
+        if f.objectForKey("phone") != nil {
+            church.phone    = f["phone"]        as! String
+        } else {
+            church.phone    = ""
+        }
+        
         return church
     }
     
@@ -127,7 +153,7 @@ final class Data : NSObject {
                     }
                 }
                 
-                print("Data: Meta search found \(options.count) results for \(type).")
+                print("Data: getMeta(\"\(type)\") found \(options.count) results.")
                 data.meta_success = true
                 data.filterData[type] = options
                 
@@ -141,13 +167,18 @@ final class Data : NSObject {
         }
     }
     
-    func getTimes(index : Int) { // if results changes, cancel operation??
+    func getTimes(index : Int, forBookmarks : Bool = false) { // if results changes, cancel operation??
         
         if(threadQueryLock == true) {
             return
         }
+        var id : String
         
-        let id : String = results[index].id
+        if forBookmarks {
+            id = bookmarks[index].id
+        } else {
+            id = results[index].id
+        }
         
         let query = PFQuery(className: "Service")
         query.whereKey("owner", containsString: id)
@@ -175,10 +206,21 @@ final class Data : NSObject {
                     }
                     
                     // because of threading, make sure that the result still exists before setting it's times
-                    if(data.results[index].id == id && data.results[index].times_set.count == 0) {
-                        print("Data: Times search found \(times.count) service times for \(id)")
-                        data.results[index].times_set = times
-                        data.times_received += 1
+                    if forBookmarks {
+                        
+                        if(data.bookmarks[index].id == id && data.bookmarks[index].times_set.count == 0) {
+                            print("Data: Times search found \(times.count) service times for bookmark \(id)")
+                            data.bookmarks[index].times_set = times
+                            data.times_received_bookmarks += 1
+                        }
+                        
+                    } else {
+                    
+                        if(data.results[index].id == id && data.results[index].times_set.count == 0) {
+                            print("Data: Times search found \(times.count) service times for \(id)")
+                            data.results[index].times_set = times
+                            data.times_received += 1
+                        }
                     }
                 }
                 
@@ -192,6 +234,46 @@ final class Data : NSObject {
         }
     }
     
+    func getAllTimes() {
+        
+        let query = PFQuery(className: "Service")
+        
+        query.findObjectsInBackgroundWithBlock {
+            (objects:[PFObject]?, error:NSError?) -> Void in
+            
+            if let found = objects {
+                
+                data.allTimes = []
+                
+                if(found.count == 0) {
+                    
+                    // no church services in database? WHAT.
+                    
+                } else {
+                    
+                    for f in found {
+                        
+                        let day = f["day"] as! String
+                        let time = f["time"] as! Int
+                        let serviceTime = Time(d: day, t: time)
+                        data.allTimes.append(serviceTime)
+                        
+                    }
+                    
+                    print("Data: getAllTimes() found \(data.allTimes.count) service times.")
+                }
+                
+            } else {
+                if let e = error {
+                    NSLog(e.description)
+                } else {
+                    NSLog("Data: There was an error but it was unreadable.")
+                }
+            }
+        }
+    }
+
+    
     /*
     Update ChurchData.results with churches that match the requested parameters
     s and n are the start index and limit of the result we want to look at.
@@ -202,7 +284,6 @@ final class Data : NSObject {
     */
     func pullResults(params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) { //-> Bool {
         
-        print("")
         print("Data: Pulling new results.")
         
         if(threadQueryLock == false) {
@@ -216,7 +297,6 @@ final class Data : NSObject {
             for p in params {
                 print("     - \(p.0) as \(p.1)")
             }
-            print("")
         } else {
             print("Data: No parameters were provided...")
         }
@@ -360,6 +440,8 @@ final class Data : NSObject {
         addedChurch.object!.pinInBackground()
         writeBookmarkOrder()
         print("Data: Added bookmark. \(bookmarks.count) total.")
+        
+        bookmarks_count = bookmarks.count
     }
     
     func removeBookmark(let bookmarkIndex : Int) {
@@ -367,24 +449,22 @@ final class Data : NSObject {
             let remove = bookmarks[bookmarkIndex]
             remove.object!.unpinInBackground()
             bookmarks.removeAtIndex(bookmarkIndex)
+            bookmarks_count = bookmarks.count
         }
         writeBookmarkOrder()
-        print("Data: Removed bookmark. \(bookmarks.count) remaining.")
+        //print("Data: Removed bookmark using int. \(bookmarks.count) remaining.")
     }
     
     func removeBookmark(bookmarkedChurch: Church) {
-        //find the index
-        var index = 0
-        for church in bookmarks {
-            if (church.id == bookmarkedChurch.id){
+        for i in 0..<bookmarks.count {
+            //print("Trying to remove index \(i) from \(bookmarks.count).")
+            if(bookmarks[i].id == bookmarkedChurch.id) {
+                bookmarks.removeAtIndex(i)
+                //print("Data: Removed bookmark using church.id. \(bookmarks.count) remaining.")
+                writeBookmarkOrder()
+                bookmarks_count = bookmarks.count
                 break
-            } else {
-                index += 1
             }
-        }
-        
-        if (index < bookmarks.count) {
-            removeBookmark(index)
         }
     }
     
@@ -428,6 +508,8 @@ final class Data : NSObject {
                 print("Error: \(error!) \(error!.userInfo)")
             }
         }
+        
+        bookmarks_count = bookmarks.count
     }
     
     func writeBookmarkOrder() {
@@ -484,13 +566,83 @@ final class Data : NSObject {
     }
     
     func restrictResultsByTime() {
+
+        results_filtered_by_time = false
+        
         if let times = currentParameters["times"] as? Dictionary<String, AnyObject> {
             if let e = times["enabled"] as? Bool {
                 if e == true {
-                    print("praise the lord, lord of time")
+                    
+                    let day = times["day"] as! String
+                    let start = times["start"] as! Int
+                    let end = times["end"] as! Int
+                    
+                    var ids_to_keep : [String] = []
+                    
+                    for r in results {
+                        for times in r.times_set {
+                            for (d,t) in times {
+                                if (d == day && t >= start && end >= t) {
+                                    ids_to_keep.append(r.id)
+                                }
+                            }
+                        }
+                    }
+                    
+                    var newResults : [Church] = []
+                    
+                    for r in results {
+                        if(ids_to_keep.contains(r.id) == true) {
+                            newResults.append(r)
+                        }
+                    }
+                    
+                    print("Data: Service time filter removed \(results.count-newResults.count) results.")
+                    
+                    results = newResults
+                    results_filtered_by_time = true
+                    
+                    if(results.count == 0) { // if we have no results after filter, trigger error message
+                        error = true
+                    }
+                    
+                } else {
+                    // filter by time is disabled
                 }
             }
         }
+    }
+    
+    func formatTime(set: [String:Int]) -> String {
+        var times : String = ""
+        
+        for (d,t) in set {
+            let hr24 : Int = t/60
+            let m : Int = t%60
+            
+            var m_formatted : String
+            if(m == 0) {
+                m_formatted = "00"
+            } else {
+                m_formatted = String(m)
+            }
+            
+            var post = ""
+            if(hr24 < 12) {
+                post = "a"
+            } else {
+                post = "p"
+            }
+            
+            var hr12 = hr24
+            if(hr24 > 12) {
+                hr12 -= 12
+            }
+            
+            times += "\(d) \(hr12):\(m_formatted)\(post) "
+        }
+        
+        return times
     }
 }
     

@@ -42,9 +42,9 @@ struct Constants {
             
             var t : [String:AnyObject] = [:]
             t["enabled"] = false
-            t["day"] = ""
-            t["start"] = 0
-            t["end"] = 0
+            t["day"] = "SUN"
+            t["start"] = 480
+            t["end"] = 840
             
             params["times"] = t
             
@@ -63,35 +63,3 @@ struct Constants {
     static let KVO_Options = NSKeyValueObservingOptions([.New, .Old])
     
 }
-
-
-
-
-/* Everything below this line needs to be removed. Colors may be fine. Functions should be in the views and params is unnecessary. */
-
-
-func getDistanceString(church : Church) -> String {
-    /*
-    if let currentLocation = Data.sharedInstance.locationManager.location {
-        let churchLoc = CLLocation(latitude: church.location.latitude, longitude: church.location.longitude)
-        
-        //convert to miles
-        let churchDistance = (currentLocation.distanceFromLocation(churchLoc) * 0.000621371)
-        
-        
-        //if less than ten show one decimal point
-        if (churchDistance < 10.0) {
-            //rounding formula http://stackoverflow.com/questions/27338573/rounding-a-double-value-to-x-number-of-decimal-places-in-swift
-            return String(round(churchDistance * 10)/10) + " mi"
-        } else {
-            //if greater than ten don't show any decimal points
-            return String(Int(churchDistance)) + " mi"
-        }
-    }
-    
-    //if we can't get a current location, don't display anything for distance
-    return "?"
- */
-    return "???"
-}
-

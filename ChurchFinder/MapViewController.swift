@@ -36,11 +36,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func loadObservers() {
         data.addObserver(self, forKeyPath: "times_received", options: Constants.KVO_Options, context: nil)
+        data.addObserver(self, forKeyPath: "results_filtered_by_time", options: Constants.KVO_Options, context: nil)
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        if(keyPath == "times_received" && data.times_received == data.results.count && data.threadQueryLock == false) {
+        if(keyPath == "times_received" && data.times_received == data.results.count  && data.results.count > 0 && data.threadQueryLock == false) {
             
             outputChurchResultsToMap()
         }
@@ -49,6 +50,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     deinit {
         data.removeObserver(self, forKeyPath: "times_received", context: nil)
+        data.removeObserver(self, forKeyPath: "results_filtered_by_time", context: nil)
     }
     
     func outputChurchResultsToMap() -> Bool {
@@ -81,19 +83,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 let sets = r.times_set
                 
                 for set in sets {
-                    for (d,t) in set {
-                        let h : Int = t/60
-                        let m : Int = t%60
-                        
-                        var m_formatted : String
-                        if(m == 0) {
-                            m_formatted = "00"
-                        } else {
-                            m_formatted = String(m)
-                        }
-                        
-                        times += "\(d) \(h):\(m_formatted) "
-                    }
+                    times += data.formatTime(set)
                 }
                 
                 t = times

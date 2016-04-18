@@ -37,7 +37,15 @@ class ListViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ChurchListCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ChurchListCell", forIndexPath: indexPath) as! ChurchListCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ChurchListCell", forIndexPath: indexPath) as! ChurchListCellWithStar
+        
+        cell.star.alpha = 0.0
+        
+        for c in data.bookmarks {
+            if(data.results[indexPath.row].id == c.id) {
+                cell.star.alpha = 0.8
+            }
+        }
         
         cell.setCellInfo(indexPath.row)
         
@@ -55,27 +63,36 @@ class ListViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        var bookmarkImage = UIImage(named:"bookmarkStarBlue.png")!
         
-        for church in data.bookmarks {
-            if(church.id == data.results[indexPath.row].id) {
-                bookmarkImage = UIImage(named: "bookmarkStarRed.png")!
-            }
-            else {
-                bookmarkImage = UIImage(named: "bookmarkStarBlue.png")!
+        var bookmarkAction : UITableViewRowAction
+        var backgroundColor = UIColor.blueColor()
+        var title : String = "Save"
+        
+        for c in data.bookmarks {
+            if(data.results[indexPath.row].id == c.id) {
+                backgroundColor = UIColor.redColor()
+                title = "Unsave"
+                break
             }
         }
         
-        let bookmark = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "                    " , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            data.addBookmark(Data.sharedInstance.results[indexPath.row])
-            
-            //makes the cell slide back when pressed
-            self.setEditing(false, animated: true)
-        })
+        if(title == "Save") {
+            bookmarkAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: title , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+                //print("Adding bookmark.")
+                data.addBookmark(Data.sharedInstance.results[indexPath.row])
+                self.setEditing(false, animated: true)
+            })
+        } else {
+            bookmarkAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: title , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+                //print("Removing bookmark.")
+                data.removeBookmark(Data.sharedInstance.results[indexPath.row])
+                self.setEditing(false, animated: true)
+            })
+        }
         
-        bookmark.backgroundColor = UIColor(patternImage:bookmarkImage)
+        bookmarkAction.backgroundColor = backgroundColor
         
-        return [bookmark]
+        return [bookmarkAction]
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -89,39 +106,34 @@ class ListViewController: UITableViewController {
     }
     
     func loadObservers() {
-        data.addObserver(self, forKeyPath: "success", options: Constants.KVO_Options, context: nil)
+        data.addObserver(self, forKeyPath: "bookmarks_count", options: Constants.KVO_Options, context: nil)
         data.addObserver(self, forKeyPath: "times_received", options: Constants.KVO_Options, context: nil)
-
+        //data.addObserver(self, forKeyPath: "results_filtered_by_time", options: Constants.KVO_Options, context: nil)
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
         //print("List/Map: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
         
-        if(keyPath == "success" && data.success == true) {
-            
-            print("List/Map: I see \(data.results.count) church results.")
-            
-            for i in 0..<data.results.count {
-                if(data.threadQueryLock == true) { // if another query is running, we should be waiting for that query.
-                    return
-                }
-                data.getTimes(i)
-            }
-            
-            data.restrictResultsByTime()
-        }
-        
-        if(keyPath == "times_received" && data.times_received == data.results.count) {
+        if(keyPath == "times_received" && data.times_received == data.results.count && data.results.count > 0 && data.threadQueryLock == false) {
             
             print("List/Map: \(data.times_received) church's service times found. Reloading views.")
+            data.restrictResultsByTime()
+            table.reloadData()
+        } else if(keyPath == "bookmarks_count") {
+            print("List/Map: Bookmarks changed. Reloading.")
+            
+            //if any of the cells have a star alpha higher than 0 and they are in bookmarks, reload that cell
+            //let indexPathToReload = NSIndexPath(forRow: 1, inSection: 2)
+            //self.tableView.reloadRowsAtIndexPaths([indexPathToReload], withRowAnimation: UITableViewRowAnimation.Fade)
+            
             table.reloadData()
         }
-        
     }
     
     deinit {
-        data.removeObserver(self, forKeyPath: "success", context: nil)
+        data.removeObserver(self, forKeyPath: "bookmarks_count", context: nil)
         data.removeObserver(self, forKeyPath: "times_received", context: nil)
+        //data.removeObserver(self, forKeyPath: "results_filtered_by_time", context: nil)
     }
 }

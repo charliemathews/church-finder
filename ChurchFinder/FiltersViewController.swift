@@ -21,15 +21,8 @@ class FiltersViewController: UITableViewController {
     var filterSelected : Dictionary<String, AnyObject> = data.currentParameters    // currently selected values
     var filterTimes : [Int] = [0, 0]                            // currently selected times
     
-    //toggle option
-    var filterByServiceTime : Bool = false
-    
     var current_row = 0
     var current_section = 0
-    
-    @IBAction func clearFilters(sender: AnyObject) {
-        //viewDidLoad()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,22 +42,21 @@ class FiltersViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if(indexPath.section == 0) {
+        table.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if(current_section == 0) {
             
-            
-            // choose segue by row/filter
             self.performSegueWithIdentifier("listFilterSegue", sender: self)
             
+        } else if(current_section == 1 && current_row != 0) {
+            
+            self.performSegueWithIdentifier("timeFilterSegue", sender: self)
+            
         } else {
+        
+            // do nothing
             
         }
-        
-        /*
-         selectedFilterRow = indexPath.row
-         let currentCell = tableView.cellForRowAtIndexPath(indexPath) as! FilterViewCell
-         selectedFilter = currentCell.cellName
-         self.performSegueWithIdentifier("specificFilterSegue", sender: self)
-         */
     }
     
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -86,8 +78,10 @@ class FiltersViewController: UITableViewController {
             
         } else if(segue.identifier == "timeFilterSegue") {
             
-            //
-            
+            if(current_row == 2) {
+                let landing = dest as! FilterByTimeController
+                landing.days.append("-")
+            }
         }
         
      }
@@ -106,10 +100,10 @@ class FiltersViewController: UITableViewController {
             return filterData.count
         } else if (section == 1) {
             
-            if(filterByServiceTime == true) {
-                return 3 // time question, as early as, as late as
+            if(data.filterByTime == false) {
+                return 1
             } else {
-                return 1 // time question
+                return 3
             }
             
         } else {
@@ -150,31 +144,90 @@ class FiltersViewController: UITableViewController {
             
         } else if indexPath.section == 1 {
             
-            var enabled : Bool = false
-            
-            if let times = filterSelected["times"] as? Dictionary<String, AnyObject> {
-                if let e = times["enabled"] as? Bool {
-                    enabled = e
-                }
-            }
-            
             if(indexPath.row == 0) {
                 let cell = tableView.dequeueReusableCellWithIdentifier("timesToggleCell", forIndexPath: indexPath) as! FilterTimesToggleCell
                 
-                //cell.toggle.on = enabled
-                
+                if(data.allTimes.count > 0) {
+                    cell.toggle.on = data.filterByTime
+                } else {
+                    cell.toggle.on = false
+                }
                 
                 return cell
             } else if(indexPath.row == 1) {
                 let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath) as! FilterViewCell
                 
-                //
+                cell.filter_name.text = "from"
+                
+                if var times = filterSelected["times"] as? [String:AnyObject] {
+                    
+                    let day : String = times["day"] as! String
+                    let t : Int = times["start"] as! Int
+                    var hour : Int = t/60
+                    let min : Int = t%60
+                    var period : String = ""
+                    
+                    if(hour > 12) {
+                        period = "PM"
+                        hour -= 12
+                    } else {
+                        period = "AM"
+                    }
+                    
+                    var h : String = String(hour)
+                    var m : String = String(min)
+                    
+                    if(m == "0") {
+                        m = "00"
+                    }
+                    if(h == "0") {
+                        h = "00"
+                    }
+                    
+                    cell.filter_value.text = "\(day) \(h):\(m) \(period)"
+                    
+                } else {
+                    
+                    cell.filter_value.text = "00:00 AM"
+                }
                 
                 return cell
             } else if(indexPath.row == 2) {
                 let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath) as! FilterViewCell
                 
-                //
+                cell.filter_name.text = "to"
+                
+                if var times = filterSelected["times"] as? [String:AnyObject] {
+                    
+                    //let day : String = times["day"] as! String
+                    let t : Int = times["end"] as! Int
+                    var hour : Int = t/60
+                    let min : Int = t%60
+                    var period : String = ""
+                    
+                    if(hour > 12) {
+                        period = "PM"
+                        hour -= 12
+                    } else {
+                        period = "AM"
+                    }
+                    
+                    var h : String = String(hour)
+                    var m : String = String(min)
+                    
+                    if(m == "0") {
+                        m = "00"
+                    }
+                    if(h == "0") {
+                        h = "00"
+                    }
+                    
+                    cell.filter_value.text = "\(h):\(m) \(period)"
+                    
+                } else {
+                    
+                    cell.filter_value.text = "00:00 AM"
+                }
                 
                 return cell
             } else {
@@ -195,8 +248,64 @@ class FiltersViewController: UITableViewController {
         updateSelected(key, v: newValue)
     }
     
+    @IBAction func unwindFromTime(segue: UIStoryboardSegue) {
+    
+        let sender = segue.sourceViewController as! FilterByTimeController
+        
+        let day = sender.days[sender.selected[0]]
+        let hour = sender.hours[sender.selected[1]]
+        let min = sender.mins[sender.selected[2]]
+        let period = sender.period[sender.selected[3]]
+        
+        print("Filters received \(day) \(hour):\(min) \(period).")
+
+        if(current_row == 1) { // from
+            
+            if var times = filterSelected["times"] as? [String:AnyObject] {
+                
+                var t = (hour*60)+min
+                if(period == "PM") {
+                    t = (hour*60)+(12*60)+min
+                }
+                
+                let range_end : Int = times["end"] as! Int
+                if(range_end < t) {
+                    times["end"] = t
+                }
+                
+                times["day"] = day
+                times["start"] = t
+                filterSelected["times"] = times
+            }
+            
+        } else if(current_row == 2) { // to
+            
+            if var times = filterSelected["times"] as? [String:AnyObject] {
+                
+                let range_start = times["start"] as! Int
+                var range_end = (hour*60)+min
+                
+                if(period == "PM") {
+                    range_end = (hour*60)+(12*60)+min
+                }
+                
+                if(range_end < range_start) {
+                    times["end"] = range_start
+                } else {
+                    times["end"] = range_end
+                }
+                
+                filterSelected["times"] = times
+            }
+        }
+        
+        let from : NSIndexPath = NSIndexPath(forRow: 1, inSection: 1)
+        let to : NSIndexPath = NSIndexPath(forRow: 2, inSection: 1)
+        table.reloadRowsAtIndexPaths([from, to], withRowAnimation: UITableViewRowAnimation.Fade)
+    }
+    
     func updateSelected(k : String, v : String) {
-        print("Filters will update \(k) with value \(v)")
+        print("Filters will update \(k) with value \(v).")
         filterSelected[k] = v
         table.reloadData()
     }
@@ -209,8 +318,30 @@ class FiltersViewController: UITableViewController {
             }
         }
         
+        data.filterByTime = false
+        filterSelected["times"] = Constants.Defaults.get()["times"]
+        
         print("Resetting filters to default.")
         table.reloadData()
     }
 
+    @IBAction func toggleFlipped(sender: AnyObject) {
+        
+        if(data.allTimes.count > 0) {
+            data.filterByTime = !data.filterByTime
+            table.reloadData()
+        } else {
+            data.filterByTime = false
+            table.reloadData()
+            let alert = UIAlertController(title: "Whoops!", message: "None of the churches in our database seem to have any service times listed at the moment.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
+        if var times = filterSelected["times"] as? [String:AnyObject] {
+            
+            times["enabled"] = Int(data.filterByTime)
+            filterSelected["times"] = times
+        }
+    }
 }

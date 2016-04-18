@@ -13,6 +13,28 @@ class BookmarksViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadObservers()
+        
+        for i in 0..<data.bookmarks.count {
+            if(data.threadQueryLock == true) { // if another query is running, we should be waiting for that query.
+                break
+            }
+            
+            var alreadyFound : Bool = false
+            
+            for church in data.results {
+                if(church.id == data.bookmarks[i].id) {
+                    alreadyFound = true
+                    data.bookmarks[i].times_set = church.times_set
+                    data.times_received_bookmarks += 1
+                }
+            }
+            
+            if alreadyFound == false {
+                data.getTimes(i, forBookmarks: true)
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -70,6 +92,27 @@ class BookmarksViewController: UITableViewController {
         data.writeBookmarkOrder()
     }
     
+    func loadObservers() {
+        data.addObserver(self, forKeyPath: "times_received_bookmarks", options: Constants.KVO_Options, context: nil)
+        
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        //print("Bookmarks: I sense that value of \(keyPath) changed to \(change![NSKeyValueChangeNewKey]!)")
+        
+        
+        if(keyPath == "times_received_bookmarks" && data.times_received_bookmarks == data.bookmarks.count) {
+            
+            tableView.reloadData()
+        }
+        
+    }
+    
+    deinit {
+        data.removeObserver(self, forKeyPath: "times_received_bookmarks", context: nil)
+    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "bookmarkToDetailed") {

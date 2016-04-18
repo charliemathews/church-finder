@@ -24,7 +24,7 @@ class ChurchListCell: UITableViewCell {
         // Initialization code
         churchImage.image = UIImage(named: "dummyphoto.png")
         churchImage.contentMode = .ScaleAspectFill
-        self.churchImage.alpha = 1
+        self.churchImage.alpha = 0.4
         //self.backgroundColor = UIColor.whiteColor()
         //self.backgroundView?.backgroundColor = UIColor.whiteColor()
     }
@@ -62,19 +62,7 @@ class ChurchListCell: UITableViewCell {
             let sets = church.times_set
             
             for set in sets {
-                for (d,t) in set {
-                    let h : Int = t/60
-                    let m : Int = t%60
-                    
-                    var m_formatted : String
-                    if(m == 0) {
-                        m_formatted = "00"
-                    } else {
-                        m_formatted = String(m)
-                    }
-                    
-                    times += "\(d) \(h):\(m_formatted) "
-                }
+                times += data.formatTime(set)
             }
             
             serviceTime.text = times
@@ -90,14 +78,14 @@ class ChurchListCell: UITableViewCell {
         
         distanceAddr.text = "\(distance)mi • " + street
 
-        if let _ = church.img?.name { //if (church.img!.name != "undefined") {
+        if let _ = church.img?.name {
             churchImage.file = church.img
             churchImage.loadInBackground()
             self.churchImage.alpha = 0.4
             self.backgroundColor = UIColor.blackColor()
         } else {
             churchImage.image = UIImage(named: "dummyphoto.png")
-            print("ListCell: \"\(church.name)\" didn't have an image. Using default instead.")
+            //print("ListCell: \"\(church.name)\" didn't have an image. Using default instead.")
         }
         
         churchName.shadowColor = UIColor.blackColor()
