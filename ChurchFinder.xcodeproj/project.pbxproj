@@ -39,6 +39,8 @@
 		0F4DACC21CBB396100C4D25B /* FilterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4DACC11CBB396100C4D25B /* FilterListCell.swift */; };
 		0FA844271CC5A4CB00A6B1FA /* location_icon_22.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FA844261CC5A4CB00A6B1FA /* location_icon_22.png */; };
 		0FA844291CC5A4D700A6B1FA /* location_icon_44.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FA844281CC5A4D700A6B1FA /* location_icon_44.png */; };
+		0FA8442B1CC5E04C00A6B1FA /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8442A1CC5E04C00A6B1FA /* AppIcon.appiconset */; };
+		0FA8442D1CC5E06000A6B1FA /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8442C1CC5E06000A6B1FA /* Images-3.xcassets */; };
 		0FC57AB91C873550009AA565 /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037715BE1C85F00000303162 /* Church.swift */; };
 		0FD0DDCC1CC51DB800E4C888 /* ChurchListCellWithStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD0DDC81CC51DB800E4C888 /* ChurchListCellWithStar.swift */; };
 		0FD0DDCD1CC51DB800E4C888 /* FilterByTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD0DDC91CC51DB800E4C888 /* FilterByTimeController.swift */; };
@@ -169,6 +171,8 @@
 		0F4DACC11CBB396100C4D25B /* FilterListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterListCell.swift; sourceTree = "<group>"; };
 		0FA844261CC5A4CB00A6B1FA /* location_icon_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_icon_22.png; sourceTree = "<group>"; };
 		0FA844281CC5A4D700A6B1FA /* location_icon_44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_icon_44.png; sourceTree = "<group>"; };
+		0FA8442A1CC5E04C00A6B1FA /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = icon/AppIcon.appiconset; sourceTree = "<group>"; };
+		0FA8442C1CC5E06000A6B1FA /* Images-3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-3.xcassets"; sourceTree = "<group>"; };
 		0FD0DDC81CC51DB800E4C888 /* ChurchListCellWithStar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchListCellWithStar.swift; sourceTree = "<group>"; };
 		0FD0DDC91CC51DB800E4C888 /* FilterByTimeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterByTimeController.swift; sourceTree = "<group>"; };
 		0FD0DDCA1CC51DB800E4C888 /* star_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_white.png; sourceTree = "<group>"; };
@@ -302,6 +306,7 @@
 				0FD0DDD41CC51E5000E4C888 /* gcc.gpx */,
 				037F2EFF1C61000000E971DB /* LaunchScreen.xib */,
 				037F2EFD1C61000000E971DB /* Images.xcassets */,
+				0FA8442C1CC5E06000A6B1FA /* Images-3.xcassets */,
 				037F2EF21C61000000E971DB /* Supporting Files */,
 			);
 			path = ChurchFinder;
@@ -416,6 +421,7 @@
 		75D436DF1C79181600F62108 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0FA8442A1CC5E04C00A6B1FA /* AppIcon.appiconset */,
 				0FA844281CC5A4D700A6B1FA /* location_icon_44.png */,
 				0FA844261CC5A4CB00A6B1FA /* location_icon_22.png */,
 				0FD0DDD01CC51DD700E4C888 /* icon_120.png */,
@@ -565,6 +571,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA8442B1CC5E04C00A6B1FA /* AppIcon.appiconset in Resources */,
 				75F7C6311C8D1DF500FEF740 /* detailed_back.png in Resources */,
 				0FA844271CC5A4CB00A6B1FA /* location_icon_22.png in Resources */,
 				75F7C62E1C8D1DF500FEF740 /* meta_addr.png in Resources */,
@@ -577,6 +584,7 @@
 				0FD0DDD51CC51E5000E4C888 /* gcc.gpx in Resources */,
 				0FD0DDCF1CC51DB800E4C888 /* phone_icon.png in Resources */,
 				0FEED92F1CC161A600D42EDF /* (null) in Resources */,
+				0FA8442D1CC5E06000A6B1FA /* Images-3.xcassets in Resources */,
 				0F16D58B1CAACA7400E6C7AD /* dummyphoto.png in Resources */,
 				75F7C6401C8D1DF500FEF740 /* meta_style.png in Resources */,
 				75F7C63A1C8D1DF500FEF740 /* action_nav.png in Resources */,
@@ -812,6 +820,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -839,6 +848,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
