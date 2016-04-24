@@ -284,6 +284,8 @@ final class Data : NSObject {
     */
     func pullResults(params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) { //-> Bool {
         
+        let oldResults = data.results
+
         print("Data: Pulling new results.")
         
         if(threadQueryLock == false) {
@@ -370,6 +372,7 @@ final class Data : NSObject {
             if let found = objects {
                 
                 // create results array
+                
                 data.results = []
                 
                 for f in found {
@@ -407,6 +410,7 @@ final class Data : NSObject {
                     data.success = true
     
                 } else {
+                    data.results = oldResults
                     if(params.count > 0) {
                         data.currentParameters = Constants.Defaults.get()
                         data.currentParameters["loc"] = PFGeoPoint(latitude: data.currentLocation.latitude, longitude: data.currentLocation.longitude)
