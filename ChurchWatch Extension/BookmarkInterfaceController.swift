@@ -91,6 +91,8 @@ class BookmarksInterfaceController: WKInterfaceController,WCSessionDelegate {
                     temp.address = church[4]
                     temp.lat = Double(church[5])!
                     temp.long = Double(church[6])!
+                    temp.phone = church[7]
+                    temp.times = church[8]
                     self.bookmarks.append(temp)
                 }
                 

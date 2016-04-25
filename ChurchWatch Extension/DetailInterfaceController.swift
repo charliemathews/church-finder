@@ -11,11 +11,13 @@ import Foundation
 
 
 class DetailInterfaceController: WKInterfaceController {
+  
 
     @IBAction func go() {
          presentControllerWithName("Map", context: curChurch)
     }
 
+    @IBOutlet var phoneLabel: WKInterfaceLabel!
     @IBOutlet var addressLabel: WKInterfaceLabel!
     @IBOutlet var timesLabel: WKInterfaceLabel!
     @IBOutlet var styleLabel: WKInterfaceLabel!
@@ -30,6 +32,7 @@ class DetailInterfaceController: WKInterfaceController {
             styleLabel.setText(church.style)
             addressLabel.setText(church.address)
             denomLabel.setText(church.denom)
+            phoneLabel.setText(church.phone)
             curChurch = church
         }
         // Configure interface objects here.

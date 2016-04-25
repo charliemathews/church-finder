@@ -17,6 +17,7 @@ class MiniChurch {
     var style   : String = ""
     var times   : String = ""
     var address : String = ""
+    var phone   : String = ""
     var lat: Double = 0
     var long: Double = 0
 }

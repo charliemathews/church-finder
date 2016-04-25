@@ -89,17 +89,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             wsession!.activateSession()
         }
         var churchBookmarkedNames = [""]
+        var bookmarkedChurches = [MiniChurch()]
         for b in Data.sharedInstance.bookmarks {
             churchBookmarkedNames.append(b.name)
+            let newC = MiniChurch()
+            newC.name = b.name
+            newC.denom = b.denom
+            newC.style = b.style
+            newC.times = b.times
+            newC.address = b.address
+            newC.lat = b.location.latitude
+            newC.long = b.location.longitude
+            newC.phone = b.phone
+            bookmarkedChurches.append(newC)
         }
-        let message = churchBookmarkedNames
+        
+        var message = [[""]]
+        for(_,church) in bookmarkedChurches.enumerate() {
+            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long),church.phone])
+        }
         if(message.count > 0){
-            do{
-                let applicationDict = ["Array1": message]
-                try WCSession.defaultSession().updateApplicationContext(applicationDict)
-            }
-            catch {
-                NSLog("error w/ watch connectivity.")
+            do {
+                try wsession?.updateApplicationContext(
+                    ["Array1" : message]
+                )
+            } catch let error as NSError {
+                NSLog("Updating the context failed: " + error.localizedDescription)
             }
             
         }

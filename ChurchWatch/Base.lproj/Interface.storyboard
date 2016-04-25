@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
     </dependencies>
     <scenes>
         <!--Bookmarks-->
@@ -39,7 +39,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="330" y="162"/>
+            <point key="canvasLocation" x="269" y="155"/>
         </scene>
         <!--Details-->
         <scene sceneID="MiE-9N-ywd">
@@ -84,6 +84,17 @@
                                 </label>
                             </items>
                         </group>
+                        <group width="1" alignment="left" id="4Jx-fv-ZKh">
+                            <items>
+                                <group width="1" widthAdjustment="-12" alignment="right" id="2Gk-oB-I11">
+                                    <items>
+                                        <label alignment="left" text="Phone" id="KH5-Xr-uc7">
+                                            <fontDescription key="font" type="system" pointSize="11"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
                     </items>
                     <menu key="menu" id="MIX-gC-7dA">
                         <items>
@@ -98,26 +109,33 @@
                         <outlet property="addressLabel" destination="alA-lJ-cJa" id="DN0-s3-XkB"/>
                         <outlet property="denomLabel" destination="taa-mp-lkg" id="Kqr-hY-njP"/>
                         <outlet property="nameLabel" destination="cFX-HY-5uO" id="d9l-5N-cC3"/>
+                        <outlet property="phoneLabel" destination="KH5-Xr-uc7" id="giS-h4-3pJ"/>
                         <outlet property="styleLabel" destination="NjN-Wp-FmQ" id="Fxz-wj-ZJj"/>
                         <outlet property="timesLabel" destination="jsd-2V-xoE" id="cpb-RT-3GI"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="500" y="162"/>
+            <point key="canvasLocation" x="464" y="167"/>
         </scene>
         <!--Map-->
         <scene sceneID="QbB-BC-BPc">
             <objects>
                 <controller identifier="Map" title="Map" id="Swn-bF-uU8" customClass="MapInterfaceController" customModule="ChurchWatch_Extension">
                     <items>
-                        <map width="1" height="1" alignment="left" id="GUk-1y-nB7"/>
+                        <map width="1" height="109" alignment="left" id="GUk-1y-nB7"/>
+                        <group width="1" alignment="left" id="6Nu-hk-vyc">
+                            <items>
+                                <label alignment="left" text="Label" numberOfLines="2" id="wE3-DA-sjG"/>
+                            </items>
+                        </group>
                     </items>
                     <connections>
+                        <outlet property="churchlabel" destination="wE3-DA-sjG" id="j0e-NC-otV"/>
                         <outlet property="mapv" destination="GUk-1y-nB7" id="h2v-53-e9G"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="651" y="126"/>
+            <point key="canvasLocation" x="651" y="121"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.20906033490000001" green="0.68134769449999999" blue="0.83264283459999999" alpha="1" colorSpace="calibratedRGB"/>

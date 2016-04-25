@@ -41,12 +41,14 @@ class ListViewController: UITableViewController,WCSessionDelegate {
             newC.address = b.address
             newC.lat = b.location.latitude
             newC.long = b.location.longitude
+            newC.phone = b.phone
+            newC.times = b.times
             bookmarkedChurches.append(newC)
         }
         
         var message = [[""]]
         for(_,church) in bookmarkedChurches.enumerate() {
-            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long)])
+            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long),church.phone,church.times])
         }
         if(message.count > 0){
             do {
@@ -118,12 +120,14 @@ class ListViewController: UITableViewController,WCSessionDelegate {
             newC.address = b.address
             newC.lat = b.location.latitude
             newC.long = b.location.longitude
+            newC.phone = b.phone
+            newC.times = b.times
             bookmarkedChurches.append(newC)
         }
         
         var message = [[""]]
         for(_,church) in bookmarkedChurches.enumerate() {
-            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long)])
+            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long),church.phone,church.times])
         }
         if(message.count > 0){
             do {
