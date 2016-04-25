@@ -372,14 +372,16 @@ final class Data : NSObject {
             if let found = objects {
                 
                 // create results array
-                
-                data.results = []
+                var newResults = [Church]()
+                //data.results = []
                 
                 for f in found {
                     
                     let church : Church = data.churchFromObject(f)
                     church.object = f
-                    data.results.append(church)
+                    //data.results.append(church)
+                    
+                    newResults.append(church)
                     print("Data: Background search found '\(church.name)' in \(church.addr_city), \(church.addr_state)")
                 }
                 
@@ -396,7 +398,9 @@ final class Data : NSObject {
                 //         set results = query.results
                 
                 
-                if(data.results.count > 0) {
+                //if(data.results.count > 0) {
+                if (newResults.count > 0) {
+                    data.results = newResults
                     print("Data: I found churches in the parse database.")
                     
                     if(params.count > 0) {
@@ -410,7 +414,7 @@ final class Data : NSObject {
                     data.success = true
     
                 } else {
-                    data.results = oldResults
+                    //data.results = oldResults
                     if(params.count > 0) {
                         data.currentParameters = Constants.Defaults.get()
                         data.currentParameters["loc"] = PFGeoPoint(latitude: data.currentLocation.latitude, longitude: data.currentLocation.longitude)
