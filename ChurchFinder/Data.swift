@@ -52,7 +52,6 @@ final class Data : NSObject {
     var filterData : Dictionary<String, [AnyObject]> = [:]
     
     var currentParameters : Dictionary<String,AnyObject>
-    var lastParameters : Dictionary<String,AnyObject>
     var currentStart = 0
     var currentLimit = 0
     var currentLocation : PFGeoPoint
@@ -64,7 +63,6 @@ final class Data : NSObject {
         radius = Constants.Defaults.Radius
         currentParameters = Constants.Defaults.get()
         currentLocation = Constants.Defaults.getLoc()
-        lastParameters = currentParameters
         super.init()
         
         pullBookmarks()
