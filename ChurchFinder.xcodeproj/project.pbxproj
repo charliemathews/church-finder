@@ -54,6 +54,20 @@
 		26BEC0DE1C94DFE400AB2AF2 /* bookmarkStarBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */; };
 		26BEC0DF1C94DFE400AB2AF2 /* bookmarkStarRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 26BEC0DD1C94DFE400AB2AF2 /* bookmarkStarRed.png */; };
 		26BEC0E11C94ECAA00AB2AF2 /* ChurchAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEC0E01C94ECA900AB2AF2 /* ChurchAnnotations.swift */; };
+		26C0BB7D1CC65828006DAFE6 /* MiniChurch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0BB7C1CC65828006DAFE6 /* MiniChurch.swift */; };
+		26C0BB841CC6588C006DAFE6 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C0BB821CC6588C006DAFE6 /* Interface.storyboard */; };
+		26C0BB861CC6588C006DAFE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C0BB851CC6588C006DAFE6 /* Assets.xcassets */; };
+		26C0BB8D1CC6588C006DAFE6 /* ChurchWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 26C0BB8C1CC6588C006DAFE6 /* ChurchWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		26C0BB941CC6588C006DAFE6 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0BB931CC6588C006DAFE6 /* ExtensionDelegate.swift */; };
+		26C0BB961CC6588C006DAFE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C0BB951CC6588C006DAFE6 /* Assets.xcassets */; };
+		26C0BB9A1CC6588C006DAFE6 /* ChurchWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 26C0BB801CC6588B006DAFE6 /* ChurchWatch.app */; };
+		26C0BBA71CC658F7006DAFE6 /* BookmarkInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0BBA31CC658F7006DAFE6 /* BookmarkInterfaceController.swift */; };
+		26C0BBA81CC658F7006DAFE6 /* ChurchRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0BBA41CC658F7006DAFE6 /* ChurchRowController.swift */; };
+		26C0BBA91CC658F7006DAFE6 /* DetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0BBA51CC658F7006DAFE6 /* DetailInterfaceController.swift */; };
+		26C0BBAA1CC658F7006DAFE6 /* MapInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0BBA61CC658F7006DAFE6 /* MapInterfaceController.swift */; };
+		26C0BBAB1CC65912006DAFE6 /* MiniChurch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0BB7C1CC65828006DAFE6 /* MiniChurch.swift */; };
+		26C0BC611CCA5F0C006DAFE6 /* bars2.png in Resources */ = {isa = PBXBuildFile; fileRef = 26C0BC601CCA5F0C006DAFE6 /* bars2.png */; };
+		26C57CC91CCDB7D70018C49E /* church_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 26C57CC81CCDB7D70018C49E /* church_icon.png */; };
 		3729A8671C8523B3000AF907 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3729A8661C8523B3000AF907 /* BookmarksViewController.swift */; };
 		373719C61C7C1EEF001A21B0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D431C6E213E00482663 /* libsqlite3.tbd */; };
 		373719C71C7C1EEF001A21B0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D411C6E213400482663 /* libz.tbd */; };
@@ -127,6 +141,20 @@
 			remoteGlobalIDString = 037F2EEE1C61000000E971DB;
 			remoteInfo = ChurchFinder;
 		};
+		26C0BB8E1CC6588C006DAFE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 037F2EE71C61000000E971DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26C0BB8B1CC6588C006DAFE6;
+			remoteInfo = "ChurchWatch Extension";
+		};
+		26C0BB981CC6588C006DAFE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 037F2EE71C61000000E971DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26C0BB7F1CC6588B006DAFE6;
+			remoteInfo = ChurchWatch;
+		};
 		75EA09391C82271300EC90F2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 037F2EE71C61000000E971DB /* Project object */;
@@ -135,6 +163,31 @@
 			remoteInfo = ChurchFinder;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		26C0BB9E1CC6588C006DAFE6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				26C0BB8D1CC6588C006DAFE6 /* ChurchWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26C0BBA21CC6588C006DAFE6 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				26C0BB9A1CC6588C006DAFE6 /* ChurchWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		034E15FB1C7C9ED0004AD878 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +236,21 @@
 		26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarkStarBlue.png; sourceTree = "<group>"; };
 		26BEC0DD1C94DFE400AB2AF2 /* bookmarkStarRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarkStarRed.png; sourceTree = "<group>"; };
 		26BEC0E01C94ECA900AB2AF2 /* ChurchAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchAnnotations.swift; sourceTree = "<group>"; };
+		26C0BB7C1CC65828006DAFE6 /* MiniChurch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniChurch.swift; sourceTree = "<group>"; };
+		26C0BB801CC6588B006DAFE6 /* ChurchWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChurchWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		26C0BB831CC6588C006DAFE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		26C0BB851CC6588C006DAFE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26C0BB871CC6588C006DAFE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26C0BB8C1CC6588C006DAFE6 /* ChurchWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ChurchWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26C0BB931CC6588C006DAFE6 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		26C0BB951CC6588C006DAFE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26C0BB971CC6588C006DAFE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26C0BBA31CC658F7006DAFE6 /* BookmarkInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkInterfaceController.swift; sourceTree = "<group>"; };
+		26C0BBA41CC658F7006DAFE6 /* ChurchRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchRowController.swift; sourceTree = "<group>"; };
+		26C0BBA51CC658F7006DAFE6 /* DetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInterfaceController.swift; sourceTree = "<group>"; };
+		26C0BBA61CC658F7006DAFE6 /* MapInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInterfaceController.swift; sourceTree = "<group>"; };
+		26C0BC601CCA5F0C006DAFE6 /* bars2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bars2.png; path = ../../Desktop/bars2.png; sourceTree = "<group>"; };
+		26C57CC81CCDB7D70018C49E /* church_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = church_icon.png; path = ../../Desktop/church_icon.png; sourceTree = "<group>"; };
 		3729A8661C8523B3000AF907 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		37426F071CBDF4EB00003AE1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		37426F081CBDF4EB00003AE1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -263,6 +331,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26C0BB891CC6588C006DAFE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		75EA09311C82271300EC90F2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +354,8 @@
 				037F2EF11C61000000E971DB /* ChurchFinder */,
 				037F2F091C61000000E971DB /* ChurchFinderTests */,
 				75EA09351C82271300EC90F2 /* ChurchFinderUITests */,
+				26C0BB811CC6588C006DAFE6 /* ChurchWatch */,
+				26C0BB901CC6588C006DAFE6 /* ChurchWatch Extension */,
 				037F2EF01C61000000E971DB /* Products */,
 				37FE8D241C6E1F4600482663 /* Framework */,
 			);
@@ -290,6 +367,8 @@
 				037F2EEF1C61000000E971DB /* ChurchFinder.app */,
 				037F2F061C61000000E971DB /* ChurchFinderTests.xctest */,
 				75EA09341C82271300EC90F2 /* ChurchFinderUITests.xctest */,
+				26C0BB801CC6588B006DAFE6 /* ChurchWatch.app */,
+				26C0BB8C1CC6588C006DAFE6 /* ChurchWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,6 +422,7 @@
 			children = (
 				037715BE1C85F00000303162 /* Church.swift */,
 				0F2028171C7F55FD00AFC9AA /* Data.swift */,
+				26C0BB7C1CC65828006DAFE6 /* MiniChurch.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -395,6 +475,30 @@
 			name = Filters;
 			sourceTree = "<group>";
 		};
+		26C0BB811CC6588C006DAFE6 /* ChurchWatch */ = {
+			isa = PBXGroup;
+			children = (
+				26C0BB821CC6588C006DAFE6 /* Interface.storyboard */,
+				26C0BB851CC6588C006DAFE6 /* Assets.xcassets */,
+				26C0BB871CC6588C006DAFE6 /* Info.plist */,
+			);
+			path = ChurchWatch;
+			sourceTree = "<group>";
+		};
+		26C0BB901CC6588C006DAFE6 /* ChurchWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				26C0BBA31CC658F7006DAFE6 /* BookmarkInterfaceController.swift */,
+				26C0BBA41CC658F7006DAFE6 /* ChurchRowController.swift */,
+				26C0BBA51CC658F7006DAFE6 /* DetailInterfaceController.swift */,
+				26C0BBA61CC658F7006DAFE6 /* MapInterfaceController.swift */,
+				26C0BB931CC6588C006DAFE6 /* ExtensionDelegate.swift */,
+				26C0BB951CC6588C006DAFE6 /* Assets.xcassets */,
+				26C0BB971CC6588C006DAFE6 /* Info.plist */,
+			);
+			path = "ChurchWatch Extension";
+			sourceTree = "<group>";
+		};
 		37FE8D241C6E1F4600482663 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +525,8 @@
 		75D436DF1C79181600F62108 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				26C57CC81CCDB7D70018C49E /* church_icon.png */,
+				26C0BC601CCA5F0C006DAFE6 /* bars2.png */,
 				0FA8442A1CC5E04C00A6B1FA /* AppIcon.appiconset */,
 				0FA844281CC5A4D700A6B1FA /* location_icon_44.png */,
 				0FA844261CC5A4CB00A6B1FA /* location_icon_22.png */,
@@ -476,10 +582,12 @@
 				037F2EEB1C61000000E971DB /* Sources */,
 				037F2EEC1C61000000E971DB /* Frameworks */,
 				037F2EED1C61000000E971DB /* Resources */,
+				26C0BBA21CC6588C006DAFE6 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				26C0BB991CC6588C006DAFE6 /* PBXTargetDependency */,
 			);
 			name = ChurchFinder;
 			productName = ChurchFinder;
@@ -503,6 +611,40 @@
 			productName = ChurchFinderTests;
 			productReference = 037F2F061C61000000E971DB /* ChurchFinderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		26C0BB7F1CC6588B006DAFE6 /* ChurchWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26C0BB9F1CC6588C006DAFE6 /* Build configuration list for PBXNativeTarget "ChurchWatch" */;
+			buildPhases = (
+				26C0BB7E1CC6588B006DAFE6 /* Resources */,
+				26C0BB9E1CC6588C006DAFE6 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26C0BB8F1CC6588C006DAFE6 /* PBXTargetDependency */,
+			);
+			name = ChurchWatch;
+			productName = ChurchWatch;
+			productReference = 26C0BB801CC6588B006DAFE6 /* ChurchWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		26C0BB8B1CC6588C006DAFE6 /* ChurchWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26C0BB9B1CC6588C006DAFE6 /* Build configuration list for PBXNativeTarget "ChurchWatch Extension" */;
+			buildPhases = (
+				26C0BB881CC6588C006DAFE6 /* Sources */,
+				26C0BB891CC6588C006DAFE6 /* Frameworks */,
+				26C0BB8A1CC6588C006DAFE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ChurchWatch Extension";
+			productName = "ChurchWatch Extension";
+			productReference = 26C0BB8C1CC6588C006DAFE6 /* ChurchWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		75EA09331C82271300EC90F2 /* ChurchFinderUITests */ = {
 			isa = PBXNativeTarget;
@@ -528,17 +670,25 @@
 		037F2EE71C61000000E971DB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Michael Curtis";
 				TargetAttributes = {
 					037F2EEE1C61000000E971DB = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = CJS762UTV4;
+						DevelopmentTeam = 9AD9EUUTHZ;
 					};
 					037F2F051C61000000E971DB = {
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 037F2EEE1C61000000E971DB;
+					};
+					26C0BB7F1CC6588B006DAFE6 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 9AD9EUUTHZ;
+					};
+					26C0BB8B1CC6588C006DAFE6 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 9AD9EUUTHZ;
 					};
 					75EA09331C82271300EC90F2 = {
 						CreatedOnToolsVersion = 7.2;
@@ -562,6 +712,8 @@
 				037F2EEE1C61000000E971DB /* ChurchFinder */,
 				037F2F051C61000000E971DB /* ChurchFinderTests */,
 				75EA09331C82271300EC90F2 /* ChurchFinderUITests */,
+				26C0BB7F1CC6588B006DAFE6 /* ChurchWatch */,
+				26C0BB8B1CC6588C006DAFE6 /* ChurchWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -592,6 +744,7 @@
 				0FD0DDD11CC51DD700E4C888 /* icon_120.png in Resources */,
 				0F4B904E1CBE2ED900C870A9 /* www_icon.png in Resources */,
 				75F7C6371C8D1DF500FEF740 /* meta_times.png in Resources */,
+				26C0BC611CCA5F0C006DAFE6 /* bars2.png in Resources */,
 				0F4B90481CBE228000C870A9 /* info_icon.png in Resources */,
 				037F2F011C61000000E971DB /* LaunchScreen.xib in Resources */,
 				0F4B904D1CBE2ED900C870A9 /* share_icon.png in Resources */,
@@ -599,6 +752,7 @@
 				0F4B90491CBE228000C870A9 /* music_icon.png in Resources */,
 				037F2EFE1C61000000E971DB /* Images.xcassets in Resources */,
 				26BEC0DF1C94DFE400AB2AF2 /* bookmarkStarRed.png in Resources */,
+				26C57CC91CCDB7D70018C49E /* church_icon.png in Resources */,
 				0F4B90471CBE228000C870A9 /* compass_icon.png in Resources */,
 				0FA844291CC5A4D700A6B1FA /* location_icon_44.png in Resources */,
 				0F4B90501CBE372F00C870A9 /* location_icon.png in Resources */,
@@ -620,6 +774,23 @@
 				75F7C64A1C8D1DF500FEF740 /* star.png in Resources */,
 				75F7C63B1C8D1DF500FEF740 /* action_nav.png in Resources */,
 				75F7C6441C8D1DF500FEF740 /* action_share.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26C0BB7E1CC6588B006DAFE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26C0BB861CC6588C006DAFE6 /* Assets.xcassets in Resources */,
+				26C0BB841CC6588C006DAFE6 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26C0BB8A1CC6588C006DAFE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26C0BB961CC6588C006DAFE6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +817,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26C0BB7D1CC65828006DAFE6 /* MiniChurch.swift in Sources */,
 				3729A8671C8523B3000AF907 /* BookmarksViewController.swift in Sources */,
 				0F4DACC21CBB396100C4D25B /* FilterListCell.swift in Sources */,
 				377135191CB350D600FA5CD1 /* BookmarksBarViewController.swift in Sources */,
@@ -683,6 +855,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26C0BB881CC6588C006DAFE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26C0BBAA1CC658F7006DAFE6 /* MapInterfaceController.swift in Sources */,
+				26C0BBAB1CC65912006DAFE6 /* MiniChurch.swift in Sources */,
+				26C0BB941CC6588C006DAFE6 /* ExtensionDelegate.swift in Sources */,
+				26C0BBA81CC658F7006DAFE6 /* ChurchRowController.swift in Sources */,
+				26C0BBA71CC658F7006DAFE6 /* BookmarkInterfaceController.swift in Sources */,
+				26C0BBA91CC658F7006DAFE6 /* DetailInterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		75EA09301C82271300EC90F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -703,6 +888,16 @@
 			isa = PBXTargetDependency;
 			target = 037F2EEE1C61000000E971DB /* ChurchFinder */;
 			targetProxy = 037F2F071C61000000E971DB /* PBXContainerItemProxy */;
+		};
+		26C0BB8F1CC6588C006DAFE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26C0BB8B1CC6588C006DAFE6 /* ChurchWatch Extension */;
+			targetProxy = 26C0BB8E1CC6588C006DAFE6 /* PBXContainerItemProxy */;
+		};
+		26C0BB991CC6588C006DAFE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26C0BB7F1CC6588B006DAFE6 /* ChurchWatch */;
+			targetProxy = 26C0BB981CC6588C006DAFE6 /* PBXContainerItemProxy */;
 		};
 		75EA093A1C82271300EC90F2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -726,6 +921,14 @@
 				037F2F001C61000000E971DB /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		26C0BB821CC6588C006DAFE6 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26C0BB831CC6588C006DAFE6 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -836,7 +1039,7 @@
 				INFOPLIST_FILE = ChurchFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.charliemathews.churchfinder;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seriousllama.church-finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -863,7 +1066,7 @@
 				INFOPLIST_FILE = ChurchFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.charliemathews.churchfinder;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seriousllama.church-finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -905,6 +1108,82 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "gcc.edu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChurchFinder.app/ChurchFinder";
+			};
+			name = Release;
+		};
+		26C0BB9C1CC6588C006DAFE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "ChurchWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seriousllama.church-finder.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		26C0BB9D1CC6588C006DAFE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "ChurchWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seriousllama.church-finder.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		26C0BBA01CC6588C006DAFE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = ChurchWatch_Extension;
+				INFOPLIST_FILE = ChurchWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seriousllama.church-finder.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		26C0BBA11CC6588C006DAFE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = ChurchWatch_Extension;
+				INFOPLIST_FILE = ChurchWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seriousllama.church-finder.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
@@ -969,6 +1248,24 @@
 			buildConfigurations = (
 				037F2F141C61000000E971DB /* Debug */,
 				037F2F151C61000000E971DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26C0BB9B1CC6588C006DAFE6 /* Build configuration list for PBXNativeTarget "ChurchWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26C0BB9C1CC6588C006DAFE6 /* Debug */,
+				26C0BB9D1CC6588C006DAFE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26C0BB9F1CC6588C006DAFE6 /* Build configuration list for PBXNativeTarget "ChurchWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26C0BBA01CC6588C006DAFE6 /* Debug */,
+				26C0BBA11CC6588C006DAFE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,9 +7,11 @@ Author: Dan Mitchell
 import UIKit
 import MapKit
 import Parse
+import WatchConnectivity
 
-class ListViewController: UITableViewController {
+class ListViewController: UITableViewController,WCSessionDelegate {
     
+    var wsession: WCSession?
     let churchCellIdentifier = "ChurchListCell"
     @IBOutlet var table: UITableView!
     var current = 0
@@ -17,10 +19,45 @@ class ListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadObservers()
+        
     }
     
     override func viewDidAppear(animated: Bool) {
+        //wc
+        if(WCSession.isSupported()){
+            wsession = WCSession.defaultSession()
+            wsession!.delegate = self
+            wsession!.activateSession()
+        }
+        var churchBookmarkedNames = [""]
+        var bookmarkedChurches = [MiniChurch()]
+        for b in Data.sharedInstance.bookmarks {
+            churchBookmarkedNames.append(b.name)
+            let newC = MiniChurch()
+            newC.name = b.name
+            newC.denom = b.denom
+            newC.style = b.style
+            newC.times = b.times
+            newC.address = b.address
+            newC.lat = b.location.latitude
+            newC.long = b.location.longitude
+            bookmarkedChurches.append(newC)
+        }
         
+        var message = [[""]]
+        for(_,church) in bookmarkedChurches.enumerate() {
+            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long)])
+        }
+        if(message.count > 0){
+            do {
+                try wsession?.updateApplicationContext(
+                    ["Array1" : message]
+                )
+            } catch let error as NSError {
+                NSLog("Updating the context failed: " + error.localizedDescription)
+            }
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,7 +100,41 @@ class ListViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+       //wc
+        if(WCSession.isSupported()){
+            wsession = WCSession.defaultSession()
+            wsession!.delegate = self
+            wsession!.activateSession()
+        }
+        var churchBookmarkedNames = [""]
+        var bookmarkedChurches = [MiniChurch()]
+        for b in Data.sharedInstance.bookmarks {
+            churchBookmarkedNames.append(b.name)
+            let newC = MiniChurch()
+            newC.name = b.name
+            newC.denom = b.denom
+            newC.style = b.style
+            newC.times = b.times
+            newC.address = b.address
+            newC.lat = b.location.latitude
+            newC.long = b.location.longitude
+            bookmarkedChurches.append(newC)
+        }
         
+        var message = [[""]]
+        for(_,church) in bookmarkedChurches.enumerate() {
+            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long)])
+        }
+        if(message.count > 0){
+            do {
+                try wsession?.updateApplicationContext(
+                    ["Array1" : message]
+                )
+            } catch let error as NSError {
+                NSLog("Updating the context failed: " + error.localizedDescription)
+            }
+        }
+
         var bookmarkAction : UITableViewRowAction
         var backgroundColor = UIColor.blueColor()
         var title : String = "Save"

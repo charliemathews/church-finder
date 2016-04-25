@@ -117,6 +117,15 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             Data.sharedInstance.removeBookmark(church)
         } else {
             Data.sharedInstance.addBookmark(church)
+                let msg = "Bookmark added!"
+                let alertview = UIAlertController(title: nil, message: msg, preferredStyle: .Alert)
+                presentViewController(alertview, animated: true, completion: nil)
+                
+                let delay = 0.1 * Double(NSEC_PER_SEC)
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                dispatch_after(time, dispatch_get_main_queue(), {
+                    alertview.dismissViewControllerAnimated(true, completion: nil)
+                })
         }
         bookmarked = !bookmarked
         updateBookmarkIndicator()

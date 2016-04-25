@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ChurchWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>037F2F051C61000000E971DB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>26C0BB7F1CC6588B006DAFE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

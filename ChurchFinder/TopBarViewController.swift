@@ -130,6 +130,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
                     let alert = UIAlertController(title: "Whoops!", message: "Sorry, we couldn't find any churches with those criteria. We'll show you the results of last successful search.", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
+                   // data.pullResults(data.currentParameters)
                 }
                 
             }
