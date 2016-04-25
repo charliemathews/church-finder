@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
+    </dependencies>
+    <scenes>
+        <!--Bookmarks-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="Bookmarks" title="Bookmarks" id="AgC-eL-Hgc" customClass="BookmarksInterfaceController" customModule="ChurchWatch_Extension">
+                    <items>
+                        <table alignment="left" id="WUV-Wa-5po">
+                            <items>
+                                <tableRow identifier="bookmark" id="nK6-oE-xoi" customClass="ChurchRowController" customModule="ChurchWatch_Extension">
+                                    <group key="rootItem" width="1" alignment="left" alpha="0.94999999999999996" id="jUg-p6-KZe">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="0V4-f8-W4G">
+                                                <color key="color" red="0.20906033490000001" green="0.68134769449999999" blue="0.83264283459999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </separator>
+                                            <group width="1" widthAdjustment="-1" height="38.5" alignment="left" id="iXo-lr-4gf">
+                                                <items>
+                                                    <label width="1" widthAdjustment="-2" height="1" alignment="right" text="ChurchName" textAlignment="left" numberOfLines="2" id="eSu-b8-aR0" userLabel="ChurchName">
+                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="ChurchName" destination="eSu-b8-aR0" id="M2L-rr-XO3"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="bookmarkTable" destination="WUV-Wa-5po" id="Fz0-P4-Xue"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="330" y="162"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="MiE-9N-ywd">
+            <objects>
+                <controller identifier="Detail" title="Details" id="08h-Uw-Ods" customClass="DetailInterfaceController" customModule="ChurchWatch_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="hS5-az-SI5">
+                            <items>
+                                <label width="1" widthAdjustment="-1" alignment="right" text="Name" textAlignment="left" numberOfLines="2" id="cFX-HY-5uO">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                </label>
+                            </items>
+                        </group>
+                        <separator alignment="left" id="6ya-gY-gdz">
+                            <color key="color" red="0.22745098039215686" green="0.58039215686274515" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <group width="1" widthAdjustment="-12" alignment="right" id="nfl-iV-kC8">
+                            <items>
+                                <label alignment="left" text="Denom" numberOfLines="2" id="taa-mp-lkg">
+                                    <fontDescription key="font" type="system" pointSize="11"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" widthAdjustment="-12" alignment="right" id="uxo-Yc-Vdx">
+                            <items>
+                                <label alignment="left" text="Worship" id="NjN-Wp-FmQ">
+                                    <fontDescription key="font" type="system" pointSize="11"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" widthAdjustment="-12" alignment="right" id="4Ar-sc-nsX">
+                            <items>
+                                <label alignment="left" text="Times" id="jsd-2V-xoE">
+                                    <fontDescription key="font" type="system" pointSize="11"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" widthAdjustment="-12" alignment="right" id="5CS-eF-HRr">
+                            <items>
+                                <label alignment="left" text="Address" numberOfLines="4" id="alA-lJ-cJa">
+                                    <fontDescription key="font" type="system" pointSize="11"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <menu key="menu" id="MIX-gC-7dA">
+                        <items>
+                            <menuItem title="Navigate" icon="accept" id="CY9-1X-jNW">
+                                <connections>
+                                    <action selector="go" destination="08h-Uw-Ods" id="rMQ-lZ-N6l"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="addressLabel" destination="alA-lJ-cJa" id="DN0-s3-XkB"/>
+                        <outlet property="denomLabel" destination="taa-mp-lkg" id="Kqr-hY-njP"/>
+                        <outlet property="nameLabel" destination="cFX-HY-5uO" id="d9l-5N-cC3"/>
+                        <outlet property="styleLabel" destination="NjN-Wp-FmQ" id="Fxz-wj-ZJj"/>
+                        <outlet property="timesLabel" destination="jsd-2V-xoE" id="cpb-RT-3GI"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="500" y="162"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="QbB-BC-BPc">
+            <objects>
+                <controller identifier="Map" title="Map" id="Swn-bF-uU8" customClass="MapInterfaceController" customModule="ChurchWatch_Extension">
+                    <items>
+                        <map width="1" height="1" alignment="left" id="GUk-1y-nB7"/>
+                    </items>
+                    <connections>
+                        <outlet property="mapv" destination="GUk-1y-nB7" id="h2v-53-e9G"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="651" y="126"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.20906033490000001" green="0.68134769449999999" blue="0.83264283459999999" alpha="1" colorSpace="calibratedRGB"/>
+</document>
