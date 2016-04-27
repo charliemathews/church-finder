@@ -56,43 +56,54 @@
                         <separator alignment="left" id="6ya-gY-gdz">
                             <color key="color" red="0.22745098039215686" green="0.58039215686274515" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                         </separator>
-                        <group width="1" widthAdjustment="-12" alignment="right" id="nfl-iV-kC8">
+                        <group width="1" alignment="right" id="nfl-iV-kC8">
                             <items>
+                                <separator alignment="left" id="3N0-OH-n57">
+                                    <color key="color" red="0.27213541670000002" green="0.27213541670000002" blue="0.27213541670000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </separator>
                                 <label alignment="left" text="Denom" numberOfLines="2" id="taa-mp-lkg">
                                     <fontDescription key="font" type="system" pointSize="11"/>
                                 </label>
                             </items>
                         </group>
-                        <group width="1" widthAdjustment="-12" alignment="right" id="uxo-Yc-Vdx">
+                        <group width="1" alignment="right" id="uxo-Yc-Vdx">
                             <items>
+                                <separator alignment="left" id="CwZ-cQ-cia">
+                                    <color key="color" red="0.27213541670000002" green="0.27213541670000002" blue="0.27213541670000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </separator>
                                 <label alignment="left" text="Worship" id="NjN-Wp-FmQ">
                                     <fontDescription key="font" type="system" pointSize="11"/>
                                 </label>
                             </items>
                         </group>
-                        <group width="1" widthAdjustment="-12" alignment="right" id="4Ar-sc-nsX">
+                        <group width="1" alignment="right" id="4Ar-sc-nsX">
                             <items>
+                                <separator alignment="left" id="5JI-Od-8N0">
+                                    <color key="color" red="0.27213541670000002" green="0.27213541670000002" blue="0.27213541670000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </separator>
                                 <label alignment="left" text="Times" id="jsd-2V-xoE">
                                     <fontDescription key="font" type="system" pointSize="11"/>
                                 </label>
                             </items>
                         </group>
-                        <group width="1" widthAdjustment="-12" alignment="right" id="5CS-eF-HRr">
+                        <group width="1" alignment="right" id="5CS-eF-HRr">
                             <items>
+                                <separator alignment="left" id="sBf-yl-6ZV">
+                                    <color key="color" red="0.27213541670000002" green="0.27213541670000002" blue="0.27213541670000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </separator>
                                 <label alignment="left" text="Address" numberOfLines="4" id="alA-lJ-cJa">
                                     <fontDescription key="font" type="system" pointSize="11"/>
                                 </label>
                             </items>
                         </group>
-                        <group width="1" alignment="left" id="4Jx-fv-ZKh">
+                        <group width="1" alignment="right" id="4Jx-fv-ZKh">
                             <items>
-                                <group width="1" widthAdjustment="-12" alignment="right" id="2Gk-oB-I11">
-                                    <items>
-                                        <label alignment="left" text="Phone" id="KH5-Xr-uc7">
-                                            <fontDescription key="font" type="system" pointSize="11"/>
-                                        </label>
-                                    </items>
-                                </group>
+                                <separator alignment="left" id="LJn-5H-1fD">
+                                    <color key="color" red="0.27213541670000002" green="0.27213541670000002" blue="0.27213541670000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </separator>
+                                <label alignment="left" text="Phone" id="KH5-Xr-uc7">
+                                    <fontDescription key="font" type="system" pointSize="11"/>
+                                </label>
                             </items>
                         </group>
                     </items>
@@ -122,15 +133,9 @@
             <objects>
                 <controller identifier="Map" title="Map" id="Swn-bF-uU8" customClass="MapInterfaceController" customModule="ChurchWatch_Extension">
                     <items>
-                        <map width="1" height="109" alignment="left" id="GUk-1y-nB7"/>
-                        <group width="1" alignment="left" id="6Nu-hk-vyc">
-                            <items>
-                                <label alignment="left" text="Label" numberOfLines="2" id="wE3-DA-sjG"/>
-                            </items>
-                        </group>
+                        <map width="1" height="1" alignment="left" id="GUk-1y-nB7"/>
                     </items>
                     <connections>
-                        <outlet property="churchlabel" destination="wE3-DA-sjG" id="j0e-NC-otV"/>
                         <outlet property="mapv" destination="GUk-1y-nB7" id="h2v-53-e9G"/>
                     </connections>
                 </controller>
