@@ -255,7 +255,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     }
     
     @IBAction func showSearchBar(sender: AnyObject) {
-        let alert = UIAlertController(title:"Choose an option to seach by:", message: nil, preferredStyle: .ActionSheet)
+        let alert = UIAlertController(title:nil, message: nil, preferredStyle: .ActionSheet)
         
         let cancel = UIAlertAction(title: "Cancel", style: .Destructive) { (alert: UIAlertAction!) -> Void in
         }
