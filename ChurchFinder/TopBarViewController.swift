@@ -262,6 +262,11 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         
         let currentLocOption = UIAlertAction(title: "Use current location", style: .Default) { (alert: UIAlertAction!) -> Void in
             self.manager.requestLocation()
+            
+                self.filtersButton.enabled = false
+                //indicator.startAnimating()
+                //indicator.backgroundColor = UIColor.whiteColor()
+            
         }
             
         let newLocOption = UIAlertAction(title: "Search for new location", style: .Default) { (alert: UIAlertAction!) -> Void in

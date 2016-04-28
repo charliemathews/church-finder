@@ -734,7 +734,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChurchWatch Extension/BookmarkInterfaceController.swift"
-            timestampString = "482762247.394616"
+            timestampString = "483538463.822419"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -1001,11 +1001,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChurchWatch Extension/BookmarkInterfaceController.swift"
-            timestampString = "483280128.83406"
+            timestampString = "483538463.822419"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "session(_:didReceiveApplicationContext:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1023,6 +1023,22 @@
             startingLineNumber = "129"
             endingLineNumber = "129"
             landmarkName = "tableView(_:editActionsForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChurchFinder/TopBarViewController.swift"
+            timestampString = "483540748.660802"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "searchBarSearchButtonClicked(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
