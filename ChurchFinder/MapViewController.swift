@@ -96,7 +96,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         //scale map to show pins
         mapview.showAnnotations(mapview.annotations, animated: true)
-        
+        mapview.showsUserLocation = true
         return true
     }
     
@@ -146,4 +146,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func done(child: DetailedViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func setUserVisibility(visible: Bool){
+        mapview.showsUserLocation = visible
+    }
+    
 }

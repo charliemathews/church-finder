@@ -262,9 +262,9 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         
         let currentLocOption = UIAlertAction(title: "Use current location", style: .Default) { (alert: UIAlertAction!) -> Void in
             self.manager.requestLocation()
-            
+            self.mapViewController.setUserVisibility(true)
                 self.filtersButton.enabled = false
-                //indicator.startAnimating()
+                self.indicator.startAnimating()
                 //indicator.backgroundColor = UIColor.whiteColor()
             
         }
@@ -274,6 +274,7 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
                 self.searchController.hidesNavigationBarDuringPresentation = false
                 self.searchController.searchBar.delegate = self
                 self.searchController.searchBar.placeholder = "Search by address, city, or zip..."
+                self.mapViewController.setUserVisibility(false)
                 self.presentViewController(self.searchController, animated: true, completion: nil)
             }
         alert.addAction(currentLocOption)
