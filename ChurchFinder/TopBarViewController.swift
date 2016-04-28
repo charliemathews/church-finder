@@ -255,11 +255,28 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
     }
     
     @IBAction func showSearchBar(sender: AnyObject) {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.searchBar.delegate = self
-        searchController.searchBar.placeholder = "Search by address, city, or zip..."
-        presentViewController(searchController, animated: true, completion: nil)
+        let alert = UIAlertController(title:"Choose an option to seach by:", message: nil, preferredStyle: .ActionSheet)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Destructive) { (alert: UIAlertAction!) -> Void in
+        }
+        
+        let currentLocOption = UIAlertAction(title: "Use current location", style: .Default) { (alert: UIAlertAction!) -> Void in
+            self.manager.requestLocation()
+        }
+            
+        let newLocOption = UIAlertAction(title: "Search for new location", style: .Default) { (alert: UIAlertAction!) -> Void in
+                self.searchController = UISearchController(searchResultsController: nil)
+                self.searchController.hidesNavigationBarDuringPresentation = false
+                self.searchController.searchBar.delegate = self
+                self.searchController.searchBar.placeholder = "Search by address, city, or zip..."
+                self.presentViewController(self.searchController, animated: true, completion: nil)
+            }
+        alert.addAction(currentLocOption)
+        alert.addAction(newLocOption)
+        alert.addAction(cancel)
+        
+        presentViewController(alert, animated: true, completion: nil)
+        
         
     }
 }
