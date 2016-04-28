@@ -29,6 +29,7 @@ class ListViewTests: XCTestCase {
         super.setUp()
         continueAfterFailure = false
         XCUIApplication().launch()
+        sleep(20)
     }
     
     override func tearDown() {
@@ -37,20 +38,23 @@ class ListViewTests: XCTestCase {
     }
     
     func testDetailedViewButton() {
+        waitForElementToAppear(XCUIApplication().tables.cells.allElementsBoundByIndex[0])
         XCUIApplication().tables.cells.allElementsBoundByIndex[0].tap()
         waitForElementToAppear(XCUIApplication().staticTexts["SHARE"])
     }
     
     func testSwipeBookmarksButton() {
         XCUIApplication().tables.cells.allElementsBoundByIndex[0].swipeLeft()
-        waitForElementToAppear(XCUIApplication().tables.cells.allElementsBoundByIndex[0].buttons["Bookmark"])
+        waitForElementToAppear(XCUIApplication().tables.buttons["Save"])
     }
     
     func testBookmarksButton() {
         let book = XCUIApplication().tables.cells.allElementsBoundByIndex[0]
         
         book.swipeLeft()
-        book.buttons["Bookmark"].tap()
+        XCUIApplication().tables.buttons["Save"].tap()
+        book.swipeLeft()
+        XCUIApplication().tables.buttons["Unsave"].tap()
     }
     
 }

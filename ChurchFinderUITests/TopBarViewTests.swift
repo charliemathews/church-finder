@@ -45,29 +45,38 @@ class TopBarViewTests: XCTestCase {
     
     func testBookmarksNav() {
         XCUIApplication().tabBars.buttons["Bookmarks"].tap()
-        waitForElementToAppear(XCUIApplication().tables.navigationBars["Bookmarks"])
+        waitForElementToAppear(XCUIApplication().navigationBars["Bookmarks"].staticTexts["Bookmarks"])
+    }
+    
+    func testChurchesNav() {
+        XCUIApplication().tabBars.buttons["Bookmarks"].tap()
+        XCUIApplication().tabBars.buttons["Churches"].tap()
+        XCTAssert(XCUIApplication().tabBars.buttons["Churches"].selected)
     }
     
     func testMapButton() {
-        XCUIApplication().tables.navigationBars.buttons["Map"].tap()
+        XCUIApplication().navigationBars.buttons["Map"].tap()
         XCTAssert(XCUIApplication().navigationBars.buttons["Map"].selected)
     }
     
-    func testFiltersButton() {
-        let tablesQuery = XCUIApplication().tables
-        tablesQuery.navigationBars.buttons["Filters"].tap()
-        waitForElementToAppear(tablesQuery.buttons["Done"])
-    }
-    
-    func testListNav() {
-        XCUIApplication().tabBars.buttons["Search"].tap()
-        waitForElementToAppear(XCUIApplication().tables.navigationBars.buttons["List"])
+    func testListButton() {
+        XCUIApplication().navigationBars.buttons["Map"].tap()
+        XCUIApplication().navigationBars.buttons["List"].tap()
+        XCTAssert(XCUIApplication().navigationBars.buttons["List"].selected)
     }
     
     func testSearchBar() {
         let app = XCUIApplication()
-        app.navigationBars.buttons["Search"].tap()
+        app.navigationBars.buttons["location icon 22"].tap()
         app.buttons["Cancel"].tap()
+    }
+    
+    func testFilterButton() {
+        sleep(15)
+        let app = XCUIApplication()
+        app.navigationBars.buttons["Filters"].tap()
+        waitForElementToAppear(app.navigationBars["Filters"].staticTexts["Filters"])
+        
     }
     
 }

@@ -23,6 +23,8 @@ class DetailedViewControllerTests: XCTestCase {
         XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        sleep(15)
+        XCUIApplication().tables.cells.allElementsBoundByIndex[0].tap()
     }
     
     override func tearDown() {
@@ -32,59 +34,22 @@ class DetailedViewControllerTests: XCTestCase {
     
     
     func testSafariOpen() {
-        
-        let app = XCUIApplication()
-        app.tables.staticTexts["Evangelical"].tap()
-        
-        //tapping web image icon
-        let element = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
-        element.tap()
-        
+        XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
     }
-
-    
-    
-    ///This test is useless for now
-//    func testFailSafariOpen() {
-//        XCUIDevice.sharedDevice().orientation = .Portrait
-//        
-//        let app = XCUIApplication()
-//        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(3).staticTexts["Needs work"].tap()
-//        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
-//        
-//        
-//        app.alerts["Error"].collectionViews["OK"].tap()
-//    }
     
     func testPressBookmarksIcon() {
-        let app = XCUIApplication()
-        app.tables.staticTexts["SUN 10:30"].tap()
-        
-        let button = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Button).matchingIdentifier("Button").elementBoundByIndex(1)
-
+        let button = XCUIApplication().childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Button).matchingIdentifier("Button").elementBoundByIndex(1)
         button.tap()
-        //shouldn't be the same
         button.tap()
-        //should be the same now
     }
     
     func testDirectionsButton() {
-        
         let app = XCUIApplication()
-        app.tables.staticTexts["Evangelical"].tap()
-        app.staticTexts["DIRECTIONS"].tap()
-        
-        //can't test because other application opens....
-        
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
     }
     
     func testShareButton() {
-        XCUIDevice.sharedDevice().orientation = .Portrait
-        
         let app = XCUIApplication()
-        app.tables.staticTexts["Presbyterian"].tap()
-        app.staticTexts["SHARE"].tap()
-        app.sheets.buttons["Cancel"].tap()
-        
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.tap()
     }
 }

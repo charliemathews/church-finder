@@ -12,21 +12,6 @@ import XCTest
 
 
 class MapViewControllerTests: XCTestCase {
-    //http://masilotti.com/xctest-helpers/
-    private func waitForElementToAppear(element: XCUIElement, file: String = #file, line: UInt = #line) {
-            let existsPredicate = NSPredicate(format: "exists == true")
-            expectationForPredicate(existsPredicate,
-                evaluatedWithObject: element, handler: nil)
-            
-            waitForExpectationsWithTimeout(5) { (error) -> Void in
-                if (error != nil) {
-                    let message = "Failed to find \(element) after 5 seconds."
-                    self.recordFailureWithDescription(message,
-                        inFile: file, atLine: line, expected: true)
-                }
-            }
-    }
-    
     
     override func setUp() {
         super.setUp()
@@ -40,6 +25,7 @@ class MapViewControllerTests: XCTestCase {
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
         XCUIApplication().navigationBars.buttons["Map"].tap()
+        sleep(20)
     }
     
     override func tearDown() {
@@ -48,12 +34,19 @@ class MapViewControllerTests: XCTestCase {
     }
     
     func testMapPins() {
-        XCUIApplication().otherElements["Harbison Chapel, SUN 6:00"].tap()
+        let app = XCUIApplication()
+        app.otherElements["Fellowship Community Church, SUN 9:30a "].tap()
+        
     }
     
     func testMapPinDisclosure() {
+        
         let app = XCUIApplication()
-        app.otherElements["PopoverDismissRegion"].tap()
-        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Button).element.tap()
+        let fellowshipCommunityChurchSun930aElement = app.otherElements["Fellowship Community Church, SUN 9:30a "]
+        fellowshipCommunityChurchSun930aElement.tap()
+        
+        let element = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element
+        element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Button).element.tap()
+        element.childrenMatchingType(.Button).matchingIdentifier("Button").elementBoundByIndex(0).tap()
     }
 }
