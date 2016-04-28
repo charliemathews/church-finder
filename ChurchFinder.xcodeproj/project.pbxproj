@@ -102,7 +102,6 @@
 		37FE8D441C6E213E00482663 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FE8D431C6E213E00482663 /* libsqlite3.tbd */; };
 		75EA093F1C82278000EC90F2 /* FilterTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA093E1C82278000EC90F2 /* FilterTableViewControllerTests.swift */; };
 		75EA09971C85F66100EC90F2 /* DetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA09961C85F66100EC90F2 /* DetailedViewControllerTests.swift */; };
-		75EA0A951C8CE9C700EC90F2 /* DetailedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA0A941C8CE9C700EC90F2 /* DetailedViewControllerTests.swift */; };
 		75F4D80E1C8FE474003B7E66 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4D80D1C8FE474003B7E66 /* MapViewControllerTests.swift */; };
 		75F7C62E1C8D1DF500FEF740 /* meta_addr.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6221C8D1DF500FEF740 /* meta_addr.png */; };
 		75F7C62F1C8D1DF500FEF740 /* meta_addr.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7C6221C8D1DF500FEF740 /* meta_addr.png */; };
@@ -277,7 +276,6 @@
 		75EA09381C82271300EC90F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75EA093E1C82278000EC90F2 /* FilterTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewControllerTests.swift; sourceTree = "<group>"; };
 		75EA09961C85F66100EC90F2 /* DetailedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerTests.swift; sourceTree = "<group>"; };
-		75EA0A941C8CE9C700EC90F2 /* DetailedViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewControllerTests.swift; sourceTree = "<group>"; };
 		75F4D80D1C8FE474003B7E66 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		75F7C6221C8D1DF500FEF740 /* meta_addr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meta_addr.png; sourceTree = "<group>"; };
 		75F7C6231C8D1DF500FEF740 /* detailed_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detailed_back.png; sourceTree = "<group>"; };
@@ -404,7 +402,6 @@
 			children = (
 				037F2F0A1C61000000E971DB /* Supporting Files */,
 				0F2028221C7F81AE00AFC9AA /* DataTests.swift */,
-				75EA0A941C8CE9C700EC90F2 /* DetailedViewControllerTests.swift */,
 			);
 			path = ChurchFinderTests;
 			sourceTree = "<group>";
@@ -848,7 +845,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC57AB91C873550009AA565 /* Church.swift in Sources */,
-				75EA0A951C8CE9C700EC90F2 /* DetailedViewControllerTests.swift in Sources */,
 				0F2028241C7F972000AFC9AA /* Constants.swift in Sources */,
 				0F2028191C7F55FD00AFC9AA /* Data.swift in Sources */,
 				0F2028231C7F81AE00AFC9AA /* DataTests.swift in Sources */,
