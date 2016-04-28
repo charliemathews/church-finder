@@ -37,6 +37,7 @@ class FilterTableViewControllerTests: XCTestCase {
         XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        sleep(15)
         XCUIApplication().navigationBars.buttons["Filters"].tap()
     }
     
@@ -72,6 +73,18 @@ class FilterTableViewControllerTests: XCTestCase {
     
     func testDone() {
         XCUIApplication().navigationBars["Filters"].buttons["Done"].tap()        
+    }
+    
+    func testTimeSelector() {
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.switches["Filter By Service Time"].tap()
+        tablesQuery.staticTexts["SUN 8:00 AM"].tap()
+        
+        let doneButton = app.buttons["Done"]
+        doneButton.tap()
+        tablesQuery.cells.containingType(.StaticText, identifier:"To").childrenMatchingType(.StaticText).matchingIdentifier("2:00 PM").elementBoundByIndex(0).tap()
+        doneButton.tap()
     }
     
 }

@@ -61,7 +61,7 @@ class BookmarksViewTests: XCTestCase {
         let delete = XCUIApplication().tables.cells.allElementsBoundByIndex[0]
         
         delete.swipeLeft()
-        delete.buttons["Delete"].tap()
+        XCUIApplication().tables.buttons["Delete"].tap()
     }
     
     func testEditButton() {
