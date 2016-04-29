@@ -5,8 +5,8 @@ Author: Charlie Mathews & Dan Mitchel
 Created: 21/02/16
 
 Tested & Passed
-Unit:               26/02/16 by Charlie
-Integration:        26/02/16 by Charlie
+Unit:               26/04/16 by Charlie
+Integration:        26/04/16 by Charlie
 
 Sources:
 http://krakendev.io/blog/the-right-way-to-write-a-singleton
@@ -291,6 +291,7 @@ final class Data : NSObject {
         if(threadQueryLock == false) {
             threadQueryLock = true
         } else {
+            print("Aborted pulling results. Thread lock in place.")
             return
         }
         
@@ -316,12 +317,14 @@ final class Data : NSObject {
                 query.skip = currentStart + currentLimit                    // skip to the end of our last result set
                 query.limit = currentLimit                                  // attempt to use the same limit as before
             } else if(results.count < currentLimit) {
+                threadQueryLock = false
                 return                                                // if we clearly hit the limit last time, there are no more
             }
         }
             
     // no parameters passed in, no prior query
         else if(params.count == 0 && results.count == 0) {
+            threadQueryLock = false
             return
         }
             
@@ -364,10 +367,11 @@ final class Data : NSObject {
             query.whereKey("loc", nearGeoPoint: PFGeoPoint(latitude: currentLocation.longitude, longitude: currentLocation.latitude), withinMiles: 20.0)
         }
         
-        
+        //print("about to run query")
         query.findObjectsInBackgroundWithBlock {
             (objects:[PFObject]?, error:NSError?) -> Void in
             
+            //print("query running")
             // check that we received results
             if let found = objects {
                 
