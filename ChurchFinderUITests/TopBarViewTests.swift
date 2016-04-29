@@ -76,6 +76,16 @@ class TopBarViewTests: XCTestCase {
         app.buttons["Cancel"].tap()
     }
     
+    func testNewLocationSearch() {
+        
+        let app = XCUIApplication()
+        app.navigationBars.buttons["location icon 22"].tap()
+        app.sheets.collectionViews.buttons["Search for new location"].tap()
+        app.searchFields["Search by address, city, or zip..."].tap()
+        app.typeText("60093\r")
+        
+    }
+    
     // Test fails if the app doesn't load in time, adjust sleep or try again.
     func testFilterButton() {
         sleep(15)
