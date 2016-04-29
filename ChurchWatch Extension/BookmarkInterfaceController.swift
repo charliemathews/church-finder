@@ -49,10 +49,10 @@ class BookmarksInterfaceController: WKInterfaceController,WCSessionDelegate {
             // 3
             session!.sendMessage(["reference": "church"], replyHandler: { (response) -> Void in
                 // 4
-                if let churchData = response["churchData"] as? NSData {
+                //if let churchData = response["churchData"] as? NSData {
                     
                     
-                }
+                //}
                 }, errorHandler: { (error) -> Void in
                     // 6
                     print(error)
