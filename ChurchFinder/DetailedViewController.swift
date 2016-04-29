@@ -203,7 +203,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         let url = NSURL(string: church.url)
         
         if url == nil || UIApplication.sharedApplication().canOpenURL(url!) == false {
-            let alertController = UIAlertController(title: "Error", message: "This website doesn't exist", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Sorry!", message: "This church didn't provide a website.", preferredStyle: .Alert)
             
             
             
@@ -246,7 +246,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             self.action_slot_3.backgroundColor = self.actionBackground
         })
         
-        let textToShare = "Check out \(church.name) at \(church.url)!\nService Time: \(church.times)"
+        let textToShare = "Check out \(church.name) at \(church.address)!\nService Time: \(church.times)"
         
         if let myWebsite = NSURL(string: church.url) {
             let objectsToShare = [textToShare, myWebsite]

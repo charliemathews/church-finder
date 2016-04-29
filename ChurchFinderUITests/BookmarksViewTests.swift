@@ -46,6 +46,7 @@ class BookmarksViewTests: XCTestCase {
     }
     
     func testDetailedViewButton() {
+        
         XCUIApplication().tables.cells.allElementsBoundByIndex[0].tap()
         
         waitForElementToAppear(XCUIApplication().staticTexts["SHARE"])

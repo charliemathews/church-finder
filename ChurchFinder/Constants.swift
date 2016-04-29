@@ -57,7 +57,7 @@ struct Constants {
             
         }
         
-        static let NumberOfResultsToPullAtOnce : Int = 10
+        static let NumberOfResultsToPullAtOnce : Int = 50
     }
     
     static let KVO_Options = NSKeyValueObservingOptions([.New, .Old])
