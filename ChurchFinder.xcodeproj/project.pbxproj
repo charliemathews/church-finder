@@ -13,7 +13,6 @@
 		034E16061C7CAC1F004AD878 /* FilterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034E16051C7CAC1F004AD878 /* FilterViewCell.swift */; };
 		037715BF1C85F00000303162 /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037715BE1C85F00000303162 /* Church.swift */; };
 		037F2EFC1C61000000E971DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 037F2EFA1C61000000E971DB /* Main.storyboard */; };
-		037F2EFE1C61000000E971DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 037F2EFD1C61000000E971DB /* Images.xcassets */; };
 		037F2F011C61000000E971DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037F2EFF1C61000000E971DB /* LaunchScreen.xib */; };
 		037F2F171C6106A600E971DB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F161C6106A600E971DB /* ListViewController.swift */; };
 		037F2F191C61087400E971DB /* ChurchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037F2F181C61087400E971DB /* ChurchListCell.swift */; };
@@ -39,14 +38,13 @@
 		0F4DACC21CBB396100C4D25B /* FilterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4DACC11CBB396100C4D25B /* FilterListCell.swift */; };
 		0FA844271CC5A4CB00A6B1FA /* location_icon_22.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FA844261CC5A4CB00A6B1FA /* location_icon_22.png */; };
 		0FA844291CC5A4D700A6B1FA /* location_icon_44.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FA844281CC5A4D700A6B1FA /* location_icon_44.png */; };
-		0FA8442B1CC5E04C00A6B1FA /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8442A1CC5E04C00A6B1FA /* AppIcon.appiconset */; };
-		0FA8442D1CC5E06000A6B1FA /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8442C1CC5E06000A6B1FA /* Images-3.xcassets */; };
 		0FC57AB91C873550009AA565 /* Church.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037715BE1C85F00000303162 /* Church.swift */; };
+		0FCB75211CD3355300CFE2DB /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 0FCB75201CD3355300CFE2DB /* AppIcon.appiconset */; };
+		0FCB75231CD335F600CFE2DB /* Images-4.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FCB75221CD335F600CFE2DB /* Images-4.xcassets */; };
 		0FD0DDCC1CC51DB800E4C888 /* ChurchListCellWithStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD0DDC81CC51DB800E4C888 /* ChurchListCellWithStar.swift */; };
 		0FD0DDCD1CC51DB800E4C888 /* FilterByTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD0DDC91CC51DB800E4C888 /* FilterByTimeController.swift */; };
 		0FD0DDCE1CC51DB800E4C888 /* star_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FD0DDCA1CC51DB800E4C888 /* star_white.png */; };
 		0FD0DDCF1CC51DB800E4C888 /* phone_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FD0DDCB1CC51DB800E4C888 /* phone_icon.png */; };
-		0FD0DDD11CC51DD700E4C888 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FD0DDD01CC51DD700E4C888 /* icon_120.png */; };
 		0FD0DDD31CC51DFC00E4C888 /* FilterTimesToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD0DDD21CC51DFB00E4C888 /* FilterTimesToggleCell.swift */; };
 		0FD0DDD51CC51E5000E4C888 /* gcc.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 0FD0DDD41CC51E5000E4C888 /* gcc.gpx */; };
 		0FD91FA41CC4202D00EAA5C9 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -197,7 +195,6 @@
 		037F2EEF1C61000000E971DB /* ChurchFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChurchFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		037F2EF31C61000000E971DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037F2EFB1C61000000E971DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		037F2EFD1C61000000E971DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		037F2F001C61000000E971DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		037F2F061C61000000E971DB /* ChurchFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChurchFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		037F2F0B1C61000000E971DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -223,13 +220,12 @@
 		0F4DACC11CBB396100C4D25B /* FilterListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterListCell.swift; sourceTree = "<group>"; };
 		0FA844261CC5A4CB00A6B1FA /* location_icon_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_icon_22.png; sourceTree = "<group>"; };
 		0FA844281CC5A4D700A6B1FA /* location_icon_44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_icon_44.png; sourceTree = "<group>"; };
-		0FA8442A1CC5E04C00A6B1FA /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = icon/AppIcon.appiconset; sourceTree = "<group>"; };
-		0FA8442C1CC5E06000A6B1FA /* Images-3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-3.xcassets"; sourceTree = "<group>"; };
+		0FCB75201CD3355300CFE2DB /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
+		0FCB75221CD335F600CFE2DB /* Images-4.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-4.xcassets"; sourceTree = "<group>"; };
 		0FD0DDC81CC51DB800E4C888 /* ChurchListCellWithStar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchListCellWithStar.swift; sourceTree = "<group>"; };
 		0FD0DDC91CC51DB800E4C888 /* FilterByTimeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterByTimeController.swift; sourceTree = "<group>"; };
 		0FD0DDCA1CC51DB800E4C888 /* star_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_white.png; sourceTree = "<group>"; };
 		0FD0DDCB1CC51DB800E4C888 /* phone_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone_icon.png; sourceTree = "<group>"; };
-		0FD0DDD01CC51DD700E4C888 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
 		0FD0DDD21CC51DFB00E4C888 /* FilterTimesToggleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTimesToggleCell.swift; sourceTree = "<group>"; };
 		0FD0DDD41CC51E5000E4C888 /* gcc.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gcc.gpx; sourceTree = "<group>"; };
 		26BEC0DC1C94DFE300AB2AF2 /* bookmarkStarBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmarkStarBlue.png; sourceTree = "<group>"; };
@@ -382,8 +378,7 @@
 				75D436DF1C79181600F62108 /* Images */,
 				0FD0DDD41CC51E5000E4C888 /* gcc.gpx */,
 				037F2EFF1C61000000E971DB /* LaunchScreen.xib */,
-				037F2EFD1C61000000E971DB /* Images.xcassets */,
-				0FA8442C1CC5E06000A6B1FA /* Images-3.xcassets */,
+				0FCB75221CD335F600CFE2DB /* Images-4.xcassets */,
 				037F2EF21C61000000E971DB /* Supporting Files */,
 			);
 			path = ChurchFinder;
@@ -524,10 +519,9 @@
 			children = (
 				26C57E101CD17B350018C49E /* bars2.png */,
 				26C57E111CD17B360018C49E /* church_icon.png */,
-				0FA8442A1CC5E04C00A6B1FA /* AppIcon.appiconset */,
+				0FCB75201CD3355300CFE2DB /* AppIcon.appiconset */,
 				0FA844281CC5A4D700A6B1FA /* location_icon_44.png */,
 				0FA844261CC5A4CB00A6B1FA /* location_icon_22.png */,
-				0FD0DDD01CC51DD700E4C888 /* icon_120.png */,
 				0FD0DDCA1CC51DB800E4C888 /* star_white.png */,
 				0FD0DDCB1CC51DB800E4C888 /* phone_icon.png */,
 				0F4B904F1CBE372F00C870A9 /* location_icon.png */,
@@ -673,7 +667,7 @@
 				TargetAttributes = {
 					037F2EEE1C61000000E971DB = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 9AD9EUUTHZ;
+						DevelopmentTeam = CJS762UTV4;
 					};
 					037F2F051C61000000E971DB = {
 						CreatedOnToolsVersion = 6.4;
@@ -681,11 +675,11 @@
 					};
 					26C0BB7F1CC6588B006DAFE6 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 9AD9EUUTHZ;
+						DevelopmentTeam = CJS762UTV4;
 					};
 					26C0BB8B1CC6588C006DAFE6 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 9AD9EUUTHZ;
+						DevelopmentTeam = CJS762UTV4;
 					};
 					75EA09331C82271300EC90F2 = {
 						CreatedOnToolsVersion = 7.2;
@@ -720,7 +714,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FA8442B1CC5E04C00A6B1FA /* AppIcon.appiconset in Resources */,
 				75F7C6311C8D1DF500FEF740 /* detailed_back.png in Resources */,
 				0FA844271CC5A4CB00A6B1FA /* location_icon_22.png in Resources */,
 				75F7C62E1C8D1DF500FEF740 /* meta_addr.png in Resources */,
@@ -733,21 +726,20 @@
 				0FD0DDD51CC51E5000E4C888 /* gcc.gpx in Resources */,
 				0FD0DDCF1CC51DB800E4C888 /* phone_icon.png in Resources */,
 				0FEED92F1CC161A600D42EDF /* (null) in Resources */,
-				0FA8442D1CC5E06000A6B1FA /* Images-3.xcassets in Resources */,
 				0F16D58B1CAACA7400E6C7AD /* dummyphoto.png in Resources */,
 				75F7C6401C8D1DF500FEF740 /* meta_style.png in Resources */,
 				75F7C63A1C8D1DF500FEF740 /* action_nav.png in Resources */,
 				75F7C6431C8D1DF500FEF740 /* action_share.png in Resources */,
-				0FD0DDD11CC51DD700E4C888 /* icon_120.png in Resources */,
 				0F4B904E1CBE2ED900C870A9 /* www_icon.png in Resources */,
 				75F7C6371C8D1DF500FEF740 /* meta_times.png in Resources */,
 				0F4B90481CBE228000C870A9 /* info_icon.png in Resources */,
 				037F2F011C61000000E971DB /* LaunchScreen.xib in Resources */,
+				0FCB75231CD335F600CFE2DB /* Images-4.xcassets in Resources */,
 				0F4B904D1CBE2ED900C870A9 /* share_icon.png in Resources */,
 				26C57E131CD17B360018C49E /* church_icon.png in Resources */,
 				75F7C6491C8D1DF500FEF740 /* star.png in Resources */,
 				0F4B90491CBE228000C870A9 /* music_icon.png in Resources */,
-				037F2EFE1C61000000E971DB /* Images.xcassets in Resources */,
+				0FCB75211CD3355300CFE2DB /* AppIcon.appiconset in Resources */,
 				26BEC0DF1C94DFE400AB2AF2 /* bookmarkStarRed.png in Resources */,
 				0F4B90471CBE228000C870A9 /* compass_icon.png in Resources */,
 				0FA844291CC5A4D700A6B1FA /* location_icon_44.png in Resources */,
@@ -1018,8 +1010,7 @@
 		037F2F111C61000000E971DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1046,8 +1037,7 @@
 		037F2F121C61000000E971DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1112,11 +1102,13 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = "ChurchWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.seriousllama.church-finder.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1129,10 +1121,12 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "ChurchWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.seriousllama.church-finder.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1143,7 +1137,6 @@
 		26C0BBA01CC6588C006DAFE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1165,7 +1158,6 @@
 		26C0BBA11CC6588C006DAFE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
