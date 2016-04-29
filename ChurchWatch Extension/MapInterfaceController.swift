@@ -11,7 +11,6 @@ import Foundation
 
 
 class MapInterfaceController: WKInterfaceController {
-    @IBOutlet var churchlabel: WKInterfaceLabel!
 
     @IBOutlet var mapv: WKInterfaceMap!
     var curChurch = MiniChurch()
@@ -25,7 +24,7 @@ class MapInterfaceController: WKInterfaceController {
         let span = MKCoordinateSpanMake(0.005, 0.005)
         mapv.setRegion(MKCoordinateRegion(center: mapLocation, span: span))
         mapv.addAnnotation(mapLocation, withPinColor:WKInterfaceMapPinColor.Red)
-        churchlabel.setText(curChurch.name)
+        
         
     
         // Configure interface objects here.

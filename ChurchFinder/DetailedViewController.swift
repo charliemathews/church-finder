@@ -7,8 +7,9 @@
 import UIKit
 import ParseUI
 import MapKit
+import WatchConnectivity
 
-class DetailedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WCSessionDelegate {
     
     @IBOutlet weak var action_slot_1: UIView!
     @IBOutlet weak var action_slot_2: UIView!
@@ -21,6 +22,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var action_slot_2_text: UILabel!
     @IBOutlet weak var action_slot_3_text: UILabel!
     
+    var wsession: WCSession?
     var church : Church = Church()
     var creator : String = ""
     var bookmarked : Bool = false
@@ -117,17 +119,12 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             Data.sharedInstance.removeBookmark(church)
         } else {
             Data.sharedInstance.addBookmark(church)
-//                let msg = "Bookmark added!"
-//                let alertview = UIAlertController(title: nil, message: msg, preferredStyle: .Alert)
-//                presentViewController(alertview, animated: true, completion: nil)
-//                
-//                let delay = 0.1 * Double(NSEC_PER_SEC)
-//                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-//                dispatch_after(time, dispatch_get_main_queue(), {
-//                    alertview.dismissViewControllerAnimated(true, completion: nil)
-//                })
         }
+        
         bookmarked = !bookmarked
+        
+        updateWatch()
+        
         updateBookmarkIndicator()
     }
     
@@ -236,8 +233,6 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         } else if (creator == "map") {
             performSegueWithIdentifier("searchUnwind", sender: self)
         }
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -364,6 +359,46 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         return indexPath
     }
     
+    func updateWatch() {
+        //wc
+        if(WCSession.isSupported()){
+            wsession = WCSession.defaultSession()
+            wsession!.delegate = self
+            wsession!.activateSession()
+        }
+        var churchBookmarkedNames = [""]
+        var bookmarkedChurches = [MiniChurch()]
+        for b in Data.sharedInstance.bookmarks {
+            churchBookmarkedNames.append(b.name)
+            let newC = MiniChurch()
+            newC.name = b.name
+            newC.denom = b.denom
+            newC.style = b.style
+            newC.times = b.times
+            newC.address = b.address
+            newC.lat = b.location.latitude
+            newC.long = b.location.longitude
+            newC.phone = b.phone
+            newC.times = b.times
+            bookmarkedChurches.append(newC)
+        }
+        
+        var message = [[""]]
+        for(_,church) in bookmarkedChurches.enumerate() {
+            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long),church.phone,church.times])
+        }
+        if(message.count > 0){
+            do {
+                try wsession?.updateApplicationContext(
+                    ["Array1" : message]
+                )
+            } catch let error as NSError {
+                NSLog("Updating the context failed: " + error.localizedDescription)
+            }
+        }
+        
+    }
+
     // only enable below if we are using grouped table
     /*
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

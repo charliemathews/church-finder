@@ -8,11 +8,12 @@ Created: 03/14/16
 import UIKit
 import MapKit
 import Parse
+import WatchConnectivity
 
-class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
+class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate, WCSessionDelegate {
     //var isCustomSearch: Bool = false
     
-    
+    var wsession:WCSession?
     var location : PFGeoPoint?
     var searchController:UISearchController!
     @IBOutlet weak var searchButton: UIBarButtonItem!
@@ -44,6 +45,47 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         view.tintColor = tint
     }
     
+    func updateWatch() {
+        //wc
+        if(WCSession.isSupported()){
+            wsession = WCSession.defaultSession()
+            wsession!.delegate = self
+            wsession!.activateSession()
+        }
+        var churchBookmarkedNames = [""]
+        var bookmarkedChurches = [MiniChurch()]
+        for b in Data.sharedInstance.bookmarks {
+            churchBookmarkedNames.append(b.name)
+            let newC = MiniChurch()
+            newC.name = b.name
+            newC.denom = b.denom
+            newC.style = b.style
+            newC.times = b.times
+            newC.address = b.address
+            newC.lat = b.location.latitude
+            newC.long = b.location.longitude
+            newC.phone = b.phone
+            newC.times = b.times
+            bookmarkedChurches.append(newC)
+        }
+        
+        var message = [[""]]
+        for(_,church) in bookmarkedChurches.enumerate() {
+            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long),church.phone,church.times])
+        }
+        if(message.count > 0){
+            do {
+                try wsession?.updateApplicationContext(
+                    ["Array1" : message]
+                )
+            } catch let error as NSError {
+                NSLog("Updating the context failed: " + error.localizedDescription)
+            }
+        }
+        
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,15 +114,8 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         for (type, _) in data.filterTypes {
             NSOperationQueue.mainQueue().addOperationWithBlock({ data.getMeta(type) })
         }
-        
-        /*
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        imageView.contentMode = .ScaleAspectFill
-        let image = UIImage(named: "location_icon.png")
-        imageView.image = image
-        setTint(imageView, tint: UIColor.blueColor())
-        searchButton.customView!.addSubview(imageView)
-        */
+       updateWatch()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -261,10 +296,12 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         }
         
         let currentLocOption = UIAlertAction(title: "Use current location", style: .Default) { (alert: UIAlertAction!) -> Void in
+            
+            self.filtersButton.enabled = false
+            self.indicator.startAnimating()
             self.manager.requestLocation()
             self.mapViewController.setUserVisibility(true)
-                self.filtersButton.enabled = false
-                self.indicator.startAnimating()
+            
                 //indicator.backgroundColor = UIColor.whiteColor()
             
         }
@@ -282,7 +319,6 @@ class TopBarViewController: UIViewController, CLLocationManagerDelegate, UISearc
         alert.addAction(cancel)
         
         presentViewController(alert, animated: true, completion: nil)
-        
         
     }
 }

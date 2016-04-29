@@ -52,7 +52,7 @@ class BookmarksInterfaceController: WKInterfaceController,WCSessionDelegate {
                 //if let churchData = response["churchData"] as? NSData {
                     
                     
-                //}
+               // }
                 }, errorHandler: { (error) -> Void in
                     // 6
                     print(error)
