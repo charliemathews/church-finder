@@ -123,41 +123,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         
         bookmarked = !bookmarked
         
-        if(WCSession.isSupported()){
-            wsession = WCSession.defaultSession()
-            wsession!.delegate = self
-            wsession!.activateSession()
-        }
-        var churchBookmarkedNames = [""]
-        var bookmarkedChurches = [MiniChurch()]
-        for b in Data.sharedInstance.bookmarks {
-            churchBookmarkedNames.append(b.name)
-            let newC = MiniChurch()
-            newC.name = b.name
-            newC.denom = b.denom
-            newC.style = b.style
-            newC.times = b.times
-            newC.address = b.address
-            newC.lat = b.location.latitude
-            newC.long = b.location.longitude
-            newC.phone = b.phone
-            newC.times = b.times
-            bookmarkedChurches.append(newC)
-        }
-        
-        var message = [[""]]
-        for(_,church) in bookmarkedChurches.enumerate() {
-            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long),church.phone,church.times])
-        }
-        if(message.count > 0){
-            do {
-                try wsession?.updateApplicationContext(
-                    ["Array1" : message]
-                )
-            } catch let error as NSError {
-                NSLog("Updating the context failed: " + error.localizedDescription)
-            }
-        }
+        updateWatch()
         
         updateBookmarkIndicator()
     }
@@ -267,8 +233,6 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         } else if (creator == "map") {
             performSegueWithIdentifier("searchUnwind", sender: self)
         }
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -395,6 +359,46 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         return indexPath
     }
     
+    func updateWatch() {
+        //wc
+        if(WCSession.isSupported()){
+            wsession = WCSession.defaultSession()
+            wsession!.delegate = self
+            wsession!.activateSession()
+        }
+        var churchBookmarkedNames = [""]
+        var bookmarkedChurches = [MiniChurch()]
+        for b in Data.sharedInstance.bookmarks {
+            churchBookmarkedNames.append(b.name)
+            let newC = MiniChurch()
+            newC.name = b.name
+            newC.denom = b.denom
+            newC.style = b.style
+            newC.times = b.times
+            newC.address = b.address
+            newC.lat = b.location.latitude
+            newC.long = b.location.longitude
+            newC.phone = b.phone
+            newC.times = b.times
+            bookmarkedChurches.append(newC)
+        }
+        
+        var message = [[""]]
+        for(_,church) in bookmarkedChurches.enumerate() {
+            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long),church.phone,church.times])
+        }
+        if(message.count > 0){
+            do {
+                try wsession?.updateApplicationContext(
+                    ["Array1" : message]
+                )
+            } catch let error as NSError {
+                NSLog("Updating the context failed: " + error.localizedDescription)
+            }
+        }
+        
+    }
+
     // only enable below if we are using grouped table
     /*
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
