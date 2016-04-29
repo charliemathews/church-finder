@@ -103,6 +103,34 @@ class ListViewController: UITableViewController,WCSessionDelegate {
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
        //wc
+       
+        var bookmarkAction : UITableViewRowAction
+        var backgroundColor = UIColor.blueColor()
+        var title : String = "Save"
+        
+        for c in data.bookmarks {
+            if(data.results[indexPath.row].id == c.id) {
+                backgroundColor = UIColor.redColor()
+                title = "Unsave"
+                break
+            }
+        }
+        
+        if(title == "Save") {
+            bookmarkAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: title , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+                //print("Adding bookmark.")
+                data.addBookmark(Data.sharedInstance.results[indexPath.row])
+                self.setEditing(false, animated: true)
+            })
+        } else {
+            bookmarkAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: title , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+                //print("Removing bookmark.")
+                data.removeBookmark(Data.sharedInstance.results[indexPath.row])
+                self.setEditing(false, animated: true)
+            })
+        }
+        
+        bookmarkAction.backgroundColor = backgroundColor
         if(WCSession.isSupported()){
             wsession = WCSession.defaultSession()
             wsession!.delegate = self
@@ -139,34 +167,6 @@ class ListViewController: UITableViewController,WCSessionDelegate {
             }
         }
 
-        var bookmarkAction : UITableViewRowAction
-        var backgroundColor = UIColor.blueColor()
-        var title : String = "Save"
-        
-        for c in data.bookmarks {
-            if(data.results[indexPath.row].id == c.id) {
-                backgroundColor = UIColor.redColor()
-                title = "Unsave"
-                break
-            }
-        }
-        
-        if(title == "Save") {
-            bookmarkAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: title , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-                //print("Adding bookmark.")
-                data.addBookmark(Data.sharedInstance.results[indexPath.row])
-                self.setEditing(false, animated: true)
-            })
-        } else {
-            bookmarkAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: title , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-                //print("Removing bookmark.")
-                data.removeBookmark(Data.sharedInstance.results[indexPath.row])
-                self.setEditing(false, animated: true)
-            })
-        }
-        
-        bookmarkAction.backgroundColor = backgroundColor
-        
         return [bookmarkAction]
     }
     

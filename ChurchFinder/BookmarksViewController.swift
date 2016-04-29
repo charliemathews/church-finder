@@ -5,11 +5,13 @@ Author: Dan Mitchell
 */
 
 import UIKit
+import WatchConnectivity
 
-class BookmarksViewController: UITableViewController {
+class BookmarksViewController: UITableViewController, WCSessionDelegate{
     
     let churchCellIdentifier = "ChurchListCell"
     var current_row = 0
+    var wsession: WCSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,43 @@ class BookmarksViewController: UITableViewController {
                 data.getTimes(i, forBookmarks: true)
             }
         }
+        //wc
+        if(WCSession.isSupported()){
+            wsession = WCSession.defaultSession()
+            wsession!.delegate = self
+            wsession!.activateSession()
+        }
+        var churchBookmarkedNames = [""]
+        var bookmarkedChurches = [MiniChurch()]
+        for b in Data.sharedInstance.bookmarks {
+            churchBookmarkedNames.append(b.name)
+            let newC = MiniChurch()
+            newC.name = b.name
+            newC.denom = b.denom
+            newC.style = b.style
+            newC.times = b.times
+            newC.address = b.address
+            newC.lat = b.location.latitude
+            newC.long = b.location.longitude
+            newC.phone = b.phone
+            newC.times = b.times
+            bookmarkedChurches.append(newC)
+        }
+        
+        var message = [[""]]
+        for(_,church) in bookmarkedChurches.enumerate() {
+            message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long),church.phone,church.times])
+        }
+        if(message.count > 0){
+            do {
+                try wsession?.updateApplicationContext(
+                    ["Array1" : message]
+                )
+            } catch let error as NSError {
+                NSLog("Updating the context failed: " + error.localizedDescription)
+            }
+        }
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -76,6 +115,44 @@ class BookmarksViewController: UITableViewController {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
             data.removeBookmark(indexPath.row)
+            
+            //wc
+            if(WCSession.isSupported()){
+                wsession = WCSession.defaultSession()
+                wsession!.delegate = self
+                wsession!.activateSession()
+            }
+            var churchBookmarkedNames = [""]
+            var bookmarkedChurches = [MiniChurch()]
+            for b in Data.sharedInstance.bookmarks {
+                churchBookmarkedNames.append(b.name)
+                let newC = MiniChurch()
+                newC.name = b.name
+                newC.denom = b.denom
+                newC.style = b.style
+                newC.times = b.times
+                newC.address = b.address
+                newC.lat = b.location.latitude
+                newC.long = b.location.longitude
+                newC.phone = b.phone
+                newC.times = b.times
+                bookmarkedChurches.append(newC)
+            }
+            
+            var message = [[""]]
+            for(_,church) in bookmarkedChurches.enumerate() {
+                message.append([church.name,church.denom,church.style,String(church.size), church.address, String(church.lat),String(church.long),church.phone,church.times])
+            }
+            if(message.count > 0){
+                do {
+                    try wsession?.updateApplicationContext(
+                        ["Array1" : message]
+                    )
+                } catch let error as NSError {
+                    NSLog("Updating the context failed: " + error.localizedDescription)
+                }
+            }
+
             
             tableView.reloadData()
         }
