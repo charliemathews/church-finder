@@ -192,6 +192,7 @@ final class Data : NSObject {
                 if(found.count == 0) {
                     
                     print("Data: Times search found NO service times for \(id)")
+                    data.times_received += 1
                     
                 } else {
                     
@@ -283,7 +284,7 @@ final class Data : NSObject {
     */
     func pullResults(params : [String:AnyObject] = [:], let s : Int = 0, let n : Int = Constants.Defaults.NumberOfResultsToPullAtOnce) { //-> Bool {
         
-        let oldResults = data.results
+        //let oldResults = data.results
 
         print("Data: Pulling new results.")
         
