@@ -29,11 +29,11 @@ class ListViewTests: XCTestCase {
         super.setUp()
         continueAfterFailure = false
         XCUIApplication().launch()
+        // All tests fail if the app doesn't load in time, adjust sleep or try again.
         sleep(20)
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
